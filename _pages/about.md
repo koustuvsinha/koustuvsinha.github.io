@@ -1,23 +1,22 @@
 ---
 layout: about
 permalink: /
-title: <strong>Your</strong> Name
-description: <a href="">Affiliations</a>. Address. Contacts. Moto. Etc.
+title: <strong>Koustuv</strong> Sinha
+description: <a href="http://mcgill.ca">McGill University</a> / <a href="https://mila.quebec">Montreal Institute of Learning Algorithms</a>.
 
 profile:
   align: right
   image: prof_pic.jpg
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Room 108,</p>
+    <p>McConnell Engineering Bldg</p>
+    <p>3480 University St.</p>
+    <p>Montreal, Quebec H3A OE9</p>
 
 news: true
 social: true
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com){:target="\_blank"}. You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+My primary research interests are Generative Language Modeling and Dialog Systems. I am also interested in other areas of Natural Language Processing (NLP) as well such as Text classification, Text representation, entailment and Logical Reasoning. I am also interested in exploring strong linguistic priors in designing machine learning systems for text generation and representation.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/){:target="\_blank"} and [Academicons](https://jpswalsh.github.io/academicons/){:target="\_blank"}, like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Currently, I live in the wonderful city of [Montreal](https://www.lonelyplanet.com/canada/montreal), Canada, working as a Research Associate in [McGill University](http://mcgill.ca/), while pursuing Masters at the [School of Computer Science](http://cs.mcgill.ca). Previously, I worked at [Indian Institute of Technology, Kanpur](http://iitk.ac.in) at the position of Senior Project Associate, as well as [NRI Fintech](http://www.nrifintech.com/), Kolkata, as Front End Developer. I graduated B.Tech in Computer Science &amp; Engineering from [Institute of Engineering &amp; Management, Kolkata](http://iem.edu.in) in 2014. You can find my detailed [CV here](assets/files/cv.pdf)
