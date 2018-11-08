@@ -3,11 +3,41 @@
 
 @string{aps = {American Physical Society,}}
 
+@article{sinha2018clutrr,
+  Author = {Koustuv Sinha and Shagun Sodhani and William L. Hamilton and Joelle Pineau},
+  Title = {Compositional Language Understanding with Text-based Relational Reasoning},
+  Year = {2018},
+  journal = {Relational Representation Learning Workshop, NIPS},
+  arxiv = {1811.02959},
+  code = {https://github.com/koustuvsinha/clutrr},
+  abstract = {Neural networks for natural language reasoning have largely focused on extractive, fact-based question-answering (QA) and common-sense inference. However, it is also crucial to understand the extent to which neural networks can perform relational reasoning and combinatorial generalization from natural language---abilities that are often obscured by annotation artifacts and the dominance of language modeling in standard QA benchmarks. In this work, we present a novel benchmark dataset for language understanding that isolates performance on relational reasoning. We also present a neural message-passing baseline and show that this model, which incorporates a relational inductive bias, is superior at combinatorial generalization compared to a traditional recurrent neural network approach. }
+}
+
+@article{henderson2018adversarial,
+  Author = {Peter Henderson and Koustuv Sinha and Rosemary Nan Ke and Joelle Pineau},
+  Title = {Adversarial Gain},
+  Year = {2018},
+  journal = {Arxiv Pre-print},
+  arxiv = {1811.01302},
+  abstract = {Adversarial examples can be defined as inputs to a model which induce a mistake - where the model output is different than that of an oracle, perhaps in surprising or malicious ways. Original models of adversarial attacks are primarily studied in the context of classification and computer vision tasks. While several attacks have been proposed in natural language processing (NLP) settings, they often vary in defining the parameters of an attack and what a successful attack would look like. The goal of this work is to propose a unifying model of adversarial examples suitable for NLP tasks in both generative and classification settings. We define the notion of adversarial gain: based in control theory, it is a measure of the change in the output of a system relative to the perturbation of the input (caused by the so-called adversary) presented to the learner. This definition, as we show, can be used under different feature spaces and distance conditions to determine attack or defense effectiveness across different intuitive manifolds. This notion of adversarial gain not only provides a useful way for evaluating adversaries and defenses, but can act as a building block for future work in robustness under adversaries due to its rooted nature in stability and manifold theory. }
+}
+
+@article{gontier2018,
+  Author = {Nicolas A. Gontier and Koustuv Sinha and Peter Henderson and Iulian Serban and Michael Noseworthy and Prasanna Parthasarathi and Joelle Pineau},
+  Title = {The RLLChatbot: a solution to the ConvAI Challenge},
+  Year = {2018},
+  arxiv = {1811.02714},
+  journal = {under review at Dialog & Discourse Journal (D&D)},
+  abstract = {Current conversational systems can follow simple commands and answer basic questions, but they have difficulty maintaining coherent and open-ended conversations about specific topics. Competitions like the Conversational Intelligence (ConvAI) challenge are being organized to push the research development towards that goal. This article presents in detail the RLLChatbot that participated in the 2017 ConvAI challenge. The goal of this research is to better understand how current deep learning and reinforcement learning tools can be used to build a robust yet flexible open domain conversational agent. We provide a thorough description of how a dialog system can be built and trained from mostly public-domain datasets using an ensemble model. The first contribution of this work is a detailed description and analysis of different text generation models in addition to novel message ranking and selection methods. Moreover, a new open-source conversational dataset is presented. Training on this data significantly improves the Recall@k score of the ranking and selection mechanisms compared to our baseline model responsible for selecting the message returned at each interaction. }
+}
+
 @article{sinha2018hier,
   Author = {{Sinha}, Koustuv and {Dong}, Yue and {Chi-kit Cheung}, Jackie and {Ruths}, Derek},
   Title = {A Hierarchical Neural Attention-based Text Classifier},
   journal = {Empirical Methods of Natural Language Processing (EMNLP)},
-  year = {2018}
+  year = {2018},
+  epdf = {http://www.aclweb.org/anthology/D18-1094},
+  abstract = {Deep neural networks have been displaying superior  performance over traditional supervised classifiers in text classification. They learn to extract useful features automatically when sufficient amount of data is presented. However, along with the growth in the number of documents comes the increase in the number of categories, which often results in poor performance of the multiclass classifiers. In this work, we use external knowledge in the form of topic category taxonomies to aide the classification by introducing a deep hierarchical neural attention-based classifier.  Our model performs better than or comparable to state-of-the-art hierarchical models at significantly lower computational cost while maintaining high interpretability.}
 }
 
 @article{henderson2017ethics,
@@ -15,5 +45,7 @@
   Title = {Ethical Challenges in Data-Driven Dialogue Systems},
   journal = {AAAI/ACM AI Ethics and Society Conference},
   year = {2018},
-  url={https://arxiv.org/pdf/1711.09050.pdf}
+  arxiv = {1711.09050},
+  code = {https://github.com/Breakend/EthicsInDialogue},
+  abstract = {The use of dialogue systems as a medium for human-machine interaction is an increasingly prevalent paradigm. A growing number of dialogue systems use conversation strategies that are learned from large datasets. There are well documented instances where interactions with these system have resulted in biased or even offensive conversations due to the data-driven training process. Here, we highlight potential ethical issues that arise in dialogue systems research, including: implicit biases in data-driven systems, the rise of adversarial examples, potential sources of privacy violations, safety concerns, special considerations for reinforcement learning systems, and reproducibility concerns. We also suggest areas stemming from these issues that deserve further investigation. Through this initial survey, we hope to spur research leading to robust, safe, and ethically sound dialogue systems.}
   }
