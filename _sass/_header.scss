@@ -18,7 +18,7 @@
 .site-nav {
     float: right;
     line-height: $nav-height;
-    
+
     .nav-trigger {
         display: none;
     }
@@ -26,7 +26,7 @@
     .menu-icon {
         display: none;
     }
-    
+
     .page-link{
         line-height: $line-height;
         // Gaps between nav items, but not on the first one
@@ -107,4 +107,20 @@
     h2{
         font-size:25px;
     }
+}
+
+.post-header span#desc_display {
+  display: inline;
+}
+
+.post-header:hover span#desc_display {
+  display: none;
+}
+
+.post-header span#desc_hidden {
+  display: none;
+}
+
+.post-header:hover span#desc_hidden {
+  display: inline;
 }
