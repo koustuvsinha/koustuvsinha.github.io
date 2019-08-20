@@ -2,6 +2,7 @@
 layout: page
 title: CLUTRR
 description: A Diagnostic Benchmark for Inductive Reasoning from Text
+authors: Koustuv Sinha, Shagun Sodhani, Jin Dong, Joelle Pineau, William L. Hamilton
 permalink: /clutrr/
 img: /assets/img/clutrr_text.png
 ---
