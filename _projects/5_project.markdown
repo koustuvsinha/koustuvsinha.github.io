@@ -1,17 +1,26 @@
 ---
 layout: page
-title: Lesen
-description: Text Reader Android App for the Blind
-img: /assets/img/1.jpg
+title: Google Transparency
+description: Full stack Android Application to provide an interface between the Government and common people about the status of a public project.
+img: /assets/img/google.png
 ---
 
-[Prithvi Raj](https://www.linkedin.com/in/prithvi-raj-906b993a/), Koustuv Sinha & [Koumudi Patil](https://www.iitk.ac.in/new/koumudi-patil)
+Koustuv Sinha, Sooraj Ramachandran, Shashank Bhushan, Romit Chowdhury & [Koumudi Patil](https://www.iitk.ac.in/new/koumudi-patil)
 
-App developed for **Goldman Sachs Able Solutions Competition, 2015** along with Prithvi Raj, M.Des, IIT Kanpur targeted for the blind which can read out loud text from signages, images, posters and newspapers.
+Full stack Android Application to provide an interface between the Government and common people about the status of a public project.
+
+Seed funded by Google, Transparency is an initiative of IIT Kanpur to develop a mobile platform which can be used by Government and common people alike to check the progress of public projects, share grievances and provide ground level feedback and comments.
 
 Features :
 
-* Read small text snippets from images, signages and posters
-* Uses [Tesseract](https://github.com/tesseract-ocr/tesseract) OCR engine using [rmtheis tess-two](https://github.com/rmtheis/tess-two) Android port
-* Downloads English recognition data once at the beginning, then works fully offline.
-* Android 5.1 compatible
+* GeoTagging public projects such as Roads, Bridges, Buildings etc
+* Marking roads and bridges by drawing or navigating
+* Vote and comment on public projects
+* Track the status and expected completion of public projects
+
+App & System Technical Features :
+
+* Full Material Design
+* Android 6.0 (Marshmallow) compatible
+* Express (NodeJS) powered backend
+* MongoDB database

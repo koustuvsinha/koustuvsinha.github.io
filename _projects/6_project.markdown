@@ -1,20 +1,17 @@
 ---
 layout: page
-title: MongoLive
-description: Browser based utility library for offline synchronization with Remote MongoDB instances
-img: /assets/img/mongodb.png
+title: Lesen
+description: Text Reader Android App for the Blind
+img: /assets/img/1.jpg
 ---
 
-[Github](https://github.com/koustuvsinha/offline_mongodb)
+[Prithvi Raj](https://www.linkedin.com/in/prithvi-raj-906b993a/), Koustuv Sinha & [Koumudi Patil](https://www.iitk.ac.in/new/koumudi-patil)
 
-Being my final year undergraduate project, I was then heavily interested into the NoSQL world, learning the quirks of MongoDB. I came to realize that there were no offline solution to MongoDB instances. While CouchDB, another leading NoSQL provider, had its own offline client solution known as PouchDB, MongoDB had none. So in an attempt to help MongoDB developers to have a client-only offline failsafe, and also to recreate some of the features of PouchDB, I started off with this project with the expert guidance of my mentor Prof Ee Kian Wong.
+App developed for **Goldman Sachs Able Solutions Competition, 2015** along with Prithvi Raj, M.Des, IIT Kanpur targeted for the blind which can read out loud text from signages, images, posters and newspapers.
 
 Features :
 
-* Offline Data saved in LocalStorage
-* Easy synchronization to remote MongoDB Instance
-* Built in concurrency handler
-
-Caveats :
-
-* Lots of legacy code, needs to be brushed up
+* Read small text snippets from images, signages and posters
+* Uses [Tesseract](https://github.com/tesseract-ocr/tesseract) OCR engine using [rmtheis tess-two](https://github.com/rmtheis/tess-two) Android port
+* Downloads English recognition data once at the beginning, then works fully offline.
+* Android 5.1 compatible
