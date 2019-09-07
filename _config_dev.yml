@@ -19,7 +19,7 @@ last_updated: # leave blank if you don't want to display last updated
 github_username: koustuvsinha # your GitHub user name
 twitter_username: koustuvSINHA # your Twitter handle
 linkedin_username: koustuvsinha # your LinkedIn user name
-scholar_userid: # your Google Scholar ID
+scholar_userid: 9P9QcckAAAAJ # your Google Scholar ID
 orcid_id: # your ORCID ID
 contact_note: >
   You can reach me at <a href="mailto:koustuv.sinha@mail.mcgill.ca">my academic mail address</a> or my <a href="mailto:koustuvsinha@gmail.com">personal one</a>..
@@ -43,7 +43,7 @@ text:
     older: 'Older'
 
 # Comments
-disqus_shortname: # put your disqus shortname
+disqus_shortname: koustuvsinha # put your disqus shortname
 
 # Optional features
 show_social_icons:  true
