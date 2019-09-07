@@ -9,7 +9,7 @@ img: /assets/img/clutrr_text.png
 
 <img src="{{ '/assets/img/clutrr_text.png' | prepend: site.baseurl | prepend: site.url }}" alt="clutrr" width="500"/>
 
-[Paper](https://arxiv.org/pdf/1908.06177.pdf), [Dataset](https://drive.google.com/file/d/1SEq_e1IVCDDzsBIBhoUQ5pOVH5kxRoZF/view?usp=sharing),  [Code](https://github.com/facebookresearch/clutrr)
+[Paper](https://arxiv.org/pdf/1908.06177.pdf), [Dataset](https://drive.google.com/file/d/1SEq_e1IVCDDzsBIBhoUQ5pOVH5kxRoZF/view?usp=sharing),  [Code](https://github.com/facebookresearch/clutrr), [Blog](https://www.cs.mcgill.ca/~ksinha4/introducing-clutrr/)
 
 _To appear at EMNLP 2019_
 
