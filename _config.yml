@@ -29,7 +29,7 @@ google_analytics: UA-XXXXXXXXX # out your google-analytics code
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
-blog_name: random_logs
+blog_name: Blog
 blog_description: Random Logs about my journey in research land.
 
 # Pagination

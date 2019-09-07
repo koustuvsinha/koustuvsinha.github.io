@@ -10,6 +10,13 @@ figcaption {
 .blankbox {
     background: $theme-color;
 }
+
+.img_full {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    box-sizing:border-box;
+}
 .img_row {
     height: $img-height;
     width: 100%;
@@ -23,6 +30,12 @@ figcaption {
     box-sizing:border-box;
     padding: $img-spacing;
 }
+.colc {
+    width: 100%;
+    height: 100%;
+    box-sizing:border-box;
+    padding: $img-spacing;
+}
 .one {
     width:33.33%;
 }
@@ -31,6 +44,9 @@ figcaption {
 }
 .three {
     width: 100%;
+}
+.half {
+  width: 48%;
 }
 .caption {
     height: 100%;
