@@ -10,7 +10,7 @@ date: 2020-02-15 12:00:00
 
 <img src="{{ '/assets/img/graphlog.png' | prepend: site.baseurl | prepend: site.url }}" alt="graphlog" width="500"/>
 
-**Coming Soon!** : [Paper](), [Dataset](),  [Code](), [Blog]()
+[Paper](https://arxiv.org/pdf/2003.06560.pdf) \| [API Code](https://github.com/facebookresearch/GraphLog) \| [API Docs](https://graphlog.readthedocs.io/en/latest/) \| [Blog](/about-graphlog/)
 
 
 **Abstract**
