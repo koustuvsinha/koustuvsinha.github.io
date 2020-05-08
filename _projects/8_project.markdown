@@ -10,7 +10,7 @@ date: 2020-02-15 12:00:00
 
 <img src="{{ '/assets/img/graphlog.png' | prepend: site.baseurl | prepend: site.url }}" alt="graphlog" width="500"/>
 
-[Paper](https://arxiv.org/pdf/2003.06560.pdf) \| [Code](https://github.com/facebookresearch/GraphLog) \| [Docs](https://graphlog.readthedocs.io/en/latest/) \| [Blog]({{'/about-graphlog/' | prepend: site.baseurl | prepend: site.url }}) | [Slack Channel](https://join.slack.com/t/logicalml/shared_invite/zt-e7osm7j7-vfIRgJAbEHxYN5D70njvyw)
+[Paper](https://arxiv.org/pdf/2003.06560.pdf) \| [Code](https://github.com/facebookresearch/GraphLog) \| [Docs](https://graphlog.readthedocs.io/en/latest/) \| [Blog]({{'/about-graphlog/' | prepend: site.baseurl | prepend: site.url }}) \| [Slack Channel](https://join.slack.com/t/logicalml/shared_invite/zt-e7osm7j7-vfIRgJAbEHxYN5D70njvyw)
 
 
 **Abstract**
