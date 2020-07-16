@@ -24,7 +24,7 @@ orcid_id: # your ORCID ID
 contact_note: >
   You can reach me at <a href="mailto:koustuv.sinha@mail.mcgill.ca">my academic mail address</a> or my <a href="mailto:koustuvsinha@gmail.com">personal one</a>..
 
-google_analytics: UA-172847587-1 # out your google-analytics code
+google_analytics: UA-172847587-1 # out your google-analytics codes
 
 # -----------------------------------------------------------------------------
 # Blog
