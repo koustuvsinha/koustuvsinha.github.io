@@ -1,6 +1,6 @@
+--- # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 # Site settings
-# -----------------------------------------------------------------------------
 name: Koustuv Sinha
 email: koustuv.sinha@mail.mcgill.ca
 description: > # this means to ignore newlines until "url:"
@@ -9,7 +9,7 @@ footer_text: >
   Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 
-url:  # the base hostname & protocol for your site
+url: # the base hostname & protocol for your site
 baseurl: /~ksinha4 # the subpath of your site, e.g. /blog/
 last_updated: # leave blank if you don't want to display last updated
 
@@ -24,7 +24,7 @@ orcid_id: # your ORCID ID
 contact_note: >
   You can reach me at <a href="mailto:koustuv.sinha@mail.mcgill.ca">my academic mail address</a> or my <a href="mailto:koustuvsinha@gmail.com">personal one</a>..
 
-google_analytics: UA-XXXXXXXXX # out your google-analytics code
+google_analytics: UA-172847587-1 # out your google-analytics code
 
 # -----------------------------------------------------------------------------
 # Blog
@@ -39,16 +39,16 @@ paginate_path: /blog/page:num/
 
 text:
   pagination:
-    newer: 'Newer'
-    older: 'Older'
+    newer: "Newer"
+    older: "Older"
 
 # Comments
 disqus_shortname: koustuvsinha # put your disqus shortname
 
 # Optional features
-show_social_icons:  true
-enable_anchorjs:    false
-enable_katex:       true
+show_social_icons: true
+enable_anchorjs: false
+enable_katex: true
 
 # -----------------------------------------------------------------------------
 # Collections
@@ -74,19 +74,18 @@ markdown: kramdown
 highlighter: pygments
 
 # Includes & excludes
-include: ['_pages']
+include: ["_pages"]
 exclude: [vendor]
 
 # Plug-ins
 plugins:
-    - jekyll-email-protect
-    - jekyll-paginate
-    - jekyll/scholar
-    - jemoji
+  - jekyll-email-protect
+  - jekyll-paginate
+  - jekyll/scholar
+  - jemoji
 
 # Jekyll-Scholar
 scholar:
-
   last_name: Sinha
 
   style: apa
