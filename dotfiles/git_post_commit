@@ -1,0 +1,3 @@
+#!/bin/bash
+bundle exec jekyll build --config _config_dev.yml
+rsync -av _site/ ksinha4@ubuntu.cs.mcgill.ca:/home/2016/ksinha4/public_html/
