@@ -93,13 +93,16 @@ def set_seed(seed):
     np.random.seed(seed)
     torch.manual_seed(seed)
     if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)
         torch.cuda.manual_seed_all(seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
     os.environ["PYTHONHASHSEED"] = str(seed)
 ```
 
 **Do not optimize the seed like a hyperparameter. If your algorithm only works on a range of seeds, it's not a robust contribution.**
 
-Reporting the performance of your model on _multiple seeds_ captures the variance of the proposed model. Before beginning your experiments, randomly draw $$n$$ seeds and set them aside in your config file, and report all experimental results aggregated over those $$n$$ seeds. $$n=5$$ is a good starting point, but you an always increase this number.
+Reporting the performance of your model on _multiple seeds_ captures the variance of the proposed model. Before beginning your experiments, randomly draw $n$ seeds and set them aside in your config file, and report all experimental results aggregated over those $n$ seeds. $n=5$ is a good starting point, but you an always increase this number.
 
 ### 5. Version Control
 
@@ -176,6 +179,8 @@ Before releasing your code, check the following:
   - Helps remove your private experiment commit messages (and the awkward comments!)
 - Make sure your code does not contain any API keys (for loggers such as WandB or Comet.ML)
 - Keep an eye out for hardcoded file paths
+- Improve readability of your code using formatters such as [Black](https://pypi.org/project/black/). Obscure, poorly written codebases, even when they run, are oftentimes impossible to reuse or build on top of
+- Document your functions and classes appropriately. In ML, it's beneficial to the reader if you annotate your code with input and output tensor dimensions.
 
 ### 11. Effective Communication
 
@@ -189,7 +194,7 @@ When releasing your code, try to add as much information about the code in the R
 
 [Papers With Code](https://paperswithcode.com/) evaluated repositories released after NeurIPS 2019 and found repositories that do not address any of the above only got a median of 1.5 Github stars, whereas repositories which have all five of the above criteria got **196.5** median stars! Only 9% of the repositories fulfilled the 5 points, so definitely we can do better about communicating our research. The better the communication, the better it is in terms of reproducibility.
 
-If you are releasing a new dataset or pretrained model for the community, consider adding proper documentation for easy access, such as a [datasheet](https://arxiv.org/abs/1803.09010) or [model card](https://arxiv.org/abs/1810.03993). These are READMEs for the dataset or model which contains:
+You should always mention clearly the source of the dataset used in the work. If you are releasing a new dataset or pretrained model for the community, consider adding proper documentation for easy access, such as a [datasheet](https://arxiv.org/abs/1803.09010) or [model card](https://arxiv.org/abs/1810.03993). These are READMEs for the dataset or model which contains:
 
 - Motivation
 - Composition
@@ -199,13 +204,13 @@ If you are releasing a new dataset or pretrained model for the community, consid
 - Distribution
 - Maintenance
 
-Read the papers [[3](https://arxiv.org/abs/1803.09010), [11](https://arxiv.org/abs/1810.03993)] for more details on these questions and how to address them.
+Read the papers [[3](https://arxiv.org/abs/1803.09010), [11](https://arxiv.org/abs/1810.03993)] for more details on these questions and how to address them. You can choose to publish your dataset either through Github repository or through [Zenodo](https://zenodo.org/).
 
 ### 12. Test and Validate
 
 Finally, it's important from the reproducibility perspective to test your implementation in a _different environment_ than the training setup. This testing doesn't necessarily mean you have to re-train the entire pipeline. Specifically, you should make sure that the training and evaluation scripts are running in the test environment.
 
-To get an isolated test environment, you can use AWS or GCP cloud instances. You can also checkout [CodeOcean]() which provides isolated AWS instances tied to Jupyter Notebooks for easy evaluation.
+To get an isolated test environment, you can use AWS or GCP cloud instances. You can also checkout [CodeOcean](https://codeocean.com/) which provides isolated AWS instances tied to Jupyter Notebooks for easy evaluation.
 
 ## Final Thoughts
 
@@ -215,7 +220,7 @@ We hope this post will be useful in your research. Feel free to comment if you h
 
 ## Acknowledgements
 
-Many thanks to Joelle Pineau for encouraging writing this draft, and helping formulating the best practices. Thanks to Shagun Sodhani and Matthew Muckley for providing feedback on the draft. Thanks to [Deep Learning for Science School](https://dl4sci-school.lbl.gov/) for inviting Koustuv to speak about reproducibility on August 2020, for which this blog post is a point of reference.
+Many thanks to Joelle Pineau for encouraging writing this draft, and helping formulating the best practices. Thanks to Shagun Sodhani, Matthew Muckley and Michela Paganini for providing feedback on the draft. Thanks to [Deep Learning for Science School](https://dl4sci-school.lbl.gov/) for inviting Koustuv to speak about reproducibility on August 2020, for which this blog post is a point of reference.
 
 ## References
 
