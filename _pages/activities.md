@@ -5,6 +5,11 @@ title: activities
 description: Various academic activities
 ---
 
+### Public Talks
+
+- _Evaluating Logical Generalization with Graph Neural Networks_, Weights and Biases Salon, ([Online](https://www.youtube.com/watch?v=HllTbhy3WSA)) May 2020
+- _ML Reproducibility - From Theory to Practice_, DL4Science Seminar, Berkeley, ([Online](https://www.youtube.com/watch?v=se7LNICECqI)) August 2020
+
 ### Conference Organization
 
 - [NeurIPS 2020](https://neurips.cc/Conferences/2020/Committees), Reproducibility Co-Chair
@@ -12,6 +17,7 @@ description: Various academic activities
 
 ### Workshop Organization
 
+- [2020 ML Reproducibility Challenge](https://paperswithcode.com/rc2020)
 - [2019 NeurIPS Reproducibility Challenge](https://reproducibility-challenge.github.io/neurips2019/)
 - [ML Retrospectives @ NeurIPS 2019](https://ml-retrospectives.github.io/neurips2019/)
 - [ICLR 2019 NeurIPS Reproducibility Challenge](https://github.com/reproducibility-challenge/iclr_2019/)
