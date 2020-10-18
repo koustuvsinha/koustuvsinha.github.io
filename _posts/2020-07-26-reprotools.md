@@ -17,7 +17,7 @@ In this blog post, we will share commonly used tools and explain 12 basic practi
 
 ## Tools
 
-**Updated** : 5th August, 2020
+**Updated** : 17th October, 2020
 
 |     | Practice                | Tools                                                                                                                                                                                                                                                          |
 | --- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ In this blog post, we will share commonly used tools and explain 12 basic practi
 | 2   | Checkpoint Management   | [Pytorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning), [TestTube](https://github.com/williamFalcon/test-tube)                                                                                                                             |
 | 3   | Logging                 | [Tensorboard](https://www.tensorflow.org/tensorboard), [Comet.ML](https://www.comet.ml/site/), [Weights & Biases](https://www.wandb.com/), [MLFlow](https://mlflow.org/), [Visdom](https://github.com/facebookresearch/visdom), [Neptune](https://neptune.ai/) |
 | 4   | Seed                    | _Check best practices below_                                                                                                                                                                                                                                   |
-| -   | Experiment Management   | [Pytorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning), [MLFlow](https://mlflow.org/)                                                                                                                                                      |
+| -   | Experiment Management   | [Pytorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning), [MLFlow](https://mlflow.org), [Determined.AI](https://determined.ai/)                                                                                                                                                      |
 | 5   | Versioning              | [Github](https://github.com), [Gitlab](https://gitlab.com)                                                                                                                                                                                                     |
 | 6   | Data Management         | [DVC](https://dvc.org), [CML](https://cml.dev)                                                                                                                                                                                                                 |
 | 7   | Data analysis           | [Jupyter Notebook](https://jupyter.org/), [papermill](https://papermill.readthedocs.io/en/latest/), [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/), [Google Colab](https://colab.research.google.com/)                                             |
