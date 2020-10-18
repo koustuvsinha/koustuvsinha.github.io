@@ -8,7 +8,9 @@ description: Various academic activities
 ### Public Talks
 
 - _Evaluating Logical Generalization with Graph Neural Networks_, Weights and Biases Salon, ([Online](https://www.youtube.com/watch?v=HllTbhy3WSA)) May 2020
-- _ML Reproducibility - From Theory to Practice_, DL4Science Seminar, Berkeley, ([Online](https://www.youtube.com/watch?v=se7LNICECqI)) August 2020
+- _ML Reproducibility - From Theory to Practice_ 
+  - [DL4Science Seminar](https://dl4sci-school.lbl.gov/), Lawrence Berkeley National Laboratory, Berkeley, ([Online](https://www.youtube.com/watch?v=se7LNICECqI)) August 2020
+  - [MICCAI Hackathon](https://miccai-hackathon.com/), Peru, 2020 (Online), October 2020
 
 ### Conference Organization
 
