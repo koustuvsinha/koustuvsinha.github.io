@@ -50,6 +50,9 @@
     {% if entry.year %}
       {{entry.year}}
     {% endif %}
+    {% if entry.honors %}
+      <b>{{ entry.honors }}</b>
+    {% endif %}
     </span>
   {% endif %}
 
@@ -89,4 +92,5 @@
     <p>{{ entry.abstract }}</p>
   </span>
   {% endif %}
+
 </div>
