@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Unnatural Language Inference
+title: UnNatural Language Inference
 description: NLU models tend to "understand" word scrambled sentences! (ACL 2021 Long Paper)
 authors: Koustuv Sinha, Prasanna Parthasarathi, Joelle Pineau, Adina Williams
 permalink: /unli/
