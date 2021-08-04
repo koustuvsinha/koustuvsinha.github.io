@@ -10,7 +10,7 @@ date: 2021-02-15 12:00:00
 
 <img src="{{ '/assets/img/anim_30.gif' | prepend: site.baseurl | prepend: site.url }}" alt="unli" width="500"/>
 
-[Paper](https://arxiv.org/abs/2101.00010) \| [Code](https://github.com/facebookresearch/unlu) \| [ACL Anthology](https://aclanthology.org/2021.acl-long.569/) | Talk - [Video](https://youtu.be/oAM0Sr1WNW0), [Slides]({{ '/assets/files/unli_acl_talk.pdf' | prepend: site.baseurl | prepend: site.url }})
+[Paper](https://arxiv.org/abs/2101.00010) \| [Code](https://github.com/facebookresearch/unlu) \| [ACL Anthology](https://aclanthology.org/2021.acl-long.569/) \| Talk - [Video](https://youtu.be/oAM0Sr1WNW0), [Slides]({{ '/assets/files/unli_acl_talk.pdf' | prepend: site.baseurl | prepend: site.url }})
 
 **Abstract**
 
