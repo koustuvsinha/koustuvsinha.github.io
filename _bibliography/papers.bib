@@ -359,6 +359,71 @@
   code            = {https://github.com/ReScience/NeurIPS-2019}
 }
 
+@article{sodhani2020ideas,
+  title           = {Ideas for Improving the Field of Machine Learning:
+                  Summarizing Discussion from the NeurIPS 2019 Retrospectives
+                  Workshop},
+  author          = {Sodhani, Shagun and Jaiswal, Mayoore S and Baker, Lauren
+                  and Sinha, Koustuv and Shneider, Carl and Henderson, Peter and
+                  Lehman, Joel and Lowe, Ryan},
+  journal         = {arXiv preprint arXiv:2007.10546},
+  year            = 2020,
+  arxiv           = {2007.10546},
+  abstract        = {This report documents ideas for improving the field of
+                  machine learning, which arose from discussions at the ML
+                  Retrospectives workshop at NeurIPS 2019. The goal of the
+                  report is to disseminate these ideas more broadly, and in turn
+                  encourage continuing discussion about how the field could
+                  improve along these axes. We focus on topics that were most
+                  discussed at the workshop: incentives for encouraging
+                  alternate forms of scholarship, re-structuring the review
+                  process, participation from academia and industry, and how we
+                  might better train computer scientists as scientists.},
+  url             = {https://arxiv.org/abs/2007.10546}
+}
+
+@article{sinha2021masked,
+  title           = {Masked Language Modeling and the Distributional Hypothesis:
+                  Order Word Matters Pre-training for Little},
+  author          = {Koustuv Sinha and Robin Jia and Dieuwke Hupkes and Joelle
+                  Pineau and Adina Williams and Douwe Kiela},
+  abstract        = {A possible explanation for the impressive performance of
+                  masked language model (MLM) pre-training is that such models
+                  have learned to represent the syntactic structures prevalent
+                  in classical NLP pipelines. In this paper, we propose a
+                  different explanation: MLMs succeed on downstream tasks almost
+                  entirely due to their ability to model higher-order word
+                  co-occurrence statistics. To demonstrate this, we pre-train
+                  MLMs on sentences with randomly shuffled word order, and show
+                  that these models still achieve high accuracy after
+                  fine-tuning on many downstream tasks -- including on tasks
+                  specifically designed to be challenging for models that ignore
+                  word order. Our models perform surprisingly well according to
+                  some parametric syntactic probes, indicating possible
+                  deficiencies in how we test representations for syntactic
+                  information. Overall, our results show that purely
+                  distributional information largely explains the success of
+                  pre-training, and underscore the importance of curating
+                  challenging evaluation datasets that require deeper linguistic
+                  knowledge.},
+  year            = 2021,
+  arxiv           = {2104.06644},
+  archivePrefix   = {arXiv},
+  journal = {Empirical Methods of Natural Language Processing (EMNLP)},
+  primaryClass    = {cs.CL}
+}
+
+@article{parthasarathi2021want,
+      title={Sometimes We Want Translationese},
+      author={Prasanna Parthasarathi and Koustuv Sinha and Joelle Pineau and Adina Williams},
+      abstract={Rapid progress in Neural Machine Translation (NMT) systems over the last few years has been driven primarily towards improving translation quality, and as a secondary focus, improved robustness to input perturbations (e.g. spelling and grammatical mistakes). While performance and robustness are important objectives, by over-focusing on these, we risk overlooking other important properties. In this paper, we draw attention to the fact that for some applications, faithfulness to the original (input) text is important to preserve, even if it means introducing unusual language patterns in the (output) translation. We propose a simple, novel way to quantify whether an NMT system exhibits robustness and faithfulness, focusing on the case of word-order perturbations. We explore a suite of functions to perturb the word order of source sentences without deleting or injecting tokens, and measure the effects on the target side in terms of both robustness and faithfulness. Across several experimental conditions, we observe a strong tendency towards robustness rather than faithfulness. These results allow us to better understand the trade-off between faithfulness and robustness in NMT, and opens up the possibility of developing systems where users have more autonomy and control in selecting which property is best suited for their use case. },
+      year={2021},
+      arxiv={2104.07623},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      journal={Empirical Methods of Natural Language Processing (EMNLP) Findings}
+}
+
 @article{sinha2021unnat,
   title           = {{UnNatural} Language Inference},
   author          = {Koustuv Sinha and Prasanna Parthasarathi and Joelle Pineau
@@ -394,28 +459,6 @@
   honors = {Oral, Outstanding Paper Award}
 }
 
-@article{sodhani2020ideas,
-  title           = {Ideas for Improving the Field of Machine Learning:
-                  Summarizing Discussion from the NeurIPS 2019 Retrospectives
-                  Workshop},
-  author          = {Sodhani, Shagun and Jaiswal, Mayoore S and Baker, Lauren
-                  and Sinha, Koustuv and Shneider, Carl and Henderson, Peter and
-                  Lehman, Joel and Lowe, Ryan},
-  journal         = {arXiv preprint arXiv:2007.10546},
-  year            = 2020,
-  arxiv           = {2007.10546},
-  abstract        = {This report documents ideas for improving the field of
-                  machine learning, which arose from discussions at the ML
-                  Retrospectives workshop at NeurIPS 2019. The goal of the
-                  report is to disseminate these ideas more broadly, and in turn
-                  encourage continuing discussion about how the field could
-                  improve along these axes. We focus on topics that were most
-                  discussed at the workshop: incentives for encouraging
-                  alternate forms of scholarship, re-structuring the review
-                  process, participation from academia and industry, and how we
-                  might better train computer scientists as scientists.},
-  url             = {https://arxiv.org/abs/2007.10546}
-}
 
 @misc{sriram2021covid19,
   title           = {COVID-19 Deterioration Prediction via Self-Supervised
@@ -461,46 +504,4 @@
   archivePrefix   = {arXiv},
   primaryClass    = {cs.CV},
   code            = {https://github.com/facebookresearch/CovidPrognosis}
-}
-
-@article{sinha2021masked,
-  title           = {Masked Language Modeling and the Distributional Hypothesis:
-                  Order Word Matters Pre-training for Little},
-  author          = {Koustuv Sinha and Robin Jia and Dieuwke Hupkes and Joelle
-                  Pineau and Adina Williams and Douwe Kiela},
-  abstract        = {A possible explanation for the impressive performance of
-                  masked language model (MLM) pre-training is that such models
-                  have learned to represent the syntactic structures prevalent
-                  in classical NLP pipelines. In this paper, we propose a
-                  different explanation: MLMs succeed on downstream tasks almost
-                  entirely due to their ability to model higher-order word
-                  co-occurrence statistics. To demonstrate this, we pre-train
-                  MLMs on sentences with randomly shuffled word order, and show
-                  that these models still achieve high accuracy after
-                  fine-tuning on many downstream tasks -- including on tasks
-                  specifically designed to be challenging for models that ignore
-                  word order. Our models perform surprisingly well according to
-                  some parametric syntactic probes, indicating possible
-                  deficiencies in how we test representations for syntactic
-                  information. Overall, our results show that purely
-                  distributional information largely explains the success of
-                  pre-training, and underscore the importance of curating
-                  challenging evaluation datasets that require deeper linguistic
-                  knowledge.},
-  year            = 2021,
-  arxiv           = {2104.06644},
-  archivePrefix   = {arXiv},
-  journal = {Empirical Methods of Natural Language Processing (EMNLP)},
-  primaryClass    = {cs.CL}
-}
-
-@article{parthasarathi2021want,
-      title={Sometimes We Want Translationese},
-      author={Prasanna Parthasarathi and Koustuv Sinha and Joelle Pineau and Adina Williams},
-      abstract={Rapid progress in Neural Machine Translation (NMT) systems over the last few years has been driven primarily towards improving translation quality, and as a secondary focus, improved robustness to input perturbations (e.g. spelling and grammatical mistakes). While performance and robustness are important objectives, by over-focusing on these, we risk overlooking other important properties. In this paper, we draw attention to the fact that for some applications, faithfulness to the original (input) text is important to preserve, even if it means introducing unusual language patterns in the (output) translation. We propose a simple, novel way to quantify whether an NMT system exhibits robustness and faithfulness, focusing on the case of word-order perturbations. We explore a suite of functions to perturb the word order of source sentences without deleting or injecting tokens, and measure the effects on the target side in terms of both robustness and faithfulness. Across several experimental conditions, we observe a strong tendency towards robustness rather than faithfulness. These results allow us to better understand the trade-off between faithfulness and robustness in NMT, and opens up the possibility of developing systems where users have more autonomy and control in selecting which property is best suited for their use case. },
-      year={2021},
-      arxiv={2104.07623},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      journal={Empirical Methods of Natural Language Processing (EMNLP) Findings}
 }
