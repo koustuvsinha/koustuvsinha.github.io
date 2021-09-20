@@ -7,7 +7,7 @@ description: Various academic activities
 
 ### Mentorship
 
-I'm open to mentor early career (MSc/PhD) students to guide them in their own research topics. Please [contact me](mailto:koustuv.sinha@mail.mcgill.ca?subject=Mentorship Request) with your CV and brief description of the research problem (no need to write an elaborate plan) you are interested in, and I'll get back to you. You can check out my `publications` page to understand my area of expertise, to evaluate where I can guide you the best.
+I'm open to mentor early career (MSc/PhD) students to guide them in their own research topics. Please [contact me](mailto:koustuv.sinha@mail.mcgill.ca?subject=Mentorship Request) with your CV and brief description of the research problem (no need to write an elaborate plan) you are interested in, and I'll get back to you. You can check out my [publications](https://www.cs.mcgill.ca/~ksinha4/publications/) page to understand my area of expertise, to evaluate where I can guide you the best.
 
 ### Public Talks
 
