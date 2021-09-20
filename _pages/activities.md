@@ -5,10 +5,14 @@ title: activities
 description: Various academic activities
 ---
 
+### Mentorship
+
+I'm open to mentor early career (MSc/PhD) students to guide them in their own research topics. Please [contact me](mailto:koustuv.sinha@mail.mcgill.ca?subject=Mentorship Request) with your CV and brief description of the research problem (no need to write an elaborate plan) you are interested in, and I'll get back to you. You can check out my `publications` page to understand my area of expertise, to evaluate where I can guide you the best.
+
 ### Public Talks
 
 - _Evaluating Logical Generalization with Graph Neural Networks_, Weights and Biases Salon, ([Online](https://www.youtube.com/watch?v=HllTbhy3WSA)) May 2020
-- _ML Reproducibility - From Theory to Practice_ 
+- _ML Reproducibility - From Theory to Practice_
   - [DL4Science Seminar](https://dl4sci-school.lbl.gov/), Lawrence Berkeley National Laboratory, Berkeley, ([Online](https://www.youtube.com/watch?v=se7LNICECqI)) August 2020
   - [MICCAI Hackathon](https://miccai-hackathon.com/), Peru, 2020 (Online), October 2020
 
