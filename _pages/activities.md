@@ -9,12 +9,18 @@ description: Various academic activities
 
 I'm open to mentor early career (MSc/PhD) students to guide them in their own research topics. Please [contact me](mailto:koustuv.sinha@mail.mcgill.ca?subject=Mentorship Request) with your CV and brief description of the research problem (no need to write an elaborate plan) you are interested in, and I'll get back to you. You can check out my [publications](https://www.cs.mcgill.ca/~ksinha4/publications/) page to understand my area of expertise, to evaluate where I can guide you the best.
 
+### Supervising
+
+- [Shanya Sharma](https://shanyas10.github.io/), 2020-present
+- [Manan Dey](), 2020-present
+
 ### Public Talks
 
 - _Evaluating Logical Generalization with Graph Neural Networks_, Weights and Biases Salon, ([Online](https://www.youtube.com/watch?v=HllTbhy3WSA)) May 2020
 - _ML Reproducibility - From Theory to Practice_
   - [DL4Science Seminar](https://dl4sci-school.lbl.gov/), Lawrence Berkeley National Laboratory, Berkeley, ([Online](https://www.youtube.com/watch?v=se7LNICECqI)) August 2020
   - [MICCAI Hackathon](https://miccai-hackathon.com/), Peru, 2020 (Online), October 2020
+  - Bielefield University, Germany, hosted by [Malte Schilling](https://ni.www.techfak.uni-bielefeld.de/people/mschilli), October 2021 (Online)
 
 ### Conference Organization
 
@@ -23,6 +29,8 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ### Workshop Organization
 
+- [NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2021](https://www.cs.mcgill.ca/~pparth2/nilli_workshop/)
+- [2021 ML Reproducibility Challenge](https://paperswithcode.com/rc2021)
 - [2020 ML Reproducibility Challenge](https://paperswithcode.com/rc2020)
 - [2019 NeurIPS Reproducibility Challenge](https://reproducibility-challenge.github.io/neurips2019/)
 - [ML Retrospectives @ NeurIPS 2019](https://ml-retrospectives.github.io/neurips2019/)
