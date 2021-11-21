@@ -10,7 +10,7 @@ footer_text: >
   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 
 url: # the base hostname & protocol for your site
-baseurl: /~ksinha4 # the subpath of your site, e.g. /blog/
+baseurl: # the subpath of your site, e.g. /blog/
 last_updated: # leave blank if you don't want to display last updated
 
 # -----------------------------------------------------------------------------
@@ -24,7 +24,7 @@ orcid_id: # your ORCID ID
 contact_note: >
   You can reach me at <a href="mailto:koustuv.sinha@mail.mcgill.ca">my academic mail address</a> or my <a href="mailto:koustuvsinha@gmail.com">personal one</a>..
 
-google_analytics: UA-172847587-1 # out your google-analytics code
+google_analytics: UA-172847587-1 # out your google-analytics codes
 
 # -----------------------------------------------------------------------------
 # Blog

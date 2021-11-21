@@ -1,8 +1,5 @@
 # Personal Webpage
 
-**Link** : https://www.cs.mcgill.ca/~ksinha4/ 
-
-Updated: <2020-12-21 Mon> 
+**Link** : https://www.cs.mcgill.ca/~ksinha4/
 
 Using [al-folio](https://github.com/alshedivat/al-folio) theme.
-
