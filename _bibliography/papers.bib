@@ -175,6 +175,41 @@
                   stability and manifold theory. }
 }
 
+@article{parthasarathi2021want,
+  title           = {Sometimes We Want Translationese},
+  author          = {Prasanna Parthasarathi and Koustuv Sinha and Joelle Pineau
+                  and Adina Williams},
+  abstract        = {Rapid progress in Neural Machine Translation (NMT) systems
+                  over the last few years has been driven primarily towards
+                  improving translation quality, and as a secondary focus,
+                  improved robustness to input perturbations (e.g. spelling and
+                  grammatical mistakes). While performance and robustness are
+                  important objectives, by over-focusing on these, we risk
+                  overlooking other important properties. In this paper, we draw
+                  attention to the fact that for some applications, faithfulness
+                  to the original (input) text is important to preserve, even if
+                  it means introducing unusual language patterns in the (output)
+                  translation. We propose a simple, novel way to quantify
+                  whether an NMT system exhibits robustness and faithfulness,
+                  focusing on the case of word-order perturbations. We explore a
+                  suite of functions to perturb the word order of source
+                  sentences without deleting or injecting tokens, and measure
+                  the effects on the target side in terms of both robustness and
+                  faithfulness. Across several experimental conditions, we
+                  observe a strong tendency towards robustness rather than
+                  faithfulness. These results allow us to better understand the
+                  trade-off between faithfulness and robustness in NMT, and
+                  opens up the possibility of developing systems where users
+                  have more autonomy and control in selecting which property is
+                  best suited for their use case. },
+  year            = 2021,
+  arxiv           = {2104.07623},
+  archivePrefix   = {arXiv},
+  primaryClass    = {cs.CL},
+  journal         = {Empirical Methods of Natural Language Processing (EMNLP)
+                  Findings}
+}
+
 @article{pineau2020improving,
   title           = {Improving Reproducibility in Machine Learning Research (A
                   Report from the NeurIPS 2019 Reproducibility Program)},
@@ -206,6 +241,46 @@
                   the paper submission process. In this paper, we describe each
                   of these components, how it was deployed, as well as what we
                   were able to learn from this initiative.}
+}
+
+@misc{
+sharma2021evaluating,
+  title           = {Evaluating Gender Bias in Natural Language Inference },
+  author          = {Sharma, Shanya and Dey, Manan and Sinha, Koustuv},
+  year            = 2021,
+  abstract        = {Gender-bias stereotypes have recently raised significant
+                  ethical concerns in natural language processing. However,
+                  progress in the detection and evaluation of gender-bias in
+                  natural language understanding through inference is limited
+                  and requires further investigation. In this work, we propose
+                  an evaluation methodology to measure these biases by
+                  constructing a probe task that involves pairing a
+                  gender-neutral premise against a gender-specific hypothesis.
+                  We use our probe task to investigate state-of-the-art NLI
+                  models on the presence of gender stereotypes using
+                  occupations. Our findings suggest that three models (BERT,
+                  RoBERTa, and BART) trained on MNLI and SNLI data-sets are
+                  significantly prone to gender-induced prediction errors. We
+                  also find that debiasing techniques such as augmenting the
+                  training dataset to ensure that it is a gender-balanced
+                  dataset can help reduce such bias in certain cases.},
+  url             = {https://openreview.net/forum?id=bnuU0PzXl0-}
+}
+
+@misc{sharma2022how,
+  doi             = {10.48550/ARXIV.2205.10762},
+  url             = {https://arxiv.org/abs/2205.10762},
+  author          = {Sharma, Shanya and Dey, Manan and Sinha, Koustuv},
+  keywords        = {Computation and Language (cs.CL), Machine Learning (cs.LG),
+                  FOS: Computer and information sciences, FOS: Computer and
+                  information sciences, I.2.7, 68T50},
+  title           = {How sensitive are translation systems to extra contexts?
+                  Mitigating gender bias in Neural Machine Translation models
+                  through relevant contexts},
+  publisher       = {arXiv},
+  year            = 2022,
+  copyright       = {Creative Commons Attribution 4.0 International},
+  abstract = {Neural Machine Translation systems built on top of Transformer-based architectures are routinely improving the state-of-the-art in translation quality according to word-overlap metrics. However, a growing number of studies also highlight the inherent gender bias that these models incorporate during training, which reflects poorly in their translations. In this work, we investigate whether these models can be instructed to fix their bias during inference using targeted, guided instructions as contexts. By translating relevant contextual sentences during inference along with the input, we observe large improvements in reducing the gender bias in translations, across three popular test suites (WinoMT, BUG, SimpleGen). We further propose a novel metric to assess several large pretrained models (OPUS-MT, M2M-100) on their sensitivity towards using contexts during translation to correct their biases. Our approach requires no fine-tuning, and thus can be used easily in production systems to de-bias translations from stereotypical gender-occupation bias. We hope our method, along with our metric, can be used to build better, bias-free translation systems.}
 }
 
 @article{sinha2018clutrr,
@@ -263,7 +338,7 @@
   year            = 2019,
   journal         = {Empirical Methods of Natural Language Processing (EMNLP)},
   arxiv           = {1908.06177},
-  honors = {Oral},
+  honors          = {Oral},
   code            = {https://github.com/facebookresearch/clutrr},
   abstract        = {The recent success of natural language understanding (NLU)
                   systems has been troubled by results highlighting the failure
@@ -359,29 +434,6 @@
   code            = {https://github.com/ReScience/NeurIPS-2019}
 }
 
-@article{sodhani2020ideas,
-  title           = {Ideas for Improving the Field of Machine Learning:
-                  Summarizing Discussion from the NeurIPS 2019 Retrospectives
-                  Workshop},
-  author          = {Sodhani, Shagun and Jaiswal, Mayoore S and Baker, Lauren
-                  and Sinha, Koustuv and Shneider, Carl and Henderson, Peter and
-                  Lehman, Joel and Lowe, Ryan},
-  journal         = {arXiv preprint arXiv:2007.10546},
-  year            = 2020,
-  arxiv           = {2007.10546},
-  abstract        = {This report documents ideas for improving the field of
-                  machine learning, which arose from discussions at the ML
-                  Retrospectives workshop at NeurIPS 2019. The goal of the
-                  report is to disseminate these ideas more broadly, and in turn
-                  encourage continuing discussion about how the field could
-                  improve along these axes. We focus on topics that were most
-                  discussed at the workshop: incentives for encouraging
-                  alternate forms of scholarship, re-structuring the review
-                  process, participation from academia and industry, and how we
-                  might better train computer scientists as scientists.},
-  url             = {https://arxiv.org/abs/2007.10546}
-}
-
 @article{sinha2021masked,
   title           = {Masked Language Modeling and the Distributional Hypothesis:
                   Order Word Matters Pre-training for Little},
@@ -409,20 +461,10 @@
   year            = 2021,
   arxiv           = {2104.06644},
   archivePrefix   = {arXiv},
-  journal = {Empirical Methods of Natural Language Processing (EMNLP)},
+  journal         = {Empirical Methods of Natural Language Processing (EMNLP)},
   primaryClass    = {cs.CL},
-  code = {https://github.com/pytorch/fairseq/tree/master/examples/shuffled_word_order}
-}
-
-@article{parthasarathi2021want,
-      title={Sometimes We Want Translationese},
-      author={Prasanna Parthasarathi and Koustuv Sinha and Joelle Pineau and Adina Williams},
-      abstract={Rapid progress in Neural Machine Translation (NMT) systems over the last few years has been driven primarily towards improving translation quality, and as a secondary focus, improved robustness to input perturbations (e.g. spelling and grammatical mistakes). While performance and robustness are important objectives, by over-focusing on these, we risk overlooking other important properties. In this paper, we draw attention to the fact that for some applications, faithfulness to the original (input) text is important to preserve, even if it means introducing unusual language patterns in the (output) translation. We propose a simple, novel way to quantify whether an NMT system exhibits robustness and faithfulness, focusing on the case of word-order perturbations. We explore a suite of functions to perturb the word order of source sentences without deleting or injecting tokens, and measure the effects on the target side in terms of both robustness and faithfulness. Across several experimental conditions, we observe a strong tendency towards robustness rather than faithfulness. These results allow us to better understand the trade-off between faithfulness and robustness in NMT, and opens up the possibility of developing systems where users have more autonomy and control in selecting which property is best suited for their use case. },
-      year={2021},
-      arxiv={2104.07623},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      journal={Empirical Methods of Natural Language Processing (EMNLP) Findings}
+  code            =
+                  {https://github.com/pytorch/fairseq/tree/master/examples/shuffled_word_order}
 }
 
 @article{sinha2021unnat,
@@ -452,14 +494,36 @@
                   natural language understanding models, and the tasks used for
                   measuring their progress, genuinely require a human-like
                   understanding of syntax. },
-  journal = {Association of Computational Linguistics (ACL)},
+  journal         = {Association of Computational Linguistics (ACL)},
   year            = 2021,
   url             = {https://arxiv.org/abs/2101.00010},
   arxiv           = {2101.00010},
-  code = {https://github.com/facebookresearch/unlu},
-  honors = {Oral, Outstanding Paper Award}
+  code            = {https://github.com/facebookresearch/unlu},
+  honors          = {Oral, Outstanding Paper Award}
 }
 
+@article{sodhani2020ideas,
+  title           = {Ideas for Improving the Field of Machine Learning:
+                  Summarizing Discussion from the NeurIPS 2019 Retrospectives
+                  Workshop},
+  author          = {Sodhani, Shagun and Jaiswal, Mayoore S and Baker, Lauren
+                  and Sinha, Koustuv and Shneider, Carl and Henderson, Peter and
+                  Lehman, Joel and Lowe, Ryan},
+  journal         = {arXiv preprint arXiv:2007.10546},
+  year            = 2020,
+  arxiv           = {2007.10546},
+  abstract        = {This report documents ideas for improving the field of
+                  machine learning, which arose from discussions at the ML
+                  Retrospectives workshop at NeurIPS 2019. The goal of the
+                  report is to disseminate these ideas more broadly, and in turn
+                  encourage continuing discussion about how the field could
+                  improve along these axes. We focus on topics that were most
+                  discussed at the workshop: incentives for encouraging
+                  alternate forms of scholarship, re-structuring the review
+                  process, participation from academia and industry, and how we
+                  might better train computer scientists as scientists.},
+  url             = {https://arxiv.org/abs/2007.10546}
+}
 
 @misc{sriram2021covid19,
   title           = {COVID-19 Deterioration Prediction via Self-Supervised
@@ -505,28 +569,4 @@
   archivePrefix   = {arXiv},
   primaryClass    = {cs.CV},
   code            = {https://github.com/facebookresearch/CovidPrognosis}
-}
-
-@misc{
-sharma2021evaluating,
-  title           = {Evaluating Gender Bias in Natural Language Inference },
-  author          = {Sharma, Shanya and Dey, Manan and Sinha, Koustuv},
-  year            = 2021,
-  abstract        = {Gender-bias stereotypes have recently raised significant
-                  ethical concerns in natural language processing. However,
-                  progress in the detection and evaluation of gender-bias in
-                  natural language understanding through inference is limited
-                  and requires further investigation. In this work, we propose
-                  an evaluation methodology to measure these biases by
-                  constructing a probe task that involves pairing a
-                  gender-neutral premise against a gender-specific hypothesis.
-                  We use our probe task to investigate state-of-the-art NLI
-                  models on the presence of gender stereotypes using
-                  occupations. Our findings suggest that three models (BERT,
-                  RoBERTa, and BART) trained on MNLI and SNLI data-sets are
-                  significantly prone to gender-induced prediction errors. We
-                  also find that debiasing techniques such as augmenting the
-                  training dataset to ensure that it is a gender-balanced
-                  dataset can help reduce such bias in certain cases.},
-  url             = {https://openreview.net/forum?id=bnuU0PzXl0-}
 }
