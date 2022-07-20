@@ -2,7 +2,7 @@ name: Hugo site CI
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build_job:
