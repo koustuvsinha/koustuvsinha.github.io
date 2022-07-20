@@ -222,8 +222,7 @@ Specifically, I create an Org file named `papers.org`, which has the following s
 :PROPERTIES:
 :COOKIE_DATA: recursive todo
 :END:
-** Syntax [/]
-** Large Language Model Analysis [/]
+** Some specific subfield
 * Maybe Read [/]
 * Know about it, would be nice to re-read [/]
 * Inbox
