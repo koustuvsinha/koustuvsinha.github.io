@@ -5,7 +5,7 @@ draft: false
 commentable: true
 ---
 
-Over the last couple of years I have steadily transferred most of my workflows in Emacs (more specifically, Doom Emacs). As they truly say, Emacs is not just an editor, it is an operating system. I think Emacs is not for everyone. It has a very steep learning curve, especially with understanding a new language (elisp) for configuration. Having said that, once you learn how to use Emacs, you unlock insane levels of productivity. It is customizable beyond expectation, and allows one to "live" within Emacs for most of their daily needs. Emacs has helped me streamline my paper reading habits, which I'll talk in detail in this post. Specifically, I use two tools from the Emacs ecosystem, Org-Mode and Elfeed.
+Over the last couple of years I have steadily transferred most of my workflows in Emacs (more specifically, Doom Emacs). As they truly say, Emacs is not just an editor, it is an operating system. I think Emacs is not for everyone. It has a very steep learning curve, especially with understanding a new language (elisp) for configuration. Having said that, once you learn how to use Emacs, you unlock insane levels of productivity. It is customizable beyond expectation, and allows one to "live" within Emacs for most of their daily needs. Emacs has helped me streamline my paper reading habits, which I'll talk in detail in this post. Specifically, I use the following tools from the Emacs ecosystem: [Org-Mode](https://orgmode.org/), [Elfeed](https://github.com/skeeto/elfeed), [Elfeed-score](https://github.com/sp1ff/elfeed-score), [Helm-Bibtex](https://github.com/tmalsburg/helm-bibtex) and [Org-ref](https://github.com/jkitchin/org-ref).
 
 {{< figure src="/ox-hugo/elfeed_main.png" >}}
 
@@ -78,7 +78,7 @@ We would also like to instruct Elfeed to _fetch_ the papers whenever we open the
 
 ### Scoring papers {#scoring-papers}
 
-As you may have noticed, `my-search-print-fn` contains the function `elfeed-score-scoring-get-score-from-entry` call, which uses Elfeed-score package to score individual papers. Elfeed-score is a simple but effective utility to allow you to set regex filter rules to score papers based on the relevance of your research area.
+As you may have noticed, `my-search-print-fn` contains the function `elfeed-score-scoring-get-score-from-entry` call, which uses [Elfeed-score](https://github.com/sp1ff/elfeed-score) package to score individual papers. [Elfeed-score](https://github.com/sp1ff/elfeed-score) is a simple but effective utility to allow you to set regex filter rules to score papers based on the relevance of your research area.
 
 Install elfeed-score package using `use-package`, and then set the location of the rules file.
 
@@ -117,7 +117,7 @@ Now go ahead and create the file `elfeed.score` in your location of choice. This
  ("adjust-tags"))
 ```
 
-This score file thus pushes the papers I would like to read up to the top:
+This score file thus pushes the papers we would like to read up to the top:
 
 {{< figure src="/ox-hugo/elfeed_score.png" >}}
 
@@ -133,7 +133,7 @@ When I'm reading the abstract of an interesting paper in Elfeed, if I want to re
 
 ### Store the pdfs from Elfeed {#store-the-pdfs-from-elfeed}
 
-I started my configuration following the nice talk by Ahmed in [EmacsConf 2021](https://emacsconf.org/2021/talks/research/) (I highly recommend watching it!). Ahmed also provides a nice [gist for starters](https://gist.github.com/rka97/57779810d3664f41b0ed68a855fcab54), which I used to construct the basic function to perform steps 1 and 2.
+I initially started my configuration following the nice talk by Ahmed in [EmacsConf 2021](https://emacsconf.org/2021/talks/research/) (I highly recommend watching it!). Ahmed also provides a nice [gist for starters](https://gist.github.com/rka97/57779810d3664f41b0ed68a855fcab54), which I used to construct the basic function to perform steps 1 and 2.
 
 ```elisp
 (setq arxiv_bib "~/org/arxiv.bib")
@@ -153,7 +153,7 @@ I started my configuration following the nice talk by Ahmed in [EmacsConf 2021](
 
 This function utilizes the awesome [Org-ref](https://github.com/jkitchin/org-ref) library functions, such as `arxiv-get-pdf-add-bibtex-entry`. Given an Arxiv identifier, this function firsts constructs a bibtex entry with the paper metadata and stores it in `arxiv_bib`, which is a variable I had set to point to my centralized bib file. Then, the function downloads the pdf, renames the pdf to the bibtex key, and saves it in `arxiv_pdf_loc`, which is another variable I had defined which points to the directory where I want to save the pdfs.
 
-I add a Doom Emacs keybinding to quickly fetch the arxiv file. This allows me to call `SPC n a` from the Elfeed entry buffer.
+We can add a Doom Emacs keybinding to quickly fetch the arxiv file. This allows me to call `SPC n a` from the Elfeed entry buffer.
 
 ```elisp
 (map! :leader
@@ -164,7 +164,7 @@ I add a Doom Emacs keybinding to quickly fetch the arxiv file. This allows me to
 
 ### Update the bibtex file {#update-the-bibtex-file}
 
-The bibtex generated by the `arxiv-get-pdf-add-bibtex-entry` function lacks a `file` item pointing to the pdf file. We will see why this item is useful in the next section. Assuming we need to add the full path of the downloaded pdf, I modify the `my/elfeed-entry-to-arxiv` function as follows:
+The bibtex generated by the `arxiv-get-pdf-add-bibtex-entry` function lacks a `file` item pointing to the pdf file. We will see why this item is useful in the next section. Assuming we need to add the full path of the downloaded pdf, the `my/elfeed-entry-to-arxiv` function can be modified as follows:
 
 ```elisp
 (defun my/elfeed-entry-to-arxiv ()
@@ -229,7 +229,7 @@ Specifically, I create an Org file named `papers.org`, which has the following s
 * Inbox
 ```
 
-These are basically headings to file `TODO` items. I keep track of a paper to read using the Org `TODO` modes. For any new paper which I'm reading through Elfeed, I hit `SPC n e` to extract the bibtex and save the pdf in the centralized pdf directory. Now, I would want to file this paper automatically under `* Inbox` header as a `TODO` entry. To do that, I modify the above function to read `papers.org`, go to the last element of the page (which points to the latest filed paper in `* Inbox`), and add a new entry with Org-ref citation.
+These are basically headings to file `TODO` items. I keep track of a paper to read using the Org `TODO` modes. For any new paper which I'm reading through Elfeed, I hit `SPC n e` to extract the bibtex and save the pdf in the centralized pdf directory. Now, I would want to file this paper automatically under `* Inbox` header as a `TODO` entry. To do that, we can modify the above function to read `papers.org`, go to the last element of the page (which points to the latest filed paper in `* Inbox`), and add a new entry with Org-ref citation.
 
 ```elisp
 (defun my/elfeed-entry-to-arxiv ()
@@ -285,7 +285,7 @@ New features to this version:
   )
 ```
 
-I modify the function to keep track of the key of the paper using `last-arxiv-key` and title of the paper `last-arxiv-title`, so that I can construct a `TODO` entry to reflect the key and the title. The key is added in Org citation format.
+Thus we arrive at the final version of the `my/elfeed-entry-to-arxiv` function, which is now modified to keep track of the key of the paper using `last-arxiv-key` and title of the paper `last-arxiv-title`, so that we can construct a `TODO` entry to reflect the key and the title. The key is added in Org citation format.
 
 {{< figure src="/ox-hugo/paper_reading.png" >}}
 
@@ -318,4 +318,4 @@ Using the above method makes it trivial to sync my reading lists in my Ipad. For
 
 ## Closing Thoughts {#closing-thoughts}
 
-This is an evolving workflow, and it is probably not the most optimal one. However it works for me, and I can easily keep tweaking the config so that it supports any future requirements. Let me know if this worked for you in the comments, and I would love to hear any suggestions you might have so that I can make this worflow better! Thanks for reading!
+This is an evolving workflow, and it is probably not the most optimal one. However it works for me, and I can easily keep tweaking the config so that it supports any future requirements. Let me know if this worked for you in the comments, and I would love to hear any suggestions you might have so that I can make this workflow better! Thanks for reading!
