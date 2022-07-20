@@ -1,0 +1,11 @@
+# Font style metadata
+name = "personal"
+
+# Optional Google font URL
+google_fonts = "family=Fira+Sans:wght@400;700&family=Roboto+Mono"
+
+# Font families
+heading_font = "Fira Sans"
+body_font = "Fira Sans"
+nav_font = "Fira Sans"
+mono_font = "Roboto Mono"

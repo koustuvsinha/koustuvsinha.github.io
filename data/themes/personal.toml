@@ -1,0 +1,35 @@
+# Theme metadata
+name = "personal"
+
+[light]
+  # Primary
+  primary = "#1565c0"
+
+  # Menu
+  menu_primary = "#fff"
+  menu_text = "#34495e"
+  menu_text_active = "#2962ff"
+  menu_title = "#2b2b2b"
+
+  # Home sections
+  home_section_odd = "rgb(255, 255, 255)"
+  home_section_even = "rgb(247, 247, 247)"
+
+  # link
+  # link = "#3489e9"
+  link = "#5c10e3"
+  # link_hover = "#bbdefb"
+
+[dark]
+  # Primary
+  primary = "#181718"
+  # primary = "hsl(339, 90%, 68%)"
+  menu_primary = "#000000"
+  # Home sections
+  home_section_odd = "#000000"
+  home_section_even = "#181718"
+  # home_section_even = "hsla(231, 15%, 16%, 1)"
+  background = "#181718"
+
+  link = "#bbdefb"
+  link_hover = "#bbdefb"

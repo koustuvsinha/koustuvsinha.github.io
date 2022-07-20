@@ -1,0 +1,114 @@
+# SITE SETUP
+# Guide: https://wowchemy.com/docs/getting-started/
+# Documentation: https://wowchemy.com/docs/
+# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+
+# Appearance
+
+appearance:
+  theme_day: personal
+  theme_night: personal
+  font: personal
+  font_size: m
+
+# SEO
+
+marketing:
+  seo:
+    site_type: Person
+    local_business_type: ''
+    org_name: ''
+    description: 'Personal website of Koustuv Sinha.'
+    twitter: 'koustuvsinha'
+  analytics:
+    google_analytics: ''
+    baidu_tongji: ''
+  verification:
+    google: ''
+    baidu: ''
+
+# Site header
+
+header:
+  navbar:
+    enable: true
+    align: r
+    show_logo: true
+    show_language: false
+    show_day_night: true
+    show_search: true
+    highlight_active_link: true
+
+# Site footer
+
+footer:
+  copyright:
+    notice: '© {year} Koustuv Sinha. This website is built using [ox-hugo](https://ox-hugo.scripter.co/), [org-mode](https://orgmode.org/), [Hugo](https://gohugo.io/) and [Wowchemy](https://wowchemy.com/), on Emacs 28.1. Opinions expressed in this website are solely my own. While we strive for excellence in research, it is important to remember that [_"Science is not a competitive sport"_](https://www.facebook.com/nipsfoundation/videos/2120856364798049/).'
+    license:
+      enable: true
+      allow_derivatives: false
+      share_alike: true
+      allow_commercial: false
+
+# Localization
+
+locale:
+  date_format: 'Jan 2, 2006'
+  time_format: '3:04 PM'
+  address_format: en-us
+
+# Site features
+
+features:
+  syntax_highlighter:
+    enable: true
+    extra_languages:
+      - python
+      - latex
+      - EmacsLisp
+    # theme-light: nord
+    theme: github-dark
+  math:
+    enable: true
+  privacy_pack:
+    enable: false
+  repository:
+    url: 'https://github.com/<username>/<repository>'
+    content_dir: content
+    branch: master
+  avatar:
+    gravatar: false
+    shape: circle
+  comment:
+    provider: 'utterances'
+    disqus:
+      shortname: ''
+      show_count: true
+    commento:
+      url: ''
+  search:
+    provider: wowchemy
+    algolia:
+      app_id: ''
+      api_key: ''
+      index_name: ''
+      show_logo: false
+  map:
+    provider: ''
+    api_key: ''
+    zoom: 15
+
+# Extensions
+
+extensions:
+  cms:
+    branch: main
+    local_backend: false
+  academicons:
+    enable: true
+
+# Security
+
+security:
+  # Allow frame for embedding speaker notes in slides
+  allow_frame: true

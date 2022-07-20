@@ -1,0 +1,1940 @@
+#+hugo_base_dir: ../
+
+* Home
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_SECTION: authors/admin
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: author:nil title:nil
+:END:
+#+begin_src yaml :front_matter_extra t
+# Display name
+title: Koustuv Sinha
+
+# Is this the primary user of the site?
+superuser: true
+
+# Role/position/tagline
+role: PhD Candidate
+
+# Organizations/Affiliations to show in About widget
+organizations:
+  - name: McGill University
+    url: https://cs.mcgill.ca/
+  - name: Mila (Quebec AI Institute)
+    url: https://mila.quebec
+
+# Short bio (displayed in user profile at end of posts)
+bio: My research interests include natural language processing with machine learning, computational linguistics and dialog systems. I organize the annual [ML Reproducibility Challenge](https://paperswithcode.com/rc2021).
+
+# Interests to show in About widget
+interests:
+  - Machine Learning
+  - Natural Language Processing
+  - Computational Linguistics
+
+# Education to show in About widget
+education:
+  courses:
+    - course: PhD in Computer Science (ML & NLP)
+      institution: McGill University
+      year: 2022*
+    - course: MSc in Computer Science (ML & NLP)
+      institution: McGill University
+      year: 2018
+    - course: B.Tech in Computer Science
+      institution: West Bengal University of Technology
+      year: 2014
+
+# Social/Academic Networking
+# For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
+#   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
+#   form "mailto:your-email@example.com" or "/#contact" for contact widget.
+social:
+  - icon: envelope
+    icon_pack: fas
+    link: '/#contact'
+  - icon: twitter
+    icon_pack: fab
+    link: https://twitter.com/koustuvsinha
+  - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
+    icon_pack: fas
+    link: https://scholar.google.co.uk/citations?user=9P9QcckAAAAJ
+  - icon: github
+    icon_pack: fab
+    link: https://github.com/koustuvsinha
+  - icon: linkedin
+    icon_pack: fab
+    link: https://www.linkedin.com/
+
+# Link to a PDF of your resume/CV.
+# To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.toml`,
+# and uncomment the lines below.
+# - icon: cv
+  # icon_pack: ai
+  # link: uploads/cv.pdf
+
+# Enter email to display Gravatar (if Gravatar enabled in Config)
+email: ''
+
+# Highlight the author in author lists? (true/false)
+highlight_name: true
+#+end_src
+
+My current research interest involves investigating the limits of [[https://slideslive.com/38922304/from-system-1-deep-learning-to-system-2-deep-learning][systematic]] language understanding of modern neural language representation systems, by leveraging linguistic and logical priors. In particular, I investigate how language is represented by neural models in a human-like way by testing their ability to understand the semantics, syntax and generalizability in the context of natural and artificial languages. I am also interested in improving the state of Generative Language Modeling (Dialog Systems).
+
+Currently, I live in the wonderful city of [[https://www.lonelyplanet.com/canada/montreal][Montreal]], Canada, being a PhD candidate at [[http://mcgill.ca/][McGill University]] in the [[http://cs.mcgill.ca][School of Computer Science]], supervised by [[https://www.cs.mcgill.ca/~jpineau/][Joelle Pineau]]. Previously, I was a PhD Research Associate at [[https://research.fb.com/][Facebook AI Research (FAIR)]], Montreal.
+
+I am an associate editor of [[http://rescience.github.io/][ReScience C]], a peer reviewed journal promoting reproducible research, and I am the lead organizer of the annual Machine Learning Reproducibility Challenge ([[https://www.cs.mcgill.ca/~jpineau/ICLR2018-ReproducibilityChallenge.html][V1]], [[https://www.cs.mcgill.ca/~jpineau/ICLR2019-ReproducibilityChallenge.html][V2]], [[https://reproducibility-challenge.github.io/neurips2019/][V3]], [[https://paperswithcode.com/rc2020][V4]], [[https://paperswithcode.com/rc2021][V5]] ). My work has been covered by several news outlets in the past, including [[https://www.nature.com/articles/d41586-019-03895-5][Nature]], [[https://venturebeat.com/2021/01/15/facebook-claims-its-ai-can-anticipate-covid-19-outcomes-using-x-rays/][VentureBeat]], [[https://www.infoq.com/news/2021/03/facebook-covid-prognosis/][InfoQ]], [[https://www.dailymail.co.uk/sciencetech/article-9153415/Facebook-claims-AI-predict-four-coronavirus-patients-condition-deteriorate.html][DailyMail]] and [[https://tech.hindustantimes.com/tech/news/facebook-wants-to-help-doctors-fight-covid-19-with-ai-and-xrays-71611044405211.html][Hindustan Times]].
+
+# - I mentor early career students on their research projects, check out my [activities](https://www.cs.mcgill.ca/~ksinha4/activities/) page for more details.
+# - You can find more details in my [CV here](assets/files/cv.pdf).
+
+
+@@hugo:{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/cv.pdf" "newtab" >}}resumé{{< /staticref >}}.@@
+
+* Activities
+:PROPERTIES:
+:EXPORT_FILE_NAME: activities
+:EXPORT_HUGO_SECTION:
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: author:nil
+:END:
+#+begin_src yaml :front_matter_extra t
+draft: false
+share: false
+commentable: false
+editable: false
+
+# Optional header image (relative to `static/media/` folder).
+header:
+  caption: ''
+  image: ''
+
+#+end_src
+
+** Mentorship
+
+I'm open to mentor early career (MSc/PhD) students to guide them in their own research topics. Please [[mailto:koustuv.sinha@mail.mcgill.ca?subject=Mentorship Request][contact me]] with your CV and brief description of the research problem (no need to write an elaborate plan) you are interested in, and I'll get back to you. You can check out my [[https://www.cs.mcgill.ca/~ksinha4/publications/][publications]] page to understand my area of expertise, to evaluate where I can guide you the best.
+
+** Supervising
+
+- [[https://shanyas10.github.io/][Shanya Sharma]], 2020-present
+- Manan Dey, 2020-present
+
+** Tutorials
+
+- /Towards Reproducible Machine Learning Research in Natural Language Processing/, ACL 2022 ([[https://acl-reproducibility-tutorial.github.io/][Website]], [[https://aclanthology.org/2022.acl-tutorials.2/][ACL Anthology]])
+- /Towards Reproducible Machine Learning Research in Information Retrieval/, SIGIR 2022 ([[https://sigir.org/sigir2022/program/tutorials/][Conference Website]])
+
+** Public Talks
+
+- Panelist, /Reproducibility and Rigor in ML/,
+  [[https://ml-eval.github.io/panels/][ML Evaluation Standards Workshop]] at ICLR 2022, April 2022
+- /Evaluating Logical Generalization with Graph Neural Networks/,
+  Weights and Biases Salon,
+  ([[https://www.youtube.com/watch?v=HllTbhy3WSA][Online]]) May 2020
+- /ML Reproducibility - From Theory to Practice/
+  - [[https://dl4sci-school.lbl.gov/][DL4Science Seminar]], Lawrence Berkeley National Laboratory, Berkeley, ([[https://www.youtube.com/watch?v=se7LNICECqI][Online]]) August 2020
+  - [[https://miccai-hackathon.com/][MICCAI Hackathon]], Peru, 2020 (Online), October 2020
+  - Bielefield University, Germany, hosted by [[https://ni.www.techfak.uni-bielefeld.de/people/mschilli][Malte Schilling]], October 2021 (Online)
+
+** Conference Organization
+
+- NeurIPS 2022, Journal Chair
+- [[https://neurips.cc/Conferences/2020/Committees][NeurIPS 2020]], Reproducibility Co-Chair
+- [[https://neurips.cc/Conferences/2019/Committees][NeurIPS 2019]], Reproducibility Co-Chair
+
+** Workshop Organization
+
+- [Upcoming] [[https://www.cs.mcgill.ca/~pparth2/nilli_workshop/][NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2022]]
+- [[https://www.cs.mcgill.ca/~pparth2/nilli_workshop/][NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2021]]
+- [[https://ml-retrospectives.github.io/neurips2019/][ML Retrospectives@ NeurIPS 2019]]
+
+** Reproducibility Challenge Organization
+
+- [[https://paperswithcode.com/rc2021][2021 ML Reproducibility Challenge]]
+- [[https://paperswithcode.com/rc2020][2020 ML Reproducibility Challenge]]
+- [[https://reproducibility-challenge.github.io/neurips2019/][2019 NeurIPS Reproducibility Challenge]]
+- [[https://github.com/reproducibility-challenge/iclr_2019/][ICLR 2019 Reproducibility Challenge]]
+- [[https://www.cs.mcgill.ca/~jpineau/ICLR2018-ReproducibilityChallenge.html][ICLR 2018 Reproducibility Challenge]]
+
+** Conference Volunteering
+
+- NeurIPS 2018, Montreal, Canada
+- MAIS 2018, Montreal, Canada
+- ICWSM 2017, Montreal, Canada
+
+** Teaching Assistantship
+
+- Winter 2022: [[https://www.mcgill.ca/study/2021-2022/courses/comp-424][COMP 424 Artificial Intelligence]]
+- Fall 2018: [[https://rllabmcgill.github.io/COMP-652/index.html][COMP 652 Machine Learning]]
+- Winter 2018: [[http://www.sarathchandar.in/teaching/2018/winter/comp551-001/][COMP 551 Applied Machine Learning]]
+- Fall 2017: [[http://cs.mcgill.ca/~jpineau/comp551/][COMP 551 Applied Machine Learning]]
+- Winter 2017: COMP 102B Computers and Computing
+- Fall 2016: [[http://www.derekruths.com/teaching/comp-189/][COMP 189 Computers and Society]]
+
+* Projects
+** CLUTRR
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: project/clutrr
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: author:nil
+:EXPORT_DATE: 2019-09-07T00:00:00Z
+:END:
+#+begin_src yaml :front_matter_extra t
+summary: "A Diagnostic Benchmark for Inductive Reasoning from Text"
+authors: []
+tags: []
+categories: []
+
+# Optional external URL for project (replaces project detail page).
+external_link: ""
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: ""
+  focal_point: ""
+  preview_only: false
+
+# Custom links (optional).
+#   Uncomment and edit lines below to show custom links.
+# links:
+# - name: Follow
+#   url: https://twitter.com
+#   icon_pack: fab
+#   icon: twitter
+
+url_code: "https://github.com/facebookresearch/clutrr"
+url_pdf: "https://arxiv.org/pdf/1908.06177.pdf"
+url_slides: ""
+url_video: ""
+
+# Slides (optional).
+#   Associate this project with Markdown slides.
+#   Simply enter your slide deck's filename without extension.
+#   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
+#   Otherwise, set `slides = ""`.
+slides: ""
+#+end_src
+
+A Diagnostic Benchmark for Inductive Reasoning from Text.
+
+/Koustuv Sinha, Shagun Sodhani, Jin Dong, Joelle Pineau, William L. Hamilton/
+
+*** Abstract
+
+The recent success of natural language understanding (NLU) systems has been troubled by results highlighting the failure of these models to generalize in a systematic and robust way. In this work, we introduce a diagnostic benchmark suite, named CLUTRR, to clarify some key issues related to the robustness and systematicity of NLU systems. Motivated by classic work on inductive logic programming, CLUTRR requires that an NLU system infer kinship relations between characters in short stories. Successful performance on this task requires both extracting relationships between entities, as well as inferring the logical rules governing these relationships. CLUTRR allows us to precisely measure a model’s ability for systematic generalization by evaluating on held-out combinations of logical rules, and it allows us to evaluate a model’s robustness by adding curated noise facts. Our empirical results highlight a substantial performance gap between state-of-the-art NLU models (e.g., BERT and MAC) and a graph neural network model that works directly with symbolic inputs—with the graph-based model exhibiting both stronger generalization and greater robustness.
+** Turtle Learning Environment (TLE)
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: project/tle
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: author:nil
+:EXPORT_DATE: 2018-08-01T00:00:00Z
+:END:
+#+begin_src yaml :front_matter_extra t
+summary: "Minimalist connect-the-dots environment for RL agents!"
+authors: []
+tags: []
+categories: []
+
+# Optional external URL for project (replaces project detail page).
+external_link: ""
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: ""
+  focal_point: ""
+  preview_only: false
+
+# Custom links (optional).
+#   Uncomment and edit lines below to show custom links.
+# links:
+# - name: Follow
+#   url: https://twitter.com
+#   icon_pack: fab
+#   icon: twitter
+
+url_code: "https://github.com/rllabmcgill/rl_final_project_turtle"
+url_pdf: ""
+url_slides: ""
+url_video: ""
+
+# Slides (optional).
+#   Associate this project with Markdown slides.
+#   Simply enter your slide deck's filename without extension.
+#   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
+#   Otherwise, set `slides = ""`.
+slides: ""
+#+end_src
+
+/Minimalist connect-the-dots environment for RL agents!/
+
+Turtle Learning Environment (TLE) is a minimalistic connect-the-dots environment made as part of COMP 767 RL Final project in McGill University (Winter 2018). The objective of the agent in a 28x28 grid world is to connect the dots provided to form the image, where the environment provides negative reward for each cell drawn and positive reward for each connected components.
+
+** RLLChatBot
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: project/rllchatbot
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: author:nil
+:EXPORT_DATE: 2017-05-01T00:00:00Z
+:END:
+#+begin_src yaml :front_matter_extra t
+summary: "ConvAI 2017 Submission"
+authors: []
+tags: []
+categories: []
+
+# Optional external URL for project (replaces project detail page).
+external_link: ""
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: ""
+  focal_point: ""
+  preview_only: false
+
+# Custom links (optional).
+#   Uncomment and edit lines below to show custom links.
+# links:
+# - name: Follow
+#   url: https://twitter.com
+#   icon_pack: fab
+#   icon: twitter
+
+url_code: ""
+url_pdf: "https://arxiv.org/pdf/1811.02714.pdf"
+url_slides: ""
+url_video: ""
+
+# Slides (optional).
+#   Associate this project with Markdown slides.
+#   Simply enter your slide deck's filename without extension.
+#   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
+#   Otherwise, set `slides = ""`.
+slides: ""
+#+end_src
+
+/Koustuv Sinha, [[http://cs.mcgill.ca/~nangel3][Nicolas Angelard-Gontier]], [[http://www.peterhenderson.co/][Peter Henderson]], [[http://cs.mcgill.ca/~pparth2/][Prasanna Parthasarathy]], Mike Noseworthy & [[http://cs.mcgill.ca/~jpineau/][Joelle Pineau]]/
+
+As a part of a broader [[http://convai.io/][ConvAI]] challenge, we, the
+Dialog Group of McGill University under the supervision of
+[[http://cs.mcgill.ca/~jpineau/][Dr Joelle Pineau]], have trained a
+chatbot which can converse fluently with human judges with respect to a given article. The articles are chosen from a broad corpus of
+[[https://rajpurkar.github.io/SQuAD-explorer/][SQUAD dataset]], where topically they vary from politics to sports to general news. The challenge is to have a fluent conversation with the bot, centering around the topic of the article. Current system uses an ensemble of Generative, Retrieval, and rule based models, and a decision agent learned over actual human-bot responses to select the best candidate response at a given time. We ranked third in the human evaluation round and ranked fourth in the final round held alongside NIPS 2017. Our proposal was also awarded
+[[https://research.fb.com/announcing-the-winners-of-the-facebook-parlai-research-awards/][ParlAI research grant]] from Facebook.
+** NetworkJS
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: project/networkjs
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: author:nil
+:EXPORT_DATE: 2016-11-01T00:00:00Z
+:END:
+#+begin_src yaml :front_matter_extra t
+summary: "NetworkX clone in JavaScript!"
+authors: []
+tags: []
+categories: []
+
+# Optional external URL for project (replaces project detail page).
+external_link: "https://koustuvsinha.github.io/networkjs/"
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: ""
+  focal_point: ""
+  preview_only: false
+
+# Custom links (optional).
+#   Uncomment and edit lines below to show custom links.
+# links:
+# - name: Follow
+#   url: https://twitter.com
+#   icon_pack: fab
+#   icon: twitter
+
+url_code: "https://github.com/koustuvsinha/networkjs"
+url_pdf: ""
+url_slides: ""
+url_video: ""
+
+# Slides (optional).
+#   Associate this project with Markdown slides.
+#   Simply enter your slide deck's filename without extension.
+#   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
+#   Otherwise, set `slides = ""`.
+slides: ""
+#+end_src
+
+Implemented modules:
+
+- Degree Centrality
+- Betweenness Centrality
+- Eigenvalue Centrality
+
+Built as a project for Comp 767, Fall 2016, McGill University
+** GraphLog
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: project/graphlog
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: author:nil
+:EXPORT_DATE: 2020-08-01T00:00:00Z
+:END:
+#+begin_src yaml :front_matter_extra t
+summary: "GraphLog is a multi-purpose, multi-relational graph dataset built using rules grounded in first-order logic."
+authors: []
+tags: []
+categories: []
+
+# Optional external URL for project (replaces project detail page).
+external_link: ""
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: ""
+  focal_point: ""
+  preview_only: false
+
+# Custom links (optional).
+#   Uncomment and edit lines below to show custom links.
+# links:
+# - name: Follow
+#   url: https://twitter.com
+#   icon_pack: fab
+#   icon: twitter
+
+url_code: "https://github.com/facebookresearch/GraphLog"
+url_pdf: "https://arxiv.org/pdf/2003.06560.pdf"
+url_slides: ""
+url_video: "https://www.youtube.com/watch?v=TKEjaA4m4jg"
+url_slack: "https://join.slack.com/t/logicalml/shared_invite/zt-e7osm7j7-vfIRgJAbEHxYN5D70njvyw"
+url_blog: ""
+url_docs: "https://graphlog.readthedocs.io/en/latest/"
+
+# Slides (optional).
+#   Associate this project with Markdown slides.
+#   Simply enter your slide deck's filename without extension.
+#   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
+#   Otherwise, set `slides = ""`.
+slides: ""
+#+end_src
+
+/Koustuv Sinha, Shagun Sodhani, Joelle Pineau, William L. Hamilton/
+
+*Abstract*
+
+Recent research has highlighted the role of relational inductive biases
+in building learning agents that can generalize and reason in a
+compositional manner. However, while relational learning algorithms such as graph neural networks (GNNs) show promise, we do not understand how effectively these approaches can adapt to new tasks. In this work, we
+study the task of /logical generalization/ using GNNs by designing a
+benchmark suite grounded in first-order logic. Our benchmark suite,
+*=GraphLog=*, requires that learning algorithms perform rule induction
+in different synthetic logics, represented as knowledge graphs.
+*=GraphLog=* consists of relation prediction tasks on 57 distinct
+logical domains. We use *=GraphLog=* to evaluate GNNs in three different
+setups: single-task supervised learning, multi-task pretraining, and
+continual learning. Unlike previous benchmarks, our approach allows us
+to precisely control the logical relationship between the different
+tasks. We find that the ability for models to generalize and adapt is
+strongly determined by the diversity of the logical rules they encounter
+during training, and our results highlight new challenges for the design
+of GNN models.
+
+*** Latest News
+:PROPERTIES:
+:CUSTOM_ID: news
+:END:
+- *May 24, 2020* : Code for experiments in the paper released in [[https://github.com/facebookresearch/GraphLog/tree/master/experiments][GraphLog repository]]
+- *April 25, 2020* : Added simple [[https://github.com/facebookresearch/GraphLog/tree/master/examples][supervised experiments]] using GraphLog in [[https://pytorch-lightning.readthedocs.io/en/latest/][Pytorch Lightning]]
+** UnNatural Language Inference
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: project/unli
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: author:nil
+:EXPORT_DATE: 2021-07-01T00:00:00Z
+:END:
+#+begin_src yaml :front_matter_extra t
+summary: "NLU models tend to 'understand' word scrambled sentences! (ACL 2021 Long Paper)"
+authors: []
+tags: []
+categories: []
+
+# Optional external URL for project (replaces project detail page).
+external_link: ""
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: ""
+  focal_point: ""
+  preview_only: false
+
+# Custom links (optional).
+#   Uncomment and edit lines below to show custom links.
+# links:
+# - name: Follow
+#   url: https://twitter.com
+#   icon_pack: fab
+#   icon: twitter
+
+url_code: "https://github.com/facebookresearch/unlu"
+url_pdf: "https://arxiv.org/abs/2101.00010"
+url_slides: "https://www.cs.mcgill.ca/~ksinha4/assets/files/unli_acl_talk.pdf"
+url_video: "https://youtu.be/oAM0Sr1WNW0"
+# Slides (optional).
+#   Associate this project with Markdown slides.
+#   Simply enter your slide deck's filename without extension.
+#   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
+#   Otherwise, set `slides = ""`.
+slides: ""
+#+end_src
+
+*Abstract*
+
+Recent investigations into the inner-workings of state-of-the-art
+large-scale pre-trained Transformer-based Natural Language Understanding
+(NLU) models indicate that they appear to understand human-like syntax,
+at least to some extent. We provide novel evidence that complicates this
+claim: we find that state-of-the-art Natural Language Inference (NLI)
+models assign the same labels to permuted examples as they do to the
+original, i.e. they are invariant to random word-order permutations.
+This behavior notably differs from that of humans; we struggle to
+understand the meaning of ungrammatical sentences. To measure the
+severity of this issue, we propose a suite of metrics and investigate
+which properties of particular permutations lead models to be word order
+invariant. For example, in MNLI dataset we find almost all (98.7%)
+examples contain at least one permutation which elicits the gold label.
+Models are even able to assign gold labels to permutations that they
+originally failed to predict correctly. We provide a comprehensive
+empirical evaluation of this phenomenon, and further show that this
+issue exists in pre-Transformer RNN / ConvNet based encoders, as well as
+across multiple languages (English and Chinese). Our code and data are
+available at https://github.com/facebookresearch/unlu.
+
+[[file:images/anim_30.gif]]
+
+*** Latest News
+:PROPERTIES:
+:CUSTOM_ID: news
+:END:
+- *July 3, 2021* : We are honored to be awarded [[https://2021.aclweb.org/program/accept/][Outstanding Paper Award]] in ACL-IJCNLP 2021!
+* News
+:PROPERTIES:
+:EXPORT_FILE_NAME: newslist
+:EXPORT_HUGO_SECTION:
+:EXPORT_OPTIONS: author:nil title:nil
+:CUSTOM_ID: site_news
+:END:
+- [01/10/21] Happy to update that our paper [[https://arxiv.org/abs/2104.06644]["Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little"]] is accepted as a long paper at EMNLP 2021!
+- [01/09/21] Happy to announce the new iteration of [[https://paperswithcode.com/rc2021][ML Reproducibility Challenge 2021]], which has now enlarged to cover 9 top ML conferences! Submit your reports through Feb 2022!
+- [03/07/21] On a personal news, got married to my sweetheart [[https://atrayeebasu.github.io/][Atrayee]] this July!
+- [02/07/21] Thrilled to share that our paper [[https://arxiv.org/abs/2101.00010][UnNatural Language Inference]] has received *Outstanding Paper Award* at ACL 2021! Deeply honored!
+- [15/04/21] Announcing the pre-print of our paper [[https://arxiv.org/abs/2104.06644]["Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little"]]. We find RoBERTa trained with sentence word order shuffled data performs remarkably close to natural word order pre-trained models on several downstream and probing tasks!
+- [01/06/21] Excited to announce that our paper [[https://arxiv.org/abs/2101.00010]["UnNatural Language Inference"]], has been accepted to ACL 2021 (Long paper, Oral), where we stumble upon the weird language understanding mechanisms employed by NLU models!
+- [02/10/20] Happy to announce our paper [[https://arxiv.org/abs/2009.14786]["Measuring Systematic Generalization in Neural Proof Generation with Transformers"]] is accepted at NeurIPS 2020!
+- [05/09/20] Excited to announce the [[https://paperswithcode.com/rc2020][2020 edition of the ML Reproducibility Challenge]]! We now cover 7 major ML conferences, do check it out!
+- [05/08/20] We released a new blog post on [[https://www.cs.mcgill.ca/~ksinha4/practices_for_reproducibility/][ML Reproducibility Tools and Best Practices]]. Check it out!
+- [30/04/20] Public release of our new multi-task graph dataset, *=GraphLog=*. Check out the [[https://www.cs.mcgill.ca/~ksinha4/about-graphlog/][blog post]] for more information.
+- [08/04/20] Report on [[https://arxiv.org/abs/2003.12206][NeurIPS 2019 Reproducibility Program]] published on arxiv. We have also published our thoughts on [[https://medium.com/@NeurIPSConf/designing-the-reproducibility-program-for-neurips-2020-7fcccaa5c6ad][Designing the Reproducibility Program]] for NeurIPS 2020 on Medium.
+- [15/04/20] Excited to announce two papers accepted to ACL 2020! [[https://arxiv.org/abs/2005.04315][Probing Linguistic Systematicity]] and [[https://arxiv.org/abs/2005.00583][Learning an unreferenced metric for online Dialog evaluation]].
+- [01/12/19] Co-organizing NeurIPS 2019 [[https://ml-retrospectives.github.io/neurips2019/][ML Retrospectives Workshop]]
+- [01/09/19] Co-organizing [[https://reproducibility-challenge.github.io/neurips2019/][NeurIPS 2019 Reproducibility Challenge]] and honored to be the NeurIPS 2019 Reproducibility Co-Chair.
+- [28/01/19] Excited to join Facebook AI Research (FAIR) as PhD Intern!
+- [14/08/19] Our paper /[[https://www.cs.mcgill.ca/~ksinha4/clutrr/][CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text]]/ accepted at EMNLP 2019!
+- [28/09/18] Co-organizing [[https://reproducibility-challenge.github.io/iclr_2019/][ICLR Reproducibility Challenge]], 2019
+- [04/09/18] Starting PhD at [[https://www.cs.mcgill.ca/][McGill University]], advised by Dr [[https://www.cs.mcgill.ca/~jpineau/][Joelle Pineau]] and Dr [[https://www.cs.mcgill.ca/~wlh/][William L. Hamilton]], from Fall 2018.
+- [31/08/18] Our paper on /A Hierarchical Neural Attention-based Text Classifier/ accepted at EMNLP 2018!
+- [01/06/18] Intern-ing at [[https://www.sait.samsung.co.kr/saithome/main/main.do][Samsung Advanced Institute of Technology]] for the Summer!
+- [01/02/18] [[https://breakend.github.io/EthicsInDialogue/][Our paper]] on /Ethics in Data Driven Dialog Systems/ accepted at AAAI/ACM conference on Ethics & Safety.
+
+* Blog [4/4]
+** DONE Introducing CLUTRR
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: post/introducing-clutrr/
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: author:nil
+:EXPORT_DATE: 2019-09-07T00:00:00Z
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :commentable true :url introducing-clutrr/
+:END:
+
+@@html:<b>C</b>ompositional <b>L</b>anguage <b>U</b>nderstanding with <b>T</b>ext based <b>R</b>elational <b>R</b>easoning@@
+
+*** Motivation
+:PROPERTIES:
+:CUSTOM_ID: motivation
+:END:
+
+Question Answering (QA) has recently gained popularity as the major
+domain of testing reasoning in text. The literature thus contains a
+[[https://nlpprogress.com/english/question_answering.html][deluge of Question Answering (QA) datasets]] to choose from. These datasets test
+the system's ability to extract factual answers from the text. However,
+there are growing concerns regarding the ability of Natural Language
+Understanding (NLU) models to *generalize* - both in a /systematic/ and
+/robust/ way. Adding to that, the recent dominance of large pre-trained
+language models (such as BERT, [[https://arxiv.org/abs/1810.04805][Devlin et al. 2018]]) on many NLU
+benchmarks including QA suggests that the primary difficulty in these
+datasets are about incorporating the statistics of the language, or the
+syntax of the language, rather than pure reasoning.
+
+We want to develop systems which perform reasoning /inductively/,
+i.e. not only by pure extraction of text facts but by performing a
+higher-order reasoning and drawing conclusions based on /evidence/.
+Ideally, we also want the systems to /generalize/ on unseen
+distributions, as well as be /robust/ to adversarial attacks. To
+facilitate that research, we present our diagnostic suite "=CLUTRR=".
+
+*** Overview
+:PROPERTIES:
+:CUSTOM_ID: overview
+:END:
+Our benchmark suite =CLUTRR= contains a large set of semi-synthetic
+stories involving hypothetical families. Given a story, the goal is to
+infer the relationship between two family members, whose relationship is
+not explicitly mentioned.
+
+[[file:images/clutrr_text.png]]
+
+To solve this task, an agent must extract the /logical rules/ governing
+the composition of the relationships (e.g. the transitivity of the
+sibling relations). The benchmark allows us to test the learning agent's
+ability for /systematic generalization/ by testing on stories that
+contain unseen combinations of logical rules. It also allows us to
+precisely test for the various forms of /model robustness/ by adding
+different kinds of superfluous /noise facts/ to the stories.
+
+*** Dataset Construction
+:PROPERTIES:
+:CUSTOM_ID: dataset-construction
+:END:
+To derive a dataset which provides an effective way to test
+generalization and robustness, we looked into classical Logic.
+[[https://www.doc.ic.ac.uk/~shm/ilp.html][Inductive Logic Programming]]
+(ILP) is a vast field of work which tries to solve the exact problem of
+inductively inferring rules from a given set of data, and one of the
+classical examples in the field is deducing kinship relations. For
+example, given the facts:
+
+- /"Alice is Bob's mother"/
+- /"Jim is Alice's father"/
+
+one can infer with reasonable certainty that:
+
+- /"Jim is Bob's grandfather"/
+
+While this may appear trivial to us, it is a challenging task to design
+models that can learn from the data to /induce/ the logical rules
+necessary to make such inferences. For the above example, the system
+needs to learn the rule:
+
+\[
+[\texttt{grandfatherOf},X,Y] \vdash [[\texttt{fatherOf},X,Z], [\texttt{fatherOf}, Z,Y]]
+\]
+
+In ILP, a subset of the above rules was provided as /background
+knowledge/ to the system. The system then used to generate higher-order
+of rules by recombining existing rules and validating it with the given
+data.
+
+Inspired by this classic task, we set upon building a QA task where
+/each story is grounded with a logical rule/. The core idea being that
+each story would describe a set of natural language relations, and the
+target is to infer the relationship between two entities whose
+relationship *is not explicitly stated* in the story.
+
+To generate such a story, we first design a knowledge base (KB) of valid
+relation compositions for the kinship world. In practice, we used a set
+of [[https://github.com/facebookresearch/clutrr/blob/master/clutrr/store/rules_store.yaml][15 simple rules]] by carefully avoiding possible ambiguities (such as
+relations derived from in-laws). Using these set of rules, we generate
+the underlying /kinship graph/, i.e. a graph containing the kinship
+relations about a toy family.
+
+[[file:images/dataset_const_new.png]]
+
+From this kinship graph, we sample an /edge/ which becomes our target
+relation to predict. Recall, since we used /logical rules/ to derive
+this graph, a path or walk in the graph from a source to sink
+constitutes a valid logical rule or /clause/. We simply sample such a
+path of length $k$, where $k$ is the tunable parameter for the
+data generation.
+
+*** Adding Language
+:PROPERTIES:
+:CUSTOM_ID: adding-language
+:END:
+Given this sampled path $G_p$, we aim to convert this into
+/semi-synthetic/ text. The naive way would be to just replace each edge
+in the path by a placeholder text explaining the relationship between
+them. Consider the example provided in the above figure. The path
+\[ B \rightarrow A \rightarrow D \rightarrow G \] can be replaced by the
+following text:
+
+- \[ B \rightarrow A \] : B is the wife of A
+- \[ A \rightarrow D \] : D is the daughter of A
+- \[ D \rightarrow G \] : D is the mother of G
+
+However, as you can see it already, this ends up to a very artificial
+dataset having less linguistic variation. Thus, to reduce the artificial
+flavor, we asked [[https://parl.ai/docs/tutorial_mturk.html][Amazon
+Mechanical Turkers]] to provide us paraphrases for entire sampled paths.
+The above example then converts to:
+
+#+begin_quote
+A went to shopping with her wife B at the local grocery store. His
+daughter, D, is visiting them for thanksgiving with her daughter G.
+
+#+end_quote
+
+This adds extra levels of complexity in the task : co-reference
+resolution, dependency parsing and named entity recognition.
+
+In practice, it became difficult to collect paraphrases of /all/
+possible paths of unbounded lengths. Turkers need active attention to
+paraphrase each path, and futhermore increasing path length increases
+the number of combinations of relations, leading to larger and larger
+number of unique paths. Thus, we collected paraphrases for all possible
+combinations till $k=3$, and we *re-use* paraphrases to stitch
+together a story. We collect 6,016 unique paraphrases with an average of
+19 paraphrases for every possible logical clause of length
+$k = 1,2,3$.
+
+[[file:images/composition.png]]
+
+From the above example, we see that the stochasticity of dataset
+generation provides multiple ways of stitching paraphrases to generate
+stories. While the topicality of different paraphrases might impact
+coherence of the story, the stitched story remains logically grounded
+with respect to kinship relations, and maintains the aspects of
+co-reference resolution.
+
+*** Question & Task
+:PROPERTIES:
+:CUSTOM_ID: question-task
+:END:
+Thus, given a logically grounded story $S$ , the question simply boils down to the /target edge/, i.e. the source and sink. We refrained
+from using a "natural language" question following the insightful
+discoveries of [[https://arxiv.org/abs/1808.04926][Kaushik & Lipton,
+(EMNLP 2018)]], thus our question is a tuple of entities, where the
+order defines the exact kinship relation. Finally, the task is to
+classify the correct relation among 22 kinship relations.
+
+*** Systematic Generalization
+:PROPERTIES:
+:CUSTOM_ID: systematic-generalization
+:END:
+Systematic Generalization is the ability of a model to solve tasks on a
+test distribution which is different than the training distribution,
+while the test distribution has been derived from the same /production
+rules/ as that of the training.
+[[https://en.wikipedia.org/wiki/Syntactic_Structures][Chomsky (1957)]],
+[[https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1755-2567.1970.tb00434.x][Montague
+(1970)]], [[https://arxiv.org/abs/1711.00350][Lake & Baroni (2018)]]
+define the term as:
+
+#+begin_quote
+The algebraic capacity to understand and produce a potentially infinite
+number of novel combinations from known components.
+
+#+end_quote
+
+This topic is [[https://arxiv.org/abs/1811.12889][so involved]] it
+requires a separate blog post on its own. In simple terms, we want our
+NLU models to generalize on out-of-domain data distributions in a
+particular task. However, restricting the scope of out-of-domain is
+critical : we cannot expect a model trained on sentence entailments in
+English to generalize on Bengali for instance.
+
+In our dataset, we provide a simple way to test out-of-domain (OOD)
+generalization : by evaluating on stories with different logical
+compositions of the relations. To understand the composition of a single
+relation, the model needs to learn all binary compositions which lead to
+the particular relation. (e.g. /father + father = grandfather/, and
+/sibling + grandfather = grandfather/). Once it does, the model should
+be able to generalize on unseen compositions by *re-using the learnt
+composition functions*. The test distribution is still derived from the
+same /production rules/, as in the same knowledge base (KB).
+
+OOD Generalization can be also be achieved in the level of the
+underlying language in our dataset. Recall, we have used a set of
+placeholders collected from AMT to construct the stories : we can thus
+have a subset of the collected paraphrases being /held out/ for testing.
+This enables /linguistic generalization/, which explicitly restricts
+models to /memorize/ on syntactical artifacts of the dataset.
+
+[[file:images/sys_gen_23.png]]
+[[file:images/sys_gen_234.png]]
+
+We perform experiments with a combination of logical and linguistic
+generalization with two types of baselines : NLU models such as BiLSTM,
+Relation Networks ([[https://arxiv.org/abs/1706.01427][Santoro et al,
+2017]]), MAC ([[https://arxiv.org/abs/1803.03067][Hudson et al, 2018]]),
+and pretrained language model such as BERT
+([[https://arxiv.org/abs/1810.04805][Devlin et al. 2018]]); and Graph
+Attention Networks (GAT) ([[https://arxiv.org/abs/1710.10903][Veličković
+et al, 2018]]) working on the symbolic graphs underlying the stories. We
+observe that Systematic Generalization is a hard problem with
+performance decrease across all models as we increase the length of the
+logical clause $k$. This highlights the challenge of "zero-shot"
+systematic generalization ([[https://arxiv.org/abs/1711.00350][Lake &
+Baroni, 2018]]; [[https://arxiv.org/abs/1811.07017][Sodhani et
+al. 2018]]). The performance of GAT is significantly better than all NLU
+baselines, indicating that most NLU systems focus on the syntax rather
+than abstract reasoning.
+
+*** Robust Reasoning
+:PROPERTIES:
+:CUSTOM_ID: robust-reasoning
+:END:
+The modular setup of =CLUTRR= allows us to diagnose models for
+*robustness*, another critical form of generalization. Since all
+underlying stories have a logically valid path $G_p$, we can add
+paths which are not relevant to resolution of the task. Concretely, we
+can add three types of /noise/:
+
+- /Supporting facts/: A path which originates and ends within $G_p$.
+  These are /extra facts/ which are not needed to answer the query, but
+  can be used, in principle, to construct alternative reasoning paths.
+- /Irrelevant facts/: A dangling path which originates from $G_p$
+  but has a different sink. This is essentially a distractor which the
+  model has to carefully stray away while reasoning for the given query.
+- /Disconnected facts/: A path which neither originates nor ends in
+  $G_p$. This constitute an unrelated noise in the data.
+
+[[file:images/clutrr_noise.png]]
+
+Thus, we can have multiple train/test scenarios to evaluate robustness
+in highly granular level by combination of the above facts with the
+clean setup. We perform experiments with the same set of baselines while
+fixing the length $k$ of the clauses to $(2,3)$. We observe that
+overall GAT outperforms NLU models significantly on a range of
+train/test scenarios. This showcases the benefit of structure and
+inductive bias for performing abstract reasoning.
+
+We observe a couple of interesting trends as well:
+
+- NLU models perform better when testing on supporting and irrelevant
+  facts while being trained on a noise-less setup. This suggests NLU
+  models actually benefit from /more content/ which may provide
+  linguistic cues, irrelevant of the reasoning pathway.
+- GAT model performs poorly on the above setup which shows that it is
+  sensitive to changes involving cycles - it cannot understand the need
+  of cycles of they are not trained with one. However, GAT performs
+  significantly better when trained with cycles.
+
+*** Key Takeaways
+:PROPERTIES:
+:CUSTOM_ID: key-takeaways
+:END:
+- We need structure / inductive biases in our models to perform better
+  on Generalization and Robust Reasoning
+- NLU models must try to represent the inductive bias or structure
+  internally
+- Systematic Generalization is hard, and we need more research in
+  representing compositional and modular networks.
+- Logic provides a provable way to devise datasets for tasks involving
+  abstract reasoning
+
+*** Closing Remarks
+:PROPERTIES:
+:CUSTOM_ID: closing-remarks
+:END:
+=CLUTRR= provides a fine-grained modular way to test the reasoning
+capabilities of NLU systems - by asking the fundamental questions of
+Systematic Generalization and Robustness. We found that existing NLU
+systems perform relatively poorly on these questions compared to a
+graph-based model which has symbolic inputs. This highlights the gap
+that remains between machine reasoning models that work on unstructured
+text and structured inputs.
+
+**** Paper
+:PROPERTIES:
+:CUSTOM_ID: paper
+:END:
+[[https://arxiv.org/pdf/1908.06177.pdf][Please read our paper]] for more
+information regarding dataset construction and experiments.
+
+**** Code
+:PROPERTIES:
+:CUSTOM_ID: code
+:END:
+Our code is available at [[https://github.com/facebookresearch/clutrr]],
+where we will be adding possible extensions and applications of the
+dataset.
+
+**** Acknowledgements
+:PROPERTIES:
+:CUSTOM_ID: acknowledgements
+:END:
+I have a long list of people to thank for supporting this project. Will
+Hamilton, Joelle Pineau (my superb advisors); Shagun Sodhani, Jin Dong
+(my awesome collaborators); Jack Urbanek, Stephen Roller (for numerous
+help with [[https://parl.ai/][ParlAI]]); Adina Williams, Dzmitry
+Bahdanau, Prasanna Parthasarathy, Harsh Satija (for discussions and
+feedback); Abhishek Das, Carlos Eduardo Lassance, Gunshi Gupta, Milan
+Aggarwal, Rim Assouel, Weiping Song, and Yue Dong (for feedback on the
+manuscript); many anonymous Amazon Mechanical Turk participants for
+providing paraphrases; Sumana Basu, Etienne Denis, Jonathan Lebensold,
+and Komal Teru (for providing reviews on the dataset); Sanghyun Yoo,
+Jehun Jeon and Dr Young Sang Choi of Samsung Advanced Institute of
+Technology (SAIT) (for supporting the
+[[https://arxiv.org/abs/1811.02959][workshop version]] of the paper);
+Facebook AI Research (FAIR) (for providing extensive compute resources).
+This research was supported by the Canada CIFAR Chairs in AI program.
+
+**** Citation
+:PROPERTIES:
+:CUSTOM_ID: citation
+:END:
+If you want to use our dataset in your research, please consider citing
+our paper:
+
+#+begin_src bibtex
+@article{sinha2019clutrr,
+  Author = {Koustuv Sinha and Shagun Sodhani and Jin Dong and Joelle Pineau and William L. Hamilton},
+  Title = {CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text},
+  Year = {2019},
+  journal = {Empirical Methods of Natural Language Processing (EMNLP)},
+  arxiv = {1908.06177}
+}
+#+end_src
+
+If you like the idea and want to collaborate on exciting applications,
+feel free to drop me a mail at
+[[mailto:koustuv.sinha@mail.mcgill.ca][koustuv.sinha@mail.mcgill.ca]]
+** DONE GraphLog
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: post/about-graphlog/
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_OPTIONS: author:nil
+:EXPORT_DATE: 2020-04-25T00:00:00Z
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :commentable true :url about-graphlog/
+:END:
+
+*** *=GraphLog=* - Suite of 57 graph worlds built using first-order
+logic
+
+/Koustuv Sinha, Shagun Sodhani, Joelle Pineau and William L. Hamilton/
+
+[[https://github.com/facebookresearch/graphlog][Code]] |
+[[https://graphlog.readthedocs.io/en/latest/][Docs]] |
+[[https://arxiv.org/abs/2003.06560][Paper]] |
+[[https://www.cs.mcgill.ca/~ksinha4/graphlog/][Home Page]] |
+[[https://www.youtube.com/watch?v=TKEjaA4m4jg][Teaser Talk]]
+
+*** Motivation
+:PROPERTIES:
+:CUSTOM_ID: motivation
+:END:
+A question that we are highly interested in finding an answer to is /how
+generalizable our learning algorithms are/? Human beings
+[[https://psycnet.apa.org/doiLanding?doi=10.1037%2F0097-7403.24.4.405][are
+incredibly good]] at generalization - even at old age, we can /learn/
+new concepts and /apply/ them in practice. Critical steps towards
+building algorithms that [[https://arxiv.org/abs/1604.00289][think like
+human beings]] include /Multitask Learning/ - the ability to learn
+multiple concepts at once; and /Continual Learning/ - the ability to
+accumulate new knowledge without forgetting the previous knowledge.
+
+Defining a task that aims at either Multitask Learning or Continual
+learning is challenging - the task should accurately quantify the
+/"distribution shift"/ in the data. Having precise control of this shift
+could allow us to understand the drawbacks of our learning methods, and
+build systems which can generalize over multiple tasks but still
+remember the old ones.
+
+Data distributions can be quantified by generating them based on a
+/grammar/. First-order logic, even with its basic use-case and
+restrictions, can be an excellent tool for defining such generalizable
+distributions - to test how systematic a model is. In our prior work, we
+leveraged first-order logic to build the
+[[https://www.cs.mcgill.ca/~ksinha4/clutrr/][CLUTRR]] dataset, which
+provides a kinship-relation game in natural language QA setting. A nice
+property of =CLUTRR= is that it is designed to be a dynamic dataset -
+one can always roll out longer kinship relation trees to stress-test the
+generalizability of their proposed approach. Since it is designed to be
+diagnostic, it opens up the possibility of investigating the semantic
+understanding capability of Natural Language Understanding models under
+[[https://www.cs.mcgill.ca/~ksinha4/introducing-clutrr/][microscopic
+precision]].
+
+While CLUTRR primarily investigates the aspect of /length
+generalization/, the core semantic rules driving the kinship relations
+are static. In a real-world scenario, a model may have to /adapt/ to the
+change in underlying dynamics of the domain (for example, recommender
+systems trained on one domain being deployed / finetuned on a new
+domain). In terms of grammar, two domains sharing the same grammar
+constitute similar domains. We need a task where we can generalize over
+different grammars and control the amount of distribution shift.
+
+*** Introducing GraphLog
+:PROPERTIES:
+:CUSTOM_ID: introducing-graphlog
+:END:
+In this work, we introduce a new paradigm of testing domain
+generalization in graph-structure data, named *=GraphLog=*. Instead of
+being a single dataset, *=GraphLog=* v1.0 contains 57 datasets, which
+have their own set of grammar or generation rules.
+
+*The Task* : We are primarily interested in /relation prediction/, where
+given a graph $g_i$, a source node $v_i$, and sink node $v_j$, the
+task is to predict the /type/ of the edge $r$ between $(v_i, v_j)$.
+In Graph Neural Network (GNN) world, this task is typically performed by
+[[https://arxiv.org/abs/1703.06103][RGCN]] model on popular relation
+prediction datasets.
+
+[[file:images/graphlog.png]]
+
+Graphs in *=GraphLog=* are generated using /rules/ in first-order logic.
+These rules are 2-ary Horn clauses in the form of
+$[r_i, r_j] \rightarrow r_j$, where $r_i$ are the /types/ of
+relation. Each /world/ is a dataset on its own, which consists of 5000
+graphs procedurally generated by their own set of rules, which
+themselves are generated stochastically. Between multiple worlds, there
+can be overlap between the rules, which helps us in explicitly
+quantifying the shift in the data distribution. This enables us to
+perform Multi-task learning and Continual learning along with supervised
+learning experiments in graph-structured data, which is one of the first
+datasets which propose to do so.
+
+| Dataset   | Inspectable Rules  | Diversity          | Compositional Generalization | Modality | S                  | Me                 | Mu                 | CL                 |
+|-----------+--------------------+--------------------+------------------------------+----------+--------------------+--------------------+--------------------+--------------------|
+| CLEVR     | :white_check_mark: | :x:                | :x:                          | Vision   | :white_check_mark: | :x:                | :x:                | :x:                |
+| Cogent    | :white_check_mark: | :x:                | :white_check_mark:           | Vision   | :white_check_mark: | :x:                | :x:                | :x:                |
+| CLUTRR    | :white_check_mark: | :x:                | :white_check_mark:           | Text     | :white_check_mark: | :x:                | :x:                | :x:                |
+| SCAN      | :white_check_mark: | :x:                | :white_check_mark:           | Text     | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
+| SQoOP     | :white_check_mark: | :x:                | :white_check_mark:           | Vision   | :white_check_mark: | :x:                | :x:                | :x:                |
+| TextWorld | :x:                | :white_check_mark: | :white_check_mark:           | Text     | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| GraphLog  | :white_check_mark: | :white_check_mark: | :white_check_mark:           | Graph    | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+
+*** Supervised Learning
+:PROPERTIES:
+:CUSTOM_ID: supervised-learning
+:END:
+*=GraphLog=* can be used to perform supervised relation prediction tasks
+in any of its multiple worlds. Due to the stochastic nature of rule
+generation, certain worlds are more /difficult/ than others. We define
+the notion of difficulty empirically based on model performance, but we
+observe a correlation with the number of /descriptors/ or unique /walks/
+in the graphs associated with a world.
+
+[[file:images/graphlog_supervised.png]]
+
+[[file:images/graphlog_multitask.png]]
+
+*** Multi-task Learning
+:PROPERTIES:
+:CUSTOM_ID: multi-task-learning
+:END:
+*=GraphLog=* makes it easy to extend the supervised learning framework
+for multi-task learning by transferring model parameters on the next
+task. We find the model's capacity saturates at 20 tasks, however we
+hypothesize larger capacity with more data points will increase the
+number of tasks. We use a two-step model that adapts for relations in
+different worlds, the details of which can be
+[[https://arxiv.org/abs/2003.06560][found in our paper]].
+
+*** Continual Learning
+:PROPERTIES:
+:CUSTOM_ID: continual-learning
+:END:
+*=GraphLog=* enables us to evaluate the generalization capability of
+graph neural networks in the sequential continual learning setup where
+the model is trained on a sequence of worlds. Before training on a new
+world, the model is evaluated on all the worlds that the model has
+trained on so far. We observe that as the model is trained on different
+worlds, it performance on the previous worlds degrades rapidly. This
+observation highlights that the current reasoning models are not
+suitable for continual learning.
+
+[[file:images/graphlog_continual_all.png]]
+
+[[file:images/graphlog_continual_ordered.png]]
+
+Experiments on sequential continual learning setting. The first image
+depicts random ordering, and the second image depicts ordering based on
+world difficulty.
+
+*** Using GraphLog
+:PROPERTIES:
+:CUSTOM_ID: using-graphlog
+:END:
+We hope that the above examples got you excited about the possibilities
+of *=GraphLog=*! We have made it easier for you to play with
+*=GraphLog=* v1.0 by releasing an
+[[https://pypi.org/project/graphlog/][API on PyPi]], =graphlog=, which
+provides custom dataloaders built on
+[[https://github.com/rusty1s/pytorch_geometric][Pytorch Geometric]].
+
+We have released the code for the API at
+[[https://github.com/facebookresearch/graphlog]], which includes
+[[https://github.com/facebookresearch/GraphLog/blob/master/examples/Basic%20Usage.ipynb][basic]]
+and
+[[https://github.com/facebookresearch/GraphLog/blob/master/examples/Advanced%20Usage.ipynb][advanced]]
+use cases, as well as simple examples built on
+[[https://github.com/PyTorchLightning/pytorch-lightning][Pytorch
+Lightning]]. We will be releasing the code to generate GraphLog soon as
+well, so you can build your own version of GraphLog and contribute to
+the repository.
+
+*** I want to read more
+:PROPERTIES:
+:CUSTOM_ID: i-want-to-read-more
+:END:
+This blog post provides a summary of the results and basic use cases of
+*=GraphLog=*. Please read more in our paper on arxiv titled
+/[[https://arxiv.org/abs/2003.06560][Evaluating Logical Generalization
+in Graph Neural Networks]]/. Our submission is currently under review at
+ICML 2020. The code for reproducing the main experiments are now
+available in the
+[[https://github.com/facebookresearch/GraphLog/tree/master/experiments][GraphLog
+repository]].
+
+If you have any questions regarding the usage of *=GraphLog=*, feel free
+to [[https://github.com/facebookresearch/graphlog/issues][open an
+issue]], or join our
+[[https://join.slack.com/t/logicalml/shared_invite/zt-e7osm7j7-vfIRgJAbEHxYN5D70njvyw][Slack
+Channel]], or send me a mail at
+[[mailto:koustuv.sinha@mail.mcgill.ca][koustuv.sinha@mail.mcgill.ca]].
+If you would like to contribute, do
+[[https://github.com/facebookresearch/GraphLog/pulls][open a Pull
+Request (PR)]]!.
+
+*** Acknowledgements
+:PROPERTIES:
+:CUSTOM_ID: acknowledgements
+:END:
+I would like to thank my collaborator
+[[https://shagunsodhani.com/][Shagun Sodhani]] for not only helping in
+writing this blog post, but for being a constant source of motivation
+throughout our various adventures in research. I would also like to
+thank my amazing supervisors, [[https://www.cs.mcgill.ca/~wlh/][William L. Hamilton]] and [[https://www.cs.mcgill.ca/~jpineau/][Joelle Pineau]],
+for their constant motivation and support. I am grateful to
+[[https://ai.facebook.com/][Facebook AI Research]] (FAIR) for providing
+extensive compute resources to make this project possible. I thank my
+wonderful colleagues at [[https://mila.quebec/][Mila]] and FAIR for
+various constructive feedback on the project. This research was
+supported by the Canada CIFAR Chairs in AI program.
+** DONE ML Reproducibility Tools and Best Practices
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: post/practices_for_reproducibility/
+:EXPORT_FILE_NAME: index
+:EXPORT_OPTIONS: author:nil
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_DATE: 2020-08-05T00:00:00Z
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :commentable true :url practices_for_reproducibility/
+:END:
+#+begin_src yaml :front_matter_extra t
+authors: ["Koustuv Sinha", "Jessica Zosa Forde"]
+#+end_src
+
+A recurrent challenge in machine learning research is to ensure that the
+presented and published results are reliable, robust, and reproducible
+[[[http://proceedings.mlr.press/v97/bouthillier19a.html][4]],[[https://arxiv.org/abs/1711.10337][5]],[[https://arxiv.org/abs/1709.06560][6]],[[https://arxiv.org/abs/1909.06674][7]]].
+
+Reproducibility, obtaining similar results as presented in a paper using
+the same code and data, is necessary to verify the reliability of
+research findings. Reproducibility is also an important step to promote
+open and accessible research, thereby allowing the scientific community
+to quickly integrate new findings and convert ideas to practice.
+Reproducibility also promotes the use of robust experimental workflows,
+which potentially reduce unintentional errors.
+
+In this blog post, we will share commonly used tools and explain 12
+basic practices that you can use in your research to ensure reproducible
+science.
+
+*** Tools
+:PROPERTIES:
+:CUSTOM_ID: tools
+:END:
+*Updated* : 21st December, 2020
+
+|    | Practice                | Tools                                                                                                                                                                                                                                                                      |
+|----+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1  | Config Management       | [[https://hydra.cc][Hydra]], [[https://github.com/omry/omegaconf][OmegaConf]], [[https://github.com/PyTorchLightning/pytorch-lightning][Pytorch Lightning]]                                                                                                                |
+| 2  | Checkpoint Management   | [[https://github.com/PyTorchLightning/pytorch-lightning][Pytorch Lightning]], [[https://github.com/williamFalcon/test-tube][TestTube]]                                                                                                                                     |
+| 3  | Logging                 | [[https://www.tensorflow.org/tensorboard][Tensorboard]], [[https://www.comet.ml/site/][Comet.ML]], [[https://www.wandb.com/][Weights & Biases]], [[https://mlflow.org/][MLFlow]], [[https://github.com/facebookresearch/visdom][Visdom]], [[https://neptune.ai/][Neptune]] |
+| 4  | Seed                    | /Check best practices below/                                                                                                                                                                                                                                               |
+| -  | Experiment Management   | [[https://github.com/PyTorchLightning/pytorch-lightning][Pytorch Lightning]], [[https://mlflow.org][MLFlow]], [[https://determined.ai/][Determined.AI]]                                                                                                                    |
+| 5  | Versioning              | [[https://github.com][Github]], [[https://gitlab.com][Gitlab]], [[https://replicate.ai/][Replicate.AI]]                                                                                                                                                                    |
+| 6  | Data Management         | [[https://dvc.org][DVC]], [[https://cml.dev][CML]], [[https://replicate.ai/][Replicate.AI]]                                                                                                                                                                                |
+| 7  | Data analysis           | [[https://jupyter.org/][Jupyter Notebook]], [[https://papermill.readthedocs.io/en/latest/][papermill]], [[https://jupyterlab.readthedocs.io/en/stable/][JupyterLab]], [[https://colab.research.google.com/][Google Colab]]                                                 |
+| 8  | Reporting               | [[https://matplotlib.org/][Matplotlib]], [[https://seaborn.pydata.org/][Seaborn]] , [[https://pandas.pydata.org/][Pandas]], [[https://www.overleaf.com/][Overleaf]]                                                                                                        |
+| 9  | Dependency Management   | [[https://pypi.org/project/pip/][pip]], [[https://docs.conda.io/en/latest/][conda]], [[https://python-poetry.org/][Poetry]], [[https://www.docker.com/][Docker]], [[https://sylabs.io/docs/][Singularity]], [[https://github.com/jupyter/repo2docker][repo2docker]]        |
+| 10 | Open Source Release     | [[https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git][Squash Commits]], [[https://mybinder.org/][Binder]]                                                                                                                             |
+| 11 | Effective Communication | [[https://medium.com/paperswithcode/ml-code-completeness-checklist-e9127b168501][ML Code Completeness Checklist]], [[https://www.cs.mcgill.ca/~jpineau/ReproducibilityChecklist.pdf][ML Reproducibility Checklist]]                                                        |
+| 12 | Test and Validate       | [[https://aws.amazon.com/][AWS]], [[https://cloud.google.com/][GCP]], [[https://codeocean.com/][CodeOcean]]                                                                                                                                                                |
+
+*** Practices
+:PROPERTIES:
+:CUSTOM_ID: practices
+:END:
+**** 1. Config Management
+:PROPERTIES:
+:CUSTOM_ID: config-management
+:END:
+When you begin implementing your research code, the first line of work
+is to define an argument parser to define the set of parameters your
+code expects. These set of hyperparameters can typically look like this:
+
+#+begin_src sh
+python train.py --hidden_dim 100 --batch_size 32 --num_tasks 10 --dropout 0.2 --with_mask --log_interval 100 --learning_rate 0.001 --optimizer sgd --scheduler plateau --scheduler_gamma 0.9 --weight_decay 0.9
+#+end_src
+
+These sets of arguments typically grow over time in your research
+project, making maintenance and reproducibility a pain. Typically in
+your code, you should be careful to log all hyperparameters for all
+experiments, so that you can replicate an old version of your code.
+[[https://github.com/PyTorchLightning/pytorch-lightning][Pytorch
+Lightning]] provides a great way to log all hyperparameters in =.csv=
+files in the experiment output folder, allowing for better
+reproducibility.
+
+An alternative to using a long list of argparse elements is to use
+config files. Config files can be either in JSON or YAML format (I
+prefer YAML due to the ability to add comments), where you can set your
+hyperparams in a logically nested way. The above set of hyperparams
+could be organized as:
+
+#+begin_src yaml
+# config.yaml
+general: # for generic args
+  batch_size: 32
+  num_tasks: 10
+  with_mask: False
+  log_interval: 100
+optim: # for optimizer args
+  learning_rate: 0.001
+  optimizer: sgd
+  scheduler: plateau
+  scheduler_gamma: 0.9
+  weight_decay: 0.9
+model:
+  hidden_dim: 100
+#+end_src
+
+[[https://github.com/omry/omegaconf][OmegaConf]] (part of
+[[https://hydra.cc][Hydra]]) is a great library that allows you to
+maintain these config files while providing added flexibility to import
+previous config files and modify only a few values.
+
+**** 2. Checkpoint Management
+:PROPERTIES:
+:CUSTOM_ID: checkpoint-management
+:END:
+Managing your model checkpoints is very important in terms of
+reproducibility, as it allows you to release trained models for the
+community to easily verify your work, as well as build upon it. Ideally,
+you should save your checkpoints as frequently as possible. Given the
+system resource restrictions, it is usually not feasible. Thus, it is
+ideal to save the last checkpoint along with the checkpoint of the /last
+best model/ (according to your evaluation metrics).
+[[https://github.com/PyTorchLightning/pytorch-lightning][Pytorch
+Lightning]] provides an in-built solution to do this efficiently.
+
+**** 3. Logging
+:PROPERTIES:
+:CUSTOM_ID: logging
+:END:
+When training your model, you realize that for several parameters it is
+not giving you the ideal performance. Ideally, you want to check several
+things. Is the training loss of the model saturating? Is it still going
+down? How is the validation performance over training look like? You
+need to log all the metrics efficiently, and later plot those metrics in
+nice shiny plots for analysis and inspection.
+
+Logging is also important for reproducibility, so researchers can verify
+the training progression of their replications in great detail.
+
+In the bare-bones setup, you could just log all metrics in the
+filesystem and then plot by loading them in a python script using
+matplotlib. To make this process easy and also to provide live,
+interactive plots, several services are available now which you can
+leverage in your work.
+[[https://www.tensorflow.org/tensorboard][Tensorboard]], for example, is
+popular in the ML community primarily for its early adoption and ability
+to deploy locally. Newer entrants, like
+[[https://www.comet.ml/site/][Comet.ML]],
+[[https://www.wandb.com/][WandB]] or [[https://mlflow.org/][MLFlow]],
+provide exciting features ranging from sharable online logging
+interfaces, with fine-grained ability to monitor experiments and
+hyperparams. In a future blog post, we will discuss on the pros and cons
+of these systems.
+
+**** 4. Setting the seed
+:PROPERTIES:
+:CUSTOM_ID: setting-the-seed
+:END:
+Probably the most important aspect of the exact reproducibility of your
+research is the seed of the experiment. Although exact reproducibility
+is not guaranteed, especially in GPU execution environments
+[[[https://docs.nvidia.com/deeplearning/sdk/cudnn-developer-guide/index.html#reproducibility][2]],
+[[https://pytorch.org/docs/stable/notes/randomness.html][8]]], it's
+still beneficial to report the seed due to its impact on your results.
+
+When you begin your experiments, it suggested to first set the seed
+using scripts like these (assuming if you use PyTorch):
+
+#+begin_src python
+def set_seed(seed):
+    """Set seed"""
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+    os.environ["PYTHONHASHSEED"] = str(seed)
+#+end_src
+
+*Do not optimize the seed like a hyperparameter. If your algorithm only
+works on a range of seeds, it's not a robust contribution.*
+
+Reporting the performance of your model on /multiple seeds/ captures the
+variance of the proposed model. Before beginning your experiments,
+randomly draw \(n\) seeds and set them aside in your config file, and
+report all experimental results aggregated over those \(n\) seeds.
+\(n=5\) is a good starting point, but you an always increase this
+number.
+
+**** 5. Version Control
+:PROPERTIES:
+:CUSTOM_ID: version-control
+:END:
+To track your research effectively, we highly recommended practice
+setting up version control using =git= in your repository from the
+get-go. You can use a service like [[https://github.com][Github]] or
+[[https://gitlab.com/][Gitlab]] as your hosting provider.
+
+Use =git commit=s to explain to your future self (and your
+collaborators) what change you made to your experiment at a given time.
+Ideally, you should /always commit before you run an experiment/, so
+that you can =tag= the results with specific commits. Be as detailed
+with your commit messages as you can - your future self will thank you!
+
+Check out the
+[[https://github.com/huggingface/transformers/commit/9996f697e3ed7a0d6fe4348953723ad6b9d51477][commits]]
+from
+[[https://github.com/huggingface/transformers][Huggingface/transformers]]
+repository for a nice example.
+
+**** 6. Data Management
+:PROPERTIES:
+:CUSTOM_ID: data-management
+:END:
+Managing your data is extremely important for reproducibility,
+especially when you propose a new dataset or a new dataset split. In
+your many rounds of experiments, you would probably work with different
+splits of the data, hence tracking all those changes should have similar
+priority as tracking your code.
+
+The easiest way to track your data is to add it to the git version
+system or use cloud storage solutions such as Google Drive, AWS S3 to
+store your datasets.
+
+For large datasets, you can also use
+[[https://git-lfs.github.com/][=git-lfs=]], or maintain a md5 hash of
+the dataset in your config file, like this:
+
+#+begin_src python
+def md5_update_from_dir(directory: Union[str, Path], hash: Hash) -> Hash:
+    assert Path(directory).is_dir()
+    for path in sorted(Path(directory).iterdir(), key=lambda p: str(p).lower()):
+        hash.update(path.name.encode())
+        if path.is_file():
+            hash = md5_update_from_file(path, hash)
+        elif path.is_dir():
+            hash = md5_update_from_dir(path, hash)
+    return hash
+
+
+def md5_dir(directory: Union[str, Path]) -> str:
+    return str(md5_update_from_dir(directory, hashlib.md5()).hexdigest())
+#+end_src
+
+[[https://stackoverflow.com/a/54477583][Source - StackOverflow]]
+
+Having such a hash will allow you to track which dataset or data split
+you were working on at a certain commit.
+
+**** 7. Data Analysis
+:PROPERTIES:
+:CUSTOM_ID: data-analysis
+:END:
+Keeping track of the analysis you perform on the data/results is also
+very important in terms of the reproducibility of your contribution.
+[[https://jupyter.org][Jupyter Notebooks]] are the standard in
+maintaining all your analysis and plotting functions in one place.
+Ideally, you should separate notebooks for data analysis, result
+analysis, plot generation, and table generation, and add them in your
+version control. Pandas'
+[[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_latex.html][to_latex]]
+allows you to directly write your results as a latex table, removing
+error-prone copying of results into LaTeX.
+
+When you need to update the results in your paper, you can just access
+the corresponding file and re-run the cells. You can also parameterize
+and run notebooks with the
+[[https://github.com/nteract/papermill#execute-via-the-python-api][papermill
+API]] so that your notebooks are cleanly executed your desired analysis
+parameters.
+
+Maintaining Jupyter Notebooks can get tricky over time. Consider
+following the best practices [[[https://arxiv.org/abs/1810.08055][1]]]
+and use
+[[https://github.com/ipython-contrib/jupyter_contrib_nbextensions][Jupter
+contrib nbextensions]] to supercharge your notebooks!
+
+**** 8. Reporting Results
+:PROPERTIES:
+:CUSTOM_ID: reporting-results
+:END:
+When reporting your results, it is ideal to run your experiments in
+different seeds and/or different datasets. Thus, your results should
+contain plots with error bars and tables with standard deviations. You
+should also describe how the descriptive statistics were calculated,
+e.g. mean reward over multiple seeds. Statistical testing and
+highlighting statistically significant values is also encouraged
+[[[https://arxiv.org/abs/1904.10922][9]]]. This information provides a
+more realistic assessment of the performance of a model and avoids the
+sharing of overly optimistic results
+[[[http://proceedings.mlr.press/v97/bouthillier19a.html][4]],[[https://arxiv.org/abs/1711.10337][5]],[[https://arxiv.org/abs/1709.06560][6]],[[https://arxiv.org/abs/1909.06674][7]]].
+
+A higher bar of reproducibility is to report the results on /multiple
+datasets/ to highlight the robustness of your model. Even if the model
+has larger variance over different datasets, its still encouraged to
+report them all - to avoid the discovery of these issues later on.
+
+While reporting your results, consult the
+[[https://www.cs.mcgill.ca/~jpineau/ReproducibilityChecklist.pdf][ML
+Reproducibility Checklist]] which has detailed guidelines on the best
+practices for reporting figures and tables.
+
+**** 9. Managing Dependencies
+:PROPERTIES:
+:CUSTOM_ID: managing-dependencies
+:END:
+Irreproducibility often stems from software deprecation. To replicate a
+published work, the first thing to do is to match the same development
+environment, containing the same libraries that the program expects.
+Thus, it is crucial to document the libraries and their versions that
+you use in your experiments. After your experiments are stable, you can
+leverage =pip= or =conda= to collect all libraries that have been used:
+
+#+begin_src sh
+$ pip freeze > requirements.txt
+$ conda env export > environment.yml
+#+end_src
+
+You can also leverage headless virtual machines such as
+[[https://www.docker.com/][Docker]] or
+[[https://sylabs.io/docs/][Singularity]] to provide the exact
+reproducible dev environment used for the experiments. Singularity, in
+particular, is supported in many HPC systems (such as
+[[https://www.computecanada.ca/][Compute Canada]]), which can be used to
+train and then subsequently release your experiments to the public. You
+can also convert your existing repository into a Docker environment
+using [[https://github.com/jupyter/repo2docker][repo2docker]].
+
+**** 10. Open Source Release
+:PROPERTIES:
+:CUSTOM_ID: open-source-release
+:END:
+After you have published your paper, consider open sourcing your
+experiments. This not only encourages reproducible research but also
+adds more visibility to your paper. Once you release your code, consider
+adding it to [[https://paperswithcode.com/][Papers With Code]] for added
+visibility. You can also release a demo on
+[[https://mybinder.org][Binder]] or
+[[https://colab.research.google.com/][Colab]] to encourage people to use
+your model.
+
+For good examples of model demos check out
+[[[https://distill.pub/2018/differentiable-parameterizations/][10]]].
+
+Before releasing your code, check the following:
+
+- Squash the commits in the public branch (master) into a single commit
+  - Helps remove your private experiment commit messages (and the
+    awkward comments!)
+- Make sure your code does not contain any API keys (for loggers such as
+  WandB or Comet.ML)
+- Keep an eye out for hardcoded file paths
+- Improve readability of your code using formatters such as
+  [[https://pypi.org/project/black/][Black]]. Obscure, poorly written
+  codebases, even when they run, are oftentimes impossible to reuse or
+  build on top of
+- Document your functions and classes appropriately. In ML, it's
+  beneficial to the reader if you annotate your code with input and
+  output tensor dimensions.
+
+**** 11. Effective Communication
+:PROPERTIES:
+:CUSTOM_ID: effective-communication
+:END:
+When releasing your code, try to add as much information about the code
+in the README file. [[https://paperswithcode.com/][Papers With Code]]
+released
+[[https://medium.com/paperswithcode/ml-code-completeness-checklist-e9127b168501][ML
+Code Completeness checklist]], which suggests adding the following in
+your README:
+
+- Dependency information
+- Training scripts
+- Evaluation scripts
+- Pre-trained models
+- Results
+
+[[https://paperswithcode.com/][Papers With Code]] evaluated repositories
+released after NeurIPS 2019 and found repositories that do not address
+any of the above only got a median of 1.5 Github stars, whereas
+repositories which have all five of the above criteria got *196.5*
+median stars! Only 9% of the repositories fulfilled the 5 points, so
+definitely we can do better about communicating our research. The better
+the communication, the better it is in terms of reproducibility.
+
+You should always mention clearly the source of the dataset used in the
+work. If you are releasing a new dataset or pretrained model for the
+community, consider adding proper documentation for easy access, such as
+a [[https://arxiv.org/abs/1803.09010][datasheet]] or
+[[https://arxiv.org/abs/1810.03993][model card]]. These are READMEs for
+the dataset or model which contains:
+
+- Motivation
+- Composition
+- Collection Process
+- Preprocessing
+- Use cases
+- Distribution
+- Maintenance
+
+Read the papers [[[https://arxiv.org/abs/1803.09010][3]],
+[[https://arxiv.org/abs/1810.03993][11]]] for more details on these
+questions and how to address them. You can choose to publish your
+dataset either through Github repository or through
+[[https://zenodo.org/][Zenodo]].
+
+**** 12. Test and Validate
+:PROPERTIES:
+:CUSTOM_ID: test-and-validate
+:END:
+Finally, it's important from the reproducibility perspective to test
+your implementation in a /different environment/ than the training
+setup. This testing doesn't necessarily mean you have to re-train the
+entire pipeline. Specifically, you should make sure that the training
+and evaluation scripts are running in the test environment.
+
+To get an isolated test environment, you can use AWS or GCP cloud
+instances. You can also checkout [[https://codeocean.com/][CodeOcean]]
+which provides isolated AWS instances tied to Jupyter Notebooks for easy
+evaluation.
+
+*** Final Thoughts
+:PROPERTIES:
+:CUSTOM_ID: final-thoughts
+:END:
+Reproducibility is hard. Maintaining a reproducible research codebase is
+harder when the incentive is to publish your ideas quicker than your
+competitor. Nevertheless, we agree with what Joelle Pineau said in
+NeurIPS 2018 :
+[[https://www.facebook.com/watch/live/?v=2120856364798049&ref=watch_permalink][/"Science
+is not a competitive sport"/]]. We need to invest more time and care in
+our research, and we need to ensure as computer scientists our work is
+reproducible so that it adds value to the reader and practitioners who
+would build upon our work.
+
+We hope this post will be useful in your research. Feel free to comment
+if you have any particular point/libraries that we missed, we would be
+happy to add them.
+
+*** Acknowledgements
+:PROPERTIES:
+:CUSTOM_ID: acknowledgements
+:END:
+Many thanks to Joelle Pineau for encouraging writing this draft, and
+helping formulating the best practices. Thanks to Shagun Sodhani,
+Matthew Muckley and Michela Paganini for providing feedback on the
+draft. Thanks to [[https://dl4sci-school.lbl.gov/][Deep Learning for
+Science School]] for inviting Koustuv to speak about reproducibility on
+August 2020, for which this blog post is a point of reference.
+
+*** References
+:PROPERTIES:
+:CUSTOM_ID: references
+:END:
+1. Rule A, Birmingham A, Zuniga C, Altintas I, Huang SC, Knight R,
+   Moshiri N, Nguyen MH, Rosenthal SB, Pérez F, Rose PW.
+   [[https://arxiv.org/abs/1810.08055][Ten simple rules for reproducible
+   research in Jupyter notebooks]]. arXiv preprint arXiv:1810.08055.
+   2018 Oct 13.
+2. [[https://docs.nvidia.com/deeplearning/sdk/cudnn-developer-guide/index.html#reproducibility][Nvidia
+   CUDNN Developer Guides]]
+3. Gebru T, Morgenstern J, Vecchione B, Vaughan JW, Wallach H, Daumé III
+   H, Crawford K. [[https://arxiv.org/abs/1803.09010][Datasheets for
+   datasets]]. arXiv preprint arXiv:1803.09010. 2018 Mar 23.
+4. Bouthillier X, Laurent C, Vincent P.
+   [[http://proceedings.mlr.press/v97/bouthillier19a.html][Unreproducible
+   research is reproducible]]. In International Conference on Machine
+   Learning 2019 May 24 (pp. 725-734).
+5. Lucic M, Kurach K, Michalski M, Gelly S, Bousquet O.
+   [[https://arxiv.org/abs/1711.10337][Are GANs created equal? a
+   large-scale study]]. In Advances in Neural Information Processing
+   Systems 2018 (pp. 700-709).
+6. Henderson P, Islam R, Bachman P, Pineau J, Precup D, Meger D.
+   [[https://arxiv.org/abs/1709.06560][Deep Reinforcement learning that
+   matters]]. In Thirty-Second AAAI Conference on Artificial
+   Intelligence 2018 Apr 29.
+7. Raff E. [[https://arxiv.org/abs/1909.06674][A Step Toward Quantifying
+   Independently Reproducible Machine Learning Research]]. In Advances
+   in Neural Information Processing Systems 2019 (pp. 5485-5495).
+8. [[https://pytorch.org/docs/stable/notes/randomness.html][Pytorch note
+   on reproducibility]]
+9. Forde JZ, Paganini M. [[https://arxiv.org/abs/1904.10922][The
+   Scientific Method in the Science of Machine Learning]]. In ICLR
+   Debugging Machine Learning Models Workshop 2019.
+10. Mordvintsev A, Pezzotti N, Schubert L, Olah C.
+    [[https://distill.pub/2018/differentiable-parameterizations/][Differentiable
+    Image Parameterizations]]. Distill 2018.
+11. Mitchell M, Wu S, Zaldivar A, Barnes P, Vasserman L, Hutchinson B,
+    Spitzer E, Raji ID, and Gebru T.
+    [[https://arxiv.org/abs/1810.03993][Model Cards for Model
+    Reporting]]. In Proceedings of the Conference on Fairness,
+    Accountability, and Transparency (FAT* '19). Association for
+    Computing Machinery, New York, NY, USA, 220--229.
+** DONE A workflow for reading, managing and discovering ML research papers with Emacs
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: post/emacs_research_workflow/
+:EXPORT_FILE_NAME: index
+:EXPORT_OPTIONS: author:nil
+:EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
+:EXPORT_DATE: 2022-07-18T00:00:00Z
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :commentable true
+:END:
+
+
+Over the last couple of years I have steadily transferred most of my workflows in Emacs (more specifically, Doom Emacs). As they truly say, Emacs is not just an editor, it is an operating system. I think Emacs is not for everyone. It has a very steep learning curve, especially with understanding a new language (elisp) for configuration. Having said that, once you learn how to use Emacs, you unlock insane levels of productivity. It is customizable beyond expectation, and allows one to "live" within Emacs for most of their daily needs. Emacs has helped me streamline my paper reading habits, which I'll talk in detail in this post. Specifically, I use two tools from the Emacs ecosystem, Org-Mode and Elfeed.
+
+[[file:images/elfeed_main.png]]
+
+*** Discovering papers: Elfeed
+
+[[https://github.com/skeeto/elfeed][Elfeed]] is a very versatile RSS reader for Emacs. Turns out you can use Elfeed to subscribe to Arxiv feeds as well. Do check [[https://cundy.me/post/elfeed/][Chris Cundy's post]] on this topic, where he introduces the concepts of Elfeed and Elfeed-score. Following the setup of Chris, I setup Elfeed to read Arxiv Atom posts in the stat.ML, cs.LG and cs.CL categories, which I typically follow anyways for new papers in NLP and ML.
+
+**** The Basics
+
+Setting up these Atom feeds in Elfeed is trivial.
+
+#+begin_src elisp
+
+(setq elfeed-feeds '("http://export.arxiv.org/api/query?search_query=cat:stat.ML&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending" "http://export.arxiv.org/api/query?search_query=cat:cs.LG&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending" "http://export.arxiv.org/api/query?search_query=cat:cs.CL&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending"))
+#+end_src
+
+The =elfeed-feeds= variable consists of a list of strings with the export URLs. Notice in these URL's the max_results are set to 100, feel free to modify it if you want to fetch older entries.
+
+The default Elfeed homepage is not that useful for reading arxiv papers as it truncates the titles. Chris provides a nice solution to show the title and authors list truncated by an "et. al" in the main Elfeed view.
+
+#+begin_src elisp
+(defun concatenate-authors (authors-list)
+    "Given AUTHORS-LIST, list of plists; return string of all authors concatenated."
+    (if (> (length authors-list) 1)
+        (format "%s et al." (plist-get (nth 0 authors-list) :name))
+      (plist-get (nth 0 authors-list) :name)))
+
+(defun my-search-print-fn (entry)
+    "Print ENTRY to the buffer."
+    (let* ((date (elfeed-search-format-date (elfeed-entry-date entry)))
+        (title (or (elfeed-meta entry :title)
+                    (elfeed-entry-title entry) ""))
+        (title-faces (elfeed-search--faces (elfeed-entry-tags entry)))
+        (entry-authors (concatenate-authors
+                        (elfeed-meta entry :authors)))
+        (title-width (- (window-width) 10
+                        elfeed-search-trailing-width))
+        (title-column (elfeed-format-column
+                        title 100
+                        :left))
+        (entry-score (elfeed-format-column (number-to-string (elfeed-score-scoring-get-score-from-entry entry)) 10 :left))
+        (authors-column (elfeed-format-column entry-authors 40 :left)))
+    (insert (propertize date 'face 'elfeed-search-date-face) " ")
+
+    (insert (propertize title-column
+                        'face title-faces 'kbd-help title) " ")
+    (insert (propertize authors-column
+                        'kbd-help entry-authors) " ")
+    (insert entry-score " ")))
+
+(setq elfeed-search-print-entry-function #'my-search-print-fn)
+(setq elfeed-search-date-format '("%y-%m-%d" 10 :left))
+(setq elfeed-search-title-max-width 110)
+#+end_src
+
+Then, set the default filter to show unread papers from 2 weeks ago. This is also customizable.
+
+#+begin_src elisp
+(setq elfeed-search-filter "@2-week-ago +unread")
+#+end_src
+
+We would also like to instruct Elfeed to /fetch/ the papers whenever we open the Elfeed interface:
+
+#+begin_src elisp
+(add-hook! 'elfeed-search-mode-hook 'elfeed-update)
+#+end_src
+
+**** Scoring papers
+
+As you may have noticed, =my-search-print-fn= contains the function =elfeed-score-scoring-get-score-from-entry= call, which uses Elfeed-score package to score individual papers. Elfeed-score is a simple but effective utility to allow you to set regex filter rules to score papers based on the relevance of your research area.
+
+Install elfeed-score package using =use-package=, and then set the location of the rules file.
+
+#+begin_src elisp
+(use-package! elfeed-score
+  :after elfeed
+  :config
+  (elfeed-score-load-score-file "~/.doom.d/elfeed.score") ; See the elfeed-score documentation for the score file syntax
+  (elfeed-score-enable)
+  (define-key elfeed-search-mode-map "=" elfeed-score-map))
+#+end_src
+
+Now go ahead and create the file =elfeed.score= in your location of choice. This file basically contains the rules written in elisp. For example, my rule set after a couple of days usage is this:
+
+#+begin_src elisp
+;;; Elfeed score file                                     -*- lisp -*-
+((version 10)
+ ("title"
+  (:text "Transformer" :value 10 :type s)
+  (:text "Summarization" :value -50 :type s))
+ ("content")
+ ("title-or-content"
+  (:text "Gender Bias" :title-value 50 :content-value 50 :type s)
+  (:text "BERT" :title-value 100 :content-value 50 :type S)
+  (:text "Generalization" :title-value 30 :content-value 20 :type s)
+  (:text "out-of-distribution" :title-value 20 :content-value 30 :type s)
+  (:text "language model" :title-value 20 :content-value 30 :type s))
+ ("tag")
+ ("authors"
+  (:text "Percy Liang" :value 200 :type w)
+  (:text "Sebastian Ruder" :value 200 :type w))
+ ("feed")
+ ("link")
+ ("udf")
+ (mark nil)
+ ("adjust-tags"))
+#+end_src
+
+This score file thus pushes the papers I would like to read up to the top:
+
+[[file:images/elfeed_score.png]]
+
+
+
+*** Managing papers: Org-ref and Org-mode
+
+When I'm reading the abstract of an interesting paper in Elfeed, if I want to read the pdf I can simply press =Shift+RET= to open the pdf in my browser. However, that doesn't offer a way to store the pdf files, neither does it offer a way to open the pdf in emacs. I want a system which can allow me to:
+
+1. Store the pdf in a folder
+2. Add a bibtex entry to a centralized bib file with the paper information
+3. Keep track of papers I have read, along with notes
+
+**** Store the pdfs from Elfeed
+
+I started my configuration following the nice talk by Ahmed in [[https://emacsconf.org/2021/talks/research/][EmacsConf 2021]] (I highly recommend watching it!). Ahmed also provides a nice [[https://gist.github.com/rka97/57779810d3664f41b0ed68a855fcab54][gist for starters]], which I used to construct the basic function to perform steps 1 and 2.
+
+#+begin_src elisp
+(setq arxiv_bib "~/org/arxiv.bib")
+(setq arxiv_pdf_loc "~/Documents/arxiv/")
+
+(defun my/elfeed-entry-to-arxiv ()
+    "Fetch an arXiv paper into the local library from the current elfeed entry.
+"
+    (interactive)
+    (let* ((link (elfeed-entry-link elfeed-show-entry))
+           (match-idx (string-match "arxiv.org/abs/\\([0-9.]*\\)" link))
+           (matched-arxiv-number (match-string 1 link)))
+      (when matched-arxiv-number
+        (message "Going to arXiv: %s" matched-arxiv-number)
+        (arxiv-get-pdf-add-bibtex-entry matched-arxiv-number arxiv_bib arxiv_pdf_loc))
+#+end_src
+
+This function utilizes the awesome [[https://github.com/jkitchin/org-ref][Org-ref]] library functions, such as =arxiv-get-pdf-add-bibtex-entry=. Given an Arxiv identifier, this function firsts constructs a bibtex entry with the paper metadata and stores it in =arxiv_bib=, which is a variable I had set to point to my centralized bib file. Then, the function downloads the pdf, renames the pdf to the bibtex key, and saves it in =arxiv_pdf_loc=, which is another variable I had defined which points to the directory where I want to save the pdfs.
+
+I add a Doom Emacs keybinding to quickly fetch the arxiv file. This allows me to call =SPC n a= from the Elfeed entry buffer.
+
+#+begin_src elisp
+(map! :leader
+      :desc "arXiv paper to library" "n a" #'my/elfeed-entry-to-arxiv
+      :desc "Elfeed" "n e" #'elfeed)
+#+end_src
+
+**** Update the bibtex file
+
+The bibtex generated by the =arxiv-get-pdf-add-bibtex-entry= function lacks a =file= item pointing to the pdf file. We will see why this item is useful in the next section. Assuming we need to add the full path of the downloaded pdf, I modify the =my/elfeed-entry-to-arxiv= function as follows:
+
+#+begin_src elisp
+(defun my/elfeed-entry-to-arxiv ()
+    "Fetch an arXiv paper into the local library from the current elfeed entry.
+
+- Update the bib entry with the pdf file location
+"
+    (interactive)
+    (let* ((link (elfeed-entry-link elfeed-show-entry))
+           (match-idx (string-match "arxiv.org/abs/\\([0-9.]*\\)" link))
+           (matched-arxiv-number (match-string 1 link)))
+      (when matched-arxiv-number
+        (message "Going to arXiv: %s" matched-arxiv-number)
+        (arxiv-get-pdf-add-bibtex-entry matched-arxiv-number arxiv_bib arxiv_pdf_loc)
+        ;; Now, we are updating the most recent bib file with the pdf location
+        (save-window-excursion
+                ;; Get the bib file
+                (find-file arxiv_bib)
+                ;; get to last line
+                (goto-char (point-max))
+                ;; get to the first line of bibtex
+                (bibtex-beginning-of-entry)
+                (let* ((entry (bibtex-parse-entry))
+                        (key (cdr (assoc "=key=" entry)))
+                        (pdf (org-ref-get-pdf-filename key)))
+                        (message (concat "checking for key: " key))
+                        (message (concat "value of pdf: " pdf))
+                        (when (file-exists-p pdf)
+                        (bibtex-set-field "file" pdf)
+                        (save-buffer)
+                        )))
+        )
+      )
+  )
+
+(setq org-ref-pdf-directory arxiv_pdf_loc)
+#+end_src
+
+What this function does is it opens the bibfile (=arxiv_bib=), navigates to the last line, then again navigates to the first line of the last bibtex entry to load the bibtex, and then fetches the pdf path. Then the function adds a =file= field to the bibtex with the pdf path using the function =bibtex-set-field=.
+
+It is also important to set the path of =org-ref-pdf-directory= variable to the location of your pdf files, for org-ref to fetch the full path of the pdf properly using =org-ref-get-pdf-filename= function.
+
+**** Tracking a reading list
+
+Now I have the mechanisms in place to store the pdf and the bibtex entries of the papers I want to read after looking through the latest arxiv posts. This is a good time to setup a workflow to track my paper reading lists. I use Org-mode for this purpose.
+
+Specifically, I create an Org file named =papers.org=, which has the following structure:
+
+#+begin_src org
+,#+STARTUP: content showstars indent
+# Personal Paper readings
+# Centralized location to track paper readings
+,* Categorized [/]
+:PROPERTIES:
+:COOKIE_DATA: recursive todo
+:END:
+,** Syntax [/]
+,** Large Language Model Analysis [/]
+,* Maybe Read [/]
+,* Know about it, would be nice to re-read [/]
+,* Inbox
+#+end_src
+
+These are basically headings to file =TODO= items. I keep track of a paper to read using the Org =TODO= modes. For any new paper which I'm reading through Elfeed, I hit =SPC n e= to extract the bibtex and save the pdf in the centralized pdf directory. Now, I would want to file this paper automatically under =* Inbox= header as a =TODO= entry. To do that, I modify the above function to read =papers.org=, go to the last element of the page (which points to the latest filed paper in =* Inbox=), and add a new entry with Org-ref citation.
+
+#+begin_src elisp
+(defun my/elfeed-entry-to-arxiv ()
+    "Fetch an arXiv paper into the local library from the current elfeed entry.
+
+This is a customized version from the one in https://gist.github.com/rka97/57779810d3664f41b0ed68a855fcab54
+New features to this version:
+
+- Update the bib entry with the pdf file location
+- Add a TODO entry in my papers.org to read the paper
+"
+    (interactive)
+    (let* ((link (elfeed-entry-link elfeed-show-entry))
+           (match-idx (string-match "arxiv.org/abs/\\([0-9.]*\\)" link))
+           (matched-arxiv-number (match-string 1 link))
+           (last-arxiv-key "")
+           (last-arxiv-title ""))
+      (when matched-arxiv-number
+        (message "Going to arXiv: %s" matched-arxiv-number)
+        (arxiv-get-pdf-add-bibtex-entry matched-arxiv-number arxiv_bib arxiv_pdf_loc)
+        ;; Now, we are updating the most recent bib file with the pdf location
+        (message "Update bibtex with pdf file location")
+        (save-window-excursion
+                ;; Get the bib file
+                (find-file arxiv_bib)
+                ;; get to last line
+                (goto-char (point-max))
+                ;; get to the first line of bibtex
+                (bibtex-beginning-of-entry)
+                (let* ((entry (bibtex-parse-entry))
+                        (key (cdr (assoc "=key=" entry)))
+                        (title (bibtex-completion-apa-get-value "title" entry))
+                        (pdf (org-ref-get-pdf-filename key)))
+                        (message (concat "checking for key: " key))
+                        (message (concat "value of pdf: " pdf))
+                        (when (file-exists-p pdf)
+                        (bibtex-set-field "file" pdf)
+                        (setq last-arxiv-key key)
+                        (setq last-arxiv-title title)
+                        (save-buffer)
+                        )))
+        ;; (message (concat "outside of save window, key: " last-arxiv-key))
+        ;; Add a TODO entry with the cite key and title
+        ;; This is a bit hacky solution as I don't know how to add the org entry programmatically
+        (save-window-excursion
+          (find-file (concat org-directory "papers.org"))
+          (goto-char (point-max))
+          (insert (format "** TODO Read paper (cite:%s) %s" last-arxiv-key last-arxiv-title))
+          (save-buffer)
+          )
+        )
+      )
+  )
+#+end_src
+
+I modify the function to keep track of the key of the paper using =last-arxiv-key= and title of the paper =last-arxiv-title=, so that I can construct a =TODO= entry to reflect the key and the title. The key is added in Org citation format.
+
+[[file:images/paper_reading.png]]
+
+I use [[https://github.com/tmalsburg/helm-bibtex][helm-bibtex]] as my completion engine for bibtex, which shows me a menu when I =RET= on the citation key. Helm-bibtex allows me to see a contextual menu on any org link. I need to set the following variables so that helm-bibtex knows where to look for the pdf files:
+
+#+begin_src elisp
+(setq bibtex-completion-bibliography (list arxiv_bib))
+(setq bibtex-completion-pdf-field "file")
+#+end_src
+
+[[file:images/paper_helm.png]]
+
+Thus, using Org-mode to track my paper reading list helps me to store all my reading habits and notes within one file!
+
+- I use the =* Inbox= header as a staging area whenever I store a paper from Elfeed.
+- After I store the paper, I can re-file the paper in several categories as defined in =papers.org=, easily, using =C-c C-w=.
+- I can read the paper directly in Emacs by =RET -> Open PDF -> RET=!
+- The =[/]= is a TODO status indicator used in front of every header, which shows me the number of /read/ papers out of total number of papers in the sub-heading. Whenever I read the paper, I can just hit =RET= on the paper header to change the status to =DONE=, which automatically increases the count!
+- I can directly use this org file to take notes under the header of each paper.
+
+This workflow allows me to seamlessly fetch, read and take notes on papers, fully keyboard driven, directly inside one app!
+
+[[file:images/paper_pdf.png]]
+
+*** Syncing & Note taking in Ipad
+
+Using the above method makes it trivial to sync my reading lists in my Ipad. For starters, I keep the org files and bib files in my Dropbox directory, so any change in the =papers.org= file gets synced through Dropbox. I also add the arxiv pdf directory in my Dropbox, so that any new pdfs are automatically synced throughout my devices. On my Ipad, I use [[https://pdfexpert.com/][PDF Expert]] to read and annotate the papers by linking my Dropbox account. I take copious scribbles using my Apple pencil, and they are immediately synced so I can view the annotated pdf directly from my =papers.org= file.
+*** Closing Thoughts
+
+This is an evolving workflow, and it is probably not the most optimal one. However it works for me, and I can easily keep tweaking the config so that it supports any future requirements. Let me know if this worked for you in the comments, and I would love to hear any suggestions you might have so that I can make this worflow better! Thanks for reading!
