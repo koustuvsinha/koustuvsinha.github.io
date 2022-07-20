@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Koustuv Sinha # Website name
-baseURL: 'https://example.org/~ksinha4/' # Website URL
+baseURL: 'https://cs.mcgill.ca/~ksinha4/' # Website URL
 # RelativeURLs: true
 # CanonifyURLs: true
 
