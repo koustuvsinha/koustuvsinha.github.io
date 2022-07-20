@@ -42,5 +42,5 @@ jobs:
           ssh-keyscan ${{ secrets.HOST }} >> ~/.ssh/known_hosts
       - name: Run deploy script
         run: |
-          rsync -rSlh --stats public/ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.WEBPATH }}/tar
+          rsync -rSlh --stats build/ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.WEBPATH }}/tar
           ssh -o StrictHostKeyChecking=yes ${{ secrets.USERNAME }}@${{ secrets.HOST }} 'bash -s' -- < build/ci-deploy.sh ${{ secrets.WEBPATH }}
