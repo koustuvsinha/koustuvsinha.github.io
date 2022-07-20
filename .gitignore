@@ -1,9 +1,0 @@
-_site
-.sass-cache
-.jekyll-metadata
-.DS_store
-.ruby-version
-Gemfile.lock
-.bundle/
-vendor/
-**/*.auctex-auto/
