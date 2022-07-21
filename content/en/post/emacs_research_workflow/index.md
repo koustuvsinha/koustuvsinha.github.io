@@ -312,7 +312,7 @@ This workflow allows me to seamlessly fetch, read and take notes on papers, full
 
 ## Syncing &amp; Note taking in Ipad {#syncing-and-note-taking-in-ipad}
 
-Using the above method makes it trivial to sync my reading lists in my Ipad. For starters, I keep the org files and bib files in my Dropbox directory, so any change in the `papers.org` file gets synced through Dropbox. I also add the arxiv pdf directory in my Dropbox, so that any new pdfs are automatically synced throughout my devices. On my Ipad, I use [PDF Expert](https://pdfexpert.com/) to read and annotate the papers by linking my Dropbox account. I take copious scribbles using my Apple pencil, and they are immediately synced so I can view the annotated pdf directly from my `papers.org` file.
+Using the above method makes it trivial to sync my reading lists on my Apple Ipad. For starters, I keep the org files and bib files in my Dropbox directory, so any change in the `papers.org` file gets synced through Dropbox. I also add the arxiv pdf directory in my Dropbox, so that any new pdfs are automatically synced throughout my devices. On my Ipad, I use [PDF Expert](https://pdfexpert.com/) to read and annotate the papers by linking my Dropbox account. I take copious scribbles using my Apple pencil, and they are immediately synced so I can view the annotated pdf directly from my `papers.org` file.
 
 
 ## Closing Thoughts {#closing-thoughts}
