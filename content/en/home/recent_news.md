@@ -50,4 +50,4 @@ subtitle = "[All news>>](/news)"
  css_class = ""
 +++
 
-{{< readfromfile "/content/newslist.md" 5 >}} 
+{{< readfromfile "/content/en/newslist.md" 5 >}} 

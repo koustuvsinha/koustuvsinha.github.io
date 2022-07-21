@@ -3,7 +3,7 @@
 * Home
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_SECTION: authors/admin
+:EXPORT_HUGO_SECTION: en/authors/admin
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: author:nil title:nil
 :END:
@@ -53,7 +53,7 @@ education:
 social:
   - icon: envelope
     icon_pack: fas
-    link: '/#contact'
+    link: '/~ksinha4/#contact'
   - icon: twitter
     icon_pack: fab
     link: https://twitter.com/koustuvsinha
@@ -96,6 +96,7 @@ I am an associate editor of [[http://rescience.github.io/][ReScience C]], a peer
 * Activities
 :PROPERTIES:
 :EXPORT_FILE_NAME: activities
+:EXPORT_HUGO_SECTION: en
 :EXPORT_HUGO_SECTION:
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: author:nil
@@ -177,7 +178,7 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 * Projects
 ** CLUTRR
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: project/clutrr
+:EXPORT_HUGO_SECTION: en/project/clutrr
 :EXPORT_FILE_NAME: index
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: author:nil
@@ -230,7 +231,7 @@ A Diagnostic Benchmark for Inductive Reasoning from Text.
 The recent success of natural language understanding (NLU) systems has been troubled by results highlighting the failure of these models to generalize in a systematic and robust way. In this work, we introduce a diagnostic benchmark suite, named CLUTRR, to clarify some key issues related to the robustness and systematicity of NLU systems. Motivated by classic work on inductive logic programming, CLUTRR requires that an NLU system infer kinship relations between characters in short stories. Successful performance on this task requires both extracting relationships between entities, as well as inferring the logical rules governing these relationships. CLUTRR allows us to precisely measure a model’s ability for systematic generalization by evaluating on held-out combinations of logical rules, and it allows us to evaluate a model’s robustness by adding curated noise facts. Our empirical results highlight a substantial performance gap between state-of-the-art NLU models (e.g., BERT and MAC) and a graph neural network model that works directly with symbolic inputs—with the graph-based model exhibiting both stronger generalization and greater robustness.
 ** Turtle Learning Environment (TLE)
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: project/tle
+:EXPORT_HUGO_SECTION: en/project/tle
 :EXPORT_FILE_NAME: index
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: author:nil
@@ -280,7 +281,7 @@ Turtle Learning Environment (TLE) is a minimalistic connect-the-dots environment
 
 ** RLLChatBot
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: project/rllchatbot
+:EXPORT_HUGO_SECTION: en/project/rllchatbot
 :EXPORT_FILE_NAME: index
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: author:nil
@@ -334,7 +335,7 @@ chatbot which can converse fluently with human judges with respect to a given ar
 [[https://research.fb.com/announcing-the-winners-of-the-facebook-parlai-research-awards/][ParlAI research grant]] from Facebook.
 ** NetworkJS
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: project/networkjs
+:EXPORT_HUGO_SECTION: en/project/networkjs
 :EXPORT_FILE_NAME: index
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: author:nil
@@ -387,7 +388,7 @@ Implemented modules:
 Built as a project for Comp 767, Fall 2016, McGill University
 ** GraphLog
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: project/graphlog
+:EXPORT_HUGO_SECTION: en/project/graphlog
 :EXPORT_FILE_NAME: index
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: author:nil
@@ -463,7 +464,7 @@ of GNN models.
 - *April 25, 2020* : Added simple [[https://github.com/facebookresearch/GraphLog/tree/master/examples][supervised experiments]] using GraphLog in [[https://pytorch-lightning.readthedocs.io/en/latest/][Pytorch Lightning]]
 ** UnNatural Language Inference
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: project/unli
+:EXPORT_HUGO_SECTION: en/project/unli
 :EXPORT_FILE_NAME: index
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: author:nil
@@ -538,7 +539,7 @@ available at https://github.com/facebookresearch/unlu.
 * News
 :PROPERTIES:
 :EXPORT_FILE_NAME: newslist
-:EXPORT_HUGO_SECTION:
+:EXPORT_HUGO_SECTION: en
 :EXPORT_OPTIONS: author:nil title:nil
 :CUSTOM_ID: site_news
 :END:
@@ -567,7 +568,7 @@ available at https://github.com/facebookresearch/unlu.
 * Blog [4/4]
 ** DONE Introducing CLUTRR
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: post/introducing-clutrr/
+:EXPORT_HUGO_SECTION: en/post/introducing-clutrr/
 :EXPORT_FILE_NAME: index
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: author:nil
@@ -920,7 +921,7 @@ feel free to drop me a mail at
 [[mailto:koustuv.sinha@mail.mcgill.ca][koustuv.sinha@mail.mcgill.ca]]
 ** DONE GraphLog
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: post/about-graphlog/
+:EXPORT_HUGO_SECTION: en/post/about-graphlog/
 :EXPORT_FILE_NAME: index
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
 :EXPORT_OPTIONS: author:nil
@@ -1134,7 +1135,7 @@ various constructive feedback on the project. This research was
 supported by the Canada CIFAR Chairs in AI program.
 ** DONE ML Reproducibility Tools and Best Practices
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: post/practices_for_reproducibility/
+:EXPORT_HUGO_SECTION: en/post/practices_for_reproducibility/
 :EXPORT_FILE_NAME: index
 :EXPORT_OPTIONS: author:nil
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
@@ -1623,7 +1624,7 @@ August 2020, for which this blog post is a point of reference.
     Computing Machinery, New York, NY, USA, 220--229.
 ** DONE A workflow for reading, managing and discovering ML research papers with Emacs
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: post/emacs_research_workflow/
+:EXPORT_HUGO_SECTION: en/post/emacs_research_workflow/
 :EXPORT_FILE_NAME: index
 :EXPORT_OPTIONS: author:nil
 :EXPORT_HUGO_FRONT_MATTER_FORMAT: yaml
@@ -1933,7 +1934,7 @@ This workflow allows me to seamlessly fetch, read and take notes on papers, full
 
 *** Syncing & Note taking in Ipad
 
-Using the above method makes it trivial to sync my reading lists in my Ipad. For starters, I keep the org files and bib files in my Dropbox directory, so any change in the =papers.org= file gets synced through Dropbox. I also add the arxiv pdf directory in my Dropbox, so that any new pdfs are automatically synced throughout my devices. On my Ipad, I use [[https://pdfexpert.com/][PDF Expert]] to read and annotate the papers by linking my Dropbox account. I take copious scribbles using my Apple pencil, and they are immediately synced so I can view the annotated pdf directly from my =papers.org= file.
+Using the above method makes it trivial to sync my reading lists on my Apple Ipad. For starters, I keep the org files and bib files in my Dropbox directory, so any change in the =papers.org= file gets synced through Dropbox. I also add the arxiv pdf directory in my Dropbox, so that any new pdfs are automatically synced throughout my devices. On my Ipad, I use [[https://pdfexpert.com/][PDF Expert]] to read and annotate the papers by linking my Dropbox account. I take copious scribbles using my Apple pencil, and they are immediately synced so I can view the annotated pdf directly from my =papers.org= file.
 *** Closing Thoughts
 
 This is an evolving workflow, and it is probably not the most optimal one. However it works for me, and I can easily keep tweaking the config so that it supports any future requirements. Let me know if this worked for you in the comments, and I would love to hear any suggestions you might have so that I can make this workflow better! Thanks for reading!

@@ -4,10 +4,10 @@
   translation: Toggle navigation
 
 - id: table_of_contents
-  translation: Table of Contents
+  translation: সূচিপত্র
 
 - id: on_this_page
-  translation: Contents
+  translation: বিষয়বস্তু
 
 - id: back_to_top
   translation: উপরে যান
@@ -19,247 +19,249 @@
   translation: বন্ধ করুন
 
 - id: languages
-  translation: Languages
+  translation: ভাষাসমূহ
 
 # General
 
 - id: related
-  translation: Related
+  translation: সম্পর্কিত
 
 - id: minute_read
-  translation: min read
+  translation: মিনিটের প্রবন্ধ
 
 - id: previous
-  translation: Previous
+  translation: পূর্ববর্তী
 
 - id: next
-  translation: Next
+  translation: পরবর্তী
 
 - id: figure
-  translation: 'Figure %d:'
+  translation: 'চিত্র  %d:'
 
 - id: edit_page
-  translation: Edit this page
+  translation: এই পৃষ্ঠাটি সম্পাদনা করুন
 
 # Themes
 
 - id: theme_selector
-  translation: Display preferences
+  translation: পছন্দ প্রদর্শন করুন
 
 - id: theme_light
-  translation: Light
+  translation: আলো
 
 - id: theme_dark
-  translation: Dark
+  translation: আঁধার
 
 - id: theme_auto
-  translation: Automatic
+  translation: স্বয়ংক্রিয়
 
 # Buttons
 
 - id: btn_preprint
-  translation: Preprint
+  translation: প্রিপ্রিন্ট
 
 - id: btn_pdf
-  translation: PDF
+  translation: পিডিএফ
 
 - id: btn_cite
-  translation: Cite
+  translation: উদ্ধৃতি
 
 - id: btn_slides
-  translation: Slides
+  translation: স্লাইড
 
 - id: btn_video
-  translation: Video
+  translation: ভিডিও
 
 - id: btn_code
-  translation: Code
+  translation: কোড
 
 - id: btn_dataset
-  translation: Dataset
+  translation: ডেটাসেট
 
 - id: btn_project
-  translation: Project
+  translation: প্রকল্প
 
 - id: btn_poster
-  translation: Poster
+  translation: পোস্টার
 
 - id: btn_source
-  translation: Source Document
+  translation: উৎস নথি
 
 - id: btn_copy
-  translation: Copy
+  translation: কপি
 
 - id: btn_download
-  translation: Download
+  translation: ডাউনলোড করুন
 
 # About widget
 
 - id: interests
-  translation: Interests
+  translation: আগ্রহ
 
 - id: education
-  translation: Education
+  translation: শিক্ষা
 
 - id: user_profile_latest
-  translation: Latest
+  translation: সর্বশেষ
 
 # Accomplishments widget
 
 - id: see_certificate
-  translation: See certificate
+  translation: সার্টিফিকেট দেখুন
 
 # Experience widget
 
 - id: present
-  translation: Present
+  translation: বর্তমান
 
 # Pages widget
 
 - id: more_pages
-  translation: See all
+  translation: aro দেখুন
 
 - id: more_posts
-  translation: See all posts
+  translation: সমস্ত পোস্ট দেখুন
 
 - id: more_talks
-  translation: See all events
+  translation: সমস্ত ঘটনা দেখুন
 
 - id: more_publications
-  translation: See all publications
+  translation: সমস্ত প্রকাশনা দেখুন
 
 # Contact widget
 
 - id: contact_name
-  translation: Name
+  translation: নাম
 
 - id: contact_email
-  translation: Email
+  translation: ইমেল
 
 - id: contact_message
-  translation: Message
+  translation: বার্তা
 
 - id: contact_attachment
-  translation: Attach file
+  translation: ফাইল সংযুক্ত করুন
 
 - id: contact_send
-  translation: Send
+  translation: বার্তা পাঠান
 
 - id: book_appointment
-  translation: Book an appointment
+  translation: অ্যাপয়েন্টমেন্ট বুক করুন
 
 # Publication/Event details
 
 - id: abstract
-  translation: Abstract
+  translation: বিমূর্ত
 
 - id: publication
-  translation: Publication
+  translation: প্রকাশনা
 
 - id: publication_type
-  translation: Type
+  translation: প্রকার
 
 - id: date
-  translation: Date
+  translation: তারিখ
 
 - id: last_updated
-  translation: Last updated on
+  translation: সর্বশেষ আপডেট করা হয়েছে
 
 - id: event
-  translation: Event
+  translation: ঘটনা
 
 - id: location
-  translation: Location
+  translation: অবস্থান
 
 - id: pub_uncat
-  translation: Uncategorized
+  translation: শ্রেণী বহির্ভূত নিবন্ধ
 
 - id: pub_conf
-  translation: Conference paper
+  translation: কনফারেন্স নিবন্ধ
 
 - id: pub_journal
-  translation: Journal article
+  translation: জার্নাল নিবন্ধ
 
 - id: pub_preprint
-  translation: Preprint
+  translation: প্রিপ্রিন্ট
 
 - id: pub_report
-  translation: Report
+  translation: রিপোর্ট
 
 - id: pub_book
-  translation: Book
+  translation: বই
 
 - id: pub_book_section
-  translation: Book section
+  translation: বইয়ের বিভাগ
 
 - id: pub_thesis
-  translation: Thesis
+  translation: থিসিস
 
 - id: pub_patent
-  translation: Patent
+  translation: পেটেন্ট
 
 # Project details
 
 - id: open_project_site
-  translation: Go to Project Site
+  translation: প্রজেক্ট সাইটে যান
 
 # Content types for default archive page titles and search results
 
 - id: posts
-  translation: Posts
+  translation: পোস্ট
 
 - id: publications
-  translation: Publications
+  translation: প্রকাশনা
 
 - id: talks
-  translation: Events
+  translation: ঘটনা
 
 - id: projects
-  translation: Projects
+  translation: প্রকল্প
 
 - id: slides
-  translation: Slides
+  translation: স্লাইড
 
 - id: authors
-  translation: Authors
+  translation: লেখক
 
 # Search
 
 - id: search
-  translation: Search
+  translation: অনুসন্ধান করুন
 
 - id: search_placeholder
-  translation: Search...
+  translation: অনুসন্ধান...
 
 - id: search_results
-  translation: results found
+  translation: ফলাফল পাওয়া গেছে
 
 - id: search_no_results
-  translation: No results found
+  translation: কোন ফলাফল পাওয়া যায়নি
 
 - id: search_common_queries
-  translation: Common searches
+  translation: সাধারণ অনুসন্ধান
 
 # Error 404
 
 - id: page_not_found
-  translation: Page not found
+  translation: পৃষ্ঠা পাওয়া যায়নি
 
 - id: 404_recommendations
-  translation: Perhaps you were looking for one of these?
+  translation: সম্ভবত আপনি এর মধ্যে একটি খুঁজছিলেন?
 
 # Cookie consent
 
 - id: cookie_message
-  translation: This website uses cookies to ensure you get the best experience on our website.
+  translation: আপনি আমাদের ওয়েবসাইটে সেরা অভিজ্ঞতা পান তা নিশ্চিত করতে এই ওয়েবসাইটটি কুকিজ ব্যবহার করে।
 
 - id: cookie_dismiss
-  translation: Got it!
+  translation: বুঝেছি!
 
 - id: cookie_learn
-  translation: Learn more
+  translation: আরও জানুন
 
 # Published with
 
 - id: published_with
   translation: Published with {wowchemy} — the free, {repo_link}open source{/repo_link} website builder that empowers creators.
+
+# {wowchemy} দ্বারা প্রকাশিত — বিনামূল্যে {repo_link}ওপেন সোর্স{/repo_link} ওয়েবসাইট নির্মাতা এবং সহায়ক ।
