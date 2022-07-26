@@ -7,7 +7,7 @@ commentable: true
 
 Over the last couple of years I have steadily transferred most of my workflows in Emacs (more specifically, Doom Emacs). As they truly say, Emacs is not just an editor, it is an operating system. I think Emacs is not for everyone. It has a very steep learning curve, especially with understanding a new language (elisp) for configuration. Having said that, once you learn how to use Emacs, you unlock insane levels of productivity. It is customizable beyond expectation, and allows one to "live" within Emacs for most of their daily needs. Emacs has helped me streamline my paper reading habits, which I'll talk in detail in this post. Specifically, I use the following tools from the Emacs ecosystem: [Org-Mode](https://orgmode.org/), [Elfeed](https://github.com/skeeto/elfeed), [Elfeed-score](https://github.com/sp1ff/elfeed-score), [Helm-Bibtex](https://github.com/tmalsburg/helm-bibtex) and [Org-ref](https://github.com/jkitchin/org-ref).
 
-{{< figure src="ox-hugo/elfeed_main.png" >}}
+{{< figure src="/ox-hugo/elfeed_main.png" >}}
 
 
 ## Discovering papers: Elfeed {#discovering-papers-elfeed}
