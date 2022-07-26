@@ -6,7 +6,7 @@
 title: Koustuv Sinha # Website name
 baseURL: 'https://cs.mcgill.ca/~ksinha4/' # Website URL
 # RelativeURLs: true
-CanonifyURLs: true
+# CanonifyURLs: true
 
 ############################
 ## LANGUAGE
