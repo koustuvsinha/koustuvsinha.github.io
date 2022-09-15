@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts | Koustuv Sinha</title><link>https://cs.mcgill.ca/~ksinha4/post/</link><atom:link href="https://cs.mcgill.ca/~ksinha4/post/index.xml" rel="self" type="application/rss+xml"/><description>Posts</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 18 Jul 2022 00:00:00 +0000</lastBuildDate><image><url>https://cs.mcgill.ca/~ksinha4/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url><title>Posts</title><link>https://cs.mcgill.ca/~ksinha4/post/</link></image><item><title>A workflow for reading, managing and discovering ML research papers with Emacs</title><link>https://cs.mcgill.ca/~ksinha4/post/emacs_research_workflow/</link><pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/post/emacs_research_workflow/</guid><description>&lt;p>Over the last couple of years I have steadily transferred most of my workflows in Emacs (more specifically, Doom Emacs). As they truly say, Emacs is not just an editor, it is an operating system. I think Emacs is not for everyone. It has a very steep learning curve, especially with understanding a new language (elisp) for configuration. Having said that, once you learn how to use Emacs, you unlock insane levels of productivity. It is customizable beyond expectation, and allows one to &amp;ldquo;live&amp;rdquo; within Emacs for most of their daily needs. Emacs has helped me streamline my paper reading habits, which I&amp;rsquo;ll talk in detail in this post. Specifically, I use the following tools from the Emacs ecosystem: &lt;a href="https://orgmode.org/" target="_blank" rel="noopener">Org-Mode&lt;/a>, &lt;a href="https://github.com/skeeto/elfeed" target="_blank" rel="noopener">Elfeed&lt;/a>, &lt;a href="https://github.com/sp1ff/elfeed-score" target="_blank" rel="noopener">Elfeed-score&lt;/a>, &lt;a href="https://github.com/tmalsburg/helm-bibtex" target="_blank" rel="noopener">Helm-Bibtex&lt;/a> and &lt;a href="https://github.com/jkitchin/org-ref" target="_blank" rel="noopener">Org-ref&lt;/a>.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts | Koustuv Sinha</title><link>/post/</link><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><description>Posts</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 18 Jul 2022 00:00:00 +0000</lastBuildDate><image><url>/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url><title>Posts</title><link>/post/</link></image><item><title>A workflow for reading, managing and discovering ML research papers with Emacs</title><link>/post/emacs_research_workflow/</link><pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate><guid>/post/emacs_research_workflow/</guid><description>&lt;p>Over the last couple of years I have steadily transferred most of my workflows in Emacs (more specifically, Doom Emacs). As they truly say, Emacs is not just an editor, it is an operating system. I think Emacs is not for everyone. It has a very steep learning curve, especially with understanding a new language (elisp) for configuration. Having said that, once you learn how to use Emacs, you unlock insane levels of productivity. It is customizable beyond expectation, and allows one to &amp;ldquo;live&amp;rdquo; within Emacs for most of their daily needs. Emacs has helped me streamline my paper reading habits, which I&amp;rsquo;ll talk in detail in this post. Specifically, I use the following tools from the Emacs ecosystem: &lt;a href="https://orgmode.org/" target="_blank" rel="noopener">Org-Mode&lt;/a>, &lt;a href="https://github.com/skeeto/elfeed" target="_blank" rel="noopener">Elfeed&lt;/a>, &lt;a href="https://github.com/sp1ff/elfeed-score" target="_blank" rel="noopener">Elfeed-score&lt;/a>, &lt;a href="https://github.com/tmalsburg/helm-bibtex" target="_blank" rel="noopener">Helm-Bibtex&lt;/a> and &lt;a href="https://github.com/jkitchin/org-ref" target="_blank" rel="noopener">Org-ref&lt;/a>.&lt;/p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/elfeed_main.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/elfeed_main.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;h2 id="discovering-papers-elfeed">Discovering papers: Elfeed&lt;/h2>
 &lt;p>&lt;a href="https://github.com/skeeto/elfeed" target="_blank" rel="noopener">Elfeed&lt;/a> is a very versatile RSS reader for Emacs. Turns out you can use Elfeed to subscribe to Arxiv feeds as well. Do check &lt;a href="https://cundy.me/post/elfeed/" target="_blank" rel="noopener">Chris Cundy&amp;rsquo;s post&lt;/a> on this topic, where he introduces the concepts of Elfeed and Elfeed-score. Following the setup of Chris, I setup Elfeed to read Arxiv Atom posts in the stat.ML, cs.LG and cs.CL categories, which I typically follow anyways for new papers in NLP and ML.&lt;/p>
@@ -81,7 +81,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This score file thus pushes the papers we would like to read up to the top:&lt;/p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/elfeed_score.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/elfeed_score.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;h2 id="managing-papers-org-ref-and-org-mode">Managing papers: Org-ref and Org-mode&lt;/h2>
 &lt;p>When I&amp;rsquo;m reading the abstract of an interesting paper in Elfeed, if I want to read the pdf I can simply press &lt;code>Shift+RET&lt;/code> to open the pdf in my browser. However, that doesn&amp;rsquo;t offer a way to store the pdf files, neither does it offer a way to open the pdf in emacs. I want a system which can allow me to:&lt;/p>
@@ -217,7 +217,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Thus we arrive at the final version of the &lt;code>my/elfeed-entry-to-arxiv&lt;/code> function, which is now modified to keep track of the key of the paper using &lt;code>last-arxiv-key&lt;/code> and title of the paper &lt;code>last-arxiv-title&lt;/code>, so that we can construct a &lt;code>TODO&lt;/code> entry to reflect the key and the title. The key is added in Org citation format.&lt;/p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/paper_reading.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/paper_reading.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;p>I use &lt;a href="https://github.com/tmalsburg/helm-bibtex" target="_blank" rel="noopener">helm-bibtex&lt;/a> as my completion engine for bibtex, which shows me a menu when I &lt;code>RET&lt;/code> on the citation key. Helm-bibtex allows me to see a contextual menu on any org link. I need to set the following variables so that helm-bibtex knows where to look for the pdf files:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">bibtex-completion-bibliography&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">list&lt;/span> &lt;span class="nv">arxiv_bib&lt;/span>&lt;span class="p">))&lt;/span>
@@ -225,7 +225,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/paper_helm.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/paper_helm.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;p>Thus, using Org-mode to track my paper reading list helps me to store all my reading habits and notes within one file!&lt;/p>
 &lt;ul>
@@ -238,12 +238,12 @@
 &lt;p>This workflow allows me to seamlessly fetch, read and take notes on papers, fully keyboard driven, directly inside one app!&lt;/p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/paper_pdf.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/paper_pdf.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;h2 id="syncing-and-note-taking-in-ipad">Syncing &amp;amp; Note taking in Ipad&lt;/h2>
 &lt;p>Using the above method makes it trivial to sync my reading lists on my Apple Ipad. For starters, I keep the org files and bib files in my Dropbox directory, so any change in the &lt;code>papers.org&lt;/code> file gets synced through Dropbox. I also add the arxiv pdf directory in my Dropbox, so that any new pdfs are automatically synced throughout my devices. On my Ipad, I use &lt;a href="https://pdfexpert.com/" target="_blank" rel="noopener">PDF Expert&lt;/a> to read and annotate the papers by linking my Dropbox account. I take copious scribbles using my Apple pencil, and they are immediately synced so I can view the annotated pdf directly from my &lt;code>papers.org&lt;/code> file.&lt;/p>
 &lt;h2 id="closing-thoughts">Closing Thoughts&lt;/h2>
-&lt;p>This is an evolving workflow, and it is probably not the most optimal one. However it works for me, and I can easily keep tweaking the config so that it supports any future requirements. Let me know if this worked for you in the comments, and I would love to hear any suggestions you might have so that I can make this workflow better! Thanks for reading!&lt;/p></description></item><item><title>ML Reproducibility Tools and Best Practices</title><link>https://cs.mcgill.ca/~ksinha4/practices_for_reproducibility/</link><pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/practices_for_reproducibility/</guid><description>&lt;p>A recurrent challenge in machine learning research is to ensure that the
+&lt;p>This is an evolving workflow, and it is probably not the most optimal one. However it works for me, and I can easily keep tweaking the config so that it supports any future requirements. Let me know if this worked for you in the comments, and I would love to hear any suggestions you might have so that I can make this workflow better! Thanks for reading!&lt;/p></description></item><item><title>ML Reproducibility Tools and Best Practices</title><link>/practices_for_reproducibility/</link><pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate><guid>/practices_for_reproducibility/</guid><description>&lt;p>A recurrent challenge in machine learning research is to ensure that the
 presented and published results are reliable, robust, and reproducible
 [&lt;a href="http://proceedings.mlr.press/v97/bouthillier19a.html" target="_blank" rel="noopener">4&lt;/a>,&lt;a href="https://arxiv.org/abs/1711.10337" target="_blank" rel="noopener">5&lt;/a>,&lt;a href="https://arxiv.org/abs/1709.06560" target="_blank" rel="noopener">6&lt;/a>,&lt;a href="https://arxiv.org/abs/1909.06674" target="_blank" rel="noopener">7&lt;/a>].&lt;/p>
 &lt;p>Reproducibility, obtaining similar results as presented in a paper using
@@ -673,7 +673,7 @@ Spitzer E, Raji ID, and Gebru T.
 Reporting&lt;/a>. In Proceedings of the Conference on Fairness,
 Accountability, and Transparency (FAT* &amp;lsquo;19). Association for
 Computing Machinery, New York, NY, USA, 220&amp;ndash;229.&lt;/li>
-&lt;/ol></description></item><item><title>GraphLog</title><link>https://cs.mcgill.ca/~ksinha4/about-graphlog/</link><pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/about-graphlog/</guid><description>&lt;h2 id="graphlog-suite-of-57-graph-worlds-built-using-first-order">&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> - Suite of 57 graph worlds built using first-order&lt;/h2>
+&lt;/ol></description></item><item><title>GraphLog</title><link>/about-graphlog/</link><pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate><guid>/about-graphlog/</guid><description>&lt;h2 id="graphlog-suite-of-57-graph-worlds-built-using-first-order">&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> - Suite of 57 graph worlds built using first-order&lt;/h2>
 &lt;p>logic&lt;/p>
 &lt;p>&lt;em>Koustuv Sinha, Shagun Sodhani, Joelle Pineau and William L. Hamilton&lt;/em>&lt;/p>
 &lt;p>&lt;a href="https://github.com/facebookresearch/graphlog" target="_blank" rel="noopener">Code&lt;/a> |
@@ -732,7 +732,7 @@ In Graph Neural Network (GNN) world, this task is typically performed by
 prediction datasets.&lt;/p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/graphlog.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/graphlog.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;p>Graphs in &lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> are generated using &lt;em>rules&lt;/em> in first-order logic.
 These rules are 2-ary Horn clauses in the form of
@@ -848,11 +848,11 @@ observe a correlation with the number of &lt;em>descriptors&lt;/em> or unique &l
 in the graphs associated with a world.&lt;/p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/graphlog_supervised.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/graphlog_supervised.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/graphlog_multitask.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/graphlog_multitask.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;h2 id="multi-task-learning">Multi-task Learning&lt;/h2>
 &lt;p>&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> makes it easy to extend the supervised learning framework
@@ -873,11 +873,11 @@ observation highlights that the current reasoning models are not
 suitable for continual learning.&lt;/p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/graphlog_continual_all.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/graphlog_continual_all.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/graphlog_continual_ordered.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/graphlog_continual_ordered.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;p>Experiments on sequential continual learning setting. The first image
 depicts random ordering, and the second image depicts ordering based on
@@ -928,7 +928,7 @@ for their constant motivation and support. I am grateful to
 extensive compute resources to make this project possible. I thank my
 wonderful colleagues at &lt;a href="https://mila.quebec/" target="_blank" rel="noopener">Mila&lt;/a> and FAIR for
 various constructive feedback on the project. This research was
-supported by the Canada CIFAR Chairs in AI program.&lt;/p></description></item><item><title>Introducing CLUTRR</title><link>https://cs.mcgill.ca/~ksinha4/introducing-clutrr/</link><pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/introducing-clutrr/</guid><description>&lt;p>&lt;b>C&lt;/b>ompositional &lt;b>L&lt;/b>anguage &lt;b>U&lt;/b>nderstanding with &lt;b>T&lt;/b>ext based &lt;b>R&lt;/b>elational &lt;b>R&lt;/b>easoning&lt;/p>
+supported by the Canada CIFAR Chairs in AI program.&lt;/p></description></item><item><title>Introducing CLUTRR</title><link>/introducing-clutrr/</link><pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate><guid>/introducing-clutrr/</guid><description>&lt;p>&lt;b>C&lt;/b>ompositional &lt;b>L&lt;/b>anguage &lt;b>U&lt;/b>nderstanding with &lt;b>T&lt;/b>ext based &lt;b>R&lt;/b>elational &lt;b>R&lt;/b>easoning&lt;/p>
 &lt;h2 id="motivation">Motivation&lt;/h2>
 &lt;p>Question Answering (QA) has recently gained popularity as the major
 domain of testing reasoning in text. The literature thus contains a
@@ -954,7 +954,7 @@ infer the relationship between two family members, whose relationship is
 not explicitly mentioned.&lt;/p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/clutrr_text.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/clutrr_text.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;p>To solve this task, an agent must extract the &lt;em>logical rules&lt;/em> governing
 the composition of the relationships (e.g. the transitivity of the
@@ -1003,7 +1003,7 @@ the underlying &lt;em>kinship graph&lt;/em>, i.e. a graph containing the kinshi
 relations about a toy family.&lt;/p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/dataset_const_new.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/dataset_const_new.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;p>From this kinship graph, we sample an &lt;em>edge&lt;/em> which becomes our target
 relation to predict. Recall, since we used &lt;em>logical rules&lt;/em> to derive
@@ -1045,7 +1045,7 @@ together a story. We collect 6,016 unique paraphrases with an average of
 \(k = 1,2,3\).&lt;/p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/composition.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/composition.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;p>From the above example, we see that the stochasticity of dataset
 generation provides multiple ways of stitching paraphrases to generate
@@ -1097,11 +1097,11 @@ models to &lt;em>memorize&lt;/em> on syntactical artifacts of the dataset.&lt;/p
 &lt;p>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/sys_gen_23.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/sys_gen_23.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/sys_gen_234.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/sys_gen_234.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;/p>
 &lt;p>We perform experiments with a combination of logical and linguistic
@@ -1138,7 +1138,7 @@ model has to carefully stray away while reasoning for the given query.&lt;/li>
 &lt;/ul>
 &lt;figure >
 &lt;div class="d-flex justify-content-center">
-&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/clutrr_noise.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;div class="w-100" >&lt;img src="/ox-hugo/clutrr_noise.png" alt="" loading="lazy" data-zoomable />&lt;/div>
 &lt;/div>&lt;/figure>
 &lt;p>Thus, we can have multiple train/test scenarios to evaluate robustness
 in highly granular level by combination of the above facts with the
