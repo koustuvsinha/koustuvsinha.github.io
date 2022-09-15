@@ -1390,6 +1390,12 @@ data-background-image="/media/boards.jpg"
 &lt;p>Turtle Learning Environment (TLE) is a minimalistic connect-the-dots environment made as part of COMP 767 RL Final project in McGill University (Winter 2018). The objective of the agent in a 28x28 grid world is to connect the dots provided to form the image, where the environment provides negative reward for each cell drawn and positive reward for each connected components.&lt;/p></description></item><item><title>A Hierarchical Neural Attention-based Text Classifier</title><link>/publication/sinha-2018-hier/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>/publication/sinha-2018-hier/</guid><description/></item><item><title>Adversarial Gain</title><link>/publication/henderson-2018-adversarial/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>/publication/henderson-2018-adversarial/</guid><description/></item><item><title>Compositional Language Understanding with Text-based Relational Reasoning</title><link>/publication/sinha-2018-clutrr/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>/publication/sinha-2018-clutrr/</guid><description/></item><item><title>Ethical Challenges in Data-Driven Dialogue Systems</title><link>/publication/henderson-2017-ethics/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>/publication/henderson-2017-ethics/</guid><description/></item><item><title>The RLLChatbot: a solution to the ConvAI Challenge</title><link>/publication/gontier-2018/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>/publication/gontier-2018/</guid><description/></item><item><title>News</title><link>/news/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>/news/</guid><description>
 &lt;ul>
 &lt;li>
+&lt;p>[08/29/22] Excited to announce a major life event: I&amp;rsquo;m starting today as a Research Scientist (Speech &amp;amp; NLP) in &lt;a href="https://ai.facebook.com/" target="_blank" rel="noopener">Meta AI&lt;/a> New York!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[08/19/22] Happy to announce yet another Machine Learning Reproducibility Challenge, &lt;a href="https://paperswithcode.com/rc2022" target="_blank" rel="noopener">the MLRC 2022&lt;/a>! This is our six edition!&lt;/p>
+&lt;/li>
+&lt;li>
 &lt;p>[01/10/21] Happy to update that our paper &lt;a href="https://arxiv.org/abs/2104.06644" target="_blank" rel="noopener">&amp;ldquo;Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little&amp;rdquo;&lt;/a> is accepted as a long paper at EMNLP 2021!&lt;/p>
 &lt;/li>
 &lt;li>
@@ -1465,6 +1471,8 @@ chatbot which can converse fluently with human judges with respect to a given ar
 &lt;li>Eigenvalue Centrality&lt;/li>
 &lt;/ul>
 &lt;p>Built as a project for Comp 767, Fall 2016, McGill University&lt;/p></description></item><item><title/><link>/admin/config.yml</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/admin/config.yml</guid><description/></item><item><title/><link>/newslist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/newslist/</guid><description>&lt;ul>
+&lt;li>[08/29/22] Excited to announce a major life event: I&amp;rsquo;m starting today as a Research Scientist (Speech &amp;amp; NLP) in &lt;a href="https://ai.facebook.com/" target="_blank" rel="noopener">Meta AI&lt;/a> New York!&lt;/li>
+&lt;li>[08/19/22] Happy to announce yet another Machine Learning Reproducibility Challenge, &lt;a href="https://paperswithcode.com/rc2022" target="_blank" rel="noopener">the MLRC 2022&lt;/a>! This is our six edition!&lt;/li>
 &lt;li>[01/10/21] Happy to update that our paper &lt;a href="https://arxiv.org/abs/2104.06644" target="_blank" rel="noopener">&amp;ldquo;Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little&amp;rdquo;&lt;/a> is accepted as a long paper at EMNLP 2021!&lt;/li>
 &lt;li>[01/09/21] Happy to announce the new iteration of &lt;a href="https://paperswithcode.com/rc2021" target="_blank" rel="noopener">ML Reproducibility Challenge 2021&lt;/a>, which has now enlarged to cover 9 top ML conferences! Submit your reports through Feb 2022!&lt;/li>
 &lt;li>[03/07/21] On a personal news, got married to my sweetheart &lt;a href="https://atrayeebasu.github.io/" target="_blank" rel="noopener">Atrayee&lt;/a> this July!&lt;/li>
