@@ -25,7 +25,7 @@ organizations:
     url: https://mila.quebec
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include natural language processing with machine learning, computational linguistics and dialog systems. I organize the annual [ML Reproducibility Challenge](https://paperswithcode.com/rc2021).
+bio: My research interests include natural language processing with machine learning, computational linguistics and interpretable machine learning. I organize the annual [ML Reproducibility Challenge](https://paperswithcode.com/rc2021).
 
 # Interests to show in About widget
 interests:
