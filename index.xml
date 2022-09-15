@@ -1,0 +1,1550 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Koustuv Sinha</title><link>https://cs.mcgill.ca/~ksinha4/</link><atom:link href="https://cs.mcgill.ca/~ksinha4/index.xml" rel="self" type="application/rss+xml"/><description>Koustuv Sinha</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate><image><url>https://cs.mcgill.ca/~ksinha4/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url><title>Koustuv Sinha</title><link>https://cs.mcgill.ca/~ksinha4/</link></image><item><title>Example Talk</title><link>https://cs.mcgill.ca/~ksinha4/talk/example-talk/</link><pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/talk/example-talk/</guid><description>&lt;div class="alert alert-note">
+&lt;div>
+Click on the &lt;strong>Slides&lt;/strong> button above to view the built-in slides feature.
+&lt;/div>
+&lt;/div>
+&lt;p>Slides can be added in a few ways:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Create&lt;/strong> slides using Wowchemy&amp;rsquo;s &lt;a href="https://wowchemy.com/docs/managing-content/#create-slides" target="_blank" rel="noopener">&lt;em>Slides&lt;/em>&lt;/a> feature and link using &lt;code>slides&lt;/code> parameter in the front matter of the talk file&lt;/li>
+&lt;li>&lt;strong>Upload&lt;/strong> an existing slide deck to &lt;code>static/&lt;/code> and link using &lt;code>url_slides&lt;/code> parameter in the front matter of the talk file&lt;/li>
+&lt;li>&lt;strong>Embed&lt;/strong> your slides (e.g. Google Slides) or presentation video on this page using &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">shortcodes&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>A workflow for reading, managing and discovering ML research papers with Emacs</title><link>https://cs.mcgill.ca/~ksinha4/post/emacs_research_workflow/</link><pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/post/emacs_research_workflow/</guid><description>&lt;p>Over the last couple of years I have steadily transferred most of my workflows in Emacs (more specifically, Doom Emacs). As they truly say, Emacs is not just an editor, it is an operating system. I think Emacs is not for everyone. It has a very steep learning curve, especially with understanding a new language (elisp) for configuration. Having said that, once you learn how to use Emacs, you unlock insane levels of productivity. It is customizable beyond expectation, and allows one to &amp;ldquo;live&amp;rdquo; within Emacs for most of their daily needs. Emacs has helped me streamline my paper reading habits, which I&amp;rsquo;ll talk in detail in this post. Specifically, I use the following tools from the Emacs ecosystem: &lt;a href="https://orgmode.org/" target="_blank" rel="noopener">Org-Mode&lt;/a>, &lt;a href="https://github.com/skeeto/elfeed" target="_blank" rel="noopener">Elfeed&lt;/a>, &lt;a href="https://github.com/sp1ff/elfeed-score" target="_blank" rel="noopener">Elfeed-score&lt;/a>, &lt;a href="https://github.com/tmalsburg/helm-bibtex" target="_blank" rel="noopener">Helm-Bibtex&lt;/a> and &lt;a href="https://github.com/jkitchin/org-ref" target="_blank" rel="noopener">Org-ref&lt;/a>.&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/elfeed_main.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;h2 id="discovering-papers-elfeed">Discovering papers: Elfeed&lt;/h2>
+&lt;p>&lt;a href="https://github.com/skeeto/elfeed" target="_blank" rel="noopener">Elfeed&lt;/a> is a very versatile RSS reader for Emacs. Turns out you can use Elfeed to subscribe to Arxiv feeds as well. Do check &lt;a href="https://cundy.me/post/elfeed/" target="_blank" rel="noopener">Chris Cundy&amp;rsquo;s post&lt;/a> on this topic, where he introduces the concepts of Elfeed and Elfeed-score. Following the setup of Chris, I setup Elfeed to read Arxiv Atom posts in the stat.ML, cs.LG and cs.CL categories, which I typically follow anyways for new papers in NLP and ML.&lt;/p>
+&lt;h3 id="the-basics">The Basics&lt;/h3>
+&lt;p>Setting up these Atom feeds in Elfeed is trivial.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">elfeed-feeds&lt;/span> &lt;span class="o">&amp;#39;&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;http://export.arxiv.org/api/query?search_query=cat:stat.ML&amp;amp;start=0&amp;amp;max_results=100&amp;amp;sortBy=submittedDate&amp;amp;sortOrder=descending&amp;#34;&lt;/span> &lt;span class="s">&amp;#34;http://export.arxiv.org/api/query?search_query=cat:cs.LG&amp;amp;start=0&amp;amp;max_results=100&amp;amp;sortBy=submittedDate&amp;amp;sortOrder=descending&amp;#34;&lt;/span> &lt;span class="s">&amp;#34;http://export.arxiv.org/api/query?search_query=cat:cs.CL&amp;amp;start=0&amp;amp;max_results=100&amp;amp;sortBy=submittedDate&amp;amp;sortOrder=descending&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The &lt;code>elfeed-feeds&lt;/code> variable consists of a list of strings with the export URLs. Notice in these URL&amp;rsquo;s the max_results are set to 100, feel free to modify it if you want to fetch older entries.&lt;/p>
+&lt;p>The default Elfeed homepage is not that useful for reading arxiv papers as it truncates the titles. Chris provides a nice solution to show the title and authors list truncated by an &amp;ldquo;et. al&amp;rdquo; in the main Elfeed view.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">defun&lt;/span> &lt;span class="nv">concatenate-authors&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">authors-list&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Given AUTHORS-LIST, list of plists; return string of all authors concatenated.&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">&amp;gt;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">length&lt;/span> &lt;span class="nv">authors-list&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">format&lt;/span> &lt;span class="s">&amp;#34;%s et al.&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">plist-get&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">nth&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="nv">authors-list&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nb">:name&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">plist-get&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">nth&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="nv">authors-list&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nb">:name&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">defun&lt;/span> &lt;span class="nv">my-search-print-fn&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">entry&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Print ENTRY to the buffer.&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">let*&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="nv">date&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-search-format-date&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-entry-date&lt;/span> &lt;span class="nv">entry&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">title&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nb">or&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-meta&lt;/span> &lt;span class="nv">entry&lt;/span> &lt;span class="nb">:title&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-entry-title&lt;/span> &lt;span class="nv">entry&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">title-faces&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-search--faces&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-entry-tags&lt;/span> &lt;span class="nv">entry&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">entry-authors&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">concatenate-authors&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-meta&lt;/span> &lt;span class="nv">entry&lt;/span> &lt;span class="nb">:authors&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">title-width&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">-&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">window-width&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="mi">10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">elfeed-search-trailing-width&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">title-column&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-format-column&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">title&lt;/span> &lt;span class="mi">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">:left&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">entry-score&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-format-column&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">number-to-string&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-score-scoring-get-score-from-entry&lt;/span> &lt;span class="nv">entry&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="mi">10&lt;/span> &lt;span class="nb">:left&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">authors-column&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-format-column&lt;/span> &lt;span class="nv">entry-authors&lt;/span> &lt;span class="mi">40&lt;/span> &lt;span class="nb">:left&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">insert&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">propertize&lt;/span> &lt;span class="nv">date&lt;/span> &lt;span class="ss">&amp;#39;face&lt;/span> &lt;span class="ss">&amp;#39;elfeed-search-date-face&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="s">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">insert&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">propertize&lt;/span> &lt;span class="nv">title-column&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ss">&amp;#39;face&lt;/span> &lt;span class="nv">title-faces&lt;/span> &lt;span class="ss">&amp;#39;kbd-help&lt;/span> &lt;span class="nv">title&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="s">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">insert&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">propertize&lt;/span> &lt;span class="nv">authors-column&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ss">&amp;#39;kbd-help&lt;/span> &lt;span class="nv">entry-authors&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="s">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">insert&lt;/span> &lt;span class="nv">entry-score&lt;/span> &lt;span class="s">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">elfeed-search-print-entry-function&lt;/span> &lt;span class="nf">#&amp;#39;&lt;/span>&lt;span class="nv">my-search-print-fn&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">elfeed-search-date-format&lt;/span> &lt;span class="o">&amp;#39;&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%y-%m-%d&amp;#34;&lt;/span> &lt;span class="mi">10&lt;/span> &lt;span class="nb">:left&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">elfeed-search-title-max-width&lt;/span> &lt;span class="mi">110&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then, set the default filter to show unread papers from 2 weeks ago. This is also customizable.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">elfeed-search-filter&lt;/span> &lt;span class="s">&amp;#34;@2-week-ago +unread&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We would also like to instruct Elfeed to &lt;em>fetch&lt;/em> the papers whenever we open the Elfeed interface:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nv">add-hook!&lt;/span> &lt;span class="ss">&amp;#39;elfeed-search-mode-hook&lt;/span> &lt;span class="ss">&amp;#39;elfeed-update&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="scoring-papers">Scoring papers&lt;/h3>
+&lt;p>As you may have noticed, &lt;code>my-search-print-fn&lt;/code> contains the function &lt;code>elfeed-score-scoring-get-score-from-entry&lt;/code> call, which uses &lt;a href="https://github.com/sp1ff/elfeed-score" target="_blank" rel="noopener">Elfeed-score&lt;/a> package to score individual papers. &lt;a href="https://github.com/sp1ff/elfeed-score" target="_blank" rel="noopener">Elfeed-score&lt;/a> is a simple but effective utility to allow you to set regex filter rules to score papers based on the relevance of your research area.&lt;/p>
+&lt;p>Install elfeed-score package using &lt;code>use-package&lt;/code>, and then set the location of the rules file.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nv">use-package!&lt;/span> &lt;span class="nv">elfeed-score&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">:after&lt;/span> &lt;span class="nv">elfeed&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">:config&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-score-load-score-file&lt;/span> &lt;span class="s">&amp;#34;~/.doom.d/elfeed.score&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">; See the elfeed-score documentation for the score file syntax&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-score-enable&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">define-key&lt;/span> &lt;span class="nv">elfeed-search-mode-map&lt;/span> &lt;span class="s">&amp;#34;=&amp;#34;&lt;/span> &lt;span class="nv">elfeed-score-map&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now go ahead and create the file &lt;code>elfeed.score&lt;/code> in your location of choice. This file basically contains the rules written in elisp. For example, my rule set after a couple of days usage is this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;;; Elfeed score file -*- lisp -*-&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">((&lt;/span>&lt;span class="nv">version&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;title&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">:text&lt;/span> &lt;span class="s">&amp;#34;Transformer&amp;#34;&lt;/span> &lt;span class="nb">:value&lt;/span> &lt;span class="mi">10&lt;/span> &lt;span class="nb">:type&lt;/span> &lt;span class="nv">s&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">:text&lt;/span> &lt;span class="s">&amp;#34;Summarization&amp;#34;&lt;/span> &lt;span class="nb">:value&lt;/span> &lt;span class="mi">-50&lt;/span> &lt;span class="nb">:type&lt;/span> &lt;span class="nv">s&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;content&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;title-or-content&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">:text&lt;/span> &lt;span class="s">&amp;#34;Gender Bias&amp;#34;&lt;/span> &lt;span class="nb">:title-value&lt;/span> &lt;span class="mi">50&lt;/span> &lt;span class="nb">:content-value&lt;/span> &lt;span class="mi">50&lt;/span> &lt;span class="nb">:type&lt;/span> &lt;span class="nv">s&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">:text&lt;/span> &lt;span class="s">&amp;#34;BERT&amp;#34;&lt;/span> &lt;span class="nb">:title-value&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="nb">:content-value&lt;/span> &lt;span class="mi">50&lt;/span> &lt;span class="nb">:type&lt;/span> &lt;span class="nv">S&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">:text&lt;/span> &lt;span class="s">&amp;#34;Generalization&amp;#34;&lt;/span> &lt;span class="nb">:title-value&lt;/span> &lt;span class="mi">30&lt;/span> &lt;span class="nb">:content-value&lt;/span> &lt;span class="mi">20&lt;/span> &lt;span class="nb">:type&lt;/span> &lt;span class="nv">s&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">:text&lt;/span> &lt;span class="s">&amp;#34;out-of-distribution&amp;#34;&lt;/span> &lt;span class="nb">:title-value&lt;/span> &lt;span class="mi">20&lt;/span> &lt;span class="nb">:content-value&lt;/span> &lt;span class="mi">30&lt;/span> &lt;span class="nb">:type&lt;/span> &lt;span class="nv">s&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">:text&lt;/span> &lt;span class="s">&amp;#34;language model&amp;#34;&lt;/span> &lt;span class="nb">:title-value&lt;/span> &lt;span class="mi">20&lt;/span> &lt;span class="nb">:content-value&lt;/span> &lt;span class="mi">30&lt;/span> &lt;span class="nb">:type&lt;/span> &lt;span class="nv">s&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;tag&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;authors&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">:text&lt;/span> &lt;span class="s">&amp;#34;Percy Liang&amp;#34;&lt;/span> &lt;span class="nb">:value&lt;/span> &lt;span class="mi">200&lt;/span> &lt;span class="nb">:type&lt;/span> &lt;span class="nv">w&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">:text&lt;/span> &lt;span class="s">&amp;#34;Sebastian Ruder&amp;#34;&lt;/span> &lt;span class="nb">:value&lt;/span> &lt;span class="mi">200&lt;/span> &lt;span class="nb">:type&lt;/span> &lt;span class="nv">w&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;feed&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;link&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;udf&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">mark&lt;/span> &lt;span class="no">nil&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;adjust-tags&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This score file thus pushes the papers we would like to read up to the top:&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/elfeed_score.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;h2 id="managing-papers-org-ref-and-org-mode">Managing papers: Org-ref and Org-mode&lt;/h2>
+&lt;p>When I&amp;rsquo;m reading the abstract of an interesting paper in Elfeed, if I want to read the pdf I can simply press &lt;code>Shift+RET&lt;/code> to open the pdf in my browser. However, that doesn&amp;rsquo;t offer a way to store the pdf files, neither does it offer a way to open the pdf in emacs. I want a system which can allow me to:&lt;/p>
+&lt;ol>
+&lt;li>Store the pdf in a folder&lt;/li>
+&lt;li>Add a bibtex entry to a centralized bib file with the paper information&lt;/li>
+&lt;li>Keep track of papers I have read, along with notes&lt;/li>
+&lt;/ol>
+&lt;h3 id="store-the-pdfs-from-elfeed">Store the pdfs from Elfeed&lt;/h3>
+&lt;p>I initially started my configuration following the nice talk by Ahmed in &lt;a href="https://emacsconf.org/2021/talks/research/" target="_blank" rel="noopener">EmacsConf 2021&lt;/a> (I highly recommend watching it!). Ahmed also provides a nice &lt;a href="https://gist.github.com/rka97/57779810d3664f41b0ed68a855fcab54" target="_blank" rel="noopener">gist for starters&lt;/a>, which I used to construct the basic function to perform steps 1 and 2.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">arxiv_bib&lt;/span> &lt;span class="s">&amp;#34;~/org/arxiv.bib&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">arxiv_pdf_loc&lt;/span> &lt;span class="s">&amp;#34;~/Documents/arxiv/&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">defun&lt;/span> &lt;span class="nv">my/elfeed-entry-to-arxiv&lt;/span> &lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Fetch an arXiv paper into the local library from the current elfeed entry.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">interactive&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">let*&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="nv">link&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-entry-link&lt;/span> &lt;span class="nv">elfeed-show-entry&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">match-idx&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">string-match&lt;/span> &lt;span class="s">&amp;#34;arxiv.org/abs/\\([0-9.]*\\)&amp;#34;&lt;/span> &lt;span class="nv">link&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">matched-arxiv-number&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">match-string&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="nv">link&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">when&lt;/span> &lt;span class="nv">matched-arxiv-number&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">message&lt;/span> &lt;span class="s">&amp;#34;Going to arXiv: %s&amp;#34;&lt;/span> &lt;span class="nv">matched-arxiv-number&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">arxiv-get-pdf-add-bibtex-entry&lt;/span> &lt;span class="nv">matched-arxiv-number&lt;/span> &lt;span class="nv">arxiv_bib&lt;/span> &lt;span class="nv">arxiv_pdf_loc&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This function utilizes the awesome &lt;a href="https://github.com/jkitchin/org-ref" target="_blank" rel="noopener">Org-ref&lt;/a> library functions, such as &lt;code>arxiv-get-pdf-add-bibtex-entry&lt;/code>. Given an Arxiv identifier, this function firsts constructs a bibtex entry with the paper metadata and stores it in &lt;code>arxiv_bib&lt;/code>, which is a variable I had set to point to my centralized bib file. Then, the function downloads the pdf, renames the pdf to the bibtex key, and saves it in &lt;code>arxiv_pdf_loc&lt;/code>, which is another variable I had defined which points to the directory where I want to save the pdfs.&lt;/p>
+&lt;p>We can add a Doom Emacs keybinding to quickly fetch the arxiv file. This allows me to call &lt;code>SPC n a&lt;/code> from the Elfeed entry buffer.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nv">map!&lt;/span> &lt;span class="nb">:leader&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">:desc&lt;/span> &lt;span class="s">&amp;#34;arXiv paper to library&amp;#34;&lt;/span> &lt;span class="s">&amp;#34;n a&amp;#34;&lt;/span> &lt;span class="nf">#&amp;#39;&lt;/span>&lt;span class="nv">my/elfeed-entry-to-arxiv&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">:desc&lt;/span> &lt;span class="s">&amp;#34;Elfeed&amp;#34;&lt;/span> &lt;span class="s">&amp;#34;n e&amp;#34;&lt;/span> &lt;span class="nf">#&amp;#39;&lt;/span>&lt;span class="nv">elfeed&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="update-the-bibtex-file">Update the bibtex file&lt;/h3>
+&lt;p>The bibtex generated by the &lt;code>arxiv-get-pdf-add-bibtex-entry&lt;/code> function lacks a &lt;code>file&lt;/code> item pointing to the pdf file. We will see why this item is useful in the next section. Assuming we need to add the full path of the downloaded pdf, the &lt;code>my/elfeed-entry-to-arxiv&lt;/code> function can be modified as follows:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">defun&lt;/span> &lt;span class="nv">my/elfeed-entry-to-arxiv&lt;/span> &lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Fetch an arXiv paper into the local library from the current elfeed entry.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">- Update the bib entry with the pdf file location
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">interactive&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">let*&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="nv">link&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-entry-link&lt;/span> &lt;span class="nv">elfeed-show-entry&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">match-idx&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">string-match&lt;/span> &lt;span class="s">&amp;#34;arxiv.org/abs/\\([0-9.]*\\)&amp;#34;&lt;/span> &lt;span class="nv">link&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">matched-arxiv-number&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">match-string&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="nv">link&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">when&lt;/span> &lt;span class="nv">matched-arxiv-number&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">message&lt;/span> &lt;span class="s">&amp;#34;Going to arXiv: %s&amp;#34;&lt;/span> &lt;span class="nv">matched-arxiv-number&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">arxiv-get-pdf-add-bibtex-entry&lt;/span> &lt;span class="nv">matched-arxiv-number&lt;/span> &lt;span class="nv">arxiv_bib&lt;/span> &lt;span class="nv">arxiv_pdf_loc&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; Now, we are updating the most recent bib file with the pdf location&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">save-window-excursion&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; Get the bib file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">find-file&lt;/span> &lt;span class="nv">arxiv_bib&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; get to last line&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">goto-char&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">point-max&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; get to the first line of bibtex&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">bibtex-beginning-of-entry&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">let*&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="nv">entry&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">bibtex-parse-entry&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">key&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">cdr&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">assoc&lt;/span> &lt;span class="s">&amp;#34;=key=&amp;#34;&lt;/span> &lt;span class="nv">entry&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">pdf&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">org-ref-get-pdf-filename&lt;/span> &lt;span class="nv">key&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">message&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="s">&amp;#34;checking for key: &amp;#34;&lt;/span> &lt;span class="nv">key&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">message&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="s">&amp;#34;value of pdf: &amp;#34;&lt;/span> &lt;span class="nv">pdf&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">when&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">file-exists-p&lt;/span> &lt;span class="nv">pdf&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">bibtex-set-field&lt;/span> &lt;span class="s">&amp;#34;file&amp;#34;&lt;/span> &lt;span class="nv">pdf&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">save-buffer&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">org-ref-pdf-directory&lt;/span> &lt;span class="nv">arxiv_pdf_loc&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>What this function does is it opens the bibfile (&lt;code>arxiv_bib&lt;/code>), navigates to the last line, then again navigates to the first line of the last bibtex entry to load the bibtex, and then fetches the pdf path. Then the function adds a &lt;code>file&lt;/code> field to the bibtex with the pdf path using the function &lt;code>bibtex-set-field&lt;/code>.&lt;/p>
+&lt;p>It is also important to set the path of &lt;code>org-ref-pdf-directory&lt;/code> variable to the location of your pdf files, for org-ref to fetch the full path of the pdf properly using &lt;code>org-ref-get-pdf-filename&lt;/code> function.&lt;/p>
+&lt;h3 id="tracking-a-reading-list">Tracking a reading list&lt;/h3>
+&lt;p>Now I have the mechanisms in place to store the pdf and the bibtex entries of the papers I want to read after looking through the latest arxiv posts. This is a good time to setup a workflow to track my paper reading lists. I use Org-mode for this purpose.&lt;/p>
+&lt;p>Specifically, I create an Org file named &lt;code>papers.org&lt;/code>, which has the following structure:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-org" data-lang="org">&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+STARTUP&lt;/span>&lt;span class="c">: content showstars indent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Personal Paper readings&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Centralized location to track paper readings&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gh">*&lt;/span>&lt;span class="gs"> Categorized [/]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">:PROPERTIES:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="cs">:COOKIE_DATA: recursive todo
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">&lt;/span>&lt;span class="c">:END:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">**&lt;/span> Some specific subfield
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gh">*&lt;/span>&lt;span class="gs"> Maybe Read [/]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gh">*&lt;/span>&lt;span class="gs"> Know about it, would be nice to re-read [/]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gh">*&lt;/span>&lt;span class="gs"> Inbox&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>These are basically headings to file &lt;code>TODO&lt;/code> items. I keep track of a paper to read using the Org &lt;code>TODO&lt;/code> modes. For any new paper which I&amp;rsquo;m reading through Elfeed, I hit &lt;code>SPC n e&lt;/code> to extract the bibtex and save the pdf in the centralized pdf directory. Now, I would want to file this paper automatically under &lt;code>* Inbox&lt;/code> header as a &lt;code>TODO&lt;/code> entry. To do that, we can modify the above function to read &lt;code>papers.org&lt;/code>, go to the last element of the page (which points to the latest filed paper in &lt;code>* Inbox&lt;/code>), and add a new entry with Org-ref citation.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">defun&lt;/span> &lt;span class="nv">my/elfeed-entry-to-arxiv&lt;/span> &lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Fetch an arXiv paper into the local library from the current elfeed entry.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">This is a customized version from the one in https://gist.github.com/rka97/57779810d3664f41b0ed68a855fcab54
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">New features to this version:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">- Update the bib entry with the pdf file location
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">- Add a TODO entry in my papers.org to read the paper
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">interactive&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">let*&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="nv">link&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">elfeed-entry-link&lt;/span> &lt;span class="nv">elfeed-show-entry&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">match-idx&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">string-match&lt;/span> &lt;span class="s">&amp;#34;arxiv.org/abs/\\([0-9.]*\\)&amp;#34;&lt;/span> &lt;span class="nv">link&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">matched-arxiv-number&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">match-string&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="nv">link&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">last-arxiv-key&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">last-arxiv-title&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">when&lt;/span> &lt;span class="nv">matched-arxiv-number&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">message&lt;/span> &lt;span class="s">&amp;#34;Going to arXiv: %s&amp;#34;&lt;/span> &lt;span class="nv">matched-arxiv-number&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">arxiv-get-pdf-add-bibtex-entry&lt;/span> &lt;span class="nv">matched-arxiv-number&lt;/span> &lt;span class="nv">arxiv_bib&lt;/span> &lt;span class="nv">arxiv_pdf_loc&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; Now, we are updating the most recent bib file with the pdf location&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">message&lt;/span> &lt;span class="s">&amp;#34;Update bibtex with pdf file location&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">save-window-excursion&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; Get the bib file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">find-file&lt;/span> &lt;span class="nv">arxiv_bib&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; get to last line&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">goto-char&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">point-max&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; get to the first line of bibtex&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">bibtex-beginning-of-entry&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">let*&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="nv">entry&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">bibtex-parse-entry&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">key&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">cdr&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">assoc&lt;/span> &lt;span class="s">&amp;#34;=key=&amp;#34;&lt;/span> &lt;span class="nv">entry&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">title&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">bibtex-completion-apa-get-value&lt;/span> &lt;span class="s">&amp;#34;title&amp;#34;&lt;/span> &lt;span class="nv">entry&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">pdf&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">org-ref-get-pdf-filename&lt;/span> &lt;span class="nv">key&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">message&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="s">&amp;#34;checking for key: &amp;#34;&lt;/span> &lt;span class="nv">key&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">message&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="s">&amp;#34;value of pdf: &amp;#34;&lt;/span> &lt;span class="nv">pdf&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">when&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">file-exists-p&lt;/span> &lt;span class="nv">pdf&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">bibtex-set-field&lt;/span> &lt;span class="s">&amp;#34;file&amp;#34;&lt;/span> &lt;span class="nv">pdf&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">last-arxiv-key&lt;/span> &lt;span class="nv">key&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">last-arxiv-title&lt;/span> &lt;span class="nv">title&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">save-buffer&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; (message (concat &amp;#34;outside of save window, key: &amp;#34; last-arxiv-key))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; Add a TODO entry with the cite key and title&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;; This is a bit hacky solution as I don&amp;#39;t know how to add the org entry programmatically&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">save-window-excursion&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">find-file&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="nv">org-directory&lt;/span> &lt;span class="s">&amp;#34;papers.org&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">goto-char&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">point-max&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nf">insert&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">format&lt;/span> &lt;span class="s">&amp;#34;** TODO Read paper (cite:%s) %s&amp;#34;&lt;/span> &lt;span class="nv">last-arxiv-key&lt;/span> &lt;span class="nv">last-arxiv-title&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">save-buffer&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Thus we arrive at the final version of the &lt;code>my/elfeed-entry-to-arxiv&lt;/code> function, which is now modified to keep track of the key of the paper using &lt;code>last-arxiv-key&lt;/code> and title of the paper &lt;code>last-arxiv-title&lt;/code>, so that we can construct a &lt;code>TODO&lt;/code> entry to reflect the key and the title. The key is added in Org citation format.&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/paper_reading.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;p>I use &lt;a href="https://github.com/tmalsburg/helm-bibtex" target="_blank" rel="noopener">helm-bibtex&lt;/a> as my completion engine for bibtex, which shows me a menu when I &lt;code>RET&lt;/code> on the citation key. Helm-bibtex allows me to see a contextual menu on any org link. I need to set the following variables so that helm-bibtex knows where to look for the pdf files:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">bibtex-completion-bibliography&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">list&lt;/span> &lt;span class="nv">arxiv_bib&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">setq&lt;/span> &lt;span class="nv">bibtex-completion-pdf-field&lt;/span> &lt;span class="s">&amp;#34;file&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/paper_helm.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;p>Thus, using Org-mode to track my paper reading list helps me to store all my reading habits and notes within one file!&lt;/p>
+&lt;ul>
+&lt;li>I use the &lt;code>* Inbox&lt;/code> header as a staging area whenever I store a paper from Elfeed.&lt;/li>
+&lt;li>After I store the paper, I can re-file the paper in several categories as defined in &lt;code>papers.org&lt;/code>, easily, using &lt;code>C-c C-w&lt;/code>.&lt;/li>
+&lt;li>I can read the paper directly in Emacs by &lt;code>RET -&amp;gt; Open PDF -&amp;gt; RET&lt;/code>!&lt;/li>
+&lt;li>The &lt;code>[/]&lt;/code> is a TODO status indicator used in front of every header, which shows me the number of &lt;em>read&lt;/em> papers out of total number of papers in the sub-heading. Whenever I read the paper, I can just hit &lt;code>RET&lt;/code> on the paper header to change the status to &lt;code>DONE&lt;/code>, which automatically increases the count!&lt;/li>
+&lt;li>I can directly use this org file to take notes under the header of each paper.&lt;/li>
+&lt;/ul>
+&lt;p>This workflow allows me to seamlessly fetch, read and take notes on papers, fully keyboard driven, directly inside one app!&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/paper_pdf.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;h2 id="syncing-and-note-taking-in-ipad">Syncing &amp;amp; Note taking in Ipad&lt;/h2>
+&lt;p>Using the above method makes it trivial to sync my reading lists on my Apple Ipad. For starters, I keep the org files and bib files in my Dropbox directory, so any change in the &lt;code>papers.org&lt;/code> file gets synced through Dropbox. I also add the arxiv pdf directory in my Dropbox, so that any new pdfs are automatically synced throughout my devices. On my Ipad, I use &lt;a href="https://pdfexpert.com/" target="_blank" rel="noopener">PDF Expert&lt;/a> to read and annotate the papers by linking my Dropbox account. I take copious scribbles using my Apple pencil, and they are immediately synced so I can view the annotated pdf directly from my &lt;code>papers.org&lt;/code> file.&lt;/p>
+&lt;h2 id="closing-thoughts">Closing Thoughts&lt;/h2>
+&lt;p>This is an evolving workflow, and it is probably not the most optimal one. However it works for me, and I can easily keep tweaking the config so that it supports any future requirements. Let me know if this worked for you in the comments, and I would love to hear any suggestions you might have so that I can make this workflow better! Thanks for reading!&lt;/p></description></item><item><title>How sensitive are translation systems to extra contexts? Mitigating gender bias in Neural Machine Translation models through relevant contexts</title><link>https://cs.mcgill.ca/~ksinha4/publication/sharma-2022-how/</link><pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sharma-2022-how/</guid><description/></item><item><title>Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little</title><link>https://cs.mcgill.ca/~ksinha4/publication/sinha-2021-masked/</link><pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sinha-2021-masked/</guid><description/></item><item><title>UnNatural Language Inference</title><link>https://cs.mcgill.ca/~ksinha4/project/unli/</link><pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/project/unli/</guid><description>&lt;p>&lt;strong>Abstract&lt;/strong>&lt;/p>
+&lt;p>Recent investigations into the inner-workings of state-of-the-art
+large-scale pre-trained Transformer-based Natural Language Understanding
+(NLU) models indicate that they appear to understand human-like syntax,
+at least to some extent. We provide novel evidence that complicates this
+claim: we find that state-of-the-art Natural Language Inference (NLI)
+models assign the same labels to permuted examples as they do to the
+original, i.e. they are invariant to random word-order permutations.
+This behavior notably differs from that of humans; we struggle to
+understand the meaning of ungrammatical sentences. To measure the
+severity of this issue, we propose a suite of metrics and investigate
+which properties of particular permutations lead models to be word order
+invariant. For example, in MNLI dataset we find almost all (98.7%)
+examples contain at least one permutation which elicits the gold label.
+Models are even able to assign gold labels to permutations that they
+originally failed to predict correctly. We provide a comprehensive
+empirical evaluation of this phenomenon, and further show that this
+issue exists in pre-Transformer RNN / ConvNet based encoders, as well as
+across multiple languages (English and Chinese). Our code and data are
+available at &lt;a href="https://github.com/facebookresearch/unlu" target="_blank" rel="noopener">https://github.com/facebookresearch/unlu&lt;/a>.&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/anim_30.gif" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;h2 id="news">Latest News&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>July 3, 2021&lt;/strong> : We are honored to be awarded &lt;a href="https://2021.aclweb.org/program/accept/" target="_blank" rel="noopener">Outstanding Paper Award&lt;/a> in ACL-IJCNLP 2021!&lt;/li>
+&lt;/ul></description></item><item><title>UnNatural Language Inference</title><link>https://cs.mcgill.ca/~ksinha4/publication/sinha-2021-unnat/</link><pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sinha-2021-unnat/</guid><description/></item><item><title>COVID-19 Deterioration Prediction via Self-Supervised Representation Learning and Multi-Image Prediction</title><link>https://cs.mcgill.ca/~ksinha4/publication/sriram-2021-covid-19/</link><pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sriram-2021-covid-19/</guid><description/></item><item><title>Evaluating Gender Bias in Natural Language Inference</title><link>https://cs.mcgill.ca/~ksinha4/publication/sharma-2021-evaluating/</link><pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sharma-2021-evaluating/</guid><description/></item><item><title>Sometimes We Want Ungrammatical Translations</title><link>https://cs.mcgill.ca/~ksinha4/publication/parthasarathi-2021-want/</link><pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/parthasarathi-2021-want/</guid><description/></item><item><title>ML Reproducibility Tools and Best Practices</title><link>https://cs.mcgill.ca/~ksinha4/practices_for_reproducibility/</link><pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/practices_for_reproducibility/</guid><description>&lt;p>A recurrent challenge in machine learning research is to ensure that the
+presented and published results are reliable, robust, and reproducible
+[&lt;a href="http://proceedings.mlr.press/v97/bouthillier19a.html" target="_blank" rel="noopener">4&lt;/a>,&lt;a href="https://arxiv.org/abs/1711.10337" target="_blank" rel="noopener">5&lt;/a>,&lt;a href="https://arxiv.org/abs/1709.06560" target="_blank" rel="noopener">6&lt;/a>,&lt;a href="https://arxiv.org/abs/1909.06674" target="_blank" rel="noopener">7&lt;/a>].&lt;/p>
+&lt;p>Reproducibility, obtaining similar results as presented in a paper using
+the same code and data, is necessary to verify the reliability of
+research findings. Reproducibility is also an important step to promote
+open and accessible research, thereby allowing the scientific community
+to quickly integrate new findings and convert ideas to practice.
+Reproducibility also promotes the use of robust experimental workflows,
+which potentially reduce unintentional errors.&lt;/p>
+&lt;p>In this blog post, we will share commonly used tools and explain 12
+basic practices that you can use in your research to ensure reproducible
+science.&lt;/p>
+&lt;h2 id="tools">Tools&lt;/h2>
+&lt;p>&lt;strong>Updated&lt;/strong> : 21st December, 2020&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Practice&lt;/th>
+&lt;th>Tools&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>Config Management&lt;/td>
+&lt;td>&lt;a href="https://hydra.cc" target="_blank" rel="noopener">Hydra&lt;/a>, &lt;a href="https://github.com/omry/omegaconf" target="_blank" rel="noopener">OmegaConf&lt;/a>, &lt;a href="https://github.com/PyTorchLightning/pytorch-lightning" target="_blank" rel="noopener">Pytorch Lightning&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>Checkpoint Management&lt;/td>
+&lt;td>&lt;a href="https://github.com/PyTorchLightning/pytorch-lightning" target="_blank" rel="noopener">Pytorch Lightning&lt;/a>, &lt;a href="https://github.com/williamFalcon/test-tube" target="_blank" rel="noopener">TestTube&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3&lt;/td>
+&lt;td>Logging&lt;/td>
+&lt;td>&lt;a href="https://www.tensorflow.org/tensorboard" target="_blank" rel="noopener">Tensorboard&lt;/a>, &lt;a href="https://www.comet.ml/site/" target="_blank" rel="noopener">Comet.ML&lt;/a>, &lt;a href="https://www.wandb.com/" target="_blank" rel="noopener">Weights &amp;amp; Biases&lt;/a>, &lt;a href="https://mlflow.org/" target="_blank" rel="noopener">MLFlow&lt;/a>, &lt;a href="https://github.com/facebookresearch/visdom" target="_blank" rel="noopener">Visdom&lt;/a>, &lt;a href="https://neptune.ai/" target="_blank" rel="noopener">Neptune&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>4&lt;/td>
+&lt;td>Seed&lt;/td>
+&lt;td>&lt;em>Check best practices below&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-&lt;/td>
+&lt;td>Experiment Management&lt;/td>
+&lt;td>&lt;a href="https://github.com/PyTorchLightning/pytorch-lightning" target="_blank" rel="noopener">Pytorch Lightning&lt;/a>, &lt;a href="https://mlflow.org" target="_blank" rel="noopener">MLFlow&lt;/a>, &lt;a href="https://determined.ai/" target="_blank" rel="noopener">Determined.AI&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>5&lt;/td>
+&lt;td>Versioning&lt;/td>
+&lt;td>&lt;a href="https://github.com" target="_blank" rel="noopener">Github&lt;/a>, &lt;a href="https://gitlab.com" target="_blank" rel="noopener">Gitlab&lt;/a>, &lt;a href="https://replicate.ai/" target="_blank" rel="noopener">Replicate.AI&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>6&lt;/td>
+&lt;td>Data Management&lt;/td>
+&lt;td>&lt;a href="https://dvc.org" target="_blank" rel="noopener">DVC&lt;/a>, &lt;a href="https://cml.dev" target="_blank" rel="noopener">CML&lt;/a>, &lt;a href="https://replicate.ai/" target="_blank" rel="noopener">Replicate.AI&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>7&lt;/td>
+&lt;td>Data analysis&lt;/td>
+&lt;td>&lt;a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook&lt;/a>, &lt;a href="https://papermill.readthedocs.io/en/latest/" target="_blank" rel="noopener">papermill&lt;/a>, &lt;a href="https://jupyterlab.readthedocs.io/en/stable/" target="_blank" rel="noopener">JupyterLab&lt;/a>, &lt;a href="https://colab.research.google.com/" target="_blank" rel="noopener">Google Colab&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>8&lt;/td>
+&lt;td>Reporting&lt;/td>
+&lt;td>&lt;a href="https://matplotlib.org/" target="_blank" rel="noopener">Matplotlib&lt;/a>, &lt;a href="https://seaborn.pydata.org/" target="_blank" rel="noopener">Seaborn&lt;/a> , &lt;a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas&lt;/a>, &lt;a href="https://www.overleaf.com/" target="_blank" rel="noopener">Overleaf&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9&lt;/td>
+&lt;td>Dependency Management&lt;/td>
+&lt;td>&lt;a href="https://pypi.org/project/pip/" target="_blank" rel="noopener">pip&lt;/a>, &lt;a href="https://docs.conda.io/en/latest/" target="_blank" rel="noopener">conda&lt;/a>, &lt;a href="https://python-poetry.org/" target="_blank" rel="noopener">Poetry&lt;/a>, &lt;a href="https://www.docker.com/" target="_blank" rel="noopener">Docker&lt;/a>, &lt;a href="https://sylabs.io/docs/" target="_blank" rel="noopener">Singularity&lt;/a>, &lt;a href="https://github.com/jupyter/repo2docker" target="_blank" rel="noopener">repo2docker&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>10&lt;/td>
+&lt;td>Open Source Release&lt;/td>
+&lt;td>&lt;a href="https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git" target="_blank" rel="noopener">Squash Commits&lt;/a>, &lt;a href="https://mybinder.org/" target="_blank" rel="noopener">Binder&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>11&lt;/td>
+&lt;td>Effective Communication&lt;/td>
+&lt;td>&lt;a href="https://medium.com/paperswithcode/ml-code-completeness-checklist-e9127b168501" target="_blank" rel="noopener">ML Code Completeness Checklist&lt;/a>, &lt;a href="https://www.cs.mcgill.ca/~jpineau/ReproducibilityChecklist.pdf" target="_blank" rel="noopener">ML Reproducibility Checklist&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>12&lt;/td>
+&lt;td>Test and Validate&lt;/td>
+&lt;td>&lt;a href="https://aws.amazon.com/" target="_blank" rel="noopener">AWS&lt;/a>, &lt;a href="https://cloud.google.com/" target="_blank" rel="noopener">GCP&lt;/a>, &lt;a href="https://codeocean.com/" target="_blank" rel="noopener">CodeOcean&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="practices">Practices&lt;/h2>
+&lt;h3 id="config-management">1. Config Management&lt;/h3>
+&lt;p>When you begin implementing your research code, the first line of work
+is to define an argument parser to define the set of parameters your
+code expects. These set of hyperparameters can typically look like this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">python train.py --hidden_dim &lt;span class="m">100&lt;/span> --batch_size &lt;span class="m">32&lt;/span> --num_tasks &lt;span class="m">10&lt;/span> --dropout 0.2 --with_mask --log_interval &lt;span class="m">100&lt;/span> --learning_rate 0.001 --optimizer sgd --scheduler plateau --scheduler_gamma 0.9 --weight_decay 0.9
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>These sets of arguments typically grow over time in your research
+project, making maintenance and reproducibility a pain. Typically in
+your code, you should be careful to log all hyperparameters for all
+experiments, so that you can replicate an old version of your code.
+&lt;a href="https://github.com/PyTorchLightning/pytorch-lightning" target="_blank" rel="noopener">Pytorch
+Lightning&lt;/a> provides a great way to log all hyperparameters in &lt;code>.csv&lt;/code>
+files in the experiment output folder, allowing for better
+reproducibility.&lt;/p>
+&lt;p>An alternative to using a long list of argparse elements is to use
+config files. Config files can be either in JSON or YAML format (I
+prefer YAML due to the ability to add comments), where you can set your
+hyperparams in a logically nested way. The above set of hyperparams
+could be organized as:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># config.yaml&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">general&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># for generic args&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">batch_size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">32&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">num_tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">10&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with_mask&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">log_interval&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">100&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">optim&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># for optimizer args&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">learning_rate&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0.001&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">optimizer&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sgd&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scheduler&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">plateau&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">scheduler_gamma&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0.9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">weight_decay&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0.9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">model&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hidden_dim&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">100&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://github.com/omry/omegaconf" target="_blank" rel="noopener">OmegaConf&lt;/a> (part of
+&lt;a href="https://hydra.cc" target="_blank" rel="noopener">Hydra&lt;/a>) is a great library that allows you to
+maintain these config files while providing added flexibility to import
+previous config files and modify only a few values.&lt;/p>
+&lt;h3 id="checkpoint-management">2. Checkpoint Management&lt;/h3>
+&lt;p>Managing your model checkpoints is very important in terms of
+reproducibility, as it allows you to release trained models for the
+community to easily verify your work, as well as build upon it. Ideally,
+you should save your checkpoints as frequently as possible. Given the
+system resource restrictions, it is usually not feasible. Thus, it is
+ideal to save the last checkpoint along with the checkpoint of the &lt;em>last
+best model&lt;/em> (according to your evaluation metrics).
+&lt;a href="https://github.com/PyTorchLightning/pytorch-lightning" target="_blank" rel="noopener">Pytorch
+Lightning&lt;/a> provides an in-built solution to do this efficiently.&lt;/p>
+&lt;h3 id="logging">3. Logging&lt;/h3>
+&lt;p>When training your model, you realize that for several parameters it is
+not giving you the ideal performance. Ideally, you want to check several
+things. Is the training loss of the model saturating? Is it still going
+down? How is the validation performance over training look like? You
+need to log all the metrics efficiently, and later plot those metrics in
+nice shiny plots for analysis and inspection.&lt;/p>
+&lt;p>Logging is also important for reproducibility, so researchers can verify
+the training progression of their replications in great detail.&lt;/p>
+&lt;p>In the bare-bones setup, you could just log all metrics in the
+filesystem and then plot by loading them in a python script using
+matplotlib. To make this process easy and also to provide live,
+interactive plots, several services are available now which you can
+leverage in your work.
+&lt;a href="https://www.tensorflow.org/tensorboard" target="_blank" rel="noopener">Tensorboard&lt;/a>, for example, is
+popular in the ML community primarily for its early adoption and ability
+to deploy locally. Newer entrants, like
+&lt;a href="https://www.comet.ml/site/" target="_blank" rel="noopener">Comet.ML&lt;/a>,
+&lt;a href="https://www.wandb.com/" target="_blank" rel="noopener">WandB&lt;/a> or &lt;a href="https://mlflow.org/" target="_blank" rel="noopener">MLFlow&lt;/a>,
+provide exciting features ranging from sharable online logging
+interfaces, with fine-grained ability to monitor experiments and
+hyperparams. In a future blog post, we will discuss on the pros and cons
+of these systems.&lt;/p>
+&lt;h3 id="setting-the-seed">4. Setting the seed&lt;/h3>
+&lt;p>Probably the most important aspect of the exact reproducibility of your
+research is the seed of the experiment. Although exact reproducibility
+is not guaranteed, especially in GPU execution environments
+[&lt;a href="https://docs.nvidia.com/deeplearning/sdk/cudnn-developer-guide/index.html#reproducibility" target="_blank" rel="noopener">2&lt;/a>,
+&lt;a href="https://pytorch.org/docs/stable/notes/randomness.html" target="_blank" rel="noopener">8&lt;/a>], it&amp;rsquo;s
+still beneficial to report the seed due to its impact on your results.&lt;/p>
+&lt;p>When you begin your experiments, it suggested to first set the seed
+using scripts like these (assuming if you use PyTorch):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">set_seed&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">seed&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;Set seed&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">random&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">seed&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">seed&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">random&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">seed&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">seed&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">manual_seed&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">seed&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cuda&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">is_available&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cuda&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">manual_seed&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">seed&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cuda&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">manual_seed_all&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">seed&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">backends&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cudnn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">deterministic&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">backends&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cudnn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">benchmark&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">False&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">environ&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;PYTHONHASHSEED&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">seed&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Do not optimize the seed like a hyperparameter. If your algorithm only
+works on a range of seeds, it&amp;rsquo;s not a robust contribution.&lt;/strong>&lt;/p>
+&lt;p>Reporting the performance of your model on &lt;em>multiple seeds&lt;/em> captures the
+variance of the proposed model. Before beginning your experiments,
+randomly draw \(n\) seeds and set them aside in your config file, and
+report all experimental results aggregated over those \(n\) seeds.
+\(n=5\) is a good starting point, but you an always increase this
+number.&lt;/p>
+&lt;h3 id="version-control">5. Version Control&lt;/h3>
+&lt;p>To track your research effectively, we highly recommended practice
+setting up version control using &lt;code>git&lt;/code> in your repository from the
+get-go. You can use a service like &lt;a href="https://github.com" target="_blank" rel="noopener">Github&lt;/a> or
+&lt;a href="https://gitlab.com/" target="_blank" rel="noopener">Gitlab&lt;/a> as your hosting provider.&lt;/p>
+&lt;p>Use &lt;code>git commit=s to explain to your future self (and your collaborators) what change you made to your experiment at a given time. Ideally, you should /always commit before you run an experiment/, so that you can =tag&lt;/code> the results with specific commits. Be as detailed
+with your commit messages as you can - your future self will thank you!&lt;/p>
+&lt;p>Check out the
+&lt;a href="https://github.com/huggingface/transformers/commit/9996f697e3ed7a0d6fe4348953723ad6b9d51477" target="_blank" rel="noopener">commits&lt;/a>
+from
+&lt;a href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">Huggingface/transformers&lt;/a>
+repository for a nice example.&lt;/p>
+&lt;h3 id="data-management">6. Data Management&lt;/h3>
+&lt;p>Managing your data is extremely important for reproducibility,
+especially when you propose a new dataset or a new dataset split. In
+your many rounds of experiments, you would probably work with different
+splits of the data, hence tracking all those changes should have similar
+priority as tracking your code.&lt;/p>
+&lt;p>The easiest way to track your data is to add it to the git version
+system or use cloud storage solutions such as Google Drive, AWS S3 to
+store your datasets.&lt;/p>
+&lt;p>For large datasets, you can also use
+&lt;a href="https://git-lfs.github.com/" target="_blank" rel="noopener">&lt;code>git-lfs&lt;/code>&lt;/a>, or maintain a md5 hash of
+the dataset in your config file, like this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">md5_update_from_dir&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">directory&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Union&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Path&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="nb">hash&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Hash&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Hash&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">assert&lt;/span> &lt;span class="n">Path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">directory&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">is_dir&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">sorted&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">directory&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">iterdir&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">key&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">lambda&lt;/span> &lt;span class="n">p&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">lower&lt;/span>&lt;span class="p">()):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">hash&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">update&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">is_file&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">hash&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">md5_update_from_file&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">hash&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">is_dir&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">hash&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">md5_update_from_dir&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">hash&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nb">hash&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">md5_dir&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">directory&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Union&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Path&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">md5_update_from_dir&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">directory&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">hashlib&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">md5&lt;/span>&lt;span class="p">())&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hexdigest&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://stackoverflow.com/a/54477583" target="_blank" rel="noopener">Source - StackOverflow&lt;/a>&lt;/p>
+&lt;p>Having such a hash will allow you to track which dataset or data split
+you were working on at a certain commit.&lt;/p>
+&lt;h3 id="data-analysis">7. Data Analysis&lt;/h3>
+&lt;p>Keeping track of the analysis you perform on the data/results is also
+very important in terms of the reproducibility of your contribution.
+&lt;a href="https://jupyter.org" target="_blank" rel="noopener">Jupyter Notebooks&lt;/a> are the standard in
+maintaining all your analysis and plotting functions in one place.
+Ideally, you should separate notebooks for data analysis, result
+analysis, plot generation, and table generation, and add them in your
+version control. Pandas'
+&lt;a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_latex.html" target="_blank" rel="noopener">to_latex&lt;/a>
+allows you to directly write your results as a latex table, removing
+error-prone copying of results into LaTeX.&lt;/p>
+&lt;p>When you need to update the results in your paper, you can just access
+the corresponding file and re-run the cells. You can also parameterize
+and run notebooks with the
+&lt;a href="https://github.com/nteract/papermill#execute-via-the-python-api" target="_blank" rel="noopener">papermill
+API&lt;/a> so that your notebooks are cleanly executed your desired analysis
+parameters.&lt;/p>
+&lt;p>Maintaining Jupyter Notebooks can get tricky over time. Consider
+following the best practices [&lt;a href="https://arxiv.org/abs/1810.08055" target="_blank" rel="noopener">1&lt;/a>]
+and use
+&lt;a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions" target="_blank" rel="noopener">Jupter
+contrib nbextensions&lt;/a> to supercharge your notebooks!&lt;/p>
+&lt;h3 id="reporting-results">8. Reporting Results&lt;/h3>
+&lt;p>When reporting your results, it is ideal to run your experiments in
+different seeds and/or different datasets. Thus, your results should
+contain plots with error bars and tables with standard deviations. You
+should also describe how the descriptive statistics were calculated,
+e.g. mean reward over multiple seeds. Statistical testing and
+highlighting statistically significant values is also encouraged
+[&lt;a href="https://arxiv.org/abs/1904.10922" target="_blank" rel="noopener">9&lt;/a>]. This information provides a
+more realistic assessment of the performance of a model and avoids the
+sharing of overly optimistic results
+[&lt;a href="http://proceedings.mlr.press/v97/bouthillier19a.html" target="_blank" rel="noopener">4&lt;/a>,&lt;a href="https://arxiv.org/abs/1711.10337" target="_blank" rel="noopener">5&lt;/a>,&lt;a href="https://arxiv.org/abs/1709.06560" target="_blank" rel="noopener">6&lt;/a>,&lt;a href="https://arxiv.org/abs/1909.06674" target="_blank" rel="noopener">7&lt;/a>].&lt;/p>
+&lt;p>A higher bar of reproducibility is to report the results on &lt;em>multiple
+datasets&lt;/em> to highlight the robustness of your model. Even if the model
+has larger variance over different datasets, its still encouraged to
+report them all - to avoid the discovery of these issues later on.&lt;/p>
+&lt;p>While reporting your results, consult the
+&lt;a href="https://www.cs.mcgill.ca/~jpineau/ReproducibilityChecklist.pdf" target="_blank" rel="noopener">ML
+Reproducibility Checklist&lt;/a> which has detailed guidelines on the best
+practices for reporting figures and tables.&lt;/p>
+&lt;h3 id="managing-dependencies">9. Managing Dependencies&lt;/h3>
+&lt;p>Irreproducibility often stems from software deprecation. To replicate a
+published work, the first thing to do is to match the same development
+environment, containing the same libraries that the program expects.
+Thus, it is crucial to document the libraries and their versions that
+you use in your experiments. After your experiments are stable, you can
+leverage &lt;code>pip&lt;/code> or &lt;code>conda&lt;/code> to collect all libraries that have been used:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ pip freeze &amp;gt; requirements.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ conda env &lt;span class="nb">export&lt;/span> &amp;gt; environment.yml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can also leverage headless virtual machines such as
+&lt;a href="https://www.docker.com/" target="_blank" rel="noopener">Docker&lt;/a> or
+&lt;a href="https://sylabs.io/docs/" target="_blank" rel="noopener">Singularity&lt;/a> to provide the exact
+reproducible dev environment used for the experiments. Singularity, in
+particular, is supported in many HPC systems (such as
+&lt;a href="https://www.computecanada.ca/" target="_blank" rel="noopener">Compute Canada&lt;/a>), which can be used to
+train and then subsequently release your experiments to the public. You
+can also convert your existing repository into a Docker environment
+using &lt;a href="https://github.com/jupyter/repo2docker" target="_blank" rel="noopener">repo2docker&lt;/a>.&lt;/p>
+&lt;h3 id="open-source-release">10. Open Source Release&lt;/h3>
+&lt;p>After you have published your paper, consider open sourcing your
+experiments. This not only encourages reproducible research but also
+adds more visibility to your paper. Once you release your code, consider
+adding it to &lt;a href="https://paperswithcode.com/" target="_blank" rel="noopener">Papers With Code&lt;/a> for added
+visibility. You can also release a demo on
+&lt;a href="https://mybinder.org" target="_blank" rel="noopener">Binder&lt;/a> or
+&lt;a href="https://colab.research.google.com/" target="_blank" rel="noopener">Colab&lt;/a> to encourage people to use
+your model.&lt;/p>
+&lt;p>For good examples of model demos check out
+[&lt;a href="https://distill.pub/2018/differentiable-parameterizations/" target="_blank" rel="noopener">10&lt;/a>].&lt;/p>
+&lt;p>Before releasing your code, check the following:&lt;/p>
+&lt;ul>
+&lt;li>Squash the commits in the public branch (master) into a single commit
+&lt;ul>
+&lt;li>Helps remove your private experiment commit messages (and the
+awkward comments!)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Make sure your code does not contain any API keys (for loggers such as
+WandB or Comet.ML)&lt;/li>
+&lt;li>Keep an eye out for hardcoded file paths&lt;/li>
+&lt;li>Improve readability of your code using formatters such as
+&lt;a href="https://pypi.org/project/black/" target="_blank" rel="noopener">Black&lt;/a>. Obscure, poorly written
+codebases, even when they run, are oftentimes impossible to reuse or
+build on top of&lt;/li>
+&lt;li>Document your functions and classes appropriately. In ML, it&amp;rsquo;s
+beneficial to the reader if you annotate your code with input and
+output tensor dimensions.&lt;/li>
+&lt;/ul>
+&lt;h3 id="effective-communication">11. Effective Communication&lt;/h3>
+&lt;p>When releasing your code, try to add as much information about the code
+in the README file. &lt;a href="https://paperswithcode.com/" target="_blank" rel="noopener">Papers With Code&lt;/a>
+released
+&lt;a href="https://medium.com/paperswithcode/ml-code-completeness-checklist-e9127b168501" target="_blank" rel="noopener">ML
+Code Completeness checklist&lt;/a>, which suggests adding the following in
+your README:&lt;/p>
+&lt;ul>
+&lt;li>Dependency information&lt;/li>
+&lt;li>Training scripts&lt;/li>
+&lt;li>Evaluation scripts&lt;/li>
+&lt;li>Pre-trained models&lt;/li>
+&lt;li>Results&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://paperswithcode.com/" target="_blank" rel="noopener">Papers With Code&lt;/a> evaluated repositories
+released after NeurIPS 2019 and found repositories that do not address
+any of the above only got a median of 1.5 Github stars, whereas
+repositories which have all five of the above criteria got &lt;strong>196.5&lt;/strong>
+median stars! Only 9% of the repositories fulfilled the 5 points, so
+definitely we can do better about communicating our research. The better
+the communication, the better it is in terms of reproducibility.&lt;/p>
+&lt;p>You should always mention clearly the source of the dataset used in the
+work. If you are releasing a new dataset or pretrained model for the
+community, consider adding proper documentation for easy access, such as
+a &lt;a href="https://arxiv.org/abs/1803.09010" target="_blank" rel="noopener">datasheet&lt;/a> or
+&lt;a href="https://arxiv.org/abs/1810.03993" target="_blank" rel="noopener">model card&lt;/a>. These are READMEs for
+the dataset or model which contains:&lt;/p>
+&lt;ul>
+&lt;li>Motivation&lt;/li>
+&lt;li>Composition&lt;/li>
+&lt;li>Collection Process&lt;/li>
+&lt;li>Preprocessing&lt;/li>
+&lt;li>Use cases&lt;/li>
+&lt;li>Distribution&lt;/li>
+&lt;li>Maintenance&lt;/li>
+&lt;/ul>
+&lt;p>Read the papers [&lt;a href="https://arxiv.org/abs/1803.09010" target="_blank" rel="noopener">3&lt;/a>,
+&lt;a href="https://arxiv.org/abs/1810.03993" target="_blank" rel="noopener">11&lt;/a>] for more details on these
+questions and how to address them. You can choose to publish your
+dataset either through Github repository or through
+&lt;a href="https://zenodo.org/" target="_blank" rel="noopener">Zenodo&lt;/a>.&lt;/p>
+&lt;h3 id="test-and-validate">12. Test and Validate&lt;/h3>
+&lt;p>Finally, it&amp;rsquo;s important from the reproducibility perspective to test
+your implementation in a &lt;em>different environment&lt;/em> than the training
+setup. This testing doesn&amp;rsquo;t necessarily mean you have to re-train the
+entire pipeline. Specifically, you should make sure that the training
+and evaluation scripts are running in the test environment.&lt;/p>
+&lt;p>To get an isolated test environment, you can use AWS or GCP cloud
+instances. You can also checkout &lt;a href="https://codeocean.com/" target="_blank" rel="noopener">CodeOcean&lt;/a>
+which provides isolated AWS instances tied to Jupyter Notebooks for easy
+evaluation.&lt;/p>
+&lt;h2 id="final-thoughts">Final Thoughts&lt;/h2>
+&lt;p>Reproducibility is hard. Maintaining a reproducible research codebase is
+harder when the incentive is to publish your ideas quicker than your
+competitor. Nevertheless, we agree with what Joelle Pineau said in
+NeurIPS 2018 :
+&lt;a href="https://www.facebook.com/watch/live/?v=2120856364798049&amp;amp;ref=watch_permalink" target="_blank" rel="noopener">&lt;em>&amp;ldquo;Science
+is not a competitive sport&amp;rdquo;&lt;/em>&lt;/a>. We need to invest more time and care in
+our research, and we need to ensure as computer scientists our work is
+reproducible so that it adds value to the reader and practitioners who
+would build upon our work.&lt;/p>
+&lt;p>We hope this post will be useful in your research. Feel free to comment
+if you have any particular point/libraries that we missed, we would be
+happy to add them.&lt;/p>
+&lt;h2 id="acknowledgements">Acknowledgements&lt;/h2>
+&lt;p>Many thanks to Joelle Pineau for encouraging writing this draft, and
+helping formulating the best practices. Thanks to Shagun Sodhani,
+Matthew Muckley and Michela Paganini for providing feedback on the
+draft. Thanks to &lt;a href="https://dl4sci-school.lbl.gov/" target="_blank" rel="noopener">Deep Learning for
+Science School&lt;/a> for inviting Koustuv to speak about reproducibility on
+August 2020, for which this blog post is a point of reference.&lt;/p>
+&lt;h2 id="references">References&lt;/h2>
+&lt;ol>
+&lt;li>Rule A, Birmingham A, Zuniga C, Altintas I, Huang SC, Knight R,
+Moshiri N, Nguyen MH, Rosenthal SB, Pérez F, Rose PW.
+&lt;a href="https://arxiv.org/abs/1810.08055" target="_blank" rel="noopener">Ten simple rules for reproducible
+research in Jupyter notebooks&lt;/a>. arXiv preprint &amp;lt;1810.08055&amp;gt;.
+2018 Oct 13.&lt;/li>
+&lt;li>&lt;a href="https://docs.nvidia.com/deeplearning/sdk/cudnn-developer-guide/index.html#reproducibility" target="_blank" rel="noopener">Nvidia
+CUDNN Developer Guides&lt;/a>&lt;/li>
+&lt;li>Gebru T, Morgenstern J, Vecchione B, Vaughan JW, Wallach H, Daumé III
+H, Crawford K. &lt;a href="https://arxiv.org/abs/1803.09010" target="_blank" rel="noopener">Datasheets for
+datasets&lt;/a>. arXiv preprint &amp;lt;1803.09010&amp;gt;. 2018 Mar 23.&lt;/li>
+&lt;li>Bouthillier X, Laurent C, Vincent P.
+&lt;a href="http://proceedings.mlr.press/v97/bouthillier19a.html" target="_blank" rel="noopener">Unreproducible
+research is reproducible&lt;/a>. In International Conference on Machine
+Learning 2019 May 24 (pp. 725-734).&lt;/li>
+&lt;li>Lucic M, Kurach K, Michalski M, Gelly S, Bousquet O.
+&lt;a href="https://arxiv.org/abs/1711.10337" target="_blank" rel="noopener">Are GANs created equal? a
+large-scale study&lt;/a>. In Advances in Neural Information Processing
+Systems 2018 (pp. 700-709).&lt;/li>
+&lt;li>Henderson P, Islam R, Bachman P, Pineau J, Precup D, Meger D.
+&lt;a href="https://arxiv.org/abs/1709.06560" target="_blank" rel="noopener">Deep Reinforcement learning that
+matters&lt;/a>. In Thirty-Second AAAI Conference on Artificial
+Intelligence 2018 Apr 29.&lt;/li>
+&lt;li>Raff E. &lt;a href="https://arxiv.org/abs/1909.06674" target="_blank" rel="noopener">A Step Toward Quantifying
+Independently Reproducible Machine Learning Research&lt;/a>. In Advances
+in Neural Information Processing Systems 2019 (pp. 5485-5495).&lt;/li>
+&lt;li>&lt;a href="https://pytorch.org/docs/stable/notes/randomness.html" target="_blank" rel="noopener">Pytorch note
+on reproducibility&lt;/a>&lt;/li>
+&lt;li>Forde JZ, Paganini M. &lt;a href="https://arxiv.org/abs/1904.10922" target="_blank" rel="noopener">The
+Scientific Method in the Science of Machine Learning&lt;/a>. In ICLR
+Debugging Machine Learning Models Workshop 2019.&lt;/li>
+&lt;li>Mordvintsev A, Pezzotti N, Schubert L, Olah C.
+&lt;a href="https://distill.pub/2018/differentiable-parameterizations/" target="_blank" rel="noopener">Differentiable
+Image Parameterizations&lt;/a>. Distill 2018.&lt;/li>
+&lt;li>Mitchell M, Wu S, Zaldivar A, Barnes P, Vasserman L, Hutchinson B,
+Spitzer E, Raji ID, and Gebru T.
+&lt;a href="https://arxiv.org/abs/1810.03993" target="_blank" rel="noopener">Model Cards for Model
+Reporting&lt;/a>. In Proceedings of the Conference on Fairness,
+Accountability, and Transparency (FAT* &amp;lsquo;19). Association for
+Computing Machinery, New York, NY, USA, 220&amp;ndash;229.&lt;/li>
+&lt;/ol></description></item><item><title>GraphLog</title><link>https://cs.mcgill.ca/~ksinha4/project/graphlog/</link><pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/project/graphlog/</guid><description>&lt;p>&lt;em>Koustuv Sinha, Shagun Sodhani, Joelle Pineau, William L. Hamilton&lt;/em>&lt;/p>
+&lt;p>&lt;strong>Abstract&lt;/strong>&lt;/p>
+&lt;p>Recent research has highlighted the role of relational inductive biases
+in building learning agents that can generalize and reason in a
+compositional manner. However, while relational learning algorithms such as graph neural networks (GNNs) show promise, we do not understand how effectively these approaches can adapt to new tasks. In this work, we
+study the task of &lt;em>logical generalization&lt;/em> using GNNs by designing a
+benchmark suite grounded in first-order logic. Our benchmark suite,
+&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong>, requires that learning algorithms perform rule induction
+in different synthetic logics, represented as knowledge graphs.
+&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> consists of relation prediction tasks on 57 distinct
+logical domains. We use &lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> to evaluate GNNs in three different
+setups: single-task supervised learning, multi-task pretraining, and
+continual learning. Unlike previous benchmarks, our approach allows us
+to precisely control the logical relationship between the different
+tasks. We find that the ability for models to generalize and adapt is
+strongly determined by the diversity of the logical rules they encounter
+during training, and our results highlight new challenges for the design
+of GNN models.&lt;/p>
+&lt;h2 id="news">Latest News&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>May 24, 2020&lt;/strong> : Code for experiments in the paper released in &lt;a href="https://github.com/facebookresearch/GraphLog/tree/master/experiments" target="_blank" rel="noopener">GraphLog repository&lt;/a>&lt;/li>
+&lt;li>&lt;strong>April 25, 2020&lt;/strong> : Added simple &lt;a href="https://github.com/facebookresearch/GraphLog/tree/master/examples" target="_blank" rel="noopener">supervised experiments&lt;/a> using GraphLog in &lt;a href="https://pytorch-lightning.readthedocs.io/en/latest/" target="_blank" rel="noopener">Pytorch Lightning&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>NeurIPS 2019 Reproducibility Challenge</title><link>https://cs.mcgill.ca/~ksinha4/publication/sinha-2020-neurips/</link><pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sinha-2020-neurips/</guid><description/></item><item><title>GraphLog</title><link>https://cs.mcgill.ca/~ksinha4/about-graphlog/</link><pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/about-graphlog/</guid><description>&lt;h2 id="graphlog-suite-of-57-graph-worlds-built-using-first-order">&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> - Suite of 57 graph worlds built using first-order&lt;/h2>
+&lt;p>logic&lt;/p>
+&lt;p>&lt;em>Koustuv Sinha, Shagun Sodhani, Joelle Pineau and William L. Hamilton&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://github.com/facebookresearch/graphlog" target="_blank" rel="noopener">Code&lt;/a> |
+&lt;a href="https://graphlog.readthedocs.io/en/latest/" target="_blank" rel="noopener">Docs&lt;/a> |
+&lt;a href="https://arxiv.org/abs/2003.06560" target="_blank" rel="noopener">Paper&lt;/a> |
+&lt;a href="https://www.cs.mcgill.ca/~ksinha4/graphlog/" target="_blank" rel="noopener">Home Page&lt;/a> |
+&lt;a href="https://www.youtube.com/watch?v=TKEjaA4m4jg" target="_blank" rel="noopener">Teaser Talk&lt;/a>&lt;/p>
+&lt;h2 id="motivation">Motivation&lt;/h2>
+&lt;p>A question that we are highly interested in finding an answer to is &lt;em>how
+generalizable our learning algorithms are&lt;/em>? Human beings
+&lt;a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2F0097-7403.24.4.405" target="_blank" rel="noopener">are
+incredibly good&lt;/a> at generalization - even at old age, we can &lt;em>learn&lt;/em>
+new concepts and &lt;em>apply&lt;/em> them in practice. Critical steps towards
+building algorithms that &lt;a href="https://arxiv.org/abs/1604.00289" target="_blank" rel="noopener">think like
+human beings&lt;/a> include &lt;em>Multitask Learning&lt;/em> - the ability to learn
+multiple concepts at once; and &lt;em>Continual Learning&lt;/em> - the ability to
+accumulate new knowledge without forgetting the previous knowledge.&lt;/p>
+&lt;p>Defining a task that aims at either Multitask Learning or Continual
+learning is challenging - the task should accurately quantify the
+&lt;em>&amp;ldquo;distribution shift&amp;rdquo;&lt;/em> in the data. Having precise control of this shift
+could allow us to understand the drawbacks of our learning methods, and
+build systems which can generalize over multiple tasks but still
+remember the old ones.&lt;/p>
+&lt;p>Data distributions can be quantified by generating them based on a
+&lt;em>grammar&lt;/em>. First-order logic, even with its basic use-case and
+restrictions, can be an excellent tool for defining such generalizable
+distributions - to test how systematic a model is. In our prior work, we
+leveraged first-order logic to build the
+&lt;a href="https://www.cs.mcgill.ca/~ksinha4/clutrr/" target="_blank" rel="noopener">CLUTRR&lt;/a> dataset, which
+provides a kinship-relation game in natural language QA setting. A nice
+property of &lt;code>CLUTRR&lt;/code> is that it is designed to be a dynamic dataset -
+one can always roll out longer kinship relation trees to stress-test the
+generalizability of their proposed approach. Since it is designed to be
+diagnostic, it opens up the possibility of investigating the semantic
+understanding capability of Natural Language Understanding models under
+&lt;a href="https://www.cs.mcgill.ca/~ksinha4/introducing-clutrr/" target="_blank" rel="noopener">microscopic
+precision&lt;/a>.&lt;/p>
+&lt;p>While CLUTRR primarily investigates the aspect of &lt;em>length
+generalization&lt;/em>, the core semantic rules driving the kinship relations
+are static. In a real-world scenario, a model may have to &lt;em>adapt&lt;/em> to the
+change in underlying dynamics of the domain (for example, recommender
+systems trained on one domain being deployed / finetuned on a new
+domain). In terms of grammar, two domains sharing the same grammar
+constitute similar domains. We need a task where we can generalize over
+different grammars and control the amount of distribution shift.&lt;/p>
+&lt;h2 id="introducing-graphlog">Introducing GraphLog&lt;/h2>
+&lt;p>In this work, we introduce a new paradigm of testing domain
+generalization in graph-structure data, named &lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong>. Instead of
+being a single dataset, &lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> v1.0 contains 57 datasets, which
+have their own set of grammar or generation rules.&lt;/p>
+&lt;p>&lt;strong>The Task&lt;/strong> : We are primarily interested in &lt;em>relation prediction&lt;/em>, where
+given a graph \(g_i\), a source node \(v_i\), and sink node \(v_j\), the
+task is to predict the &lt;em>type&lt;/em> of the edge \(r\) between \((v_i, v_j)\).
+In Graph Neural Network (GNN) world, this task is typically performed by
+&lt;a href="https://arxiv.org/abs/1703.06103" target="_blank" rel="noopener">RGCN&lt;/a> model on popular relation
+prediction datasets.&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/graphlog.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;p>Graphs in &lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> are generated using &lt;em>rules&lt;/em> in first-order logic.
+These rules are 2-ary Horn clauses in the form of
+\([r_i, r_j] \rightarrow r_j\), where \(r_i\) are the &lt;em>types&lt;/em> of
+relation. Each &lt;em>world&lt;/em> is a dataset on its own, which consists of 5000
+graphs procedurally generated by their own set of rules, which
+themselves are generated stochastically. Between multiple worlds, there
+can be overlap between the rules, which helps us in explicitly
+quantifying the shift in the data distribution. This enables us to
+perform Multi-task learning and Continual learning along with supervised
+learning experiments in graph-structured data, which is one of the first
+datasets which propose to do so.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Dataset&lt;/th>
+&lt;th>Inspectable Rules&lt;/th>
+&lt;th>Diversity&lt;/th>
+&lt;th>Compositional Generalization&lt;/th>
+&lt;th>Modality&lt;/th>
+&lt;th>S&lt;/th>
+&lt;th>Me&lt;/th>
+&lt;th>Mu&lt;/th>
+&lt;th>CL&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CLEVR&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>Vision&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cogent&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>Vision&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CLUTRR&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>Text&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SCAN&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>Text&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SQoOP&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>Vision&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TextWorld&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>Text&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GraphLog&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>Graph&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="supervised-learning">Supervised Learning&lt;/h2>
+&lt;p>&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> can be used to perform supervised relation prediction tasks
+in any of its multiple worlds. Due to the stochastic nature of rule
+generation, certain worlds are more &lt;em>difficult&lt;/em> than others. We define
+the notion of difficulty empirically based on model performance, but we
+observe a correlation with the number of &lt;em>descriptors&lt;/em> or unique &lt;em>walks&lt;/em>
+in the graphs associated with a world.&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/graphlog_supervised.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/graphlog_multitask.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;h2 id="multi-task-learning">Multi-task Learning&lt;/h2>
+&lt;p>&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> makes it easy to extend the supervised learning framework
+for multi-task learning by transferring model parameters on the next
+task. We find the model&amp;rsquo;s capacity saturates at 20 tasks, however we
+hypothesize larger capacity with more data points will increase the
+number of tasks. We use a two-step model that adapts for relations in
+different worlds, the details of which can be
+&lt;a href="https://arxiv.org/abs/2003.06560" target="_blank" rel="noopener">found in our paper&lt;/a>.&lt;/p>
+&lt;h2 id="continual-learning">Continual Learning&lt;/h2>
+&lt;p>&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> enables us to evaluate the generalization capability of
+graph neural networks in the sequential continual learning setup where
+the model is trained on a sequence of worlds. Before training on a new
+world, the model is evaluated on all the worlds that the model has
+trained on so far. We observe that as the model is trained on different
+worlds, it performance on the previous worlds degrades rapidly. This
+observation highlights that the current reasoning models are not
+suitable for continual learning.&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/graphlog_continual_all.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/graphlog_continual_ordered.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;p>Experiments on sequential continual learning setting. The first image
+depicts random ordering, and the second image depicts ordering based on
+world difficulty.&lt;/p>
+&lt;h2 id="using-graphlog">Using GraphLog&lt;/h2>
+&lt;p>We hope that the above examples got you excited about the possibilities
+of &lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong>! We have made it easier for you to play with
+&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> v1.0 by releasing an
+&lt;a href="https://pypi.org/project/graphlog/" target="_blank" rel="noopener">API on PyPi&lt;/a>, &lt;code>graphlog&lt;/code>, which
+provides custom dataloaders built on
+&lt;a href="https://github.com/rusty1s/pytorch_geometric" target="_blank" rel="noopener">Pytorch Geometric&lt;/a>.&lt;/p>
+&lt;p>We have released the code for the API at
+&lt;a href="https://github.com/facebookresearch/graphlog" target="_blank" rel="noopener">https://github.com/facebookresearch/graphlog&lt;/a>, which includes
+&lt;a href="https://github.com/facebookresearch/GraphLog/blob/master/examples/Basic%20Usage.ipynb" target="_blank" rel="noopener">basic&lt;/a>
+and
+&lt;a href="https://github.com/facebookresearch/GraphLog/blob/master/examples/Advanced%20Usage.ipynb" target="_blank" rel="noopener">advanced&lt;/a>
+use cases, as well as simple examples built on
+&lt;a href="https://github.com/PyTorchLightning/pytorch-lightning" target="_blank" rel="noopener">Pytorch
+Lightning&lt;/a>. We will be releasing the code to generate GraphLog soon as
+well, so you can build your own version of GraphLog and contribute to
+the repository.&lt;/p>
+&lt;h2 id="i-want-to-read-more">I want to read more&lt;/h2>
+&lt;p>This blog post provides a summary of the results and basic use cases of
+&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong>. Please read more in our paper on arxiv titled
+&lt;em>&lt;a href="https://arxiv.org/abs/2003.06560" target="_blank" rel="noopener">Evaluating Logical Generalization
+in Graph Neural Networks&lt;/a>&lt;/em>. Our submission is currently under review at
+ICML 2020. The code for reproducing the main experiments are now
+available in the
+&lt;a href="https://github.com/facebookresearch/GraphLog/tree/master/experiments" target="_blank" rel="noopener">GraphLog
+repository&lt;/a>.&lt;/p>
+&lt;p>If you have any questions regarding the usage of &lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong>, feel free
+to &lt;a href="https://github.com/facebookresearch/graphlog/issues" target="_blank" rel="noopener">open an
+issue&lt;/a>, or join our
+&lt;a href="https://join.slack.com/t/logicalml/shared_invite/zt-e7osm7j7-vfIRgJAbEHxYN5D70njvyw" target="_blank" rel="noopener">Slack
+Channel&lt;/a>, or send me a mail at
+&lt;a href="mailto:koustuv.sinha@mail.mcgill.ca">koustuv.sinha@mail.mcgill.ca&lt;/a>.
+If you would like to contribute, do
+&lt;a href="https://github.com/facebookresearch/GraphLog/pulls" target="_blank" rel="noopener">open a Pull
+Request (PR)&lt;/a>!.&lt;/p>
+&lt;h2 id="acknowledgements">Acknowledgements&lt;/h2>
+&lt;p>I would like to thank my collaborator
+&lt;a href="https://shagunsodhani.com/" target="_blank" rel="noopener">Shagun Sodhani&lt;/a> for not only helping in
+writing this blog post, but for being a constant source of motivation
+throughout our various adventures in research. I would also like to
+thank my amazing supervisors, &lt;a href="https://www.cs.mcgill.ca/~wlh/" target="_blank" rel="noopener">William L. Hamilton&lt;/a> and &lt;a href="https://www.cs.mcgill.ca/~jpineau/" target="_blank" rel="noopener">Joelle Pineau&lt;/a>,
+for their constant motivation and support. I am grateful to
+&lt;a href="https://ai.facebook.com/" target="_blank" rel="noopener">Facebook AI Research&lt;/a> (FAIR) for providing
+extensive compute resources to make this project possible. I thank my
+wonderful colleagues at &lt;a href="https://mila.quebec/" target="_blank" rel="noopener">Mila&lt;/a> and FAIR for
+various constructive feedback on the project. This research was
+supported by the Canada CIFAR Chairs in AI program.&lt;/p></description></item><item><title>Evaluating Logical Generalization in Graph Neural Networks</title><link>https://cs.mcgill.ca/~ksinha4/publication/sinha-2020-evaluating/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sinha-2020-evaluating/</guid><description/></item><item><title>Ideas for Improving the Field of Machine Learning: Summarizing Discussion from the NeurIPS 2019 Retrospectives Workshop</title><link>https://cs.mcgill.ca/~ksinha4/publication/sodhani-2020-ideas/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sodhani-2020-ideas/</guid><description/></item><item><title>Improving Reproducibility in Machine Learning Research (A Report from the NeurIPS 2019 Reproducibility Program)</title><link>https://cs.mcgill.ca/~ksinha4/publication/pineau-2020-improving/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/pineau-2020-improving/</guid><description/></item><item><title>Learning an Unreferenced Metric for Online Dialogue Evaluation</title><link>https://cs.mcgill.ca/~ksinha4/publication/sinha-2020-maude/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sinha-2020-maude/</guid><description/></item><item><title>Measuring Systematic Generalization in Neural Proof Generation with Transformers</title><link>https://cs.mcgill.ca/~ksinha4/publication/gontier-2020-measuring/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/gontier-2020-measuring/</guid><description/></item><item><title>Probing Linguistic Systematicity</title><link>https://cs.mcgill.ca/~ksinha4/publication/goodwin-2020-probing/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/goodwin-2020-probing/</guid><description/></item><item><title>CLUTRR</title><link>https://cs.mcgill.ca/~ksinha4/project/clutrr/</link><pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/project/clutrr/</guid><description>&lt;p>A Diagnostic Benchmark for Inductive Reasoning from Text.&lt;/p>
+&lt;p>&lt;em>Koustuv Sinha, Shagun Sodhani, Jin Dong, Joelle Pineau, William L. Hamilton&lt;/em>&lt;/p>
+&lt;h2 id="abstract">Abstract&lt;/h2>
+&lt;p>The recent success of natural language understanding (NLU) systems has been troubled by results highlighting the failure of these models to generalize in a systematic and robust way. In this work, we introduce a diagnostic benchmark suite, named CLUTRR, to clarify some key issues related to the robustness and systematicity of NLU systems. Motivated by classic work on inductive logic programming, CLUTRR requires that an NLU system infer kinship relations between characters in short stories. Successful performance on this task requires both extracting relationships between entities, as well as inferring the logical rules governing these relationships. CLUTRR allows us to precisely measure a model’s ability for systematic generalization by evaluating on held-out combinations of logical rules, and it allows us to evaluate a model’s robustness by adding curated noise facts. Our empirical results highlight a substantial performance gap between state-of-the-art NLU models (e.g., BERT and MAC) and a graph neural network model that works directly with symbolic inputs—with the graph-based model exhibiting both stronger generalization and greater robustness.&lt;/p></description></item><item><title>Introducing CLUTRR</title><link>https://cs.mcgill.ca/~ksinha4/introducing-clutrr/</link><pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/introducing-clutrr/</guid><description>&lt;p>&lt;b>C&lt;/b>ompositional &lt;b>L&lt;/b>anguage &lt;b>U&lt;/b>nderstanding with &lt;b>T&lt;/b>ext based &lt;b>R&lt;/b>elational &lt;b>R&lt;/b>easoning&lt;/p>
+&lt;h2 id="motivation">Motivation&lt;/h2>
+&lt;p>Question Answering (QA) has recently gained popularity as the major
+domain of testing reasoning in text. The literature thus contains a
+&lt;a href="https://nlpprogress.com/english/question_answering.html" target="_blank" rel="noopener">deluge of Question Answering (QA) datasets&lt;/a> to choose from. These datasets test
+the system&amp;rsquo;s ability to extract factual answers from the text. However,
+there are growing concerns regarding the ability of Natural Language
+Understanding (NLU) models to &lt;strong>generalize&lt;/strong> - both in a &lt;em>systematic&lt;/em> and
+&lt;em>robust&lt;/em> way. Adding to that, the recent dominance of large pre-trained
+language models (such as BERT, &lt;a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">Devlin et al. 2018&lt;/a>) on many NLU
+benchmarks including QA suggests that the primary difficulty in these
+datasets are about incorporating the statistics of the language, or the
+syntax of the language, rather than pure reasoning.&lt;/p>
+&lt;p>We want to develop systems which perform reasoning &lt;em>inductively&lt;/em>,
+i.e. not only by pure extraction of text facts but by performing a
+higher-order reasoning and drawing conclusions based on &lt;em>evidence&lt;/em>.
+Ideally, we also want the systems to &lt;em>generalize&lt;/em> on unseen
+distributions, as well as be &lt;em>robust&lt;/em> to adversarial attacks. To
+facilitate that research, we present our diagnostic suite &amp;ldquo;&lt;code>CLUTRR&lt;/code>&amp;rdquo;.&lt;/p>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Our benchmark suite &lt;code>CLUTRR&lt;/code> contains a large set of semi-synthetic
+stories involving hypothetical families. Given a story, the goal is to
+infer the relationship between two family members, whose relationship is
+not explicitly mentioned.&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/clutrr_text.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;p>To solve this task, an agent must extract the &lt;em>logical rules&lt;/em> governing
+the composition of the relationships (e.g. the transitivity of the
+sibling relations). The benchmark allows us to test the learning agent&amp;rsquo;s
+ability for &lt;em>systematic generalization&lt;/em> by testing on stories that
+contain unseen combinations of logical rules. It also allows us to
+precisely test for the various forms of &lt;em>model robustness&lt;/em> by adding
+different kinds of superfluous &lt;em>noise facts&lt;/em> to the stories.&lt;/p>
+&lt;h2 id="dataset-construction">Dataset Construction&lt;/h2>
+&lt;p>To derive a dataset which provides an effective way to test
+generalization and robustness, we looked into classical Logic.
+&lt;a href="https://www.doc.ic.ac.uk/~shm/ilp.html" target="_blank" rel="noopener">Inductive Logic Programming&lt;/a>
+(ILP) is a vast field of work which tries to solve the exact problem of
+inductively inferring rules from a given set of data, and one of the
+classical examples in the field is deducing kinship relations. For
+example, given the facts:&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>&amp;ldquo;Alice is Bob&amp;rsquo;s mother&amp;rdquo;&lt;/em>&lt;/li>
+&lt;li>&lt;em>&amp;ldquo;Jim is Alice&amp;rsquo;s father&amp;rdquo;&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>one can infer with reasonable certainty that:&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>&amp;ldquo;Jim is Bob&amp;rsquo;s grandfather&amp;rdquo;&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>While this may appear trivial to us, it is a challenging task to design
+models that can learn from the data to &lt;em>induce&lt;/em> the logical rules
+necessary to make such inferences. For the above example, the system
+needs to learn the rule:&lt;/p>
+&lt;p>\[
+[\texttt{grandfatherOf},X,Y] \vdash [[\texttt{fatherOf},X,Z], [\texttt{fatherOf}, Z,Y]]
+\]&lt;/p>
+&lt;p>In ILP, a subset of the above rules was provided as &lt;em>background
+knowledge&lt;/em> to the system. The system then used to generate higher-order
+of rules by recombining existing rules and validating it with the given
+data.&lt;/p>
+&lt;p>Inspired by this classic task, we set upon building a QA task where
+&lt;em>each story is grounded with a logical rule&lt;/em>. The core idea being that
+each story would describe a set of natural language relations, and the
+target is to infer the relationship between two entities whose
+relationship &lt;strong>is not explicitly stated&lt;/strong> in the story.&lt;/p>
+&lt;p>To generate such a story, we first design a knowledge base (KB) of valid
+relation compositions for the kinship world. In practice, we used a set
+of &lt;a href="https://github.com/facebookresearch/clutrr/blob/master/clutrr/store/rules_store.yaml" target="_blank" rel="noopener">15 simple rules&lt;/a> by carefully avoiding possible ambiguities (such as
+relations derived from in-laws). Using these set of rules, we generate
+the underlying &lt;em>kinship graph&lt;/em>, i.e. a graph containing the kinship
+relations about a toy family.&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/dataset_const_new.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;p>From this kinship graph, we sample an &lt;em>edge&lt;/em> which becomes our target
+relation to predict. Recall, since we used &lt;em>logical rules&lt;/em> to derive
+this graph, a path or walk in the graph from a source to sink
+constitutes a valid logical rule or &lt;em>clause&lt;/em>. We simply sample such a
+path of length \(k\), where \(k\) is the tunable parameter for the
+data generation.&lt;/p>
+&lt;h2 id="adding-language">Adding Language&lt;/h2>
+&lt;p>Given this sampled path \(G_p\), we aim to convert this into
+&lt;em>semi-synthetic&lt;/em> text. The naive way would be to just replace each edge
+in the path by a placeholder text explaining the relationship between
+them. Consider the example provided in the above figure. The path
+\[ B \rightarrow A \rightarrow D \rightarrow G \] can be replaced by the
+following text:&lt;/p>
+&lt;ul>
+&lt;li>\[ B \rightarrow A \] : B is the wife of A&lt;/li>
+&lt;li>\[ A \rightarrow D \] : D is the daughter of A&lt;/li>
+&lt;li>\[ D \rightarrow G \] : D is the mother of G&lt;/li>
+&lt;/ul>
+&lt;p>However, as you can see it already, this ends up to a very artificial
+dataset having less linguistic variation. Thus, to reduce the artificial
+flavor, we asked &lt;a href="https://parl.ai/docs/tutorial_mturk.html" target="_blank" rel="noopener">Amazon
+Mechanical Turkers&lt;/a> to provide us paraphrases for entire sampled paths.
+The above example then converts to:&lt;/p>
+&lt;blockquote>
+&lt;p>A went to shopping with her wife B at the local grocery store. His
+daughter, D, is visiting them for thanksgiving with her daughter G.&lt;/p>
+&lt;/blockquote>
+&lt;p>This adds extra levels of complexity in the task : co-reference
+resolution, dependency parsing and named entity recognition.&lt;/p>
+&lt;p>In practice, it became difficult to collect paraphrases of &lt;em>all&lt;/em>
+possible paths of unbounded lengths. Turkers need active attention to
+paraphrase each path, and futhermore increasing path length increases
+the number of combinations of relations, leading to larger and larger
+number of unique paths. Thus, we collected paraphrases for all possible
+combinations till \(k=3\), and we &lt;strong>re-use&lt;/strong> paraphrases to stitch
+together a story. We collect 6,016 unique paraphrases with an average of
+19 paraphrases for every possible logical clause of length
+\(k = 1,2,3\).&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/composition.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;p>From the above example, we see that the stochasticity of dataset
+generation provides multiple ways of stitching paraphrases to generate
+stories. While the topicality of different paraphrases might impact
+coherence of the story, the stitched story remains logically grounded
+with respect to kinship relations, and maintains the aspects of
+co-reference resolution.&lt;/p>
+&lt;h2 id="question-task">Question &amp;amp; Task&lt;/h2>
+&lt;p>Thus, given a logically grounded story \(S\) , the question simply boils down to the &lt;em>target edge&lt;/em>, i.e. the source and sink. We refrained
+from using a &amp;ldquo;natural language&amp;rdquo; question following the insightful
+discoveries of &lt;a href="https://arxiv.org/abs/1808.04926" target="_blank" rel="noopener">Kaushik &amp;amp; Lipton,
+(EMNLP 2018)&lt;/a>, thus our question is a tuple of entities, where the
+order defines the exact kinship relation. Finally, the task is to
+classify the correct relation among 22 kinship relations.&lt;/p>
+&lt;h2 id="systematic-generalization">Systematic Generalization&lt;/h2>
+&lt;p>Systematic Generalization is the ability of a model to solve tasks on a
+test distribution which is different than the training distribution,
+while the test distribution has been derived from the same &lt;em>production
+rules&lt;/em> as that of the training.
+&lt;a href="https://en.wikipedia.org/wiki/Syntactic_Structures" target="_blank" rel="noopener">Chomsky (1957)&lt;/a>,
+&lt;a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1755-2567.1970.tb00434.x" target="_blank" rel="noopener">Montague
+(1970)&lt;/a>, &lt;a href="https://arxiv.org/abs/1711.00350" target="_blank" rel="noopener">Lake &amp;amp; Baroni (2018)&lt;/a>
+define the term as:&lt;/p>
+&lt;blockquote>
+&lt;p>The algebraic capacity to understand and produce a potentially infinite
+number of novel combinations from known components.&lt;/p>
+&lt;/blockquote>
+&lt;p>This topic is &lt;a href="https://arxiv.org/abs/1811.12889" target="_blank" rel="noopener">so involved&lt;/a> it
+requires a separate blog post on its own. In simple terms, we want our
+NLU models to generalize on out-of-domain data distributions in a
+particular task. However, restricting the scope of out-of-domain is
+critical : we cannot expect a model trained on sentence entailments in
+English to generalize on Bengali for instance.&lt;/p>
+&lt;p>In our dataset, we provide a simple way to test out-of-domain (OOD)
+generalization : by evaluating on stories with different logical
+compositions of the relations. To understand the composition of a single
+relation, the model needs to learn all binary compositions which lead to
+the particular relation. (e.g. &lt;em>father + father = grandfather&lt;/em>, and
+&lt;em>sibling + grandfather = grandfather&lt;/em>). Once it does, the model should
+be able to generalize on unseen compositions by &lt;strong>re-using the learnt
+composition functions&lt;/strong>. The test distribution is still derived from the
+same &lt;em>production rules&lt;/em>, as in the same knowledge base (KB).&lt;/p>
+&lt;p>OOD Generalization can be also be achieved in the level of the
+underlying language in our dataset. Recall, we have used a set of
+placeholders collected from AMT to construct the stories : we can thus
+have a subset of the collected paraphrases being &lt;em>held out&lt;/em> for testing.
+This enables &lt;em>linguistic generalization&lt;/em>, which explicitly restricts
+models to &lt;em>memorize&lt;/em> on syntactical artifacts of the dataset.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/sys_gen_23.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/sys_gen_234.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>We perform experiments with a combination of logical and linguistic
+generalization with two types of baselines : NLU models such as BiLSTM,
+Relation Networks (&lt;a href="https://arxiv.org/abs/1706.01427" target="_blank" rel="noopener">Santoro et al,
+2017&lt;/a>), MAC (&lt;a href="https://arxiv.org/abs/1803.03067" target="_blank" rel="noopener">Hudson et al, 2018&lt;/a>),
+and pretrained language model such as BERT
+(&lt;a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">Devlin et al. 2018&lt;/a>); and Graph
+Attention Networks (GAT) (&lt;a href="https://arxiv.org/abs/1710.10903" target="_blank" rel="noopener">Veličković
+et al, 2018&lt;/a>) working on the symbolic graphs underlying the stories. We
+observe that Systematic Generalization is a hard problem with
+performance decrease across all models as we increase the length of the
+logical clause \(k\). This highlights the challenge of &amp;ldquo;zero-shot&amp;rdquo;
+systematic generalization (&lt;a href="https://arxiv.org/abs/1711.00350" target="_blank" rel="noopener">Lake &amp;amp;
+Baroni, 2018&lt;/a>; &lt;a href="https://arxiv.org/abs/1811.07017" target="_blank" rel="noopener">Sodhani et
+al. 2018&lt;/a>). The performance of GAT is significantly better than all NLU
+baselines, indicating that most NLU systems focus on the syntax rather
+than abstract reasoning.&lt;/p>
+&lt;h2 id="robust-reasoning">Robust Reasoning&lt;/h2>
+&lt;p>The modular setup of &lt;code>CLUTRR&lt;/code> allows us to diagnose models for
+&lt;strong>robustness&lt;/strong>, another critical form of generalization. Since all
+underlying stories have a logically valid path \(G_p\), we can add
+paths which are not relevant to resolution of the task. Concretely, we
+can add three types of &lt;em>noise&lt;/em>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Supporting facts&lt;/em>: A path which originates and ends within \(G_p\).
+These are &lt;em>extra facts&lt;/em> which are not needed to answer the query, but
+can be used, in principle, to construct alternative reasoning paths.&lt;/li>
+&lt;li>&lt;em>Irrelevant facts&lt;/em>: A dangling path which originates from \(G_p\)
+but has a different sink. This is essentially a distractor which the
+model has to carefully stray away while reasoning for the given query.&lt;/li>
+&lt;li>&lt;em>Disconnected facts&lt;/em>: A path which neither originates nor ends in
+\(G_p\). This constitute an unrelated noise in the data.&lt;/li>
+&lt;/ul>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://cs.mcgill.ca/~ksinha4/ox-hugo/clutrr_noise.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;p>Thus, we can have multiple train/test scenarios to evaluate robustness
+in highly granular level by combination of the above facts with the
+clean setup. We perform experiments with the same set of baselines while
+fixing the length \(k\) of the clauses to \((2,3)\). We observe that
+overall GAT outperforms NLU models significantly on a range of
+train/test scenarios. This showcases the benefit of structure and
+inductive bias for performing abstract reasoning.&lt;/p>
+&lt;p>We observe a couple of interesting trends as well:&lt;/p>
+&lt;ul>
+&lt;li>NLU models perform better when testing on supporting and irrelevant
+facts while being trained on a noise-less setup. This suggests NLU
+models actually benefit from &lt;em>more content&lt;/em> which may provide
+linguistic cues, irrelevant of the reasoning pathway.&lt;/li>
+&lt;li>GAT model performs poorly on the above setup which shows that it is
+sensitive to changes involving cycles - it cannot understand the need
+of cycles of they are not trained with one. However, GAT performs
+significantly better when trained with cycles.&lt;/li>
+&lt;/ul>
+&lt;h2 id="key-takeaways">Key Takeaways&lt;/h2>
+&lt;ul>
+&lt;li>We need structure / inductive biases in our models to perform better
+on Generalization and Robust Reasoning&lt;/li>
+&lt;li>NLU models must try to represent the inductive bias or structure
+internally&lt;/li>
+&lt;li>Systematic Generalization is hard, and we need more research in
+representing compositional and modular networks.&lt;/li>
+&lt;li>Logic provides a provable way to devise datasets for tasks involving
+abstract reasoning&lt;/li>
+&lt;/ul>
+&lt;h2 id="closing-remarks">Closing Remarks&lt;/h2>
+&lt;p>&lt;code>CLUTRR&lt;/code> provides a fine-grained modular way to test the reasoning
+capabilities of NLU systems - by asking the fundamental questions of
+Systematic Generalization and Robustness. We found that existing NLU
+systems perform relatively poorly on these questions compared to a
+graph-based model which has symbolic inputs. This highlights the gap
+that remains between machine reasoning models that work on unstructured
+text and structured inputs.&lt;/p>
+&lt;h3 id="paper">Paper&lt;/h3>
+&lt;p>&lt;a href="https://arxiv.org/pdf/1908.06177.pdf" target="_blank" rel="noopener">Please read our paper&lt;/a> for more
+information regarding dataset construction and experiments.&lt;/p>
+&lt;h3 id="code">Code&lt;/h3>
+&lt;p>Our code is available at &lt;a href="https://github.com/facebookresearch/clutrr" target="_blank" rel="noopener">https://github.com/facebookresearch/clutrr&lt;/a>,
+where we will be adding possible extensions and applications of the
+dataset.&lt;/p>
+&lt;h3 id="acknowledgements">Acknowledgements&lt;/h3>
+&lt;p>I have a long list of people to thank for supporting this project. Will
+Hamilton, Joelle Pineau (my superb advisors); Shagun Sodhani, Jin Dong
+(my awesome collaborators); Jack Urbanek, Stephen Roller (for numerous
+help with &lt;a href="https://parl.ai/" target="_blank" rel="noopener">ParlAI&lt;/a>); Adina Williams, Dzmitry
+Bahdanau, Prasanna Parthasarathy, Harsh Satija (for discussions and
+feedback); Abhishek Das, Carlos Eduardo Lassance, Gunshi Gupta, Milan
+Aggarwal, Rim Assouel, Weiping Song, and Yue Dong (for feedback on the
+manuscript); many anonymous Amazon Mechanical Turk participants for
+providing paraphrases; Sumana Basu, Etienne Denis, Jonathan Lebensold,
+and Komal Teru (for providing reviews on the dataset); Sanghyun Yoo,
+Jehun Jeon and Dr Young Sang Choi of Samsung Advanced Institute of
+Technology (SAIT) (for supporting the
+&lt;a href="https://arxiv.org/abs/1811.02959" target="_blank" rel="noopener">workshop version&lt;/a> of the paper);
+Facebook AI Research (FAIR) (for providing extensive compute resources).
+This research was supported by the Canada CIFAR Chairs in AI program.&lt;/p>
+&lt;h3 id="citation">Citation&lt;/h3>
+&lt;p>If you want to use our dataset in your research, please consider citing
+our paper:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bibtex" data-lang="bibtex">&lt;span class="line">&lt;span class="cl">&lt;span class="nc">@article&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="nl">sinha2019clutrr&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">Author&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">{Koustuv Sinha and Shagun Sodhani and Jin Dong and Joelle Pineau and William L. Hamilton}&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">Title&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">{CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text}&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">Year&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">{2019}&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">journal&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">{Empirical Methods of Natural Language Processing (EMNLP)}&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">arxiv&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">{1908.06177}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you like the idea and want to collaborate on exciting applications,
+feel free to drop me a mail at
+&lt;a href="mailto:koustuv.sinha@mail.mcgill.ca">koustuv.sinha@mail.mcgill.ca&lt;/a>&lt;/p></description></item><item><title>ICLR Reproducibility Challenge 2019</title><link>https://cs.mcgill.ca/~ksinha4/publication/pineau-2019/</link><pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/pineau-2019/</guid><description/></item><item><title>Slides</title><link>https://cs.mcgill.ca/~ksinha4/slides/example/</link><pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/slides/example/</guid><description>&lt;h1 id="create-slides-in-markdown-with-wowchemy">Create slides in Markdown with Wowchemy&lt;/h1>
+&lt;p>&lt;a href="https://wowchemy.com/" target="_blank" rel="noopener">Wowchemy&lt;/a> | &lt;a href="https://owchemy.com/docs/managing-content/#create-slides" target="_blank" rel="noopener">Documentation&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>Efficiently write slides in Markdown&lt;/li>
+&lt;li>3-in-1: Create, Present, and Publish your slides&lt;/li>
+&lt;li>Supports speaker notes&lt;/li>
+&lt;li>Mobile friendly slides&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="controls">Controls&lt;/h2>
+&lt;ul>
+&lt;li>Next: &lt;code>Right Arrow&lt;/code> or &lt;code>Space&lt;/code>&lt;/li>
+&lt;li>Previous: &lt;code>Left Arrow&lt;/code>&lt;/li>
+&lt;li>Start: &lt;code>Home&lt;/code>&lt;/li>
+&lt;li>Finish: &lt;code>End&lt;/code>&lt;/li>
+&lt;li>Overview: &lt;code>Esc&lt;/code>&lt;/li>
+&lt;li>Speaker notes: &lt;code>S&lt;/code>&lt;/li>
+&lt;li>Fullscreen: &lt;code>F&lt;/code>&lt;/li>
+&lt;li>Zoom: &lt;code>Alt + Click&lt;/code>&lt;/li>
+&lt;li>&lt;a href="https://revealjs.com/pdf-export/" target="_blank" rel="noopener">PDF Export&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="code-highlighting">Code Highlighting&lt;/h2>
+&lt;p>Inline code: &lt;code>variable&lt;/code>&lt;/p>
+&lt;p>Code block:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">porridge&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;blueberry&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">porridge&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;blueberry&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Eating...&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="math">Math&lt;/h2>
+&lt;p>In-line math: $x + y = z$&lt;/p>
+&lt;p>Block math:&lt;/p>
+&lt;p>$$
+f\left( x \right) = ;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}}
+$$&lt;/p>
+&lt;hr>
+&lt;h2 id="fragments">Fragments&lt;/h2>
+&lt;p>Make content appear incrementally&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">{{% fragment %}} One {{% /fragment %}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{% fragment %}} **Two** {{% /fragment %}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{% fragment %}} Three {{% /fragment %}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Press &lt;code>Space&lt;/code> to play!&lt;/p>
+&lt;span class="fragment " >
+One
+&lt;/span>
+&lt;span class="fragment " >
+&lt;strong>Two&lt;/strong>
+&lt;/span>
+&lt;span class="fragment " >
+Three
+&lt;/span>
+&lt;hr>
+&lt;p>A fragment can accept two optional parameters:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>class&lt;/code>: use a custom style (requires definition in custom CSS)&lt;/li>
+&lt;li>&lt;code>weight&lt;/code>: sets the order in which a fragment appears&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="speaker-notes">Speaker Notes&lt;/h2>
+&lt;p>Add speaker notes to your presentation&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{% speaker_note %}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Only the speaker can read these notes
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Press &lt;span class="sb">`S`&lt;/span> key to view
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{% /speaker_note %}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Press the &lt;code>S&lt;/code> key to view the speaker notes!&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Only the speaker can read these notes&lt;/li>
+&lt;li>Press &lt;code>S&lt;/code> key to view&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h2 id="themes">Themes&lt;/h2>
+&lt;ul>
+&lt;li>black: Black background, white text, blue links (default)&lt;/li>
+&lt;li>white: White background, black text, blue links&lt;/li>
+&lt;li>league: Gray background, white text, blue links&lt;/li>
+&lt;li>beige: Beige background, dark text, brown links&lt;/li>
+&lt;li>sky: Blue background, thin dark text, blue links&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>night: Black background, thick white text, orange links&lt;/li>
+&lt;li>serif: Cappuccino background, gray text, brown links&lt;/li>
+&lt;li>simple: White background, black text, blue links&lt;/li>
+&lt;li>solarized: Cream-colored background, dark green text, blue links&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;section data-noprocess data-shortcode-slide
+data-background-image="/media/boards.jpg"
+>
+&lt;h2 id="custom-slide">Custom Slide&lt;/h2>
+&lt;p>Customize the slide style and background&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{&lt;span class="p">&amp;lt;&lt;/span> &lt;span class="nt">slide&lt;/span> &lt;span class="na">background-image&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;/media/boards.jpg&amp;#34;&lt;/span> &lt;span class="p">&amp;gt;&lt;/span>}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{&lt;span class="p">&amp;lt;&lt;/span> &lt;span class="nt">slide&lt;/span> &lt;span class="na">background-color&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;#0000FF&amp;#34;&lt;/span> &lt;span class="p">&amp;gt;&lt;/span>}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{&lt;span class="p">&amp;lt;&lt;/span> &lt;span class="nt">slide&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;my-style&amp;#34;&lt;/span> &lt;span class="p">&amp;gt;&lt;/span>}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="custom-css-example">Custom CSS Example&lt;/h2>
+&lt;p>Let&amp;rsquo;s make headers navy colored.&lt;/p>
+&lt;p>Create &lt;code>assets/css/reveal_custom.css&lt;/code> with:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">reveal&lt;/span> &lt;span class="nt">section&lt;/span> &lt;span class="nt">h1&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">reveal&lt;/span> &lt;span class="nt">section&lt;/span> &lt;span class="nt">h2&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">reveal&lt;/span> &lt;span class="nt">section&lt;/span> &lt;span class="nt">h3&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">navy&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h1 id="questions">Questions?&lt;/h1>
+&lt;p>&lt;a href="https://github.com/wowchemy/wowchemy-hugo-modules/discussions" target="_blank" rel="noopener">Ask&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://wowchemy.com/docs/managing-content/#create-slides" target="_blank" rel="noopener">Documentation&lt;/a>&lt;/p></description></item><item><title>CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text</title><link>https://cs.mcgill.ca/~ksinha4/publication/sinha-2019-clutrr/</link><pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sinha-2019-clutrr/</guid><description/></item><item><title>Turtle Learning Environment (TLE)</title><link>https://cs.mcgill.ca/~ksinha4/project/tle/</link><pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/project/tle/</guid><description>&lt;p>&lt;em>Minimalist connect-the-dots environment for RL agents!&lt;/em>&lt;/p>
+&lt;p>Turtle Learning Environment (TLE) is a minimalistic connect-the-dots environment made as part of COMP 767 RL Final project in McGill University (Winter 2018). The objective of the agent in a 28x28 grid world is to connect the dots provided to form the image, where the environment provides negative reward for each cell drawn and positive reward for each connected components.&lt;/p></description></item><item><title>A Hierarchical Neural Attention-based Text Classifier</title><link>https://cs.mcgill.ca/~ksinha4/publication/sinha-2018-hier/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sinha-2018-hier/</guid><description/></item><item><title>Adversarial Gain</title><link>https://cs.mcgill.ca/~ksinha4/publication/henderson-2018-adversarial/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/henderson-2018-adversarial/</guid><description/></item><item><title>Compositional Language Understanding with Text-based Relational Reasoning</title><link>https://cs.mcgill.ca/~ksinha4/publication/sinha-2018-clutrr/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/sinha-2018-clutrr/</guid><description/></item><item><title>Ethical Challenges in Data-Driven Dialogue Systems</title><link>https://cs.mcgill.ca/~ksinha4/publication/henderson-2017-ethics/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/henderson-2017-ethics/</guid><description/></item><item><title>The RLLChatbot: a solution to the ConvAI Challenge</title><link>https://cs.mcgill.ca/~ksinha4/publication/gontier-2018/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/publication/gontier-2018/</guid><description/></item><item><title>News</title><link>https://cs.mcgill.ca/~ksinha4/news/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/news/</guid><description>
+&lt;ul>
+&lt;li>
+&lt;p>[01/10/21] Happy to update that our paper &lt;a href="https://arxiv.org/abs/2104.06644" target="_blank" rel="noopener">&amp;ldquo;Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little&amp;rdquo;&lt;/a> is accepted as a long paper at EMNLP 2021!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[01/09/21] Happy to announce the new iteration of &lt;a href="https://paperswithcode.com/rc2021" target="_blank" rel="noopener">ML Reproducibility Challenge 2021&lt;/a>, which has now enlarged to cover 9 top ML conferences! Submit your reports through Feb 2022!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[03/07/21] On a personal news, got married to my sweetheart &lt;a href="https://atrayeebasu.github.io/" target="_blank" rel="noopener">Atrayee&lt;/a> this July!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[02/07/21] Thrilled to share that our paper &lt;a href="https://arxiv.org/abs/2101.00010" target="_blank" rel="noopener">UnNatural Language Inference&lt;/a> has received &lt;strong>Outstanding Paper Award&lt;/strong> at ACL 2021! Deeply honored!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[15/04/21] Announcing the pre-print of our paper &lt;a href="https://arxiv.org/abs/2104.06644" target="_blank" rel="noopener">&amp;ldquo;Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little&amp;rdquo;&lt;/a>. We find RoBERTa trained with sentence word order shuffled data performs remarkably close to natural word order pre-trained models on several downstream and probing tasks!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[01/06/21] Excited to announce that our paper &lt;a href="https://arxiv.org/abs/2101.00010" target="_blank" rel="noopener">&amp;ldquo;UnNatural Language Inference&amp;rdquo;&lt;/a>, has been accepted to ACL 2021 (Long paper, Oral), where we stumble upon the weird language understanding mechanisms employed by NLU models!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[02/10/20] Happy to announce our paper &lt;a href="https://arxiv.org/abs/2009.14786" target="_blank" rel="noopener">&amp;ldquo;Measuring Systematic Generalization in Neural Proof Generation with Transformers&amp;rdquo;&lt;/a> is accepted at NeurIPS 2020!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[05/09/20] Excited to announce the &lt;a href="https://paperswithcode.com/rc2020" target="_blank" rel="noopener">2020 edition of the ML Reproducibility Challenge&lt;/a>! We now cover 7 major ML conferences, do check it out!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[05/08/20] We released a new blog post on &lt;a href="https://www.cs.mcgill.ca/~ksinha4/practices_for_reproducibility/" target="_blank" rel="noopener">ML Reproducibility Tools and Best Practices&lt;/a>. Check it out!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[30/04/20] Public release of our new multi-task graph dataset, &lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong>. Check out the &lt;a href="https://www.cs.mcgill.ca/~ksinha4/about-graphlog/" target="_blank" rel="noopener">blog post&lt;/a> for more information.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[08/04/20] Report on &lt;a href="https://arxiv.org/abs/2003.12206" target="_blank" rel="noopener">NeurIPS 2019 Reproducibility Program&lt;/a> published on arxiv. We have also published our thoughts on &lt;a href="https://medium.com/@NeurIPSConf/designing-the-reproducibility-program-for-neurips-2020-7fcccaa5c6ad" target="_blank" rel="noopener">Designing the Reproducibility Program&lt;/a> for NeurIPS 2020 on Medium.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[15/04/20] Excited to announce two papers accepted to ACL 2020! &lt;a href="https://arxiv.org/abs/2005.04315" target="_blank" rel="noopener">Probing Linguistic Systematicity&lt;/a> and &lt;a href="https://arxiv.org/abs/2005.00583" target="_blank" rel="noopener">Learning an unreferenced metric for online Dialog evaluation&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[01/12/19] Co-organizing NeurIPS 2019 &lt;a href="https://ml-retrospectives.github.io/neurips2019/" target="_blank" rel="noopener">ML Retrospectives Workshop&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[01/09/19] Co-organizing &lt;a href="https://reproducibility-challenge.github.io/neurips2019/" target="_blank" rel="noopener">NeurIPS 2019 Reproducibility Challenge&lt;/a> and honored to be the NeurIPS 2019 Reproducibility Co-Chair.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[28/01/19] Excited to join Facebook AI Research (FAIR) as PhD Intern!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[14/08/19] Our paper &lt;em>&lt;a href="https://www.cs.mcgill.ca/~ksinha4/clutrr/" target="_blank" rel="noopener">CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text&lt;/a>&lt;/em> accepted at EMNLP 2019!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[28/09/18] Co-organizing &lt;a href="https://reproducibility-challenge.github.io/iclr_2019/" target="_blank" rel="noopener">ICLR Reproducibility Challenge&lt;/a>, 2019&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[04/09/18] Starting PhD at &lt;a href="https://www.cs.mcgill.ca/" target="_blank" rel="noopener">McGill University&lt;/a>, advised by Dr &lt;a href="https://www.cs.mcgill.ca/~jpineau/" target="_blank" rel="noopener">Joelle Pineau&lt;/a> and Dr &lt;a href="https://www.cs.mcgill.ca/~wlh/" target="_blank" rel="noopener">William L. Hamilton&lt;/a>, from Fall 2018.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[31/08/18] Our paper on &lt;em>A Hierarchical Neural Attention-based Text Classifier&lt;/em> accepted at EMNLP 2018!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[01/06/18] Intern-ing at &lt;a href="https://www.sait.samsung.co.kr/saithome/main/main.do" target="_blank" rel="noopener">Samsung Advanced Institute of Technology&lt;/a> for the Summer!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[01/02/18] &lt;a href="https://breakend.github.io/EthicsInDialogue/" target="_blank" rel="noopener">Our paper&lt;/a> on &lt;em>Ethics in Data Driven Dialog Systems&lt;/em> accepted at AAAI/ACM conference on Ethics &amp;amp; Safety.&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>RLLChatBot</title><link>https://cs.mcgill.ca/~ksinha4/project/rllchatbot/</link><pubDate>Mon, 01 May 2017 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/project/rllchatbot/</guid><description>&lt;p>&lt;em>Koustuv Sinha, &lt;a href="http://cs.mcgill.ca/~nangel3" target="_blank" rel="noopener">Nicolas Angelard-Gontier&lt;/a>, &lt;a href="http://www.peterhenderson.co/" target="_blank" rel="noopener">Peter Henderson&lt;/a>, &lt;a href="http://cs.mcgill.ca/~pparth2/" target="_blank" rel="noopener">Prasanna Parthasarathy&lt;/a>, Mike Noseworthy &amp;amp; &lt;a href="http://cs.mcgill.ca/~jpineau/" target="_blank" rel="noopener">Joelle Pineau&lt;/a>&lt;/em>&lt;/p>
+&lt;p>As a part of a broader &lt;a href="http://convai.io/" target="_blank" rel="noopener">ConvAI&lt;/a> challenge, we, the
+Dialog Group of McGill University under the supervision of
+&lt;a href="http://cs.mcgill.ca/~jpineau/" target="_blank" rel="noopener">Dr Joelle Pineau&lt;/a>, have trained a
+chatbot which can converse fluently with human judges with respect to a given article. The articles are chosen from a broad corpus of
+&lt;a href="https://rajpurkar.github.io/SQuAD-explorer/" target="_blank" rel="noopener">SQUAD dataset&lt;/a>, where topically they vary from politics to sports to general news. The challenge is to have a fluent conversation with the bot, centering around the topic of the article. Current system uses an ensemble of Generative, Retrieval, and rule based models, and a decision agent learned over actual human-bot responses to select the best candidate response at a given time. We ranked third in the human evaluation round and ranked fourth in the final round held alongside NIPS 2017. Our proposal was also awarded
+&lt;a href="https://research.fb.com/announcing-the-winners-of-the-facebook-parlai-research-awards/" target="_blank" rel="noopener">ParlAI research grant&lt;/a> from Facebook.&lt;/p></description></item><item><title>NetworkJS</title><link>https://cs.mcgill.ca/~ksinha4/project/networkjs/</link><pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/project/networkjs/</guid><description>&lt;p>Implemented modules:&lt;/p>
+&lt;ul>
+&lt;li>Degree Centrality&lt;/li>
+&lt;li>Betweenness Centrality&lt;/li>
+&lt;li>Eigenvalue Centrality&lt;/li>
+&lt;/ul>
+&lt;p>Built as a project for Comp 767, Fall 2016, McGill University&lt;/p></description></item><item><title/><link>https://cs.mcgill.ca/~ksinha4/admin/config.yml</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/admin/config.yml</guid><description/></item><item><title/><link>https://cs.mcgill.ca/~ksinha4/newslist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/newslist/</guid><description>&lt;ul>
+&lt;li>[01/10/21] Happy to update that our paper &lt;a href="https://arxiv.org/abs/2104.06644" target="_blank" rel="noopener">&amp;ldquo;Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little&amp;rdquo;&lt;/a> is accepted as a long paper at EMNLP 2021!&lt;/li>
+&lt;li>[01/09/21] Happy to announce the new iteration of &lt;a href="https://paperswithcode.com/rc2021" target="_blank" rel="noopener">ML Reproducibility Challenge 2021&lt;/a>, which has now enlarged to cover 9 top ML conferences! Submit your reports through Feb 2022!&lt;/li>
+&lt;li>[03/07/21] On a personal news, got married to my sweetheart &lt;a href="https://atrayeebasu.github.io/" target="_blank" rel="noopener">Atrayee&lt;/a> this July!&lt;/li>
+&lt;li>[02/07/21] Thrilled to share that our paper &lt;a href="https://arxiv.org/abs/2101.00010" target="_blank" rel="noopener">UnNatural Language Inference&lt;/a> has received &lt;strong>Outstanding Paper Award&lt;/strong> at ACL 2021! Deeply honored!&lt;/li>
+&lt;li>[15/04/21] Announcing the pre-print of our paper &lt;a href="https://arxiv.org/abs/2104.06644" target="_blank" rel="noopener">&amp;ldquo;Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little&amp;rdquo;&lt;/a>. We find RoBERTa trained with sentence word order shuffled data performs remarkably close to natural word order pre-trained models on several downstream and probing tasks!&lt;/li>
+&lt;li>[01/06/21] Excited to announce that our paper &lt;a href="https://arxiv.org/abs/2101.00010" target="_blank" rel="noopener">&amp;ldquo;UnNatural Language Inference&amp;rdquo;&lt;/a>, has been accepted to ACL 2021 (Long paper, Oral), where we stumble upon the weird language understanding mechanisms employed by NLU models!&lt;/li>
+&lt;li>[02/10/20] Happy to announce our paper &lt;a href="https://arxiv.org/abs/2009.14786" target="_blank" rel="noopener">&amp;ldquo;Measuring Systematic Generalization in Neural Proof Generation with Transformers&amp;rdquo;&lt;/a> is accepted at NeurIPS 2020!&lt;/li>
+&lt;li>[05/09/20] Excited to announce the &lt;a href="https://paperswithcode.com/rc2020" target="_blank" rel="noopener">2020 edition of the ML Reproducibility Challenge&lt;/a>! We now cover 7 major ML conferences, do check it out!&lt;/li>
+&lt;li>[05/08/20] We released a new blog post on &lt;a href="https://www.cs.mcgill.ca/~ksinha4/practices_for_reproducibility/" target="_blank" rel="noopener">ML Reproducibility Tools and Best Practices&lt;/a>. Check it out!&lt;/li>
+&lt;li>[30/04/20] Public release of our new multi-task graph dataset, &lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong>. Check out the &lt;a href="https://www.cs.mcgill.ca/~ksinha4/about-graphlog/" target="_blank" rel="noopener">blog post&lt;/a> for more information.&lt;/li>
+&lt;li>[08/04/20] Report on &lt;a href="https://arxiv.org/abs/2003.12206" target="_blank" rel="noopener">NeurIPS 2019 Reproducibility Program&lt;/a> published on arxiv. We have also published our thoughts on &lt;a href="https://medium.com/@NeurIPSConf/designing-the-reproducibility-program-for-neurips-2020-7fcccaa5c6ad" target="_blank" rel="noopener">Designing the Reproducibility Program&lt;/a> for NeurIPS 2020 on Medium.&lt;/li>
+&lt;li>[15/04/20] Excited to announce two papers accepted to ACL 2020! &lt;a href="https://arxiv.org/abs/2005.04315" target="_blank" rel="noopener">Probing Linguistic Systematicity&lt;/a> and &lt;a href="https://arxiv.org/abs/2005.00583" target="_blank" rel="noopener">Learning an unreferenced metric for online Dialog evaluation&lt;/a>.&lt;/li>
+&lt;li>[01/12/19] Co-organizing NeurIPS 2019 &lt;a href="https://ml-retrospectives.github.io/neurips2019/" target="_blank" rel="noopener">ML Retrospectives Workshop&lt;/a>&lt;/li>
+&lt;li>[01/09/19] Co-organizing &lt;a href="https://reproducibility-challenge.github.io/neurips2019/" target="_blank" rel="noopener">NeurIPS 2019 Reproducibility Challenge&lt;/a> and honored to be the NeurIPS 2019 Reproducibility Co-Chair.&lt;/li>
+&lt;li>[28/01/19] Excited to join Facebook AI Research (FAIR) as PhD Intern!&lt;/li>
+&lt;li>[14/08/19] Our paper &lt;em>&lt;a href="https://www.cs.mcgill.ca/~ksinha4/clutrr/" target="_blank" rel="noopener">CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text&lt;/a>&lt;/em> accepted at EMNLP 2019!&lt;/li>
+&lt;li>[28/09/18] Co-organizing &lt;a href="https://reproducibility-challenge.github.io/iclr_2019/" target="_blank" rel="noopener">ICLR Reproducibility Challenge&lt;/a>, 2019&lt;/li>
+&lt;li>[04/09/18] Starting PhD at &lt;a href="https://www.cs.mcgill.ca/" target="_blank" rel="noopener">McGill University&lt;/a>, advised by Dr &lt;a href="https://www.cs.mcgill.ca/~jpineau/" target="_blank" rel="noopener">Joelle Pineau&lt;/a> and Dr &lt;a href="https://www.cs.mcgill.ca/~wlh/" target="_blank" rel="noopener">William L. Hamilton&lt;/a>, from Fall 2018.&lt;/li>
+&lt;li>[31/08/18] Our paper on &lt;em>A Hierarchical Neural Attention-based Text Classifier&lt;/em> accepted at EMNLP 2018!&lt;/li>
+&lt;li>[01/06/18] Intern-ing at &lt;a href="https://www.sait.samsung.co.kr/saithome/main/main.do" target="_blank" rel="noopener">Samsung Advanced Institute of Technology&lt;/a> for the Summer!&lt;/li>
+&lt;li>[01/02/18] &lt;a href="https://breakend.github.io/EthicsInDialogue/" target="_blank" rel="noopener">Our paper&lt;/a> on &lt;em>Ethics in Data Driven Dialog Systems&lt;/em> accepted at AAAI/ACM conference on Ethics &amp;amp; Safety.&lt;/li>
+&lt;/ul></description></item><item><title>Activities</title><link>https://cs.mcgill.ca/~ksinha4/activities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cs.mcgill.ca/~ksinha4/activities/</guid><description>&lt;h2 id="mentorship">Mentorship&lt;/h2>
+&lt;p>I&amp;rsquo;m open to mentor early career (MSc/PhD) students to guide them in their own research topics. Please &lt;a href="mailto:koustuv.sinha@mail.mcgill.ca?subject=Mentorship%20Request">contact me&lt;/a> with your CV and brief description of the research problem (no need to write an elaborate plan) you are interested in, and I&amp;rsquo;ll get back to you. You can check out my &lt;a href="https://www.cs.mcgill.ca/~ksinha4/publications/" target="_blank" rel="noopener">publications&lt;/a> page to understand my area of expertise, to evaluate where I can guide you the best.&lt;/p>
+&lt;h2 id="supervising">Supervising&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://shanyas10.github.io/" target="_blank" rel="noopener">Shanya Sharma&lt;/a>, 2020-present&lt;/li>
+&lt;li>Manan Dey, 2020-present&lt;/li>
+&lt;/ul>
+&lt;h2 id="tutorials">Tutorials&lt;/h2>
+&lt;ul>
+&lt;li>&lt;em>Towards Reproducible Machine Learning Research in Natural Language Processing&lt;/em>, ACL 2022 (&lt;a href="https://acl-reproducibility-tutorial.github.io/" target="_blank" rel="noopener">Website&lt;/a>, &lt;a href="https://aclanthology.org/2022.acl-tutorials.2/" target="_blank" rel="noopener">ACL Anthology&lt;/a>)&lt;/li>
+&lt;li>&lt;em>Towards Reproducible Machine Learning Research in Information Retrieval&lt;/em>, SIGIR 2022 (&lt;a href="https://sigir.org/sigir2022/program/tutorials/" target="_blank" rel="noopener">Conference Website&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h2 id="public-talks">Public Talks&lt;/h2>
+&lt;ul>
+&lt;li>Panelist, &lt;em>Reproducibility and Rigor in ML&lt;/em>,
+&lt;a href="https://ml-eval.github.io/panels/" target="_blank" rel="noopener">ML Evaluation Standards Workshop&lt;/a> at ICLR 2022, April 2022&lt;/li>
+&lt;li>&lt;em>Evaluating Logical Generalization with Graph Neural Networks&lt;/em>,
+Weights and Biases Salon,
+(&lt;a href="https://www.youtube.com/watch?v=HllTbhy3WSA" target="_blank" rel="noopener">Online&lt;/a>) May 2020&lt;/li>
+&lt;li>&lt;em>ML Reproducibility - From Theory to Practice&lt;/em>
+&lt;ul>
+&lt;li>&lt;a href="https://dl4sci-school.lbl.gov/" target="_blank" rel="noopener">DL4Science Seminar&lt;/a>, Lawrence Berkeley National Laboratory, Berkeley, (&lt;a href="https://www.youtube.com/watch?v=se7LNICECqI" target="_blank" rel="noopener">Online&lt;/a>) August 2020&lt;/li>
+&lt;li>&lt;a href="https://miccai-hackathon.com/" target="_blank" rel="noopener">MICCAI Hackathon&lt;/a>, Peru, 2020 (Online), October 2020&lt;/li>
+&lt;li>Bielefield University, Germany, hosted by &lt;a href="https://ni.www.techfak.uni-bielefeld.de/people/mschilli" target="_blank" rel="noopener">Malte Schilling&lt;/a>, October 2021 (Online)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="conference-organization">Conference Organization&lt;/h2>
+&lt;ul>
+&lt;li>NeurIPS 2022, Journal Chair&lt;/li>
+&lt;li>&lt;a href="https://neurips.cc/Conferences/2020/Committees" target="_blank" rel="noopener">NeurIPS 2020&lt;/a>, Reproducibility Co-Chair&lt;/li>
+&lt;li>&lt;a href="https://neurips.cc/Conferences/2019/Committees" target="_blank" rel="noopener">NeurIPS 2019&lt;/a>, Reproducibility Co-Chair&lt;/li>
+&lt;/ul>
+&lt;h2 id="workshop-organization">Workshop Organization&lt;/h2>
+&lt;ul>
+&lt;li>[Upcoming] &lt;a href="https://www.cs.mcgill.ca/~pparth2/nilli_workshop/" target="_blank" rel="noopener">NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2022&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.cs.mcgill.ca/~pparth2/nilli_workshop/" target="_blank" rel="noopener">NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2021&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ml-retrospectives.github.io/neurips2019/" target="_blank" rel="noopener">ML Retrospectives@ NeurIPS 2019&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="reproducibility-challenge-organization">Reproducibility Challenge Organization&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://paperswithcode.com/rc2021" target="_blank" rel="noopener">2021 ML Reproducibility Challenge&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://paperswithcode.com/rc2020" target="_blank" rel="noopener">2020 ML Reproducibility Challenge&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://reproducibility-challenge.github.io/neurips2019/" target="_blank" rel="noopener">2019 NeurIPS Reproducibility Challenge&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/reproducibility-challenge/iclr_2019/" target="_blank" rel="noopener">ICLR 2019 Reproducibility Challenge&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.cs.mcgill.ca/~jpineau/ICLR2018-ReproducibilityChallenge.html" target="_blank" rel="noopener">ICLR 2018 Reproducibility Challenge&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="conference-volunteering">Conference Volunteering&lt;/h2>
+&lt;ul>
+&lt;li>NeurIPS 2018, Montreal, Canada&lt;/li>
+&lt;li>MAIS 2018, Montreal, Canada&lt;/li>
+&lt;li>ICWSM 2017, Montreal, Canada&lt;/li>
+&lt;/ul>
+&lt;h2 id="teaching-assistantship">Teaching Assistantship&lt;/h2>
+&lt;ul>
+&lt;li>Winter 2022: &lt;a href="https://www.mcgill.ca/study/2021-2022/courses/comp-424" target="_blank" rel="noopener">COMP 424 Artificial Intelligence&lt;/a>&lt;/li>
+&lt;li>Fall 2018: &lt;a href="https://rllabmcgill.github.io/COMP-652/index.html" target="_blank" rel="noopener">COMP 652 Machine Learning&lt;/a>&lt;/li>
+&lt;li>Winter 2018: &lt;a href="http://www.sarathchandar.in/teaching/2018/winter/comp551-001/" target="_blank" rel="noopener">COMP 551 Applied Machine Learning&lt;/a>&lt;/li>
+&lt;li>Fall 2017: &lt;a href="http://cs.mcgill.ca/~jpineau/comp551/" target="_blank" rel="noopener">COMP 551 Applied Machine Learning&lt;/a>&lt;/li>
+&lt;li>Winter 2017: COMP 102B Computers and Computing&lt;/li>
+&lt;li>Fall 2016: &lt;a href="http://www.derekruths.com/teaching/comp-189/" target="_blank" rel="noopener">COMP 189 Computers and Society&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
