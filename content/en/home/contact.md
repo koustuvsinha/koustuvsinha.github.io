@@ -21,7 +21,7 @@ content:
   address:
     street:
     city: New York, NY | New Haven, CT
-    region:
+    region: USA
     postcode:
     country: USA
     country_code: USA
