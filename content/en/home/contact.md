@@ -19,12 +19,12 @@ content:
   email: koustuv.sinha@mail.mcgill.ca
   phone: 
   address:
-    street: Room 111, McConnell Engineering Bldg, 3480 University St.
-    city: Montreal
-    region: QC
-    postcode: 'H3A OE9'
-    country: Canada
-    country_code: CAN
+    street:
+    city: New York, NY | New Haven, CT
+    region:
+    postcode:
+    country: USA
+    country_code: USA
   coordinates:
     latitude: 
     longitude: 
