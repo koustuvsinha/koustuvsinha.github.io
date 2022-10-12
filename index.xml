@@ -9,7 +9,7 @@ Click on the &lt;strong>Slides&lt;/strong> button above to view the built-in sli
 &lt;li>&lt;strong>Upload&lt;/strong> an existing slide deck to &lt;code>static/&lt;/code> and link using &lt;code>url_slides&lt;/code> parameter in the front matter of the talk file&lt;/li>
 &lt;li>&lt;strong>Embed&lt;/strong> your slides (e.g. Google Slides) or presentation video on this page using &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">shortcodes&lt;/a>.&lt;/li>
 &lt;/ul>
-&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Replicating Zotero-connector functionality in Emacs … without Zotero!</title><link>/post/emacs_org_protocol_arxiv/</link><pubDate>Wed, 12 Oct 2022 18:26:00 -0400</pubDate><guid>/post/emacs_org_protocol_arxiv/</guid><description>&lt;p>In my &lt;a href="/en/post/emacs_research_workflow/">last blog post&lt;/a> I described a method I use to keep track of my paper reading habits, using Emacs. Using the workflow, I can now:&lt;/p>
+&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Replicating Zotero-connector functionality in Emacs … without Zotero!</title><link>/post/emacs_org_protocol_arxiv/</link><pubDate>Wed, 12 Oct 2022 18:26:00 -0400</pubDate><guid>/post/emacs_org_protocol_arxiv/</guid><description>&lt;p>In my &lt;a href="/post/emacs_research_workflow/">last blog post&lt;/a> I described a method I use to keep track of my paper reading habits, using Emacs. Using the workflow, I can now:&lt;/p>
 &lt;ul>
 &lt;li>Check the latest Arxiv papers using &lt;a href="https://github.com/skeeto/elfeed" target="_blank" rel="noopener">Elfeed&lt;/a>&lt;/li>
 &lt;li>Score the papers using &lt;a href="https://github.com/sp1ff/elfeed-score" target="_blank" rel="noopener">Elfeed-Score&lt;/a>&lt;/li>
@@ -36,7 +36,7 @@ Click on the &lt;strong>Slides&lt;/strong> button above to view the built-in sli
 &lt;li>Stores the PDF into a predestined location, and adds the bibtex in my main bibfile&lt;/li>
 &lt;li>Add a note about this paper to read in my paper tracker org file.&lt;/li>
 &lt;/ol>
-&lt;p>We are in luck! In my &lt;a href="/en/post/emacs_research_workflow/">last blog post&lt;/a>, I wrote functions to do 2-4! Re-using the function again here:&lt;/p>
+&lt;p>We are in luck! In my &lt;a href="/post/emacs_research_workflow/">last blog post&lt;/a>, I wrote functions to do 2-4! Re-using the function again here:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;; Save arxiv pdf to local and maintain a bibfile for the newly added paper, and update papers.org&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">defun&lt;/span> &lt;span class="nv">my/save-arxiv-to-local-db&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">matched-arxiv-number&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Save arxiv paper in local db
