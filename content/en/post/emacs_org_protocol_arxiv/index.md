@@ -1,5 +1,5 @@
 ---
-title: "Replicating Zotero-connector functionality in Emacs without Zotero"
+title: "Replicating Zotero-connector functionality in Emacs … without Zotero!"
 date: 2022-10-12T18:26:00-04:00
 draft: false
 commentable: true

@@ -1942,7 +1942,7 @@ Using the above method makes it trivial to sync my reading lists on my Apple Ipa
 *** Closing Thoughts
 
 This is an evolving workflow, and it is probably not the most optimal one. However it works for me, and I can easily keep tweaking the config so that it supports any future requirements. Let me know if this worked for you in the comments, and I would love to hear any suggestions you might have so that I can make this workflow better! Thanks for reading!
-** DONE Replicating Zotero-connector functionality in Emacs without Zotero
+** DONE Replicating Zotero-connector functionality in Emacs ... without Zotero!
 CLOSED: [2022-10-12 Wed 18:26]
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: en/post/emacs_org_protocol_arxiv/
