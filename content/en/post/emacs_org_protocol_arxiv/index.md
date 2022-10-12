@@ -5,7 +5,7 @@ draft: false
 commentable: true
 ---
 
-In my [last blog post](/en/post/emacs_research_workflow/) I described a method I use to keep track of my paper reading habits, using Emacs. Using the workflow, I can now:
+In my [last blog post](/post/emacs_research_workflow/) I described a method I use to keep track of my paper reading habits, using Emacs. Using the workflow, I can now:
 
 -   Check the latest Arxiv papers using [Elfeed](https://github.com/skeeto/elfeed)
 -   Score the papers using [Elfeed-Score](https://github.com/sp1ff/elfeed-score)
@@ -46,7 +46,7 @@ Now, all we need to do is to define a function which:
 3.  Stores the PDF into a predestined location, and adds the bibtex in my main bibfile
 4.  Add a note about this paper to read in my paper tracker org file.
 
-We are in luck! In my [last blog post](/en/post/emacs_research_workflow/), I wrote functions to do 2-4! Re-using the function again here:
+We are in luck! In my [last blog post](/post/emacs_research_workflow/), I wrote functions to do 2-4! Re-using the function again here:
 
 ```elisp
 ;; Save arxiv pdf to local and maintain a bibfile for the newly added paper, and update papers.org
