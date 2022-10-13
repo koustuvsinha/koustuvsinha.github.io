@@ -81,7 +81,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This function does the following:&lt;/p>
 &lt;ul>
 &lt;li>From a given Arxiv URL (either abstract or PDF) perform a string match to extract the number&lt;/li>
-&lt;li>For PDF links, this number contains a training &lt;code>.&lt;/code> (as our regexp expects &lt;code>.&lt;/code> as well as numbers). Use &lt;code>string-remote-suffix&lt;/code> to get rid of this trailing character.&lt;/li>
+&lt;li>For PDF links, this string match returns a number containing a trailing &amp;ldquo;&lt;code>.&lt;/code>&amp;rdquo; (as our regexp expects &lt;code>.&lt;/code> as well as numbers). Use &lt;code>string-remote-suffix&lt;/code> to get rid of this trailing character.&lt;/li>
 &lt;li>Call the function to extract and save the pdf!&lt;/li>
 &lt;/ul>
 &lt;figure >
