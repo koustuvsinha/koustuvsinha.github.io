@@ -2058,7 +2058,7 @@ Thus, I need to extract this arxiv number from a given URL. I now define the =ar
 
 This function does the following:
 - From a given Arxiv URL (either abstract or PDF) perform a string match to extract the number
-- For PDF links, this number contains a training =.= (as our regexp expects =.= as well as numbers). Use =string-remote-suffix= to get rid of this trailing character.
+- For PDF links, this string match returns a number containing a trailing "=.=" (as our regexp expects =.= as well as numbers). Use =string-remote-suffix= to get rid of this trailing character.
 - Call the function to extract and save the pdf!
 
 [[file:images/org_protocol_arxiv_demo.gif]]
