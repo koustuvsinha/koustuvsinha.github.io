@@ -114,6 +114,8 @@ This function does the following:
 -   For PDF links, this number contains a training `.` (as our regexp expects `.` as well as numbers). Use `string-remote-suffix` to get rid of this trailing character.
 -   Call the function to extract and save the pdf!
 
+{{< figure src="/ox-hugo/org_protocol_arxiv_demo.gif" >}}
+
 Thats it, you have now replicated Zotero connector functionality _without_ needing to have Zotero installed! It only works on Arxiv at the moment, but it is okay for now for me. In the future I'll investigate ways to get the entire Zotero translator functionalities directly in Emacs.
 
 Thanks for reading!
