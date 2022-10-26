@@ -499,7 +499,7 @@ image:
 
 url_code: "https://github.com/facebookresearch/unlu"
 url_pdf: "https://arxiv.org/abs/2101.00010"
-url_slides: "https://www.cs.mcgill.ca/~ksinha4/assets/files/unli_acl_talk.pdf"
+url_slides: "https://github.com/koustuvsinha/koustuvsinha.github.io/blob/jekyll/assets/files/unli_acl_talk.pdf"
 url_video: "https://youtu.be/oAM0Sr1WNW0"
 # Slides (optional).
 #   Associate this project with Markdown slides.
