@@ -2,6 +2,7 @@
 draft = false
 +++
 
+-   [11/02/22] Successfully defended my PhD! Checkout [my thesis here](/phd_thesis/).
 -   [08/29/22] Excited to announce a major life event: I'm starting today as a Research Scientist (Speech &amp; NLP) in [Meta AI](https://ai.facebook.com/) New York!
 -   [08/19/22] Happy to announce yet another Machine Learning Reproducibility Challenge, [the MLRC 2022](https://paperswithcode.com/rc2022)! This is our six edition!
 -   [01/10/21] Happy to update that our paper ["Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little"](https://arxiv.org/abs/2104.06644) is accepted as a long paper at EMNLP 2021!
