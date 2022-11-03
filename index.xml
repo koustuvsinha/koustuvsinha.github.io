@@ -9,7 +9,81 @@ Click on the &lt;strong>Slides&lt;/strong> button above to view the built-in sli
 &lt;li>&lt;strong>Upload&lt;/strong> an existing slide deck to &lt;code>static/&lt;/code> and link using &lt;code>url_slides&lt;/code> parameter in the front matter of the talk file&lt;/li>
 &lt;li>&lt;strong>Embed&lt;/strong> your slides (e.g. Google Slides) or presentation video on this page using &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">shortcodes&lt;/a>.&lt;/li>
 &lt;/ul>
-&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Replicating Zotero-connector functionality in Emacs … without Zotero!</title><link>https://koustuvsinha.com/post/emacs_org_protocol_arxiv/</link><pubDate>Wed, 12 Oct 2022 18:26:00 -0400</pubDate><guid>https://koustuvsinha.com/post/emacs_org_protocol_arxiv/</guid><description>&lt;p>In my &lt;a href="https://koustuvsinha.com/post/emacs_research_workflow/">last blog post&lt;/a> I described a method I use to keep track of my paper reading habits, using Emacs. Using the workflow, I can now:&lt;/p>
+&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>PhD Thesis</title><link>https://koustuvsinha.com/phd_thesis/</link><pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/phd_thesis/</guid><description>&lt;div class="ox-hugo-toc toc">
+&lt;div class="heading">Table of Contents&lt;/div>
+&lt;ul>
+&lt;li>&lt;a href="#thesis-committee">Thesis Committee&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#thesis-title">Thesis Title&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#abstract">Abstract&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#thesis-document">Thesis Document&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#papers-used-in-the-thesis">Papers used in the Thesis&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#acknowledgements">Acknowledgements&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#pictures">Pictures&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;!--endtoc-->
+&lt;p>On November 2nd, 2022 I defended my PhD thesis successfully in front of a virtual audience. Following are the details of the thesis, committee, and a sincere acknowledgement to all of whom who have influenced, encouraged, helped and supported me throughout this epic journey!&lt;/p>
+&lt;h2 id="thesis-committee">Thesis Committee&lt;/h2>
+&lt;ul>
+&lt;li>Dr. Yue Li (Chair)&lt;/li>
+&lt;li>Dr. Joelle Pineau (Supervisor)&lt;/li>
+&lt;li>Dr. Timothy J O&amp;rsquo;Donell (Supervisory Committee)&lt;/li>
+&lt;li>Dr. Dima Bahdanau (Internal Member)&lt;/li>
+&lt;li>Dr. Kyunghyun Cho (NYU) (External Member)&lt;/li>
+&lt;/ul>
+&lt;h2 id="thesis-title">Thesis Title&lt;/h2>
+&lt;p>&amp;ldquo;Exploring the limits of systematicity of natural language understanding models&amp;rdquo;&lt;/p>
+&lt;h2 id="abstract">Abstract&lt;/h2>
+&lt;p>In this thesis, we investigate several approaches to evaluate modern neural
+language models through the lens of systematicity, in order to assess their
+human-level reasoning and comprehension of natural language. First, we
+investigate the model&amp;rsquo;s limits in encoding the natural language semantics by
+proposing a diagnostic challenge dataset known as CLUTRR. Drawing inspiration
+from first-order logic, this dataset specifically tests for systematicity in
+length generalization in natural language understanding models, in the form of a
+question-answering task. We observe most major models fail in generalizing to
+longer chain of reasoning, with the main limitation arising from their
+rudimentary understanding of syntax. Next, we apply the principles of
+systematicity to evaluate the syntax encoding strategy of large language models
+by applying permutations to the word order seen during inference and training.
+We observe a surprising fact that a trained neural language model can still
+perform optimally when subjected to sentences of shuffled word orders, devoid of their original meaning, and furthermore they can even improve their performance
+significantly on specific permutations. Next, we investigate the reasons of such
+behavior by pre-training large language models on meaningless, word-order
+shuffled corpora, to find they too behave optimally on downstream semantic and
+syntactic tasks. These results highlight the potential distributional nature of large language models, such that they only focus on n-grams during computation. Finally, we attempt to investigate the root cause of these effects, to find the component of the model most responsible. We observe that certain classes of position embeddings lead the models to overfit on the token positions, subjecting models to exhibit un-systematic behavior on out-of-position sentences. In summary, this thesis attempts to shed more light to the black box nature of the state-of-the-art neural language models, and introduces mechanisms to test and ensure systematic behaviors in their understanding of natural language.&lt;/p>
+&lt;h2 id="thesis-document">Thesis Document&lt;/h2>
+&lt;p>&lt;em>(To be updated post publication from McGill)&lt;/em>&lt;/p>
+&lt;h2 id="papers-used-in-the-thesis">Papers used in the Thesis&lt;/h2>
+&lt;ul>
+&lt;li>Koustuv Sinha, Shagun Sodhani, Jin Dong, Joelle Pineau, and William L. Hamilton. 2019. &lt;a href="https://aclanthology.org/D19-1458/" target="_blank" rel="noopener">CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text.&lt;/a> In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 4506–4515, Hong Kong, China. Association for Computational Linguistics.&lt;/li>
+&lt;li>Koustuv Sinha, Prasanna Parthasarathi, Joelle Pineau, and Adina Williams. 2021. &lt;a href="https://aclanthology.org/2021.acl-long.569/" target="_blank" rel="noopener">UnNatural Language Inference.&lt;/a> In Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers), pages 7329–7346, Online. Association for Computational Linguistics.&lt;/li>
+&lt;li>Koustuv Sinha, Robin Jia, Dieuwke Hupkes, Joelle Pineau, Adina Williams, and Douwe Kiela. 2021. &lt;a href="https://aclanthology.org/2021.emnlp-main.230/" target="_blank" rel="noopener">Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little.&lt;/a> In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, pages 2888–2913, Online and Punta Cana, Dominican Republic. Association for Computational Linguistics.&lt;/li>
+&lt;li>Koustuv Sinha, Amirhossein Kazemnejad, Siva Reddy, Joelle Pineau, Dieuwke Hupkes, and Adina Williams, 2022. &lt;a href="https://arxiv.org/abs/2210.12574" target="_blank" rel="noopener">The Curious Case of Absolute Position Embeddings.&lt;/a> In Proceedings of the Findings of 2022 Empirical Methods in Natural Language Processing, Abu Dhabi. Association of Computational Linguistics.&lt;/li>
+&lt;/ul>
+&lt;h2 id="acknowledgements">Acknowledgements&lt;/h2>
+&lt;p>First and foremost, I would like to thank my supervisor, Joelle Pineau, for her endless support, motivation and guidance; being an incredibly patient mentor and role model for conducting scientific research; involving me in the quest to achieve reproducibility in machine learning; and continually providing me opportunities to learn and grow during my PhD. I consider myself incredibly lucky to have such a kind and enthusiastic mentor in my life.&lt;/p>
+&lt;p>I would like to thank my close collaborators Adina Williams, Shagun Sodhani and Prasanna Parthasarthi for their guidance, endless support and motivation throughout many projects that are included in this thesis or otherwise. Furthermore, I would like to thank my incredible mentors with whom I have been fortunate enough to collaborate and learn how to conduct thorough scientific research during my thesis: William L. Hamilton, Dieuwke Hupkes, Douwe Kiela, Robin Jia, Timothy O&amp;rsquo;Donnell and Adi Renduchintala. Furthermore, I would like to thank my professors in the RL Lab and beyond, who have helped me foster my research interests in natural language processing: Siva Reddy, Jackie Cheung, Dima Bahdanau, Derek Ruths and Andrew Piper.&lt;/p>
+&lt;p>I&amp;rsquo;d also like to thank my collaborators and co-authors for their help and support for the research materials involved in this thesis and related works: Amirhossein Kazemnejad, Jin Dong, Emily Goodwin, Nicolas Gontier, Ryan Lowe and Jasmine Wang.&lt;/p>
+&lt;p>My life in Montreal started back in 2016 with my Masters, then followed by my PhD. In the last six years, I am lucky and grateful to all my friends who made my life away from home feel like home, including: Sumana Basu, Upasana Dasgupta, Haji Mohammad Saleem, Shagun Sodhani, Sayantan Datta, Arna Ghosh, Haque Ishfaq, Attia Amin Oni, Matt Gittings from McGill University, Nicolas Gontier, Harsh Satija, Jad Kabbara, Malik Altrakrori, Kushal Arora, Khimya Khetarpal, Charles Onu, Lucas Caccia, Joey Bose, Arushi Jain, Ayush Jain, Jonathan Lebensold, Maxime Wabartha, Emmanuel Bengio, Yue Dong, Audrey Durand, Nadeem Ward, Riashat Islam and the entire RL Lab/Mila, and all my friends from my Masters, including Peter Henderson, Caitrin Armstrong, Deven Patel, Ramchalam K. Ramakrishnan and Jaspal Singh, all of whom who have a special place in my heart.&lt;/p>
+&lt;p>I fondly recall my time at Samsung Advanced Institute of Technology, Korea where I did my first internship of my PhD. A special thank you to all at SAIT for making my time at Korea something to cherish and fondly remember for years to come, including Young Sang Choi, Sanghyun Yoo, Jehun Jeon, Ki Soo, Park Jong Hun and the entire Language Technologies team.&lt;/p>
+&lt;p>During my PhD I spent significant time being an intern at Meta AI Montreal. I&amp;rsquo;d like to thank all my colleagues who made those days enjoyable and fruitful in both research and life experiences: Shagun Sodhani, Vinayak Tantia, Mike Rabbat, Daniella Kafla, Adriana Romero, Michal Drozdzal and many others. A special shoutout to the security and culinary teams at Meta Montreal for keeping me company during late night sessions and providing an unforgettable culinary experience. I&amp;rsquo;d also like to thank all my colleagues in Meta AI who have provided technical guidance and support throughout my internship, including Jack Urbaneck, Emily Dinan, Shruti Bhosale, Shubho Sengupta and many others.&lt;/p>
+&lt;p>This thesis consists of experiments which required a significant amount of compute. Thus, I would like to thank the teams at McGill, Mila, Meta and Compute Canada responsible for maintaining the compute clusters and providing us a seamless experience to run countless experiments on demand. In particular, I would like to thank Ron Simpson, Andrew Bogecho, Corey Barton Antoniuk from McGill; Olexa Bilaniuk, Bruno Travouillon, Ahmed Mamlouk, Frederic Osterrath and the entire Mila IDT team; and the Penguin Compute Team from Meta for providing extensive technical support and assistance during the experiments conducted in this thesis.&lt;/p>
+&lt;p>Over the course of my PhD I was actively involved in leading the annual Machine Learning Reproducibility Challenge, which would not have been possible without the constant support, motivation and guidance of my co-organizers: Jessica Forde, Jesse Dodge, Sasha Luccioni, Robert Stojnic, Sharath Raparthy and Joelle Pineau; Nicolas Rougier from ReScience and the OpenReview team for providing the technical support.&lt;/p>
+&lt;p>The Covid pandemic occurred during my PhD, which led to an exciting opportunity to contribute towards understanding the disease in a data-driven way, thanks to my supervisor Joelle Pineau. I would like to thank my colleagues from Meta AI, Matthew Muckley and Anuroop Sriram, with whom I worked closely during this period to develop chest X-ray imaging pipelines, and who helped me develop an alternate research interest in medical imaging and taught me to conduct rigorous scientific studies.&lt;/p>
+&lt;p>I would like also to extend by sincere thanks and gratitude to the incredible professors and mentors I had during my pre-Masters days in India, who helped nurture my interest in computer science research, including Ee-Kian Wong, Saptarsi Goswami, Sukalyan Goswami, Tamal Chakraborty, Nilanjana Dutta Roy from Institute of Engineering &amp;amp; Management, Kolkata; Koumudi Patil and Arnab Bhattacharya from Indian Institute of Technology, Kanpur; and Debjit Chakraborty from Ramakrishna Mission Vidyalaya, Narendrapur.&lt;/p>
+&lt;p>I am grateful to have long standing relationships with my childhood friends from school and undergrad, who despite being physically located miles apart check on me from time-to-time to ensure my mental health is okay: Anikendu Bose, Pamela Roy, Sounak Mohanta, Debojyoti Roy Malakar, Subhodeep Santra, Anindya Chatterjee, Nilanjan Roy, Aritra Chatterjee, Soumalyo Sarkar, Abhishek Rudra and many wonderful people at Ramakrishna Mission Vidyalaya, Narendrapur and Institute of Engineering &amp;amp; Management, Kolkata.&lt;/p>
+&lt;p>Finally, I grateful to my family for being there through thick and thin, cheering for me and supporting me even though multiple continents separate us, including my parents, &lt;em>Ma&lt;/em> (Supriya Sinha), &lt;em>Baba&lt;/em> (Kanchan Kumar Sinha), my sister &lt;em>June&lt;/em> (Adrija Sinha), my in-laws &lt;em>Maa&lt;/em> (Sanchita Basu), &lt;em>Bapi&lt;/em> (Manas Basu), &lt;em>Didibhai&lt;/em> (Arati Basu), brother-in-law &lt;em>Jerry&lt;/em> (Ananda Basu) and especially my wife, Atrayee Basu. My wife gets a special acknowledgement, for loving me more than I deserve, for constantly supporting, encouraging and motivating me, and for being my constant source of inspiration, when we are together, and even when we are apart. Love you all!&lt;/p>
+&lt;h2 id="pictures">Pictures&lt;/h2>
+&lt;p>Unfortunately I missed the opportunity to get a screen capture during my defense, but my wife made sure to get some snaps during my talk! :)&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://koustuvsinha.com/ox-hugo/phd_thesis_snap_1.jpg" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://koustuvsinha.com/ox-hugo/phd_thesis_snap_2.jpg" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure></description></item><item><title>Replicating Zotero-connector functionality in Emacs … without Zotero!</title><link>https://koustuvsinha.com/post/emacs_org_protocol_arxiv/</link><pubDate>Wed, 12 Oct 2022 18:26:00 -0400</pubDate><guid>https://koustuvsinha.com/post/emacs_org_protocol_arxiv/</guid><description>&lt;p>In my &lt;a href="https://koustuvsinha.com/post/emacs_research_workflow/">last blog post&lt;/a> I described a method I use to keep track of my paper reading habits, using Emacs. Using the workflow, I can now:&lt;/p>
 &lt;ul>
 &lt;li>Check the latest Arxiv papers using &lt;a href="https://github.com/skeeto/elfeed" target="_blank" rel="noopener">Elfeed&lt;/a>&lt;/li>
 &lt;li>Score the papers using &lt;a href="https://github.com/sp1ff/elfeed-score" target="_blank" rel="noopener">Elfeed-Score&lt;/a>&lt;/li>
@@ -1481,6 +1555,9 @@ data-background-image="/media/boards.jpg"
 &lt;p>Turtle Learning Environment (TLE) is a minimalistic connect-the-dots environment made as part of COMP 767 RL Final project in McGill University (Winter 2018). The objective of the agent in a 28x28 grid world is to connect the dots provided to form the image, where the environment provides negative reward for each cell drawn and positive reward for each connected components.&lt;/p></description></item><item><title>A Hierarchical Neural Attention-based Text Classifier</title><link>https://koustuvsinha.com/publication/sinha-2018-hier/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/sinha-2018-hier/</guid><description/></item><item><title>Adversarial Gain</title><link>https://koustuvsinha.com/publication/henderson-2018-adversarial/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/henderson-2018-adversarial/</guid><description/></item><item><title>Compositional Language Understanding with Text-based Relational Reasoning</title><link>https://koustuvsinha.com/publication/sinha-2018-clutrr/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/sinha-2018-clutrr/</guid><description/></item><item><title>Ethical Challenges in Data-Driven Dialogue Systems</title><link>https://koustuvsinha.com/publication/henderson-2017-ethics/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/henderson-2017-ethics/</guid><description/></item><item><title>The RLLChatbot: a solution to the ConvAI Challenge</title><link>https://koustuvsinha.com/publication/gontier-2018/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/gontier-2018/</guid><description/></item><item><title>News</title><link>https://koustuvsinha.com/news/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/news/</guid><description>
 &lt;ul>
 &lt;li>
+&lt;p>[11/02/22] Successfully defended my PhD! Checkout &lt;a href="https://koustuvsinha.com/phd_thesis/">my thesis here&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
 &lt;p>[08/29/22] Excited to announce a major life event: I&amp;rsquo;m starting today as a Research Scientist (Speech &amp;amp; NLP) in &lt;a href="https://ai.facebook.com/" target="_blank" rel="noopener">Meta AI&lt;/a> New York!&lt;/p>
 &lt;/li>
 &lt;li>
@@ -1562,6 +1639,7 @@ chatbot which can converse fluently with human judges with respect to a given ar
 &lt;li>Eigenvalue Centrality&lt;/li>
 &lt;/ul>
 &lt;p>Built as a project for Comp 767, Fall 2016, McGill University&lt;/p></description></item><item><title/><link>https://koustuvsinha.com/admin/config.yml</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/admin/config.yml</guid><description/></item><item><title/><link>https://koustuvsinha.com/newslist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/newslist/</guid><description>&lt;ul>
+&lt;li>[11/02/22] Successfully defended my PhD! Checkout &lt;a href="https://koustuvsinha.com/phd_thesis/">my thesis here&lt;/a>.&lt;/li>
 &lt;li>[08/29/22] Excited to announce a major life event: I&amp;rsquo;m starting today as a Research Scientist (Speech &amp;amp; NLP) in &lt;a href="https://ai.facebook.com/" target="_blank" rel="noopener">Meta AI&lt;/a> New York!&lt;/li>
 &lt;li>[08/19/22] Happy to announce yet another Machine Learning Reproducibility Challenge, &lt;a href="https://paperswithcode.com/rc2022" target="_blank" rel="noopener">the MLRC 2022&lt;/a>! This is our six edition!&lt;/li>
 &lt;li>[01/10/21] Happy to update that our paper &lt;a href="https://arxiv.org/abs/2104.06644" target="_blank" rel="noopener">&amp;ldquo;Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little&amp;rdquo;&lt;/a> is accepted as a long paper at EMNLP 2021!&lt;/li>
