@@ -122,8 +122,9 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ** Supervising
 
-- [[https://shanyas10.github.io/][Shanya Sharma]], 2020-present
-- Manan Dey, 2020-present
+- Kexin (Nicole) Liang, 2021-present
+- [[https://shanyas10.github.io/][Shanya Sharma]], 2020-2022
+- Manan Dey, 2020-2022
 
 ** Tutorials
 
@@ -144,18 +145,21 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ** Conference Organization
 
-- NeurIPS 2022, Journal Chair
+- [[https://iclr.cc/Conferences/2023/Committees][ICLR 2023]], Journal Chair
+- [[https://neurips.cc/Conferences/2022/Committees][NeurIPS 2022]], Journal Chair
 - [[https://neurips.cc/Conferences/2020/Committees][NeurIPS 2020]], Reproducibility Co-Chair
 - [[https://neurips.cc/Conferences/2019/Committees][NeurIPS 2019]], Reproducibility Co-Chair
 
 ** Workshop Organization
 
-- [Upcoming] [[https://www.cs.mcgill.ca/~pparth2/nilli_workshop/][NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2022]]
+- [Upcoming] [[https://genbench.org/workshop/][Genbench: the first workshop on (benchmarking) generalisation in NLP @ EMNLP 2023]]
+- [[https://www.cs.mcgill.ca/~pparth2/nilli_workshop/][NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2022]]
 - [[https://www.cs.mcgill.ca/~pparth2/nilli_workshop/][NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2021]]
 - [[https://ml-retrospectives.github.io/neurips2019/][ML Retrospectives@ NeurIPS 2019]]
 
 ** Reproducibility Challenge Organization
 
+- [[https://paperswithcode.com/rc2022][2022 ML Reproducibility Challenge]]
 - [[https://paperswithcode.com/rc2021][2021 ML Reproducibility Challenge]]
 - [[https://paperswithcode.com/rc2020][2020 ML Reproducibility Challenge]]
 - [[https://reproducibility-challenge.github.io/neurips2019/][2019 NeurIPS Reproducibility Challenge]]
