@@ -430,13 +430,13 @@ August 2020, for which this blog post is a point of reference.
 1.  Rule A, Birmingham A, Zuniga C, Altintas I, Huang SC, Knight R,
     Moshiri N, Nguyen MH, Rosenthal SB, Pérez F, Rose PW.
     [Ten simple rules for reproducible
-    research in Jupyter notebooks](https://arxiv.org/abs/1810.08055). arXiv preprint <1810.08055>.
+    research in Jupyter notebooks](https://arxiv.org/abs/1810.08055). arXiv preprint arXiv:1810.08055.
     2018 Oct 13.
 2.  [Nvidia
     CUDNN Developer Guides](https://docs.nvidia.com/deeplearning/sdk/cudnn-developer-guide/index.html#reproducibility)
 3.  Gebru T, Morgenstern J, Vecchione B, Vaughan JW, Wallach H, Daumé III
     H, Crawford K. [Datasheets for
-    datasets](https://arxiv.org/abs/1803.09010). arXiv preprint <1803.09010>. 2018 Mar 23.
+    datasets](https://arxiv.org/abs/1803.09010). arXiv preprint arXiv:1803.09010. 2018 Mar 23.
 4.  Bouthillier X, Laurent C, Vincent P.
     [Unreproducible
     research is reproducible](http://proceedings.mlr.press/v97/bouthillier19a.html). In International Conference on Machine

@@ -2,6 +2,8 @@
 draft = false
 +++
 
+-   [07/10/23] Excited to share that our paper ["Language model acceptability judgements are not always robust to context"](https://arxiv.org/abs/2212.08979) has received **[Outstanding Paper Award](https://2023.aclweb.org/program/best_papers/)** at ACL 2023! Very happy and honored!
+-   [06/01/23] New paper: ["Language model acceptability judgements are not always robust to context"](https://arxiv.org/abs/2212.08979), which is now accepted as a long paper in ACL 2023, Toronto.
 -   [11/02/22] Successfully defended my PhD! Checkout [my thesis here](/phd_thesis/).
 -   [08/29/22] Excited to announce a major life event: I'm starting today as a Research Scientist (Speech &amp; NLP) in [Meta AI](https://ai.facebook.com/) New York!
 -   [08/19/22] Happy to announce yet another Machine Learning Reproducibility Challenge, [the MLRC 2022](https://paperswithcode.com/rc2022)! This is our six edition!
