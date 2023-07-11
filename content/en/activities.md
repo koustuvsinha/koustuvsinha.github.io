@@ -19,7 +19,8 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ## Supervising {#supervising}
 
--   Kexin (Nicole) Liang, 2021-present
+-   [Bhargavi Paranjape](https://bhargaviparanjape.github.io/), Research Intern @ Meta AI, 2023-present
+-   Kexin (Nicole) Liang, 2021-2022
 -   [Shanya Sharma](https://shanyas10.github.io/), 2020-2022
 -   Manan Dey, 2020-2022
 
