@@ -9,7 +9,7 @@ Click on the &lt;strong>Slides&lt;/strong> button above to view the built-in sli
 &lt;li>&lt;strong>Upload&lt;/strong> an existing slide deck to &lt;code>static/&lt;/code> and link using &lt;code>url_slides&lt;/code> parameter in the front matter of the talk file&lt;/li>
 &lt;li>&lt;strong>Embed&lt;/strong> your slides (e.g. Google Slides) or presentation video on this page using &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">shortcodes&lt;/a>.&lt;/li>
 &lt;/ul>
-&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>LLMs can sanitize annotations! Using zero shot relation extraction to fix CLUTRR templates</title><link>https://koustuvsinha.com/post/zero_shot_clutrr/</link><pubDate>Fri, 23 Dec 2022 17:45:00 -0500</pubDate><guid>https://koustuvsinha.com/post/zero_shot_clutrr/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Language model acceptability judgements are not always robust to context</title><link>https://koustuvsinha.com/publication/sinha-etal-2023-language/</link><pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/sinha-etal-2023-language/</guid><description/></item><item><title>LLMs can sanitize annotations! Using zero shot relation extraction to fix CLUTRR templates</title><link>https://koustuvsinha.com/post/zero_shot_clutrr/</link><pubDate>Fri, 23 Dec 2022 17:45:00 -0500</pubDate><guid>https://koustuvsinha.com/post/zero_shot_clutrr/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>It has been three years since the release of &lt;a href="https://koustuvsinha.com/introducing-clutrr/">CLUTRR&lt;/a>, a benchmark we created to test the reasoning capabilities of modern neural networks. The idea is simple: can models understand first-order logic, in the backdrop of kinship relations? Specifically, we test the ability of the models to perform &lt;em>implicit&lt;/em> reasoning - figuring out the relation of two characters in a given story, where their relation is not provided explicitly. For example, consider the following story:&lt;/p>
 &lt;blockquote>
 &lt;p>Linda and her sister Stacy disagreed about what to make for dinner. Linda thought they should make meatloaf, while Stacy thought they should make ham, because it was her son Robert&amp;rsquo;s favorite.&lt;/p>
@@ -966,13 +966,13 @@ August 2020, for which this blog post is a point of reference.&lt;/p>
 &lt;li>Rule A, Birmingham A, Zuniga C, Altintas I, Huang SC, Knight R,
 Moshiri N, Nguyen MH, Rosenthal SB, Pérez F, Rose PW.
 &lt;a href="https://arxiv.org/abs/1810.08055" target="_blank" rel="noopener">Ten simple rules for reproducible
-research in Jupyter notebooks&lt;/a>. arXiv preprint &amp;lt;1810.08055&amp;gt;.
+research in Jupyter notebooks&lt;/a>. arXiv preprint arXiv:1810.08055.
 2018 Oct 13.&lt;/li>
 &lt;li>&lt;a href="https://docs.nvidia.com/deeplearning/sdk/cudnn-developer-guide/index.html#reproducibility" target="_blank" rel="noopener">Nvidia
 CUDNN Developer Guides&lt;/a>&lt;/li>
 &lt;li>Gebru T, Morgenstern J, Vecchione B, Vaughan JW, Wallach H, Daumé III
 H, Crawford K. &lt;a href="https://arxiv.org/abs/1803.09010" target="_blank" rel="noopener">Datasheets for
-datasets&lt;/a>. arXiv preprint &amp;lt;1803.09010&amp;gt;. 2018 Mar 23.&lt;/li>
+datasets&lt;/a>. arXiv preprint arXiv:1803.09010. 2018 Mar 23.&lt;/li>
 &lt;li>Bouthillier X, Laurent C, Vincent P.
 &lt;a href="http://proceedings.mlr.press/v97/bouthillier19a.html" target="_blank" rel="noopener">Unreproducible
 research is reproducible&lt;/a>. In International Conference on Machine
@@ -1681,6 +1681,12 @@ data-background-image="/media/boards.jpg"
 &lt;p>Turtle Learning Environment (TLE) is a minimalistic connect-the-dots environment made as part of COMP 767 RL Final project in McGill University (Winter 2018). The objective of the agent in a 28x28 grid world is to connect the dots provided to form the image, where the environment provides negative reward for each cell drawn and positive reward for each connected components.&lt;/p></description></item><item><title>A Hierarchical Neural Attention-based Text Classifier</title><link>https://koustuvsinha.com/publication/sinha-2018-hier/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/sinha-2018-hier/</guid><description/></item><item><title>Adversarial Gain</title><link>https://koustuvsinha.com/publication/henderson-2018-adversarial/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/henderson-2018-adversarial/</guid><description/></item><item><title>Compositional Language Understanding with Text-based Relational Reasoning</title><link>https://koustuvsinha.com/publication/sinha-2018-clutrr/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/sinha-2018-clutrr/</guid><description/></item><item><title>Ethical Challenges in Data-Driven Dialogue Systems</title><link>https://koustuvsinha.com/publication/henderson-2017-ethics/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/henderson-2017-ethics/</guid><description/></item><item><title>The RLLChatbot: a solution to the ConvAI Challenge</title><link>https://koustuvsinha.com/publication/gontier-2018/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/gontier-2018/</guid><description/></item><item><title>News</title><link>https://koustuvsinha.com/news/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/news/</guid><description>
 &lt;ul>
 &lt;li>
+&lt;p>[07/10/23] Excited to share that our paper &lt;a href="https://arxiv.org/abs/2212.08979" target="_blank" rel="noopener">&amp;ldquo;Language model acceptability judgements are not always robust to context&amp;rdquo;&lt;/a> has received &lt;strong>&lt;a href="https://2023.aclweb.org/program/best_papers/" target="_blank" rel="noopener">Outstanding Paper Award&lt;/a>&lt;/strong> at ACL 2023! Very happy and honored!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>[06/01/23] New paper: &lt;a href="https://arxiv.org/abs/2212.08979" target="_blank" rel="noopener">&amp;ldquo;Language model acceptability judgements are not always robust to context&amp;rdquo;&lt;/a>, which is now accepted as a long paper in ACL 2023, Toronto.&lt;/p>
+&lt;/li>
+&lt;li>
 &lt;p>[11/02/22] Successfully defended my PhD! Checkout &lt;a href="https://koustuvsinha.com/phd_thesis/">my thesis here&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
@@ -1765,6 +1771,8 @@ chatbot which can converse fluently with human judges with respect to a given ar
 &lt;li>Eigenvalue Centrality&lt;/li>
 &lt;/ul>
 &lt;p>Built as a project for Comp 767, Fall 2016, McGill University&lt;/p></description></item><item><title/><link>https://koustuvsinha.com/admin/config.yml</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/admin/config.yml</guid><description/></item><item><title/><link>https://koustuvsinha.com/newslist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/newslist/</guid><description>&lt;ul>
+&lt;li>[07/10/23] Excited to share that our paper &lt;a href="https://arxiv.org/abs/2212.08979" target="_blank" rel="noopener">&amp;ldquo;Language model acceptability judgements are not always robust to context&amp;rdquo;&lt;/a> has received &lt;strong>&lt;a href="https://2023.aclweb.org/program/best_papers/" target="_blank" rel="noopener">Outstanding Paper Award&lt;/a>&lt;/strong> at ACL 2023! Very happy and honored!&lt;/li>
+&lt;li>[06/01/23] New paper: &lt;a href="https://arxiv.org/abs/2212.08979" target="_blank" rel="noopener">&amp;ldquo;Language model acceptability judgements are not always robust to context&amp;rdquo;&lt;/a>, which is now accepted as a long paper in ACL 2023, Toronto.&lt;/li>
 &lt;li>[11/02/22] Successfully defended my PhD! Checkout &lt;a href="https://koustuvsinha.com/phd_thesis/">my thesis here&lt;/a>.&lt;/li>
 &lt;li>[08/29/22] Excited to announce a major life event: I&amp;rsquo;m starting today as a Research Scientist (Speech &amp;amp; NLP) in &lt;a href="https://ai.facebook.com/" target="_blank" rel="noopener">Meta AI&lt;/a> New York!&lt;/li>
 &lt;li>[08/19/22] Happy to announce yet another Machine Learning Reproducibility Challenge, &lt;a href="https://paperswithcode.com/rc2022" target="_blank" rel="noopener">the MLRC 2022&lt;/a>! This is our six edition!&lt;/li>
