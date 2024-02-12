@@ -1113,80 +1113,80 @@ datasets which propose to do so.&lt;/p>
 &lt;tbody>
 &lt;tr>
 &lt;td>CLEVR&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>❌&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
 &lt;td>Vision&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>❌&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Cogent&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>✅&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
 &lt;td>Vision&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>❌&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>CLUTRR&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>✅&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
 &lt;td>Text&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>❌&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>SCAN&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>✅&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
 &lt;td>Text&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>❌&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>SQoOP&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>✅&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
 &lt;td>Vision&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>❌&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>TextWorld&lt;/td>
-&lt;td>❌&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>✅&lt;/td>
+&lt;td>&amp;#x274c;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
 &lt;td>Text&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>✅&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>GraphLog&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>✅&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
 &lt;td>Graph&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;td>✅&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
+&lt;td>&amp;#x2705;&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -1681,6 +1681,9 @@ data-background-image="/media/boards.jpg"
 &lt;p>Turtle Learning Environment (TLE) is a minimalistic connect-the-dots environment made as part of COMP 767 RL Final project in McGill University (Winter 2018). The objective of the agent in a 28x28 grid world is to connect the dots provided to form the image, where the environment provides negative reward for each cell drawn and positive reward for each connected components.&lt;/p></description></item><item><title>A Hierarchical Neural Attention-based Text Classifier</title><link>https://koustuvsinha.com/publication/sinha-2018-hier/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/sinha-2018-hier/</guid><description/></item><item><title>Adversarial Gain</title><link>https://koustuvsinha.com/publication/henderson-2018-adversarial/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/henderson-2018-adversarial/</guid><description/></item><item><title>Compositional Language Understanding with Text-based Relational Reasoning</title><link>https://koustuvsinha.com/publication/sinha-2018-clutrr/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/sinha-2018-clutrr/</guid><description/></item><item><title>Ethical Challenges in Data-Driven Dialogue Systems</title><link>https://koustuvsinha.com/publication/henderson-2017-ethics/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/henderson-2017-ethics/</guid><description/></item><item><title>The RLLChatbot: a solution to the ConvAI Challenge</title><link>https://koustuvsinha.com/publication/gontier-2018/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/publication/gontier-2018/</guid><description/></item><item><title>News</title><link>https://koustuvsinha.com/news/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/news/</guid><description>
 &lt;ul>
 &lt;li>
+&lt;p>[10/18/23] &lt;a href="https://reproml.org/" target="_blank" rel="noopener">MLRC 2023&lt;/a> challenge goes live in partnership with TMLR! Read our &lt;a href="https://reproml.org/blog/announcing_mlrc2023/" target="_blank" rel="noopener">blog post&lt;/a> for more information.&lt;/p>
+&lt;/li>
+&lt;li>
 &lt;p>[07/10/23] Excited to share that our paper &lt;a href="https://arxiv.org/abs/2212.08979" target="_blank" rel="noopener">&amp;ldquo;Language model acceptability judgements are not always robust to context&amp;rdquo;&lt;/a> has received &lt;strong>&lt;a href="https://2023.aclweb.org/program/best_papers/" target="_blank" rel="noopener">Outstanding Paper Award&lt;/a>&lt;/strong> at ACL 2023! Very happy and honored!&lt;/p>
 &lt;/li>
 &lt;li>
@@ -1771,6 +1774,7 @@ chatbot which can converse fluently with human judges with respect to a given ar
 &lt;li>Eigenvalue Centrality&lt;/li>
 &lt;/ul>
 &lt;p>Built as a project for Comp 767, Fall 2016, McGill University&lt;/p></description></item><item><title/><link>https://koustuvsinha.com/admin/config.yml</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/admin/config.yml</guid><description/></item><item><title/><link>https://koustuvsinha.com/newslist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/newslist/</guid><description>&lt;ul>
+&lt;li>[10/18/23] &lt;a href="https://reproml.org/" target="_blank" rel="noopener">MLRC 2023&lt;/a> challenge goes live in partnership with TMLR! Read our &lt;a href="https://reproml.org/blog/announcing_mlrc2023/" target="_blank" rel="noopener">blog post&lt;/a> for more information.&lt;/li>
 &lt;li>[07/10/23] Excited to share that our paper &lt;a href="https://arxiv.org/abs/2212.08979" target="_blank" rel="noopener">&amp;ldquo;Language model acceptability judgements are not always robust to context&amp;rdquo;&lt;/a> has received &lt;strong>&lt;a href="https://2023.aclweb.org/program/best_papers/" target="_blank" rel="noopener">Outstanding Paper Award&lt;/a>&lt;/strong> at ACL 2023! Very happy and honored!&lt;/li>
 &lt;li>[06/01/23] New paper: &lt;a href="https://arxiv.org/abs/2212.08979" target="_blank" rel="noopener">&amp;ldquo;Language model acceptability judgements are not always robust to context&amp;rdquo;&lt;/a>, which is now accepted as a long paper in ACL 2023, Toronto.&lt;/li>
 &lt;li>[11/02/22] Successfully defended my PhD! Checkout &lt;a href="https://koustuvsinha.com/phd_thesis/">my thesis here&lt;/a>.&lt;/li>
@@ -1799,12 +1803,19 @@ chatbot which can converse fluently with human judges with respect to a given ar
 &lt;li>[01/02/18] &lt;a href="https://breakend.github.io/EthicsInDialogue/" target="_blank" rel="noopener">Our paper&lt;/a> on &lt;em>Ethics in Data Driven Dialog Systems&lt;/em> accepted at AAAI/ACM conference on Ethics &amp;amp; Safety.&lt;/li>
 &lt;/ul></description></item><item><title>Activities</title><link>https://koustuvsinha.com/activities/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://koustuvsinha.com/activities/</guid><description>&lt;h2 id="mentorship">Mentorship&lt;/h2>
 &lt;p>I&amp;rsquo;m open to mentor early career (MSc/PhD) students to guide them in their own research topics. Please &lt;a href="mailto:koustuv.sinha@mail.mcgill.ca?subject=Mentorship%20Request">contact me&lt;/a> with your CV and brief description of the research problem (no need to write an elaborate plan) you are interested in, and I&amp;rsquo;ll get back to you. You can check out my &lt;a href="https://www.cs.mcgill.ca/~ksinha4/publications/" target="_blank" rel="noopener">publications&lt;/a> page to understand my area of expertise, to evaluate where I can guide you the best.&lt;/p>
-&lt;h2 id="supervising">Supervising&lt;/h2>
+&lt;h2 id="supervising-mentoring">Supervising / Mentoring&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="https://bhargaviparanjape.github.io/" target="_blank" rel="noopener">Bhargavi Paranjape&lt;/a>, Research Intern @ Meta AI, 2023-present&lt;/li>
+&lt;li>&lt;a href="https://people.cs.umass.edu/~shufanwang/" target="_blank" rel="noopener">Shufan Wang&lt;/a>, 2023-present&lt;/li>
+&lt;li>&lt;a href="https://bhargaviparanjape.github.io/" target="_blank" rel="noopener">Bhargavi Paranjape&lt;/a>, Research Intern @ Meta AI, 2023&lt;/li>
+&lt;li>&lt;a href="https://meetdavidwan.github.io/" target="_blank" rel="noopener">David Wan&lt;/a>, co-supervised with &lt;a href="http://www.rama-kanth.com/" target="_blank" rel="noopener">Ram Pasunuru&lt;/a>, Research Intern @ Meta AI, 2023&lt;/li>
+&lt;li>&lt;a href="https://songjiang0909.github.io/" target="_blank" rel="noopener">Song Jiang&lt;/a>, co-supervised with &lt;a href="http://asli.us/" target="_blank" rel="noopener">Asli Celikyilmaz&lt;/a>, Research Intern @ Meta AI, 2023&lt;/li>
+&lt;li>&lt;a href="https://www.isi.edu/directory/bremerma/" target="_blank" rel="noopener">Jake Bremerman&lt;/a>, co-supervised with &lt;a href="https://mingdachen.github.io/" target="_blank" rel="noopener">Mingda Chen&lt;/a>, Research Intern @ Meta AI, 2023&lt;/li>
+&lt;li>&lt;a href="https://kumar-shridhar.github.io/" target="_blank" rel="noopener">Kumar Shridhar&lt;/a>, co-supervised with &lt;a href="https://scholar.google.com/citations?user=lMkTx0EAAAAJ&amp;amp;hl=en" target="_blank" rel="noopener">Jason Weston&lt;/a>, Research Intern @ Meta AI, 2023&lt;/li>
+&lt;li>&lt;a href="https://silin159.github.io/SilinGao/" target="_blank" rel="noopener">Silin Gao&lt;/a>, co-supervised with &lt;a href="https://tianlu-wang.github.io/" target="_blank" rel="noopener">Tianlu Wang&lt;/a>, Research Intern @ Meta AI, 2023&lt;/li>
+&lt;li>&lt;a href="https://scholar.google.com/citations?user=padFM5wAAAAJ&amp;amp;hl=en" target="_blank" rel="noopener">Saeed Goodarzi&lt;/a>, Nikhil Kagita &amp;amp; Dennis Minn, co-supervised with &lt;a href="https://wp.nyu.edu/adinawilliams/" target="_blank" rel="noopener">Adina Williams&lt;/a>, &lt;a href="https://shtoshni.github.io/" target="_blank" rel="noopener">Shubham Toshniwal&lt;/a> and &lt;a href="https://www.jacklanchantin.com/" target="_blank" rel="noopener">Jack Lanchatin&lt;/a>, &lt;a href="https://ds.cs.umass.edu/programs/industry-mentorship-program" target="_blank" rel="noopener">UMass Industry Mentorship Program&lt;/a> with Meta, Summer of 2023&lt;/li>
 &lt;li>Kexin (Nicole) Liang, 2021-2022&lt;/li>
 &lt;li>&lt;a href="https://shanyas10.github.io/" target="_blank" rel="noopener">Shanya Sharma&lt;/a>, 2020-2022&lt;/li>
-&lt;li>Manan Dey, 2020-2022&lt;/li>
+&lt;li>&lt;a href="https://manandey.github.io/" target="_blank" rel="noopener">Manan Dey&lt;/a>, 2020-2022&lt;/li>
 &lt;/ul>
 &lt;h2 id="tutorials">Tutorials&lt;/h2>
 &lt;ul>
@@ -1813,6 +1824,7 @@ chatbot which can converse fluently with human judges with respect to a given ar
 &lt;/ul>
 &lt;h2 id="public-talks">Public Talks&lt;/h2>
 &lt;ul>
+&lt;li>Keynote Talk, &lt;a href="https://miccai2023-reproducibility-tutorial.github.io/" target="_blank" rel="noopener">Reproducibility Tutorial&lt;/a>, MICCAI 2023&lt;/li>
 &lt;li>Panelist, &lt;em>Reproducibility and Rigor in ML&lt;/em>,
 &lt;a href="https://ml-eval.github.io/panels/" target="_blank" rel="noopener">ML Evaluation Standards Workshop&lt;/a> at ICLR 2022, April 2022&lt;/li>
 &lt;li>&lt;em>Evaluating Logical Generalization with Graph Neural Networks&lt;/em>,
@@ -1828,6 +1840,7 @@ Weights and Biases Salon,
 &lt;/ul>
 &lt;h2 id="conference-organization">Conference Organization&lt;/h2>
 &lt;ul>
+&lt;li>&lt;a href="https://2024.aclweb.org/" target="_blank" rel="noopener">ACL 2024&lt;/a>, Senior Area Chair&lt;/li>
 &lt;li>&lt;a href="https://iclr.cc/Conferences/2023/Committees" target="_blank" rel="noopener">ICLR 2023&lt;/a>, Journal Chair&lt;/li>
 &lt;li>&lt;a href="https://neurips.cc/Conferences/2022/Committees" target="_blank" rel="noopener">NeurIPS 2022&lt;/a>, Journal Chair&lt;/li>
 &lt;li>&lt;a href="https://neurips.cc/Conferences/2020/Committees" target="_blank" rel="noopener">NeurIPS 2020&lt;/a>, Reproducibility Co-Chair&lt;/li>
@@ -1835,13 +1848,14 @@ Weights and Biases Salon,
 &lt;/ul>
 &lt;h2 id="workshop-organization">Workshop Organization&lt;/h2>
 &lt;ul>
-&lt;li>[Upcoming] &lt;a href="https://genbench.org/workshop/" target="_blank" rel="noopener">Genbench: the first workshop on (benchmarking) generalisation in NLP @ EMNLP 2023&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://genbench.org/workshop/" target="_blank" rel="noopener">Genbench: the first workshop on (benchmarking) generalisation in NLP @ EMNLP 2023&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.cs.mcgill.ca/~pparth2/nilli_workshop/" target="_blank" rel="noopener">NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2022&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.cs.mcgill.ca/~pparth2/nilli_workshop/" target="_blank" rel="noopener">NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2021&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://ml-retrospectives.github.io/neurips2019/" target="_blank" rel="noopener">ML Retrospectives@ NeurIPS 2019&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="reproducibility-challenge-organization">Reproducibility Challenge Organization&lt;/h2>
 &lt;ul>
+&lt;li>&lt;a href="https://reproml.org/" target="_blank" rel="noopener">2023 ML Reproducibility Challenge&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://paperswithcode.com/rc2022" target="_blank" rel="noopener">2022 ML Reproducibility Challenge&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://paperswithcode.com/rc2021" target="_blank" rel="noopener">2021 ML Reproducibility Challenge&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://paperswithcode.com/rc2020" target="_blank" rel="noopener">2020 ML Reproducibility Challenge&lt;/a>&lt;/li>
