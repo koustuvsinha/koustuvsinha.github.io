@@ -83,11 +83,11 @@ email: ''
 highlight_name: true
 #+end_src
 
-My current research interest involves investigating the limits of [[https://slideslive.com/38922304/from-system-1-deep-learning-to-system-2-deep-learning][systematic]] language understanding of modern neural language representation systems, by leveraging linguistic and logical priors. In particular, I investigate how language is represented by neural models in a human-like way by testing their ability to understand the semantics, syntax and generalizability in the context of natural and artificial languages. I'm also currently investigating the role of multimodal language models at effective reasoning in the intersection of language and vision representations.
+I'm a Research Scientist at [[https://ai.meta.com/][Meta AI]], in the Fundamental AI Research (FAIR) team. I received my PhD from [[http://mcgill.ca/][McGill University]] ([[http://cs.mcgill.ca][School of Computer Science]]) and [[https://mila.quebec][Mila (Quebec AI Institute)]], Montreal, Canada, where I was advised by Dr. [[https://www.cs.mcgill.ca/~jpineau/][Joelle Pineau]]. I also received by MSc (Thesis) from McGill University, where I was advised by Dr. [[https://derekruths.com/][Derek Ruths]] and Dr. Joelle Pineau.
 
-I'm a Research Scientist at Meta AI, in the Fundamental AI Research (FAIR) team. I did my PhD from [[http://mcgill.ca/][McGill University]] ([[http://cs.mcgill.ca][School of Computer Science]]) and [[https://mila.quebec][Mila (Quebec AI Institute)]], supervised by [[https://www.cs.mcgill.ca/~jpineau/][Joelle Pineau]], in the wonderful city of Montreal, QC, Canada. I spent a significant portion of my PhD being a Research Intern (STE) at [[https://research.fb.com/][Meta AI (FAIR)]], Montreal.
+My current research interest involves investigating the role of multimodal language models at understanding and reasoning the world through rich visual representations, especially by leveraging language as a tool to decode and reason the underlying physical rules governing the world.  My research also involves understanding the limits of [[https://slideslive.com/38922304/from-system-1-deep-learning-to-system-2-deep-learning][systematic]] language understanding - the ability of neural systems to understand language in a human-like way - by evaluating the extent of their capabilities in understanding semantics, syntax and generalizability.
 
-I am an associate editor of [[http://rescience.github.io/][ReScience C]], a peer reviewed journal promoting reproducible research, and I am the lead organizer of the annual Machine Learning Reproducibility Challenge ([[https://www.cs.mcgill.ca/~jpineau/ICLR2018-ReproducibilityChallenge.html][V1]], [[https://www.cs.mcgill.ca/~jpineau/ICLR2019-ReproducibilityChallenge.html][V2]], [[https://reproducibility-challenge.github.io/neurips2019/][V3]], [[https://paperswithcode.com/rc2020][V4]], [[https://paperswithcode.com/rc2021][V5]] ). My work has been covered by several news outlets in the past, including [[https://www.nature.com/articles/d41586-019-03895-5][Nature]], [[https://venturebeat.com/2021/01/15/facebook-claims-its-ai-can-anticipate-covid-19-outcomes-using-x-rays/][VentureBeat]], [[https://www.infoq.com/news/2021/03/facebook-covid-prognosis/][InfoQ]], [[https://www.dailymail.co.uk/sciencetech/article-9153415/Facebook-claims-AI-predict-four-coronavirus-patients-condition-deteriorate.html][DailyMail]] and [[https://tech.hindustantimes.com/tech/news/facebook-wants-to-help-doctors-fight-covid-19-with-ai-and-xrays-71611044405211.html][Hindustan Times]].
+I am also involved in improving and enabling reproducibile research in Machine Learning - I'm the lead organizer of the annual /Machine Learning Reproducibility Challenge/ ([[https://www.cs.mcgill.ca/~jpineau/ICLR2018-ReproducibilityChallenge.html][V1]], [[https://www.cs.mcgill.ca/~jpineau/ICLR2019-ReproducibilityChallenge.html][V2]], [[https://reproducibility-challenge.github.io/neurips2019/][V3]], [[https://paperswithcode.com/rc2020][V4]], [[https://paperswithcode.com/rc2021][V5]], [[https://paperswithcode.com/rc2022][V6]], [[https://reproml.org/][v7]]), and I serve as an associate editor at [[http://rescience.github.io/][ReScience C]], a peer reviewed journal promoting reproducible research. My work has been covered by several news outlets in the past, including [[https://www.nature.com/articles/d41586-019-03895-5][Nature]], [[https://venturebeat.com/2021/01/15/facebook-claims-its-ai-can-anticipate-covid-19-outcomes-using-x-rays/][VentureBeat]], [[https://www.infoq.com/news/2021/03/facebook-covid-prognosis/][InfoQ]], [[https://www.dailymail.co.uk/sciencetech/article-9153415/Facebook-claims-AI-predict-four-coronavirus-patients-condition-deteriorate.html][DailyMail]] and [[https://tech.hindustantimes.com/tech/news/facebook-wants-to-help-doctors-fight-covid-19-with-ai-and-xrays-71611044405211.html][Hindustan Times]].
 
 # - I mentor early career students on their research projects, check out my [activities](https://www.cs.mcgill.ca/~ksinha4/activities/) page for more details.
 # - You can find more details in my [CV here](assets/files/cv.pdf).
@@ -120,12 +120,19 @@ header:
 
 I'm open to mentor early career (MSc/PhD) students to guide them in their own research topics. Please [[mailto:koustuv.sinha@mail.mcgill.ca?subject=Mentorship Request][contact me]] with your CV and brief description of the research problem (no need to write an elaborate plan) you are interested in, and I'll get back to you. You can check out my [[https://www.cs.mcgill.ca/~ksinha4/publications/][publications]] page to understand my area of expertise, to evaluate where I can guide you the best.
 
-** Supervising
+** Supervising / Mentoring
 
-- [[https://bhargaviparanjape.github.io/][Bhargavi Paranjape]], Research Intern @ Meta AI, 2023-present
+- [[https://people.cs.umass.edu/~shufanwang/][Shufan Wang]], 2023-present
+- [[https://bhargaviparanjape.github.io/][Bhargavi Paranjape]], Research Intern @ Meta AI, 2023
+- [[https://meetdavidwan.github.io/][David Wan]], co-supervised with [[http://www.rama-kanth.com/][Ram Pasunuru]], Research Intern @ Meta AI, 2023
+- [[https://songjiang0909.github.io/][Song Jiang]], co-supervised with [[http://asli.us/][Asli Celikyilmaz]], Research Intern @ Meta AI, 2023
+- [[https://www.isi.edu/directory/bremerma/][Jake Bremerman]], co-supervised with [[https://mingdachen.github.io/][Mingda Chen]], Research Intern @ Meta AI, 2023
+- [[https://kumar-shridhar.github.io/][Kumar Shridhar]], co-supervised with [[https://scholar.google.com/citations?user=lMkTx0EAAAAJ&hl=en][Jason Weston]], Research Intern @ Meta AI, 2023
+- [[https://silin159.github.io/SilinGao/][Silin Gao]], co-supervised with [[https://tianlu-wang.github.io/][Tianlu Wang]], Research Intern @ Meta AI, 2023
+- [[https://scholar.google.com/citations?user=padFM5wAAAAJ&hl=en][Saeed Goodarzi]], Nikhil Kagita & Dennis Minn, co-supervised with [[https://wp.nyu.edu/adinawilliams/][Adina Williams]], [[https://shtoshni.github.io/][Shubham Toshniwal]] and [[https://www.jacklanchantin.com/][Jack Lanchatin]], [[https://ds.cs.umass.edu/programs/industry-mentorship-program][UMass Industry Mentorship Program]] with Meta, Summer of 2023
 - Kexin (Nicole) Liang, 2021-2022
 - [[https://shanyas10.github.io/][Shanya Sharma]], 2020-2022
-- Manan Dey, 2020-2022
+- [[https://manandey.github.io/][Manan Dey]], 2020-2022
 
 ** Tutorials
 
@@ -134,6 +141,7 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ** Public Talks
 
+- Keynote Talk, [[https://miccai2023-reproducibility-tutorial.github.io/][Reproducibility Tutorial]], MICCAI 2023
 - Panelist, /Reproducibility and Rigor in ML/,
   [[https://ml-eval.github.io/panels/][ML Evaluation Standards Workshop]] at ICLR 2022, April 2022
 - /Evaluating Logical Generalization with Graph Neural Networks/,
@@ -146,6 +154,7 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ** Conference Organization
 
+- [[https://2024.aclweb.org/][ACL 2024]], Senior Area Chair
 - [[https://iclr.cc/Conferences/2023/Committees][ICLR 2023]], Journal Chair
 - [[https://neurips.cc/Conferences/2022/Committees][NeurIPS 2022]], Journal Chair
 - [[https://neurips.cc/Conferences/2020/Committees][NeurIPS 2020]], Reproducibility Co-Chair
@@ -153,13 +162,14 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ** Workshop Organization
 
-- [Upcoming] [[https://genbench.org/workshop/][Genbench: the first workshop on (benchmarking) generalisation in NLP @ EMNLP 2023]]
+- [[https://genbench.org/workshop/][Genbench: the first workshop on (benchmarking) generalisation in NLP @ EMNLP 2023]]
 - [[https://www.cs.mcgill.ca/~pparth2/nilli_workshop/][NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2022]]
 - [[https://www.cs.mcgill.ca/~pparth2/nilli_workshop/][NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2021]]
 - [[https://ml-retrospectives.github.io/neurips2019/][ML Retrospectives@ NeurIPS 2019]]
 
 ** Reproducibility Challenge Organization
 
+- [[https://reproml.org/][2023 ML Reproducibility Challenge]]
 - [[https://paperswithcode.com/rc2022][2022 ML Reproducibility Challenge]]
 - [[https://paperswithcode.com/rc2021][2021 ML Reproducibility Challenge]]
 - [[https://paperswithcode.com/rc2020][2020 ML Reproducibility Challenge]]
@@ -676,6 +686,7 @@ Unfortunately I missed the opportunity to get a screen capture during my defense
 :EXPORT_OPTIONS: author:nil title:nil
 :CUSTOM_ID: site_news
 :END:
+- [10/18/23] [[https://reproml.org/][MLRC 2023]] challenge goes live in partnership with TMLR! Read our [[https://reproml.org/blog/announcing_mlrc2023/][blog post]] for more information.
 - [07/10/23] Excited to share that our paper [[https://arxiv.org/abs/2212.08979]["Language model acceptability judgements are not always robust to context"]] has received *[[https://2023.aclweb.org/program/best_papers/][Outstanding Paper Award]]* at ACL 2023! Very happy and honored!
 - [06/01/23] New paper: [[https://arxiv.org/abs/2212.08979]["Language model acceptability judgements are not always robust to context"]], which is now accepted as a long paper in ACL 2023, Toronto.
 - [11/02/22] Successfully defended my PhD! Checkout [[/phd_thesis/][my thesis here]].

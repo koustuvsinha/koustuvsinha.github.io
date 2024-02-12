@@ -2,6 +2,7 @@
 draft = false
 +++
 
+-   [10/18/23] [MLRC 2023](https://reproml.org/) challenge goes live in partnership with TMLR! Read our [blog post](https://reproml.org/blog/announcing_mlrc2023/) for more information.
 -   [07/10/23] Excited to share that our paper ["Language model acceptability judgements are not always robust to context"](https://arxiv.org/abs/2212.08979) has received **[Outstanding Paper Award](https://2023.aclweb.org/program/best_papers/)** at ACL 2023! Very happy and honored!
 -   [06/01/23] New paper: ["Language model acceptability judgements are not always robust to context"](https://arxiv.org/abs/2212.08979), which is now accepted as a long paper in ACL 2023, Toronto.
 -   [11/02/22] Successfully defended my PhD! Checkout [my thesis here](/phd_thesis/).

@@ -17,12 +17,19 @@ header:
 I'm open to mentor early career (MSc/PhD) students to guide them in their own research topics. Please [contact me](mailto:koustuv.sinha@mail.mcgill.ca?subject=Mentorship%20Request) with your CV and brief description of the research problem (no need to write an elaborate plan) you are interested in, and I'll get back to you. You can check out my [publications](https://www.cs.mcgill.ca/~ksinha4/publications/) page to understand my area of expertise, to evaluate where I can guide you the best.
 
 
-## Supervising {#supervising}
+## Supervising / Mentoring {#supervising-mentoring}
 
--   [Bhargavi Paranjape](https://bhargaviparanjape.github.io/), Research Intern @ Meta AI, 2023-present
+-   [Shufan Wang](https://people.cs.umass.edu/~shufanwang/), 2023-present
+-   [Bhargavi Paranjape](https://bhargaviparanjape.github.io/), Research Intern @ Meta AI, 2023
+-   [David Wan](https://meetdavidwan.github.io/), co-supervised with [Ram Pasunuru](http://www.rama-kanth.com/), Research Intern @ Meta AI, 2023
+-   [Song Jiang](https://songjiang0909.github.io/), co-supervised with [Asli Celikyilmaz](http://asli.us/), Research Intern @ Meta AI, 2023
+-   [Jake Bremerman](https://www.isi.edu/directory/bremerma/), co-supervised with [Mingda Chen](https://mingdachen.github.io/), Research Intern @ Meta AI, 2023
+-   [Kumar Shridhar](https://kumar-shridhar.github.io/), co-supervised with [Jason Weston](https://scholar.google.com/citations?user=lMkTx0EAAAAJ&hl=en), Research Intern @ Meta AI, 2023
+-   [Silin Gao](https://silin159.github.io/SilinGao/), co-supervised with [Tianlu Wang](https://tianlu-wang.github.io/), Research Intern @ Meta AI, 2023
+-   [Saeed Goodarzi](https://scholar.google.com/citations?user=padFM5wAAAAJ&hl=en), Nikhil Kagita &amp; Dennis Minn, co-supervised with [Adina Williams](https://wp.nyu.edu/adinawilliams/), [Shubham Toshniwal](https://shtoshni.github.io/) and [Jack Lanchatin](https://www.jacklanchantin.com/), [UMass Industry Mentorship Program](https://ds.cs.umass.edu/programs/industry-mentorship-program) with Meta, Summer of 2023
 -   Kexin (Nicole) Liang, 2021-2022
 -   [Shanya Sharma](https://shanyas10.github.io/), 2020-2022
--   Manan Dey, 2020-2022
+-   [Manan Dey](https://manandey.github.io/), 2020-2022
 
 
 ## Tutorials {#tutorials}
@@ -33,6 +40,7 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ## Public Talks {#public-talks}
 
+-   Keynote Talk, [Reproducibility Tutorial](https://miccai2023-reproducibility-tutorial.github.io/), MICCAI 2023
 -   Panelist, _Reproducibility and Rigor in ML_,
     [ML Evaluation Standards Workshop](https://ml-eval.github.io/panels/) at ICLR 2022, April 2022
 -   _Evaluating Logical Generalization with Graph Neural Networks_,
@@ -46,6 +54,7 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ## Conference Organization {#conference-organization}
 
+-   [ACL 2024](https://2024.aclweb.org/), Senior Area Chair
 -   [ICLR 2023](https://iclr.cc/Conferences/2023/Committees), Journal Chair
 -   [NeurIPS 2022](https://neurips.cc/Conferences/2022/Committees), Journal Chair
 -   [NeurIPS 2020](https://neurips.cc/Conferences/2020/Committees), Reproducibility Co-Chair
@@ -54,7 +63,7 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ## Workshop Organization {#workshop-organization}
 
--   [Upcoming] [Genbench: the first workshop on (benchmarking) generalisation in NLP @ EMNLP 2023](https://genbench.org/workshop/)
+-   [Genbench: the first workshop on (benchmarking) generalisation in NLP @ EMNLP 2023](https://genbench.org/workshop/)
 -   [NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2022](https://www.cs.mcgill.ca/~pparth2/nilli_workshop/)
 -   [NILLI: Novel Ideas for Learning to Learn with Interaction @ EMNLP 2021](https://www.cs.mcgill.ca/~pparth2/nilli_workshop/)
 -   [ML Retrospectives@ NeurIPS 2019](https://ml-retrospectives.github.io/neurips2019/)
@@ -62,6 +71,7 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ## Reproducibility Challenge Organization {#reproducibility-challenge-organization}
 
+-   [2023 ML Reproducibility Challenge](https://reproml.org/)
 -   [2022 ML Reproducibility Challenge](https://paperswithcode.com/rc2022)
 -   [2021 ML Reproducibility Challenge](https://paperswithcode.com/rc2021)
 -   [2020 ML Reproducibility Challenge](https://paperswithcode.com/rc2020)
