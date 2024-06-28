@@ -34,6 +34,8 @@ interests:
   - Machine Learning
   - Natural Language Processing
   - Computational Linguistics
+  - Multimodal NLP
+  - Representation Learning
 
 # Education to show in About widget
 education:
