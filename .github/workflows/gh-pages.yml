@@ -1,9 +1,12 @@
 name: github pages
 
+env:
+  WC_HUGO_VERSION: "0.119.0"
+
 on:
   push:
     branches:
-      - master  # Set a branch to deploy
+      - master # Set a branch to deploy
   pull_request:
 
 jobs:
@@ -12,13 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          submodules: true # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: ${{ env.WC_HUGO_VERSION }}
           extended: true
 
       - name: Build
