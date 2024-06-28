@@ -688,6 +688,8 @@ Unfortunately I missed the opportunity to get a screen capture during my defense
 :EXPORT_OPTIONS: author:nil title:nil
 :CUSTOM_ID: site_news
 :END:
+- [01/06/24] Serving as a Senior Area Chair at ACL 2024.
+- [16/05/24] Excited to announce our large multimodal language model, _Chameleon_, is [[https://arxiv.org/abs/2405.09818][now released on arxiv]]! We have also released the [[https://github.com/facebookresearch/chameleon][code]] and [[https://ai.meta.com/resources/models-and-libraries/chameleon-downloads/][model weights]], as per our [[https://about.fb.com/news/2024/06/releasing-new-ai-research-models-to-accelerate-innovation-at-scale/][Open Source Strategy]]!
 - [10/18/23] [[https://reproml.org/][MLRC 2023]] challenge goes live in partnership with TMLR! Read our [[https://reproml.org/blog/announcing_mlrc2023/][blog post]] for more information.
 - [07/10/23] Excited to share that our paper [[https://arxiv.org/abs/2212.08979]["Language model acceptability judgements are not always robust to context"]] has received *[[https://2023.aclweb.org/program/best_papers/][Outstanding Paper Award]]* at ACL 2023! Very happy and honored!
 - [06/01/23] New paper: [[https://arxiv.org/abs/2212.08979]["Language model acceptability judgements are not always robust to context"]], which is now accepted as a long paper in ACL 2023, Toronto.
