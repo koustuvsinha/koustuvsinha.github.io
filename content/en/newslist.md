@@ -2,6 +2,7 @@
 draft = false
 +++
 
+
 -   [01/06/24] Serving as a Senior Area Chair at ACL 2024.
 -   [16/05/24] Excited to announce our large multimodal language model, <span class="underline">Chameleon</span>, is [now released on arxiv](https://arxiv.org/abs/2405.09818)! We have also released the [code](https://github.com/facebookresearch/chameleon) and [model weights](https://ai.meta.com/resources/models-and-libraries/chameleon-downloads/), as per our [Open Source Strategy](https://about.fb.com/news/2024/06/releasing-new-ai-research-models-to-accelerate-innovation-at-scale/)!
 -   [10/18/23] [MLRC 2023](https://reproml.org/) challenge goes live in partnership with TMLR! Read our [blog post](https://reproml.org/blog/announcing_mlrc2023/) for more information.
