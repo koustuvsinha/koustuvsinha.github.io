@@ -42,7 +42,8 @@ behavior by pre-training large language models on meaningless, word-order
 shuffled corpora, to find they too behave optimally on downstream semantic and
 syntactic tasks. These results highlight the potential distributional nature of large language models, such that they only focus on n-grams during computation. Finally, we attempt to investigate the root cause of these effects, to find the component of the model most responsible. We observe that certain classes of position embeddings lead the models to overfit on the token positions, subjecting models to exhibit un-systematic behavior on out-of-position sentences. In summary, this thesis attempts to shed more light to the black box nature of the state-of-the-art neural language models, and introduces mechanisms to test and ensure systematic behaviors in their understanding of natural language.&lt;/p>
 &lt;h2 id="thesis-document">Thesis Document&lt;/h2>
-&lt;p>&lt;em>(To be updated post publication from McGill)&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://escholarship.mcgill.ca/concern/theses/jw827j238" target="_blank" rel="noopener">McGill Archives&lt;/a> |
+&lt;i class="fas fa-download pr-1 fa-fw">&lt;/i> &lt;a href="https://koustuvsinha.com/uploads/phd_thesis.pdf" target="_blank">PDF&lt;/a>&lt;/p>
 &lt;h2 id="papers-used-in-the-thesis">Papers used in the Thesis&lt;/h2>
 &lt;ul>
 &lt;li>Koustuv Sinha, Shagun Sodhani, Jin Dong, Joelle Pineau, and William L. Hamilton. 2019. &lt;a href="https://aclanthology.org/D19-1458/" target="_blank" rel="noopener">CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text.&lt;/a> In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 4506–4515, Hong Kong, China. Association for Computational Linguistics.&lt;/li>
