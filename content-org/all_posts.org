@@ -124,7 +124,12 @@ I'm open to mentor early career (MSc/PhD) students to guide them in their own re
 
 ** Supervising / Mentoring
 
-- [[https://people.cs.umass.edu/~shufanwang/][Shufan Wang]], 2023-present
+- [[https://hl-hanlin.github.io/][Han Lin]], Research Intern @ Meta AI, 2024
+- [[https://tsb0601.github.io/petertongsb/][Peter Tong]], co-supervised with [[https://ai.meta.com/people/1148536089838617/michael-rabbat/][Mike Rabbat]] and [[https://liuzhuang13.github.io/][Zhuang Liu]], Research Intern @ Meta AI, 2024
+- [[https://bennokrojer.github.io/][Benno Krojer]], co-supervised with [[https://scholar.google.com/citations?user=euUV4iUAAAAJ&hl=en][Nicolas Ballas]] and [[https://www.midoassran.ca/][Mido Assran]], Research Intern @ Meta AI, 2024
+- [[https://jiahuikchen.github.io/][Karen Chen]], co-supervised with [[https://sites.google.com/site/adriromsor/home][Adriana Romero Soriano]] and [[https://ca.linkedin.com/in/michal-drozdzal-a36b9b42][Michal Drozdal]], Research Intern @ Meta AI, 2024
+- [[https://mila.quebec/en/directory/oscar-manas/][Oscar Manas]], co-supervised with [[https://sites.google.com/site/adriromsor/home][Adriana Romero Soriano]] and [[https://ca.linkedin.com/in/michal-drozdzal-a36b9b42][Michal Drozdal]], Research Intern @ Meta AI, 2024
+- [[https://people.cs.umass.edu/~shufanwang/][Shufan Wang]], Collaboration, 2023
 - [[https://bhargaviparanjape.github.io/][Bhargavi Paranjape]], Research Intern @ Meta AI, 2023
 - [[https://meetdavidwan.github.io/][David Wan]], co-supervised with [[http://www.rama-kanth.com/][Ram Pasunuru]], Research Intern @ Meta AI, 2023
 - [[https://songjiang0909.github.io/][Song Jiang]], co-supervised with [[http://asli.us/][Asli Celikyilmaz]], Research Intern @ Meta AI, 2023
