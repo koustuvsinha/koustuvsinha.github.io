@@ -638,7 +638,8 @@ syntactic tasks. These results highlight the potential distributional nature of 
 
 *** Thesis Document
 
-/(To be updated post publication from McGill)/
+[[https://escholarship.mcgill.ca/concern/theses/jw827j238][McGill Archives]] | @@hugo:{{< icon name="download" pack="fas" >}} {{< staticref "uploads/phd_thesis.pdf" "newtab" >}}PDF{{< /staticref >}} @@
+
 
 *** Papers used in the Thesis
 
@@ -688,6 +689,7 @@ Unfortunately I missed the opportunity to get a screen capture during my defense
 :EXPORT_OPTIONS: author:nil title:nil
 :CUSTOM_ID: site_news
 :END:
+
 - [01/06/24] Serving as a Senior Area Chair at ACL 2024.
 - [16/05/24] Excited to announce our large multimodal language model, _Chameleon_, is [[https://arxiv.org/abs/2405.09818][now released on arxiv]]! We have also released the [[https://github.com/facebookresearch/chameleon][code]] and [[https://ai.meta.com/resources/models-and-libraries/chameleon-downloads/][model weights]], as per our [[https://about.fb.com/news/2024/06/releasing-new-ai-research-models-to-accelerate-innovation-at-scale/][Open Source Strategy]]!
 - [10/18/23] [[https://reproml.org/][MLRC 2023]] challenge goes live in partnership with TMLR! Read our [[https://reproml.org/blog/announcing_mlrc2023/][blog post]] for more information.

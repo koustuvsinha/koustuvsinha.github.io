@@ -94,7 +94,7 @@ syntactic tasks. These results highlight the potential distributional nature of 
 
 ## Thesis Document {#thesis-document}
 
-_(To be updated post publication from McGill)_
+[McGill Archives](https://escholarship.mcgill.ca/concern/theses/jw827j238) | {{< icon name="download" pack="fas" >}} {{< staticref "uploads/phd_thesis.pdf" "newtab" >}}PDF{{< /staticref >}}
 
 
 ## Papers used in the Thesis {#papers-used-in-the-thesis}
