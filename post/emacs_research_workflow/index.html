@@ -1,0 +1,178 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>A workflow for reading, managing and discovering ML research papers with Emacs | A minimal Hugo website</title><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css integrity="sha512-YHuwZabI2zi0k7c9vtg8dK/63QB0hLvD4thw44dFo/TfBFVVQOqEG9WpviaEpbyvgOIYLXF1n7xDUfU3GDs0sw==" crossorigin=anonymous referrerpolicy=no-referrer></head><body><nav><ul class=menu><li><a href=/>Home</a></li><li><a href=/phd_thesis/>PhD Thesis</a></li><li><a href=/post/>Blog</a></li></ul><hr></nav><div class=article-meta><h1><span class=title>A workflow for reading, managing and discovering ML research papers with Emacs</span></h1><h2 class=date>2022/07/18</h2></div><main><p>Over the last couple of years I have steadily transferred most of my workflows in Emacs (more specifically, Doom Emacs). As they truly say, Emacs is not just an editor, it is an operating system. I think Emacs is not for everyone. It has a very steep learning curve, especially with understanding a new language (elisp) for configuration. Having said that, once you learn how to use Emacs, you unlock insane levels of productivity. It is customizable beyond expectation, and allows one to &ldquo;live&rdquo; within Emacs for most of their daily needs. Emacs has helped me streamline my paper reading habits, which I&rsquo;ll talk in detail in this post. Specifically, I use the following tools from the Emacs ecosystem: <a href=https://orgmode.org/>Org-Mode</a>, <a href=https://github.com/skeeto/elfeed>Elfeed</a>, <a href=https://github.com/sp1ff/elfeed-score>Elfeed-score</a>, <a href=https://github.com/tmalsburg/helm-bibtex>Helm-Bibtex</a> and <a href=https://github.com/jkitchin/org-ref>Org-ref</a>.</p><img src=/post/emacs_research_workflow/elfeed_main.png width=3086 height=1944 alt class=figure><h2 id=discovering-papers-elfeed>Discovering papers: Elfeed</h2><p><a href=https://github.com/skeeto/elfeed>Elfeed</a> is a very versatile RSS reader for Emacs. Turns out you can use Elfeed to subscribe to Arxiv feeds as well. Do check <a href=https://cundy.me/post/elfeed/>Chris Cundy&rsquo;s post</a> on this topic, where he introduces the concepts of Elfeed and Elfeed-score. Following the setup of Chris, I setup Elfeed to read Arxiv Atom posts in the stat.ML, cs.LG and cs.CL categories, which I typically follow anyways for new papers in NLP and ML.</p><h3 id=the-basics>The Basics</h3><p>Setting up these Atom feeds in Elfeed is trivial.</p><pre><code class=language-lisp>
+(setq elfeed-feeds '(&quot;http://export.arxiv.org/api/query?search_query=cat:stat.ML&amp;start=0&amp;max_results=100&amp;sortBy=submittedDate&amp;sortOrder=descending&quot; &quot;http://export.arxiv.org/api/query?search_query=cat:cs.LG&amp;start=0&amp;max_results=100&amp;sortBy=submittedDate&amp;sortOrder=descending&quot; &quot;http://export.arxiv.org/api/query?search_query=cat:cs.CL&amp;start=0&amp;max_results=100&amp;sortBy=submittedDate&amp;sortOrder=descending&quot;))
+</code></pre><p>The <code>elfeed-feeds</code> variable consists of a list of strings with the export URLs. Notice in these URL&rsquo;s the max_results are set to 100, feel free to modify it if you want to fetch older entries.</p><p>The default Elfeed homepage is not that useful for reading arxiv papers as it truncates the titles. Chris provides a nice solution to show the title and authors list truncated by an &ldquo;et. al&rdquo; in the main Elfeed view.</p><pre><code class=language-lisp>(defun concatenate-authors (authors-list)
+    &quot;Given AUTHORS-LIST, list of plists; return string of all authors concatenated.&quot;
+    (if (&gt; (length authors-list) 1)
+        (format &quot;%s et al.&quot; (plist-get (nth 0 authors-list) :name))
+      (plist-get (nth 0 authors-list) :name)))
+
+(defun my-search-print-fn (entry)
+    &quot;Print ENTRY to the buffer.&quot;
+    (let* ((date (elfeed-search-format-date (elfeed-entry-date entry)))
+        (title (or (elfeed-meta entry :title)
+                    (elfeed-entry-title entry) &quot;&quot;))
+        (title-faces (elfeed-search--faces (elfeed-entry-tags entry)))
+        (entry-authors (concatenate-authors
+                        (elfeed-meta entry :authors)))
+        (title-width (- (window-width) 10
+                        elfeed-search-trailing-width))
+        (title-column (elfeed-format-column
+                        title 100
+                        :left))
+        (entry-score (elfeed-format-column (number-to-string (elfeed-score-scoring-get-score-from-entry entry)) 10 :left))
+        (authors-column (elfeed-format-column entry-authors 40 :left)))
+    (insert (propertize date 'face 'elfeed-search-date-face) &quot; &quot;)
+
+    (insert (propertize title-column
+                        'face title-faces 'kbd-help title) &quot; &quot;)
+    (insert (propertize authors-column
+                        'kbd-help entry-authors) &quot; &quot;)
+    (insert entry-score &quot; &quot;)))
+
+(setq elfeed-search-print-entry-function #'my-search-print-fn)
+(setq elfeed-search-date-format '(&quot;%y-%m-%d&quot; 10 :left))
+(setq elfeed-search-title-max-width 110)
+</code></pre><p>Then, set the default filter to show unread papers from 2 weeks ago. This is also customizable.</p><pre><code class=language-lisp>(setq elfeed-search-filter &quot;@2-week-ago +unread&quot;)
+</code></pre><p>We would also like to instruct Elfeed to <em>fetch</em> the papers whenever we open the Elfeed interface:</p><pre><code class=language-lisp>(add-hook! 'elfeed-search-mode-hook 'elfeed-update)
+</code></pre><h3 id=scoring-papers>Scoring papers</h3><p>As you may have noticed, <code>my-search-print-fn</code> contains the function <code>elfeed-score-scoring-get-score-from-entry</code> call, which uses <a href=https://github.com/sp1ff/elfeed-score>Elfeed-score</a> package to score individual papers. <a href=https://github.com/sp1ff/elfeed-score>Elfeed-score</a> is a simple but effective utility to allow you to set regex filter rules to score papers based on the relevance of your research area.</p><p>Install elfeed-score package using <code>use-package</code>, and then set the location of the rules file.</p><pre><code class=language-lisp>(use-package! elfeed-score
+  :after elfeed
+  :config
+  (elfeed-score-load-score-file &quot;~/.doom.d/elfeed.score&quot;) ; See the elfeed-score documentation for the score file syntax
+  (elfeed-score-enable)
+  (define-key elfeed-search-mode-map &quot;=&quot; elfeed-score-map))
+</code></pre><p>Now go ahead and create the file <code>elfeed.score</code> in your location of choice. This file basically contains the rules written in elisp. For example, my rule set after a couple of days usage is this:</p><pre><code class=language-lisp>;;; Elfeed score file                                     -*- lisp -*-
+((version 10)
+ (&quot;title&quot;
+  (:text &quot;Transformer&quot; :value 10 :type s)
+  (:text &quot;Summarization&quot; :value -50 :type s))
+ (&quot;content&quot;)
+ (&quot;title-or-content&quot;
+  (:text &quot;Gender Bias&quot; :title-value 50 :content-value 50 :type s)
+  (:text &quot;BERT&quot; :title-value 100 :content-value 50 :type S)
+  (:text &quot;Generalization&quot; :title-value 30 :content-value 20 :type s)
+  (:text &quot;out-of-distribution&quot; :title-value 20 :content-value 30 :type s)
+  (:text &quot;language model&quot; :title-value 20 :content-value 30 :type s))
+ (&quot;tag&quot;)
+ (&quot;authors&quot;
+  (:text &quot;Percy Liang&quot; :value 200 :type w)
+  (:text &quot;Sebastian Ruder&quot; :value 200 :type w))
+ (&quot;feed&quot;)
+ (&quot;link&quot;)
+ (&quot;udf&quot;)
+ (mark nil)
+ (&quot;adjust-tags&quot;))
+</code></pre><p>This score file thus pushes the papers we would like to read up to the top:</p><img src=/post/emacs_research_workflow/elfeed_score.png width=2870 height=270 alt class=figure><h2 id=managing-papers-org-ref-and-org-mode>Managing papers: Org-ref and Org-mode</h2><p>When I&rsquo;m reading the abstract of an interesting paper in Elfeed, if I want to read the pdf I can simply press <code>Shift+RET</code> to open the pdf in my browser. However, that doesn&rsquo;t offer a way to store the pdf files, neither does it offer a way to open the pdf in emacs. I want a system which can allow me to:</p><ol><li>Store the pdf in a folder</li><li>Add a bibtex entry to a centralized bib file with the paper information</li><li>Keep track of papers I have read, along with notes</li></ol><h3 id=store-the-pdfs-from-elfeed>Store the pdfs from Elfeed</h3><p>I initially started my configuration following the nice talk by Ahmed in <a href=https://emacsconf.org/2021/talks/research/>EmacsConf 2021</a> (I highly recommend watching it!). Ahmed also provides a nice <a href=https://gist.github.com/rka97/57779810d3664f41b0ed68a855fcab54>gist for starters</a>, which I used to construct the basic function to perform steps 1 and 2.</p><pre><code class=language-lisp>(setq arxiv_bib &quot;~/org/arxiv.bib&quot;)
+(setq arxiv_pdf_loc &quot;~/Documents/arxiv/&quot;)
+
+(defun my/elfeed-entry-to-arxiv ()
+    &quot;Fetch an arXiv paper into the local library from the current elfeed entry.
+&quot;
+    (interactive)
+    (let* ((link (elfeed-entry-link elfeed-show-entry))
+           (match-idx (string-match &quot;arxiv.org/abs/\\([0-9.]*\\)&quot; link))
+           (matched-arxiv-number (match-string 1 link)))
+      (when matched-arxiv-number
+        (message &quot;Going to arXiv: %s&quot; matched-arxiv-number)
+        (arxiv-get-pdf-add-bibtex-entry matched-arxiv-number arxiv_bib arxiv_pdf_loc))
+</code></pre><p>This function utilizes the awesome <a href=https://github.com/jkitchin/org-ref>Org-ref</a> library functions, such as <code>arxiv-get-pdf-add-bibtex-entry</code>. Given an Arxiv identifier, this function firsts constructs a bibtex entry with the paper metadata and stores it in <code>arxiv_bib</code>, which is a variable I had set to point to my centralized bib file. Then, the function downloads the pdf, renames the pdf to the bibtex key, and saves it in <code>arxiv_pdf_loc</code>, which is another variable I had defined which points to the directory where I want to save the pdfs.</p><p>We can add a Doom Emacs keybinding to quickly fetch the arxiv file. This allows me to call <code>SPC n a</code> from the Elfeed entry buffer.</p><pre><code class=language-lisp>(map! :leader
+      :desc &quot;arXiv paper to library&quot; &quot;n a&quot; #'my/elfeed-entry-to-arxiv
+      :desc &quot;Elfeed&quot; &quot;n e&quot; #'elfeed)
+</code></pre><h3 id=update-the-bibtex-file>Update the bibtex file</h3><p>The bibtex generated by the <code>arxiv-get-pdf-add-bibtex-entry</code> function lacks a <code>file</code> item pointing to the pdf file. We will see why this item is useful in the next section. Assuming we need to add the full path of the downloaded pdf, the <code>my/elfeed-entry-to-arxiv</code> function can be modified as follows:</p><pre><code class=language-lisp>(defun my/elfeed-entry-to-arxiv ()
+    &quot;Fetch an arXiv paper into the local library from the current elfeed entry.
+
+- Update the bib entry with the pdf file location
+&quot;
+    (interactive)
+    (let* ((link (elfeed-entry-link elfeed-show-entry))
+           (match-idx (string-match &quot;arxiv.org/abs/\\([0-9.]*\\)&quot; link))
+           (matched-arxiv-number (match-string 1 link)))
+      (when matched-arxiv-number
+        (message &quot;Going to arXiv: %s&quot; matched-arxiv-number)
+        (arxiv-get-pdf-add-bibtex-entry matched-arxiv-number arxiv_bib arxiv_pdf_loc)
+        ;; Now, we are updating the most recent bib file with the pdf location
+        (save-window-excursion
+                ;; Get the bib file
+                (find-file arxiv_bib)
+                ;; get to last line
+                (goto-char (point-max))
+                ;; get to the first line of bibtex
+                (bibtex-beginning-of-entry)
+                (let* ((entry (bibtex-parse-entry))
+                        (key (cdr (assoc &quot;=key=&quot; entry)))
+                        (pdf (org-ref-get-pdf-filename key)))
+                        (message (concat &quot;checking for key: &quot; key))
+                        (message (concat &quot;value of pdf: &quot; pdf))
+                        (when (file-exists-p pdf)
+                        (bibtex-set-field &quot;file&quot; pdf)
+                        (save-buffer)
+                        )))
+        )
+      )
+  )
+
+(setq org-ref-pdf-directory arxiv_pdf_loc)
+</code></pre><p>What this function does is it opens the bibfile (<code>arxiv_bib</code>), navigates to the last line, then again navigates to the first line of the last bibtex entry to load the bibtex, and then fetches the pdf path. Then the function adds a <code>file</code> field to the bibtex with the pdf path using the function <code>bibtex-set-field</code>.</p><p>It is also important to set the path of <code>org-ref-pdf-directory</code> variable to the location of your pdf files, for org-ref to fetch the full path of the pdf properly using <code>org-ref-get-pdf-filename</code> function.</p><h3 id=tracking-a-reading-list>Tracking a reading list</h3><p>Now I have the mechanisms in place to store the pdf and the bibtex entries of the papers I want to read after looking through the latest arxiv posts. This is a good time to setup a workflow to track my paper reading lists. I use Org-mode for this purpose.</p><p>Specifically, I create an Org file named <code>papers.org</code>, which has the following structure:</p><pre><code class=language-org>#+STARTUP: content showstars indent
+# Personal Paper readings
+# Centralized location to track paper readings
+* Categorized [/]
+:PROPERTIES:
+:COOKIE_DATA: recursive todo
+:END:
+** Some specific subfield
+* Maybe Read [/]
+* Know about it, would be nice to re-read [/]
+* Inbox
+</code></pre><p>These are basically headings to file <code>TODO</code> items. I keep track of a paper to read using the Org <code>TODO</code> modes. For any new paper which I&rsquo;m reading through Elfeed, I hit <code>SPC n e</code> to extract the bibtex and save the pdf in the centralized pdf directory. Now, I would want to file this paper automatically under <code>* Inbox</code> header as a <code>TODO</code> entry. To do that, we can modify the above function to read <code>papers.org</code>, go to the last element of the page (which points to the latest filed paper in <code>* Inbox</code>), and add a new entry with Org-ref citation.</p><pre><code class=language-lisp>(defun my/elfeed-entry-to-arxiv ()
+    &quot;Fetch an arXiv paper into the local library from the current elfeed entry.
+
+This is a customized version from the one in https://gist.github.com/rka97/57779810d3664f41b0ed68a855fcab54
+New features to this version:
+
+- Update the bib entry with the pdf file location
+- Add a TODO entry in my papers.org to read the paper
+&quot;
+    (interactive)
+    (let* ((link (elfeed-entry-link elfeed-show-entry))
+           (match-idx (string-match &quot;arxiv.org/abs/\\([0-9.]*\\)&quot; link))
+           (matched-arxiv-number (match-string 1 link))
+           (last-arxiv-key &quot;&quot;)
+           (last-arxiv-title &quot;&quot;))
+      (when matched-arxiv-number
+        (message &quot;Going to arXiv: %s&quot; matched-arxiv-number)
+        (arxiv-get-pdf-add-bibtex-entry matched-arxiv-number arxiv_bib arxiv_pdf_loc)
+        ;; Now, we are updating the most recent bib file with the pdf location
+        (message &quot;Update bibtex with pdf file location&quot;)
+        (save-window-excursion
+                ;; Get the bib file
+                (find-file arxiv_bib)
+                ;; get to last line
+                (goto-char (point-max))
+                ;; get to the first line of bibtex
+                (bibtex-beginning-of-entry)
+                (let* ((entry (bibtex-parse-entry))
+                        (key (cdr (assoc &quot;=key=&quot; entry)))
+                        (title (bibtex-completion-apa-get-value &quot;title&quot; entry))
+                        (pdf (org-ref-get-pdf-filename key)))
+                        (message (concat &quot;checking for key: &quot; key))
+                        (message (concat &quot;value of pdf: &quot; pdf))
+                        (when (file-exists-p pdf)
+                        (bibtex-set-field &quot;file&quot; pdf)
+                        (setq last-arxiv-key key)
+                        (setq last-arxiv-title title)
+                        (save-buffer)
+                        )))
+        ;; (message (concat &quot;outside of save window, key: &quot; last-arxiv-key))
+        ;; Add a TODO entry with the cite key and title
+        ;; This is a bit hacky solution as I don't know how to add the org entry programmatically
+        (save-window-excursion
+          (find-file (concat org-directory &quot;papers.org&quot;))
+          (goto-char (point-max))
+          (insert (format &quot;** TODO Read paper (cite:%s) %s&quot; last-arxiv-key last-arxiv-title))
+          (save-buffer)
+          )
+        )
+      )
+  )
+</code></pre><p>Thus we arrive at the final version of the <code>my/elfeed-entry-to-arxiv</code> function, which is now modified to keep track of the key of the paper using <code>last-arxiv-key</code> and title of the paper <code>last-arxiv-title</code>, so that we can construct a <code>TODO</code> entry to reflect the key and the title. The key is added in Org citation format.</p><img src=/post/emacs_research_workflow/paper_reading.png width=2470 height=1816 alt class=figure><p>I use <a href=https://github.com/tmalsburg/helm-bibtex>helm-bibtex</a> as my completion engine for bibtex, which shows me a menu when I <code>RET</code> on the citation key. Helm-bibtex allows me to see a contextual menu on any org link. I need to set the following variables so that helm-bibtex knows where to look for the pdf files:</p><pre><code class=language-lisp>(setq bibtex-completion-bibliography (list arxiv_bib))
+(setq bibtex-completion-pdf-field &quot;file&quot;)
+</code></pre><img src=/post/emacs_research_workflow/paper_helm.png width=2456 height=1944 alt class=figure><p>Thus, using Org-mode to track my paper reading list helps me to store all my reading habits and notes within one file!</p><ul><li>I use the <code>* Inbox</code> header as a staging area whenever I store a paper from Elfeed.</li><li>After I store the paper, I can re-file the paper in several categories as defined in <code>papers.org</code>, easily, using <code>C-c C-w</code>.</li><li>I can read the paper directly in Emacs by <code>RET -> Open PDF -> RET</code>!</li><li>The <code>[/]</code> is a TODO status indicator used in front of every header, which shows me the number of <em>read</em> papers out of total number of papers in the sub-heading. Whenever I read the paper, I can just hit <code>RET</code> on the paper header to change the status to <code>DONE</code>, which automatically increases the count!</li><li>I can directly use this org file to take notes under the header of each paper.</li></ul><p>This workflow allows me to seamlessly fetch, read and take notes on papers, fully keyboard driven, directly inside one app!</p><img src=/post/emacs_research_workflow/paper_pdf.png width=2610 height=1944 alt class=figure><h2 id=syncing-and-note-taking-in-ipad>Syncing & Note taking in Ipad</h2><p>Using the above method makes it trivial to sync my reading lists on my Apple Ipad. For starters, I keep the org files and bib files in my Dropbox directory, so any change in the <code>papers.org</code> file gets synced through Dropbox. I also add the arxiv pdf directory in my Dropbox, so that any new pdfs are automatically synced throughout my devices. On my Ipad, I use <a href=https://pdfexpert.com/>PDF Expert</a> to read and annotate the papers by linking my Dropbox account. I take copious scribbles using my Apple pencil, and they are immediately synced so I can view the annotated pdf directly from my <code>papers.org</code> file.</p><h2 id=closing-thoughts>Closing Thoughts</h2><p>This is an evolving workflow, and it is probably not the most optimal one. However it works for me, and I can easily keep tweaking the config so that it supports any future requirements. Let me know if this worked for you in the comments, and I would love to hear any suggestions you might have so that I can make this workflow better! Thanks for reading!</p></main><footer><link rel=stylesheet href=//cdn.jsdelivr.net/npm/katex/dist/katex.min.css><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/math-code.min.js defer></script><script src=//cdn.jsdelivr.net/npm/katex/dist/katex.min.js defer></script><script src=//cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js defer></script><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/render-katex.js defer></script><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js defer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/lisp.min.js></script><script>hljs.highlightAll()</script><hr>© Koustuv Sinha 2025. Opinions expressed on this website are solely my own. Built using <a href>XMin</a> theme and Hugo.</footer></body></html>

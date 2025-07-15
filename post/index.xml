@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on A minimal Hugo website</title><link>https://example.org/post/</link><description>Recent content in Posts on A minimal Hugo website</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 23 Dec 2022 17:45:00 -0500</lastBuildDate><atom:link href="https://example.org/post/index.xml" rel="self" type="application/rss+xml"/><item><title>LLMs can sanitize annotations! Using zero shot relation extraction to fix CLUTRR templates</title><link>https://example.org/post/zero_shot_clutrr/</link><pubDate>Fri, 23 Dec 2022 17:45:00 -0500</pubDate><guid>https://example.org/post/zero_shot_clutrr/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>It has been three years since the release of &lt;a href="https://example.org/introducing-clutrr/">CLUTRR&lt;/a>, a benchmark we created to test the reasoning capabilities of modern neural networks. The idea is simple: can models understand first-order logic, in the backdrop of kinship relations? Specifically, we test the ability of the models to perform &lt;em>implicit&lt;/em> reasoning - figuring out the relation of two characters in a given story, where their relation is not provided explicitly. For example, consider the following story:&lt;/p></description></item><item><title>Replicating Zotero-connector functionality in Emacs … without Zotero!</title><link>https://example.org/post/emacs_org_protocol_arxiv/</link><pubDate>Wed, 12 Oct 2022 18:26:00 -0400</pubDate><guid>https://example.org/post/emacs_org_protocol_arxiv/</guid><description>&lt;p>In my &lt;a href="https://example.org/post/emacs_research_workflow/">last blog post&lt;/a> I described a method I use to keep track of my paper reading habits, using Emacs. Using the workflow, I can now:&lt;/p>
+&lt;ul>
+&lt;li>Check the latest Arxiv papers using &lt;a href="https://github.com/skeeto/elfeed">Elfeed&lt;/a>&lt;/li>
+&lt;li>Score the papers using &lt;a href="https://github.com/sp1ff/elfeed-score">Elfeed-Score&lt;/a>&lt;/li>
+&lt;li>Save the papers in a local bib file, along with pdfs, using &lt;a href="https://github.com/jkitchin/org-ref">org-ref&lt;/a> functions&lt;/li>
+&lt;li>Maintain a paper reading tracker document in &lt;a href="https://orgmode.org/">Org Mode&lt;/a>, where the workflow automatically adds the paper to read.&lt;/li>
+&lt;/ul>
+&lt;p>One crucial step I later realised which is missing from this workflow is the ability to store papers from my browser. Typically I do not read Elfeed &lt;em>that&lt;/em> religiously - my main source of papers always has been recommendations from colleagues, Twitter, conference acceptance lists etc. Thus, I need a setup where I can easily save an interesting paper I&amp;rsquo;m reading directly from the browser.&lt;/p></description></item><item><title>A workflow for reading, managing and discovering ML research papers with Emacs</title><link>https://example.org/post/emacs_research_workflow/</link><pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate><guid>https://example.org/post/emacs_research_workflow/</guid><description>&lt;p>Over the last couple of years I have steadily transferred most of my workflows in Emacs (more specifically, Doom Emacs). As they truly say, Emacs is not just an editor, it is an operating system. I think Emacs is not for everyone. It has a very steep learning curve, especially with understanding a new language (elisp) for configuration. Having said that, once you learn how to use Emacs, you unlock insane levels of productivity. It is customizable beyond expectation, and allows one to &amp;ldquo;live&amp;rdquo; within Emacs for most of their daily needs. Emacs has helped me streamline my paper reading habits, which I&amp;rsquo;ll talk in detail in this post. Specifically, I use the following tools from the Emacs ecosystem: &lt;a href="https://orgmode.org/">Org-Mode&lt;/a>, &lt;a href="https://github.com/skeeto/elfeed">Elfeed&lt;/a>, &lt;a href="https://github.com/sp1ff/elfeed-score">Elfeed-score&lt;/a>, &lt;a href="https://github.com/tmalsburg/helm-bibtex">Helm-Bibtex&lt;/a> and &lt;a href="https://github.com/jkitchin/org-ref">Org-ref&lt;/a>.&lt;/p></description></item><item><title>ML Reproducibility Tools and Best Practices</title><link>https://example.org/practices_for_reproducibility/</link><pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate><guid>https://example.org/practices_for_reproducibility/</guid><description>&lt;p>A recurrent challenge in machine learning research is to ensure that the
+presented and published results are reliable, robust, and reproducible
+[&lt;a href="http://proceedings.mlr.press/v97/bouthillier19a.html">4&lt;/a>,&lt;a href="https://arxiv.org/abs/1711.10337">5&lt;/a>,&lt;a href="https://arxiv.org/abs/1709.06560">6&lt;/a>,&lt;a href="https://arxiv.org/abs/1909.06674">7&lt;/a>].&lt;/p>
+&lt;p>Reproducibility, obtaining similar results as presented in a paper using
+the same code and data, is necessary to verify the reliability of
+research findings. Reproducibility is also an important step to promote
+open and accessible research, thereby allowing the scientific community
+to quickly integrate new findings and convert ideas to practice.
+Reproducibility also promotes the use of robust experimental workflows,
+which potentially reduce unintentional errors.&lt;/p></description></item><item><title>GraphLog</title><link>https://example.org/about-graphlog/</link><pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate><guid>https://example.org/about-graphlog/</guid><description>&lt;h2 id="graphlog---suite-of-57-graph-worlds-built-using-first-order-logic">&lt;strong>&lt;code>GraphLog&lt;/code>&lt;/strong> - Suite of 57 graph worlds built using first-order logic&lt;/h2>
+&lt;p>&lt;em>Koustuv Sinha, Shagun Sodhani, Joelle Pineau and William L. Hamilton&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://github.com/facebookresearch/graphlog">Code&lt;/a> |
+&lt;a href="https://graphlog.readthedocs.io/en/latest/">Docs&lt;/a> |
+&lt;a href="https://arxiv.org/abs/2003.06560">Paper&lt;/a> |
+&lt;a href="https://www.cs.mcgill.ca/~ksinha4/graphlog/">Home Page&lt;/a> |
+&lt;a href="https://www.youtube.com/watch?v=TKEjaA4m4jg">Teaser Talk&lt;/a>&lt;/p>
+&lt;h2 id="motivation">Motivation&lt;/h2>
+&lt;p>A question that we are highly interested in finding an answer to is &lt;em>how
+generalizable our learning algorithms are&lt;/em>? Human beings
+&lt;a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2F0097-7403.24.4.405">are
+incredibly good&lt;/a> at generalization - even at old age, we can &lt;em>learn&lt;/em>
+new concepts and &lt;em>apply&lt;/em> them in practice. Critical steps towards
+building algorithms that &lt;a href="https://arxiv.org/abs/1604.00289">think like
+human beings&lt;/a> include &lt;em>Multitask Learning&lt;/em> - the ability to learn
+multiple concepts at once; and &lt;em>Continual Learning&lt;/em> - the ability to
+accumulate new knowledge without forgetting the previous knowledge.&lt;/p></description></item><item><title>Introducing CLUTRR</title><link>https://example.org/introducing-clutrr/</link><pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate><guid>https://example.org/introducing-clutrr/</guid><description>&lt;p>&lt;b>C&lt;/b>ompositional &lt;b>L&lt;/b>anguage &lt;b>U&lt;/b>nderstanding with &lt;b>T&lt;/b>ext based &lt;b>R&lt;/b>elational &lt;b>R&lt;/b>easoning&lt;/p>
+&lt;h2 id="motivation">Motivation&lt;/h2>
+&lt;p>Question Answering (QA) has recently gained popularity as the major
+domain of testing reasoning in text. The literature thus contains a
+&lt;a href="https://nlpprogress.com/english/question_answering.html">deluge of Question Answering (QA) datasets&lt;/a> to choose from. These datasets test
+the system&amp;rsquo;s ability to extract factual answers from the text. However,
+there are growing concerns regarding the ability of Natural Language
+Understanding (NLU) models to &lt;strong>generalize&lt;/strong> - both in a &lt;em>systematic&lt;/em> and
+&lt;em>robust&lt;/em> way. Adding to that, the recent dominance of large pre-trained
+language models (such as BERT, &lt;a href="https://arxiv.org/abs/1810.04805">Devlin et al. 2018&lt;/a>) on many NLU
+benchmarks including QA suggests that the primary difficulty in these
+datasets are about incorporating the statistics of the language, or the
+syntax of the language, rather than pure reasoning.&lt;/p></description></item></channel></rss>

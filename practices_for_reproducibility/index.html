@@ -1,0 +1,255 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>ML Reproducibility Tools and Best Practices | A minimal Hugo website</title><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css integrity="sha512-YHuwZabI2zi0k7c9vtg8dK/63QB0hLvD4thw44dFo/TfBFVVQOqEG9WpviaEpbyvgOIYLXF1n7xDUfU3GDs0sw==" crossorigin=anonymous referrerpolicy=no-referrer></head><body><nav><ul class=menu><li><a href=/>Home</a></li><li><a href=/phd_thesis/>PhD Thesis</a></li><li><a href=/post/>Blog</a></li></ul><hr></nav><div class=article-meta><h1><span class=title>ML Reproducibility Tools and Best Practices</span></h1><h2 class=date>2020/08/05</h2></div><main><p>A recurrent challenge in machine learning research is to ensure that the
+presented and published results are reliable, robust, and reproducible
+[<a href=http://proceedings.mlr.press/v97/bouthillier19a.html>4</a>,<a href=https://arxiv.org/abs/1711.10337>5</a>,<a href=https://arxiv.org/abs/1709.06560>6</a>,<a href=https://arxiv.org/abs/1909.06674>7</a>].</p><p>Reproducibility, obtaining similar results as presented in a paper using
+the same code and data, is necessary to verify the reliability of
+research findings. Reproducibility is also an important step to promote
+open and accessible research, thereby allowing the scientific community
+to quickly integrate new findings and convert ideas to practice.
+Reproducibility also promotes the use of robust experimental workflows,
+which potentially reduce unintentional errors.</p><p>In this blog post, we will share commonly used tools and explain 12
+basic practices that you can use in your research to ensure reproducible
+science.</p><h2 id=tools>Tools</h2><p><strong>Updated</strong> : 21st December, 2020</p><table><thead><tr><th></th><th>Practice</th><th>Tools</th></tr></thead><tbody><tr><td>1</td><td>Config Management</td><td><a href=https://hydra.cc>Hydra</a>, <a href=https://github.com/omry/omegaconf>OmegaConf</a>, <a href=https://github.com/PyTorchLightning/pytorch-lightning>Pytorch Lightning</a></td></tr><tr><td>2</td><td>Checkpoint Management</td><td><a href=https://github.com/PyTorchLightning/pytorch-lightning>Pytorch Lightning</a>, <a href=https://github.com/williamFalcon/test-tube>TestTube</a></td></tr><tr><td>3</td><td>Logging</td><td><a href=https://www.tensorflow.org/tensorboard>Tensorboard</a>, <a href=https://www.comet.ml/site/>Comet.ML</a>, <a href=https://www.wandb.com/>Weights & Biases</a>, <a href=https://mlflow.org/>MLFlow</a>, <a href=https://github.com/facebookresearch/visdom>Visdom</a>, <a href=https://neptune.ai/>Neptune</a></td></tr><tr><td>4</td><td>Seed</td><td><em>Check best practices below</em></td></tr><tr><td>-</td><td>Experiment Management</td><td><a href=https://github.com/PyTorchLightning/pytorch-lightning>Pytorch Lightning</a>, <a href=https://mlflow.org>MLFlow</a>, <a href=https://determined.ai/>Determined.AI</a></td></tr><tr><td>5</td><td>Versioning</td><td><a href=https://github.com>Github</a>, <a href=https://gitlab.com>Gitlab</a>, <a href=https://replicate.ai/>Replicate.AI</a></td></tr><tr><td>6</td><td>Data Management</td><td><a href=https://dvc.org>DVC</a>, <a href=https://cml.dev>CML</a>, <a href=https://replicate.ai/>Replicate.AI</a></td></tr><tr><td>7</td><td>Data analysis</td><td><a href=https://jupyter.org/>Jupyter Notebook</a>, <a href=https://papermill.readthedocs.io/en/latest/>papermill</a>, <a href=https://jupyterlab.readthedocs.io/en/stable/>JupyterLab</a>, <a href=https://colab.research.google.com/>Google Colab</a></td></tr><tr><td>8</td><td>Reporting</td><td><a href=https://matplotlib.org/>Matplotlib</a>, <a href=https://seaborn.pydata.org/>Seaborn</a> , <a href=https://pandas.pydata.org/>Pandas</a>, <a href=https://www.overleaf.com/>Overleaf</a></td></tr><tr><td>9</td><td>Dependency Management</td><td><a href=https://pypi.org/project/pip/>pip</a>, <a href=https://docs.conda.io/en/latest/>conda</a>, <a href=https://python-poetry.org/>Poetry</a>, <a href=https://www.docker.com/>Docker</a>, <a href=https://sylabs.io/docs/>Singularity</a>, <a href=https://github.com/jupyter/repo2docker>repo2docker</a></td></tr><tr><td>10</td><td>Open Source Release</td><td><a href=https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git>Squash Commits</a>, <a href=https://mybinder.org/>Binder</a></td></tr><tr><td>11</td><td>Effective Communication</td><td><a href=https://medium.com/paperswithcode/ml-code-completeness-checklist-e9127b168501>ML Code Completeness Checklist</a>, <a href=https://www.cs.mcgill.ca/~jpineau/ReproducibilityChecklist.pdf>ML Reproducibility Checklist</a></td></tr><tr><td>12</td><td>Test and Validate</td><td><a href=https://aws.amazon.com/>AWS</a>, <a href=https://cloud.google.com/>GCP</a>, <a href=https://codeocean.com/>CodeOcean</a></td></tr></tbody></table><h2 id=practices>Practices</h2><h3 id=config-management>1. Config Management</h3><p>When you begin implementing your research code, the first line of work
+is to define an argument parser to define the set of parameters your
+code expects. These set of hyperparameters can typically look like this:</p><pre><code class=language-sh>python train.py --hidden_dim 100 --batch_size 32 --num_tasks 10 --dropout 0.2 --with_mask --log_interval 100 --learning_rate 0.001 --optimizer sgd --scheduler plateau --scheduler_gamma 0.9 --weight_decay 0.9
+</code></pre><p>These sets of arguments typically grow over time in your research
+project, making maintenance and reproducibility a pain. Typically in
+your code, you should be careful to log all hyperparameters for all
+experiments, so that you can replicate an old version of your code.
+<a href=https://github.com/PyTorchLightning/pytorch-lightning>Pytorch
+Lightning</a> provides a great way to log all hyperparameters in <code>.csv</code>
+files in the experiment output folder, allowing for better
+reproducibility.</p><p>An alternative to using a long list of argparse elements is to use
+config files. Config files can be either in JSON or YAML format (I
+prefer YAML due to the ability to add comments), where you can set your
+hyperparams in a logically nested way. The above set of hyperparams
+could be organized as:</p><pre><code class=language-yaml># config.yaml
+general: # for generic args
+  batch_size: 32
+  num_tasks: 10
+  with_mask: False
+  log_interval: 100
+optim: # for optimizer args
+  learning_rate: 0.001
+  optimizer: sgd
+  scheduler: plateau
+  scheduler_gamma: 0.9
+  weight_decay: 0.9
+model:
+  hidden_dim: 100
+</code></pre><p><a href=https://github.com/omry/omegaconf>OmegaConf</a> (part of
+<a href=https://hydra.cc>Hydra</a>) is a great library that allows you to
+maintain these config files while providing added flexibility to import
+previous config files and modify only a few values.</p><h3 id=checkpoint-management>2. Checkpoint Management</h3><p>Managing your model checkpoints is very important in terms of
+reproducibility, as it allows you to release trained models for the
+community to easily verify your work, as well as build upon it. Ideally,
+you should save your checkpoints as frequently as possible. Given the
+system resource restrictions, it is usually not feasible. Thus, it is
+ideal to save the last checkpoint along with the checkpoint of the <em>last
+best model</em> (according to your evaluation metrics).
+<a href=https://github.com/PyTorchLightning/pytorch-lightning>Pytorch
+Lightning</a> provides an in-built solution to do this efficiently.</p><h3 id=logging>3. Logging</h3><p>When training your model, you realize that for several parameters it is
+not giving you the ideal performance. Ideally, you want to check several
+things. Is the training loss of the model saturating? Is it still going
+down? How is the validation performance over training look like? You
+need to log all the metrics efficiently, and later plot those metrics in
+nice shiny plots for analysis and inspection.</p><p>Logging is also important for reproducibility, so researchers can verify
+the training progression of their replications in great detail.</p><p>In the bare-bones setup, you could just log all metrics in the
+filesystem and then plot by loading them in a python script using
+matplotlib. To make this process easy and also to provide live,
+interactive plots, several services are available now which you can
+leverage in your work.
+<a href=https://www.tensorflow.org/tensorboard>Tensorboard</a>, for example, is
+popular in the ML community primarily for its early adoption and ability
+to deploy locally. Newer entrants, like
+<a href=https://www.comet.ml/site/>Comet.ML</a>,
+<a href=https://www.wandb.com/>WandB</a> or <a href=https://mlflow.org/>MLFlow</a>,
+provide exciting features ranging from sharable online logging
+interfaces, with fine-grained ability to monitor experiments and
+hyperparams. In a future blog post, we will discuss on the pros and cons
+of these systems.</p><h3 id=setting-the-seed>4. Setting the seed</h3><p>Probably the most important aspect of the exact reproducibility of your
+research is the seed of the experiment. Although exact reproducibility
+is not guaranteed, especially in GPU execution environments
+[<a href=https://docs.nvidia.com/deeplearning/sdk/cudnn-developer-guide/index.html#reproducibility>2</a>,
+<a href=https://pytorch.org/docs/stable/notes/randomness.html>8</a>], it&rsquo;s
+still beneficial to report the seed due to its impact on your results.</p><p>When you begin your experiments, it suggested to first set the seed
+using scripts like these (assuming if you use PyTorch):</p><pre><code class=language-python>def set_seed(seed):
+    &quot;&quot;&quot;Set seed&quot;&quot;&quot;
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+    os.environ[&quot;PYTHONHASHSEED&quot;] = str(seed)
+</code></pre><p><strong>Do not optimize the seed like a hyperparameter. If your algorithm only
+works on a range of seeds, it&rsquo;s not a robust contribution.</strong></p><p>Reporting the performance of your model on <em>multiple seeds</em> captures the
+variance of the proposed model. Before beginning your experiments,
+randomly draw \(n\) seeds and set them aside in your config file, and
+report all experimental results aggregated over those \(n\) seeds.
+\(n=5\) is a good starting point, but you an always increase this
+number.</p><h3 id=version-control>5. Version Control</h3><p>To track your research effectively, we highly recommended practice
+setting up version control using <code>git</code> in your repository from the
+get-go. You can use a service like <a href=https://github.com>Github</a> or
+<a href=https://gitlab.com/>Gitlab</a> as your hosting provider.</p><p>Use <code>git commit=s to explain to your future self (and your collaborators) what change you made to your experiment at a given time. Ideally, you should /always commit before you run an experiment/, so that you can =tag</code> the results with specific commits. Be as detailed
+with your commit messages as you can - your future self will thank you!</p><p>Check out the
+<a href=https://github.com/huggingface/transformers/commit/9996f697e3ed7a0d6fe4348953723ad6b9d51477>commits</a>
+from
+<a href=https://github.com/huggingface/transformers>Huggingface/transformers</a>
+repository for a nice example.</p><h3 id=data-management>6. Data Management</h3><p>Managing your data is extremely important for reproducibility,
+especially when you propose a new dataset or a new dataset split. In
+your many rounds of experiments, you would probably work with different
+splits of the data, hence tracking all those changes should have similar
+priority as tracking your code.</p><p>The easiest way to track your data is to add it to the git version
+system or use cloud storage solutions such as Google Drive, AWS S3 to
+store your datasets.</p><p>For large datasets, you can also use
+<a href=https://git-lfs.github.com/><code>git-lfs</code></a>, or maintain a md5 hash of
+the dataset in your config file, like this:</p><pre><code class=language-python>def md5_update_from_dir(directory: Union[str, Path], hash: Hash) -&gt; Hash:
+    assert Path(directory).is_dir()
+    for path in sorted(Path(directory).iterdir(), key=lambda p: str(p).lower()):
+        hash.update(path.name.encode())
+        if path.is_file():
+            hash = md5_update_from_file(path, hash)
+        elif path.is_dir():
+            hash = md5_update_from_dir(path, hash)
+    return hash
+
+
+def md5_dir(directory: Union[str, Path]) -&gt; str:
+    return str(md5_update_from_dir(directory, hashlib.md5()).hexdigest())
+</code></pre><p><a href=https://stackoverflow.com/a/54477583>Source - StackOverflow</a></p><p>Having such a hash will allow you to track which dataset or data split
+you were working on at a certain commit.</p><h3 id=data-analysis>7. Data Analysis</h3><p>Keeping track of the analysis you perform on the data/results is also
+very important in terms of the reproducibility of your contribution.
+<a href=https://jupyter.org>Jupyter Notebooks</a> are the standard in
+maintaining all your analysis and plotting functions in one place.
+Ideally, you should separate notebooks for data analysis, result
+analysis, plot generation, and table generation, and add them in your
+version control. Pandas'
+<a href=https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_latex.html>to_latex</a>
+allows you to directly write your results as a latex table, removing
+error-prone copying of results into LaTeX.</p><p>When you need to update the results in your paper, you can just access
+the corresponding file and re-run the cells. You can also parameterize
+and run notebooks with the
+<a href=https://github.com/nteract/papermill#execute-via-the-python-api>papermill
+API</a> so that your notebooks are cleanly executed your desired analysis
+parameters.</p><p>Maintaining Jupyter Notebooks can get tricky over time. Consider
+following the best practices [<a href=https://arxiv.org/abs/1810.08055>1</a>]
+and use
+<a href=https://github.com/ipython-contrib/jupyter_contrib_nbextensions>Jupter
+contrib nbextensions</a> to supercharge your notebooks!</p><h3 id=reporting-results>8. Reporting Results</h3><p>When reporting your results, it is ideal to run your experiments in
+different seeds and/or different datasets. Thus, your results should
+contain plots with error bars and tables with standard deviations. You
+should also describe how the descriptive statistics were calculated,
+e.g. mean reward over multiple seeds. Statistical testing and
+highlighting statistically significant values is also encouraged
+[<a href=https://arxiv.org/abs/1904.10922>9</a>]. This information provides a
+more realistic assessment of the performance of a model and avoids the
+sharing of overly optimistic results
+[<a href=http://proceedings.mlr.press/v97/bouthillier19a.html>4</a>,<a href=https://arxiv.org/abs/1711.10337>5</a>,<a href=https://arxiv.org/abs/1709.06560>6</a>,<a href=https://arxiv.org/abs/1909.06674>7</a>].</p><p>A higher bar of reproducibility is to report the results on <em>multiple
+datasets</em> to highlight the robustness of your model. Even if the model
+has larger variance over different datasets, its still encouraged to
+report them all - to avoid the discovery of these issues later on.</p><p>While reporting your results, consult the
+<a href=https://www.cs.mcgill.ca/~jpineau/ReproducibilityChecklist.pdf>ML
+Reproducibility Checklist</a> which has detailed guidelines on the best
+practices for reporting figures and tables.</p><h3 id=managing-dependencies>9. Managing Dependencies</h3><p>Irreproducibility often stems from software deprecation. To replicate a
+published work, the first thing to do is to match the same development
+environment, containing the same libraries that the program expects.
+Thus, it is crucial to document the libraries and their versions that
+you use in your experiments. After your experiments are stable, you can
+leverage <code>pip</code> or <code>conda</code> to collect all libraries that have been used:</p><pre><code class=language-sh>$ pip freeze &gt; requirements.txt
+$ conda env export &gt; environment.yml
+</code></pre><p>You can also leverage headless virtual machines such as
+<a href=https://www.docker.com/>Docker</a> or
+<a href=https://sylabs.io/docs/>Singularity</a> to provide the exact
+reproducible dev environment used for the experiments. Singularity, in
+particular, is supported in many HPC systems (such as
+<a href=https://www.computecanada.ca/>Compute Canada</a>), which can be used to
+train and then subsequently release your experiments to the public. You
+can also convert your existing repository into a Docker environment
+using <a href=https://github.com/jupyter/repo2docker>repo2docker</a>.</p><h3 id=open-source-release>10. Open Source Release</h3><p>After you have published your paper, consider open sourcing your
+experiments. This not only encourages reproducible research but also
+adds more visibility to your paper. Once you release your code, consider
+adding it to <a href=https://paperswithcode.com/>Papers With Code</a> for added
+visibility. You can also release a demo on
+<a href=https://mybinder.org>Binder</a> or
+<a href=https://colab.research.google.com/>Colab</a> to encourage people to use
+your model.</p><p>For good examples of model demos check out
+[<a href=https://distill.pub/2018/differentiable-parameterizations/>10</a>].</p><p>Before releasing your code, check the following:</p><ul><li>Squash the commits in the public branch (master) into a single commit<ul><li>Helps remove your private experiment commit messages (and the
+awkward comments!)</li></ul></li><li>Make sure your code does not contain any API keys (for loggers such as
+WandB or Comet.ML)</li><li>Keep an eye out for hardcoded file paths</li><li>Improve readability of your code using formatters such as
+<a href=https://pypi.org/project/black/>Black</a>. Obscure, poorly written
+codebases, even when they run, are oftentimes impossible to reuse or
+build on top of</li><li>Document your functions and classes appropriately. In ML, it&rsquo;s
+beneficial to the reader if you annotate your code with input and
+output tensor dimensions.</li></ul><h3 id=effective-communication>11. Effective Communication</h3><p>When releasing your code, try to add as much information about the code
+in the README file. <a href=https://paperswithcode.com/>Papers With Code</a>
+released
+<a href=https://medium.com/paperswithcode/ml-code-completeness-checklist-e9127b168501>ML
+Code Completeness checklist</a>, which suggests adding the following in
+your README:</p><ul><li>Dependency information</li><li>Training scripts</li><li>Evaluation scripts</li><li>Pre-trained models</li><li>Results</li></ul><p><a href=https://paperswithcode.com/>Papers With Code</a> evaluated repositories
+released after NeurIPS 2019 and found repositories that do not address
+any of the above only got a median of 1.5 Github stars, whereas
+repositories which have all five of the above criteria got <strong>196.5</strong>
+median stars! Only 9% of the repositories fulfilled the 5 points, so
+definitely we can do better about communicating our research. The better
+the communication, the better it is in terms of reproducibility.</p><p>You should always mention clearly the source of the dataset used in the
+work. If you are releasing a new dataset or pretrained model for the
+community, consider adding proper documentation for easy access, such as
+a <a href=https://arxiv.org/abs/1803.09010>datasheet</a> or
+<a href=https://arxiv.org/abs/1810.03993>model card</a>. These are READMEs for
+the dataset or model which contains:</p><ul><li>Motivation</li><li>Composition</li><li>Collection Process</li><li>Preprocessing</li><li>Use cases</li><li>Distribution</li><li>Maintenance</li></ul><p>Read the papers [<a href=https://arxiv.org/abs/1803.09010>3</a>,
+<a href=https://arxiv.org/abs/1810.03993>11</a>] for more details on these
+questions and how to address them. You can choose to publish your
+dataset either through Github repository or through
+<a href=https://zenodo.org/>Zenodo</a>.</p><h3 id=test-and-validate>12. Test and Validate</h3><p>Finally, it&rsquo;s important from the reproducibility perspective to test
+your implementation in a <em>different environment</em> than the training
+setup. This testing doesn&rsquo;t necessarily mean you have to re-train the
+entire pipeline. Specifically, you should make sure that the training
+and evaluation scripts are running in the test environment.</p><p>To get an isolated test environment, you can use AWS or GCP cloud
+instances. You can also checkout <a href=https://codeocean.com/>CodeOcean</a>
+which provides isolated AWS instances tied to Jupyter Notebooks for easy
+evaluation.</p><h2 id=final-thoughts>Final Thoughts</h2><p>Reproducibility is hard. Maintaining a reproducible research codebase is
+harder when the incentive is to publish your ideas quicker than your
+competitor. Nevertheless, we agree with what Joelle Pineau said in
+NeurIPS 2018 :
+<a href="https://www.facebook.com/watch/live/?v=2120856364798049&amp;ref=watch_permalink"><em>&ldquo;Science
+is not a competitive sport&rdquo;</em></a>. We need to invest more time and care in
+our research, and we need to ensure as computer scientists our work is
+reproducible so that it adds value to the reader and practitioners who
+would build upon our work.</p><p>We hope this post will be useful in your research. Feel free to comment
+if you have any particular point/libraries that we missed, we would be
+happy to add them.</p><h2 id=acknowledgements>Acknowledgements</h2><p>Many thanks to Joelle Pineau for encouraging writing this draft, and
+helping formulating the best practices. Thanks to Shagun Sodhani,
+Matthew Muckley and Michela Paganini for providing feedback on the
+draft. Thanks to <a href=https://dl4sci-school.lbl.gov/>Deep Learning for
+Science School</a> for inviting Koustuv to speak about reproducibility on
+August 2020, for which this blog post is a point of reference.</p><h2 id=references>References</h2><ol><li>Rule A, Birmingham A, Zuniga C, Altintas I, Huang SC, Knight R,
+Moshiri N, Nguyen MH, Rosenthal SB, Pérez F, Rose PW.
+<a href=https://arxiv.org/abs/1810.08055>Ten simple rules for reproducible
+research in Jupyter notebooks</a>. arXiv preprint arXiv:1810.08055.
+2018 Oct 13.</li><li><a href=https://docs.nvidia.com/deeplearning/sdk/cudnn-developer-guide/index.html#reproducibility>Nvidia
+CUDNN Developer Guides</a></li><li>Gebru T, Morgenstern J, Vecchione B, Vaughan JW, Wallach H, Daumé III
+H, Crawford K. <a href=https://arxiv.org/abs/1803.09010>Datasheets for
+datasets</a>. arXiv preprint arXiv:1803.09010. 2018 Mar 23.</li><li>Bouthillier X, Laurent C, Vincent P.
+<a href=http://proceedings.mlr.press/v97/bouthillier19a.html>Unreproducible
+research is reproducible</a>. In International Conference on Machine
+Learning 2019 May 24 (pp. 725-734).</li><li>Lucic M, Kurach K, Michalski M, Gelly S, Bousquet O.
+<a href=https://arxiv.org/abs/1711.10337>Are GANs created equal? a
+large-scale study</a>. In Advances in Neural Information Processing
+Systems 2018 (pp. 700-709).</li><li>Henderson P, Islam R, Bachman P, Pineau J, Precup D, Meger D.
+<a href=https://arxiv.org/abs/1709.06560>Deep Reinforcement learning that
+matters</a>. In Thirty-Second AAAI Conference on Artificial
+Intelligence 2018 Apr 29.</li><li>Raff E. <a href=https://arxiv.org/abs/1909.06674>A Step Toward Quantifying
+Independently Reproducible Machine Learning Research</a>. In Advances
+in Neural Information Processing Systems 2019 (pp. 5485-5495).</li><li><a href=https://pytorch.org/docs/stable/notes/randomness.html>Pytorch note
+on reproducibility</a></li><li>Forde JZ, Paganini M. <a href=https://arxiv.org/abs/1904.10922>The
+Scientific Method in the Science of Machine Learning</a>. In ICLR
+Debugging Machine Learning Models Workshop 2019.</li><li>Mordvintsev A, Pezzotti N, Schubert L, Olah C.
+<a href=https://distill.pub/2018/differentiable-parameterizations/>Differentiable
+Image Parameterizations</a>. Distill 2018.</li><li>Mitchell M, Wu S, Zaldivar A, Barnes P, Vasserman L, Hutchinson B,
+Spitzer E, Raji ID, and Gebru T.
+<a href=https://arxiv.org/abs/1810.03993>Model Cards for Model
+Reporting</a>. In Proceedings of the Conference on Fairness,
+Accountability, and Transparency (FAT* &lsquo;19). Association for
+Computing Machinery, New York, NY, USA, 220&ndash;229.</li></ol></main><footer><link rel=stylesheet href=//cdn.jsdelivr.net/npm/katex/dist/katex.min.css><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/math-code.min.js defer></script><script src=//cdn.jsdelivr.net/npm/katex/dist/katex.min.js defer></script><script src=//cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js defer></script><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/render-katex.js defer></script><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js defer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/lisp.min.js></script><script>hljs.highlightAll()</script><hr>© Koustuv Sinha 2025. Opinions expressed on this website are solely my own. Built using <a href>XMin</a> theme and Hugo.</footer></body></html>

@@ -1,0 +1,182 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Introducing CLUTRR | A minimal Hugo website</title><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css integrity="sha512-YHuwZabI2zi0k7c9vtg8dK/63QB0hLvD4thw44dFo/TfBFVVQOqEG9WpviaEpbyvgOIYLXF1n7xDUfU3GDs0sw==" crossorigin=anonymous referrerpolicy=no-referrer></head><body><nav><ul class=menu><li><a href=/>Home</a></li><li><a href=/phd_thesis/>PhD Thesis</a></li><li><a href=/post/>Blog</a></li></ul><hr></nav><div class=article-meta><h1><span class=title>Introducing CLUTRR</span></h1><h2 class=date>2019/09/07</h2></div><main><p><b>C</b>ompositional <b>L</b>anguage <b>U</b>nderstanding with <b>T</b>ext based <b>R</b>elational <b>R</b>easoning</p><h2 id=motivation>Motivation</h2><p>Question Answering (QA) has recently gained popularity as the major
+domain of testing reasoning in text. The literature thus contains a
+<a href=https://nlpprogress.com/english/question_answering.html>deluge of Question Answering (QA) datasets</a> to choose from. These datasets test
+the system&rsquo;s ability to extract factual answers from the text. However,
+there are growing concerns regarding the ability of Natural Language
+Understanding (NLU) models to <strong>generalize</strong> - both in a <em>systematic</em> and
+<em>robust</em> way. Adding to that, the recent dominance of large pre-trained
+language models (such as BERT, <a href=https://arxiv.org/abs/1810.04805>Devlin et al. 2018</a>) on many NLU
+benchmarks including QA suggests that the primary difficulty in these
+datasets are about incorporating the statistics of the language, or the
+syntax of the language, rather than pure reasoning.</p><p>We want to develop systems which perform reasoning <em>inductively</em>,
+i.e. not only by pure extraction of text facts but by performing a
+higher-order reasoning and drawing conclusions based on <em>evidence</em>.
+Ideally, we also want the systems to <em>generalize</em> on unseen
+distributions, as well as be <em>robust</em> to adversarial attacks. To
+facilitate that research, we present our diagnostic suite &ldquo;<code>CLUTRR</code>&rdquo;.</p><h2 id=overview>Overview</h2><p>Our benchmark suite <code>CLUTRR</code> contains a large set of semi-synthetic
+stories involving hypothetical families. Given a story, the goal is to
+infer the relationship between two family members, whose relationship is
+not explicitly mentioned.</p><img src=/introducing-clutrr/clutrr_text.png width=1246 height=502 alt class=figure><p>To solve this task, an agent must extract the <em>logical rules</em> governing
+the composition of the relationships (e.g. the transitivity of the
+sibling relations). The benchmark allows us to test the learning agent&rsquo;s
+ability for <em>systematic generalization</em> by testing on stories that
+contain unseen combinations of logical rules. It also allows us to
+precisely test for the various forms of <em>model robustness</em> by adding
+different kinds of superfluous <em>noise facts</em> to the stories.</p><h2 id=dataset-construction>Dataset Construction</h2><p>To derive a dataset which provides an effective way to test
+generalization and robustness, we looked into classical Logic.
+<a href=https://www.doc.ic.ac.uk/~shm/ilp.html>Inductive Logic Programming</a>
+(ILP) is a vast field of work which tries to solve the exact problem of
+inductively inferring rules from a given set of data, and one of the
+classical examples in the field is deducing kinship relations. For
+example, given the facts:</p><ul><li><em>&ldquo;Alice is Bob&rsquo;s mother&rdquo;</em></li><li><em>&ldquo;Jim is Alice&rsquo;s father&rdquo;</em></li></ul><p>one can infer with reasonable certainty that:</p><ul><li><em>&ldquo;Jim is Bob&rsquo;s grandfather&rdquo;</em></li></ul><p>While this may appear trivial to us, it is a challenging task to design
+models that can learn from the data to <em>induce</em> the logical rules
+necessary to make such inferences. For the above example, the system
+needs to learn the rule:</p><p>\[
+[\texttt{grandfatherOf},X,Y] \vdash [[\texttt{fatherOf},X,Z], [\texttt{fatherOf}, Z,Y]]
+\]</p><p>In ILP, a subset of the above rules was provided as <em>background
+knowledge</em> to the system. The system then used to generate higher-order
+of rules by recombining existing rules and validating it with the given
+data.</p><p>Inspired by this classic task, we set upon building a QA task where
+<em>each story is grounded with a logical rule</em>. The core idea being that
+each story would describe a set of natural language relations, and the
+target is to infer the relationship between two entities whose
+relationship <strong>is not explicitly stated</strong> in the story.</p><p>To generate such a story, we first design a knowledge base (KB) of valid
+relation compositions for the kinship world. In practice, we used a set
+of <a href=https://github.com/facebookresearch/clutrr/blob/master/clutrr/store/rules_store.yaml>15 simple rules</a> by carefully avoiding possible ambiguities (such as
+relations derived from in-laws). Using these set of rules, we generate
+the underlying <em>kinship graph</em>, i.e. a graph containing the kinship
+relations about a toy family.</p><img src=/introducing-clutrr/dataset_const_new.png width=1400 height=831 alt class=figure><p>From this kinship graph, we sample an <em>edge</em> which becomes our target
+relation to predict. Recall, since we used <em>logical rules</em> to derive
+this graph, a path or walk in the graph from a source to sink
+constitutes a valid logical rule or <em>clause</em>. We simply sample such a
+path of length \(k\), where \(k\) is the tunable parameter for the
+data generation.</p><h2 id=adding-language>Adding Language</h2><p>Given this sampled path \(G<em>p\), we aim to convert this into
+_semi-synthetic</em> text. The naive way would be to just replace each edge
+in the path by a placeholder text explaining the relationship between
+them. Consider the example provided in the above figure. The path
+\[ B \rightarrow A \rightarrow D \rightarrow G \] can be replaced by the
+following text:</p><ul><li>\[ B \rightarrow A \] : B is the wife of A</li><li>\[ A \rightarrow D \] : D is the daughter of A</li><li>\[ D \rightarrow G \] : D is the mother of G</li></ul><p>However, as you can see it already, this ends up to a very artificial
+dataset having less linguistic variation. Thus, to reduce the artificial
+flavor, we asked <a href=https://parl.ai/docs/tutorial_mturk.html>Amazon
+Mechanical Turkers</a> to provide us paraphrases for entire sampled paths.
+The above example then converts to:</p><blockquote><p>A went to shopping with her wife B at the local grocery store. His
+daughter, D, is visiting them for thanksgiving with her daughter G.</p></blockquote><p>This adds extra levels of complexity in the task : co-reference
+resolution, dependency parsing and named entity recognition.</p><p>In practice, it became difficult to collect paraphrases of <em>all</em>
+possible paths of unbounded lengths. Turkers need active attention to
+paraphrase each path, and futhermore increasing path length increases
+the number of combinations of relations, leading to larger and larger
+number of unique paths. Thus, we collected paraphrases for all possible
+combinations till \(k=3\), and we <strong>re-use</strong> paraphrases to stitch
+together a story. We collect 6,016 unique paraphrases with an average of
+19 paraphrases for every possible logical clause of length
+\(k = 1,2,3\).</p><img src=/introducing-clutrr/composition.png width=700 height=446 alt class=figure><p>From the above example, we see that the stochasticity of dataset
+generation provides multiple ways of stitching paraphrases to generate
+stories. While the topicality of different paraphrases might impact
+coherence of the story, the stitched story remains logically grounded
+with respect to kinship relations, and maintains the aspects of
+co-reference resolution.</p><h2 id=question-task>Question & Task</h2><p>Thus, given a logically grounded story \(S\) , the question simply boils down to the <em>target edge</em>, i.e. the source and sink. We refrained
+from using a &ldquo;natural language&rdquo; question following the insightful
+discoveries of <a href=https://arxiv.org/abs/1808.04926>Kaushik & Lipton,
+(EMNLP 2018)</a>, thus our question is a tuple of entities, where the
+order defines the exact kinship relation. Finally, the task is to
+classify the correct relation among 22 kinship relations.</p><h2 id=systematic-generalization>Systematic Generalization</h2><p>Systematic Generalization is the ability of a model to solve tasks on a
+test distribution which is different than the training distribution,
+while the test distribution has been derived from the same <em>production
+rules</em> as that of the training.
+<a href=https://en.wikipedia.org/wiki/Syntactic_Structures>Chomsky (1957)</a>,
+<a href=https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1755-2567.1970.tb00434.x>Montague
+(1970)</a>, <a href=https://arxiv.org/abs/1711.00350>Lake & Baroni (2018)</a>
+define the term as:</p><blockquote><p>The algebraic capacity to understand and produce a potentially infinite
+number of novel combinations from known components.</p></blockquote><p>This topic is <a href=https://arxiv.org/abs/1811.12889>so involved</a> it
+requires a separate blog post on its own. In simple terms, we want our
+NLU models to generalize on out-of-domain data distributions in a
+particular task. However, restricting the scope of out-of-domain is
+critical : we cannot expect a model trained on sentence entailments in
+English to generalize on Bengali for instance.</p><p>In our dataset, we provide a simple way to test out-of-domain (OOD)
+generalization : by evaluating on stories with different logical
+compositions of the relations. To understand the composition of a single
+relation, the model needs to learn all binary compositions which lead to
+the particular relation. (e.g. <em>father + father = grandfather</em>, and
+<em>sibling + grandfather = grandfather</em>). Once it does, the model should
+be able to generalize on unseen compositions by <strong>re-using the learnt
+composition functions</strong>. The test distribution is still derived from the
+same <em>production rules</em>, as in the same knowledge base (KB).</p><p>OOD Generalization can be also be achieved in the level of the
+underlying language in our dataset. Recall, we have used a set of
+placeholders collected from AMT to construct the stories : we can thus
+have a subset of the collected paraphrases being <em>held out</em> for testing.
+This enables <em>linguistic generalization</em>, which explicitly restricts
+models to <em>memorize</em> on syntactical artifacts of the dataset.</p><p><img src=/ox-hugo/sys_gen_23.png alt>
+<img src=/ox-hugo/sys_gen_234.png alt></p><p>We perform experiments with a combination of logical and linguistic
+generalization with two types of baselines : NLU models such as BiLSTM,
+Relation Networks (<a href=https://arxiv.org/abs/1706.01427>Santoro et al,
+2017</a>), MAC (<a href=https://arxiv.org/abs/1803.03067>Hudson et al, 2018</a>),
+and pretrained language model such as BERT
+(<a href=https://arxiv.org/abs/1810.04805>Devlin et al. 2018</a>); and Graph
+Attention Networks (GAT) (<a href=https://arxiv.org/abs/1710.10903>Veličković
+et al, 2018</a>) working on the symbolic graphs underlying the stories. We
+observe that Systematic Generalization is a hard problem with
+performance decrease across all models as we increase the length of the
+logical clause \(k\). This highlights the challenge of &ldquo;zero-shot&rdquo;
+systematic generalization (<a href=https://arxiv.org/abs/1711.00350>Lake &
+Baroni, 2018</a>; <a href=https://arxiv.org/abs/1811.07017>Sodhani et
+al. 2018</a>). The performance of GAT is significantly better than all NLU
+baselines, indicating that most NLU systems focus on the syntax rather
+than abstract reasoning.</p><h2 id=robust-reasoning>Robust Reasoning</h2><p>The modular setup of <code>CLUTRR</code> allows us to diagnose models for
+<strong>robustness</strong>, another critical form of generalization. Since all
+underlying stories have a logically valid path \(G<em>p\), we can add
+paths which are not relevant to resolution of the task. Concretely, we
+can add three types of _noise</em>:</p><ul><li><em>Supporting facts</em>: A path which originates and ends within \(G<em>p\).
+These are _extra facts</em> which are not needed to answer the query, but
+can be used, in principle, to construct alternative reasoning paths.</li><li><em>Irrelevant facts</em>: A dangling path which originates from \(G_p\)
+but has a different sink. This is essentially a distractor which the
+model has to carefully stray away while reasoning for the given query.</li><li><em>Disconnected facts</em>: A path which neither originates nor ends in
+\(G_p\). This constitute an unrelated noise in the data.</li></ul><img src=/introducing-clutrr/clutrr_noise.png width=705 height=381 alt class=figure><p>Thus, we can have multiple train/test scenarios to evaluate robustness
+in highly granular level by combination of the above facts with the
+clean setup. We perform experiments with the same set of baselines while
+fixing the length \(k\) of the clauses to \((2,3)\). We observe that
+overall GAT outperforms NLU models significantly on a range of
+train/test scenarios. This showcases the benefit of structure and
+inductive bias for performing abstract reasoning.</p><p>We observe a couple of interesting trends as well:</p><ul><li>NLU models perform better when testing on supporting and irrelevant
+facts while being trained on a noise-less setup. This suggests NLU
+models actually benefit from <em>more content</em> which may provide
+linguistic cues, irrelevant of the reasoning pathway.</li><li>GAT model performs poorly on the above setup which shows that it is
+sensitive to changes involving cycles - it cannot understand the need
+of cycles of they are not trained with one. However, GAT performs
+significantly better when trained with cycles.</li></ul><h2 id=key-takeaways>Key Takeaways</h2><ul><li>We need structure / inductive biases in our models to perform better
+on Generalization and Robust Reasoning</li><li>NLU models must try to represent the inductive bias or structure
+internally</li><li>Systematic Generalization is hard, and we need more research in
+representing compositional and modular networks.</li><li>Logic provides a provable way to devise datasets for tasks involving
+abstract reasoning</li></ul><h2 id=closing-remarks>Closing Remarks</h2><p><code>CLUTRR</code> provides a fine-grained modular way to test the reasoning
+capabilities of NLU systems - by asking the fundamental questions of
+Systematic Generalization and Robustness. We found that existing NLU
+systems perform relatively poorly on these questions compared to a
+graph-based model which has symbolic inputs. This highlights the gap
+that remains between machine reasoning models that work on unstructured
+text and structured inputs.</p><h3 id=paper>Paper</h3><p><a href=https://arxiv.org/pdf/1908.06177.pdf>Please read our paper</a> for more
+information regarding dataset construction and experiments.</p><h3 id=code>Code</h3><p>Our code is available at <a href=https://github.com/facebookresearch/clutrr>https://github.com/facebookresearch/clutrr</a>,
+where we will be adding possible extensions and applications of the
+dataset.</p><h3 id=acknowledgements>Acknowledgements</h3><p>I have a long list of people to thank for supporting this project. Will
+Hamilton, Joelle Pineau (my superb advisors); Shagun Sodhani, Jin Dong
+(my awesome collaborators); Jack Urbanek, Stephen Roller (for numerous
+help with <a href=https://parl.ai/>ParlAI</a>); Adina Williams, Dzmitry
+Bahdanau, Prasanna Parthasarathy, Harsh Satija (for discussions and
+feedback); Abhishek Das, Carlos Eduardo Lassance, Gunshi Gupta, Milan
+Aggarwal, Rim Assouel, Weiping Song, and Yue Dong (for feedback on the
+manuscript); many anonymous Amazon Mechanical Turk participants for
+providing paraphrases; Sumana Basu, Etienne Denis, Jonathan Lebensold,
+and Komal Teru (for providing reviews on the dataset); Sanghyun Yoo,
+Jehun Jeon and Dr Young Sang Choi of Samsung Advanced Institute of
+Technology (SAIT) (for supporting the
+<a href=https://arxiv.org/abs/1811.02959>workshop version</a> of the paper);
+Facebook AI Research (FAIR) (for providing extensive compute resources).
+This research was supported by the Canada CIFAR Chairs in AI program.</p><h3 id=citation>Citation</h3><p>If you want to use our dataset in your research, please consider citing
+our paper:</p><pre><code class=language-bibtex>@article{sinha2019clutrr,
+  Author = {Koustuv Sinha and Shagun Sodhani and Jin Dong and Joelle Pineau and William L. Hamilton},
+  Title = {CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text},
+  Year = {2019},
+  journal = {Empirical Methods of Natural Language Processing (EMNLP)},
+  arxiv = {1908.06177}
+}
+</code></pre><p>If you like the idea and want to collaborate on exciting applications,
+feel free to drop me a mail at
+<a href=mailto:koustuv.sinha@mail.mcgill.ca>koustuv.sinha@mail.mcgill.ca</a></p></main><footer><link rel=stylesheet href=//cdn.jsdelivr.net/npm/katex/dist/katex.min.css><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/math-code.min.js defer></script><script src=//cdn.jsdelivr.net/npm/katex/dist/katex.min.js defer></script><script src=//cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js defer></script><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/render-katex.js defer></script><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js defer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/lisp.min.js></script><script>hljs.highlightAll()</script><hr>© Koustuv Sinha 2025. Opinions expressed on this website are solely my own. Built using <a href>XMin</a> theme and Hugo.</footer></body></html>

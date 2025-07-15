@@ -1,0 +1,117 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>GraphLog | A minimal Hugo website</title><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css integrity="sha512-YHuwZabI2zi0k7c9vtg8dK/63QB0hLvD4thw44dFo/TfBFVVQOqEG9WpviaEpbyvgOIYLXF1n7xDUfU3GDs0sw==" crossorigin=anonymous referrerpolicy=no-referrer></head><body><nav><ul class=menu><li><a href=/>Home</a></li><li><a href=/phd_thesis/>PhD Thesis</a></li><li><a href=/post/>Blog</a></li></ul><hr></nav><div class=article-meta><h1><span class=title>GraphLog</span></h1><h2 class=date>2020/04/25</h2></div><main><h2 id=graphlog---suite-of-57-graph-worlds-built-using-first-order-logic><strong><code>GraphLog</code></strong> - Suite of 57 graph worlds built using first-order logic</h2><p><em>Koustuv Sinha, Shagun Sodhani, Joelle Pineau and William L. Hamilton</em></p><p><a href=https://github.com/facebookresearch/graphlog>Code</a> |
+<a href=https://graphlog.readthedocs.io/en/latest/>Docs</a> |
+<a href=https://arxiv.org/abs/2003.06560>Paper</a> |
+<a href=https://www.cs.mcgill.ca/~ksinha4/graphlog/>Home Page</a> |
+<a href="https://www.youtube.com/watch?v=TKEjaA4m4jg">Teaser Talk</a></p><h2 id=motivation>Motivation</h2><p>A question that we are highly interested in finding an answer to is <em>how
+generalizable our learning algorithms are</em>? Human beings
+<a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2F0097-7403.24.4.405">are
+incredibly good</a> at generalization - even at old age, we can <em>learn</em>
+new concepts and <em>apply</em> them in practice. Critical steps towards
+building algorithms that <a href=https://arxiv.org/abs/1604.00289>think like
+human beings</a> include <em>Multitask Learning</em> - the ability to learn
+multiple concepts at once; and <em>Continual Learning</em> - the ability to
+accumulate new knowledge without forgetting the previous knowledge.</p><p>Defining a task that aims at either Multitask Learning or Continual
+learning is challenging - the task should accurately quantify the
+<em>&ldquo;distribution shift&rdquo;</em> in the data. Having precise control of this shift
+could allow us to understand the drawbacks of our learning methods, and
+build systems which can generalize over multiple tasks but still
+remember the old ones.</p><p>Data distributions can be quantified by generating them based on a
+<em>grammar</em>. First-order logic, even with its basic use-case and
+restrictions, can be an excellent tool for defining such generalizable
+distributions - to test how systematic a model is. In our prior work, we
+leveraged first-order logic to build the
+<a href=https://www.cs.mcgill.ca/~ksinha4/clutrr/>CLUTRR</a> dataset, which
+provides a kinship-relation game in natural language QA setting. A nice
+property of <code>CLUTRR</code> is that it is designed to be a dynamic dataset -
+one can always roll out longer kinship relation trees to stress-test the
+generalizability of their proposed approach. Since it is designed to be
+diagnostic, it opens up the possibility of investigating the semantic
+understanding capability of Natural Language Understanding models under
+<a href=https://www.cs.mcgill.ca/~ksinha4/introducing-clutrr/>microscopic
+precision</a>.</p><p>While CLUTRR primarily investigates the aspect of <em>length
+generalization</em>, the core semantic rules driving the kinship relations
+are static. In a real-world scenario, a model may have to <em>adapt</em> to the
+change in underlying dynamics of the domain (for example, recommender
+systems trained on one domain being deployed / finetuned on a new
+domain). In terms of grammar, two domains sharing the same grammar
+constitute similar domains. We need a task where we can generalize over
+different grammars and control the amount of distribution shift.</p><h2 id=introducing-graphlog>Introducing GraphLog</h2><p>In this work, we introduce a new paradigm of testing domain
+generalization in graph-structure data, named <strong><code>GraphLog</code></strong>. Instead of
+being a single dataset, <strong><code>GraphLog</code></strong> v1.0 contains 57 datasets, which
+have their own set of grammar or generation rules.</p><p><strong>The Task</strong> : We are primarily interested in <em>relation prediction</em>, where
+given a graph \(g<em>i\), a source node \(v_i\), and sink node \(v_j\), the
+task is to predict the _type</em> of the edge \(r\) between \((v_i, v_j)\).
+In Graph Neural Network (GNN) world, this task is typically performed by
+<a href=https://arxiv.org/abs/1703.06103>RGCN</a> model on popular relation
+prediction datasets.</p><img src=/about-graphlog/graphlog.png width=3125 height=2377 alt class=figure><p>Graphs in <strong><code>GraphLog</code></strong> are generated using <em>rules</em> in first-order logic.
+These rules are 2-ary Horn clauses in the form of
+\([r_i, r_j] \rightarrow r<em>j\), where \(r_i\) are the _types</em> of
+relation. Each <em>world</em> is a dataset on its own, which consists of 5000
+graphs procedurally generated by their own set of rules, which
+themselves are generated stochastically. Between multiple worlds, there
+can be overlap between the rules, which helps us in explicitly
+quantifying the shift in the data distribution. This enables us to
+perform Multi-task learning and Continual learning along with supervised
+learning experiments in graph-structured data, which is one of the first
+datasets which propose to do so.</p><table><thead><tr><th>Dataset</th><th>Inspectable Rules</th><th>Diversity</th><th>Compositional Generalization</th><th>Modality</th><th>S</th><th>Me</th><th>Mu</th><th>CL</th></tr></thead><tbody><tr><td>CLEVR</td><td>:white_check_mark:</td><td>:x:</td><td>:x:</td><td>Vision</td><td>:white_check_mark:</td><td>:x:</td><td>:x:</td><td>:x:</td></tr><tr><td>Cogent</td><td>:white_check_mark:</td><td>:x:</td><td>:white_check_mark:</td><td>Vision</td><td>:white_check_mark:</td><td>:x:</td><td>:x:</td><td>:x:</td></tr><tr><td>CLUTRR</td><td>:white_check_mark:</td><td>:x:</td><td>:white_check_mark:</td><td>Text</td><td>:white_check_mark:</td><td>:x:</td><td>:x:</td><td>:x:</td></tr><tr><td>SCAN</td><td>:white_check_mark:</td><td>:x:</td><td>:white_check_mark:</td><td>Text</td><td>:white_check_mark:</td><td>:white_check_mark:</td><td>:x:</td><td>:x:</td></tr><tr><td>SQoOP</td><td>:white_check_mark:</td><td>:x:</td><td>:white_check_mark:</td><td>Vision</td><td>:white_check_mark:</td><td>:x:</td><td>:x:</td><td>:x:</td></tr><tr><td>TextWorld</td><td>:x:</td><td>:white_check_mark:</td><td>:white_check_mark:</td><td>Text</td><td>:white_check_mark:</td><td>:white_check_mark:</td><td>:white_check_mark:</td><td>:white_check_mark:</td></tr><tr><td>GraphLog</td><td>:white_check_mark:</td><td>:white_check_mark:</td><td>:white_check_mark:</td><td>Graph</td><td>:white_check_mark:</td><td>:white_check_mark:</td><td>:white_check_mark:</td><td>:white_check_mark:</td></tr></tbody></table><h2 id=supervised-learning>Supervised Learning</h2><p><strong><code>GraphLog</code></strong> can be used to perform supervised relation prediction tasks
+in any of its multiple worlds. Due to the stochastic nature of rule
+generation, certain worlds are more <em>difficult</em> than others. We define
+the notion of difficulty empirically based on model performance, but we
+observe a correlation with the number of <em>descriptors</em> or unique <em>walks</em>
+in the graphs associated with a world.</p><img src=/about-graphlog/graphlog_supervised.png width=1258 height=1237 alt class=figure>
+<img src=/about-graphlog/graphlog_multitask.png width=1134 height=771 alt class=figure><h2 id=multi-task-learning>Multi-task Learning</h2><p><strong><code>GraphLog</code></strong> makes it easy to extend the supervised learning framework
+for multi-task learning by transferring model parameters on the next
+task. We find the model&rsquo;s capacity saturates at 20 tasks, however we
+hypothesize larger capacity with more data points will increase the
+number of tasks. We use a two-step model that adapts for relations in
+different worlds, the details of which can be
+<a href=https://arxiv.org/abs/2003.06560>found in our paper</a>.</p><h2 id=continual-learning>Continual Learning</h2><p><strong><code>GraphLog</code></strong> enables us to evaluate the generalization capability of
+graph neural networks in the sequential continual learning setup where
+the model is trained on a sequence of worlds. Before training on a new
+world, the model is evaluated on all the worlds that the model has
+trained on so far. We observe that as the model is trained on different
+worlds, it performance on the previous worlds degrades rapidly. This
+observation highlights that the current reasoning models are not
+suitable for continual learning.</p><img src=/about-graphlog/graphlog_continual_all.png width=977 height=1479 alt class=figure>
+<img src=/about-graphlog/graphlog_continual_ordered.png width=985 height=1499 alt class=figure><p>Experiments on sequential continual learning setting. The first image
+depicts random ordering, and the second image depicts ordering based on
+world difficulty.</p><h2 id=using-graphlog>Using GraphLog</h2><p>We hope that the above examples got you excited about the possibilities
+of <strong><code>GraphLog</code></strong>! We have made it easier for you to play with
+<strong><code>GraphLog</code></strong> v1.0 by releasing an
+<a href=https://pypi.org/project/graphlog/>API on PyPi</a>, <code>graphlog</code>, which
+provides custom dataloaders built on
+<a href=https://github.com/rusty1s/pytorch_geometric>Pytorch Geometric</a>.</p><p>We have released the code for the API at
+<a href=https://github.com/facebookresearch/graphlog>https://github.com/facebookresearch/graphlog</a>, which includes
+<a href=https://github.com/facebookresearch/GraphLog/blob/master/examples/Basic%20Usage.ipynb>basic</a>
+and
+<a href=https://github.com/facebookresearch/GraphLog/blob/master/examples/Advanced%20Usage.ipynb>advanced</a>
+use cases, as well as simple examples built on
+<a href=https://github.com/PyTorchLightning/pytorch-lightning>Pytorch
+Lightning</a>. We will be releasing the code to generate GraphLog soon as
+well, so you can build your own version of GraphLog and contribute to
+the repository.</p><h2 id=i-want-to-read-more>I want to read more</h2><p>This blog post provides a summary of the results and basic use cases of
+<strong><code>GraphLog</code></strong>. Please read more in our paper on arxiv titled
+<em><a href=https://arxiv.org/abs/2003.06560>Evaluating Logical Generalization
+in Graph Neural Networks</a></em>. Our submission is currently under review at
+ICML 2020. The code for reproducing the main experiments are now
+available in the
+<a href=https://github.com/facebookresearch/GraphLog/tree/master/experiments>GraphLog
+repository</a>.</p><p>If you have any questions regarding the usage of <strong><code>GraphLog</code></strong>, feel free
+to <a href=https://github.com/facebookresearch/graphlog/issues>open an
+issue</a>, or join our
+<a href=https://join.slack.com/t/logicalml/shared_invite/zt-e7osm7j7-vfIRgJAbEHxYN5D70njvyw>Slack
+Channel</a>, or send me a mail at
+<a href=mailto:koustuv.sinha@mail.mcgill.ca>koustuv.sinha@mail.mcgill.ca</a>.
+If you would like to contribute, do
+<a href=https://github.com/facebookresearch/GraphLog/pulls>open a Pull
+Request (PR)</a>!.</p><h2 id=acknowledgements>Acknowledgements</h2><p>I would like to thank my collaborator
+<a href=https://shagunsodhani.com/>Shagun Sodhani</a> for not only helping in
+writing this blog post, but for being a constant source of motivation
+throughout our various adventures in research. I would also like to
+thank my amazing supervisors, <a href=https://www.cs.mcgill.ca/~wlh/>William L. Hamilton</a> and <a href=https://www.cs.mcgill.ca/~jpineau/>Joelle Pineau</a>,
+for their constant motivation and support. I am grateful to
+<a href=https://ai.facebook.com/>Facebook AI Research</a> (FAIR) for providing
+extensive compute resources to make this project possible. I thank my
+wonderful colleagues at <a href=https://mila.quebec/>Mila</a> and FAIR for
+various constructive feedback on the project. This research was
+supported by the Canada CIFAR Chairs in AI program.</p></main><footer><link rel=stylesheet href=//cdn.jsdelivr.net/npm/katex/dist/katex.min.css><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/math-code.min.js defer></script><script src=//cdn.jsdelivr.net/npm/katex/dist/katex.min.js defer></script><script src=//cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js defer></script><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/render-katex.js defer></script><script src=//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js defer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/lisp.min.js></script><script>hljs.highlightAll()</script><hr>© Koustuv Sinha 2025. Opinions expressed on this website are solely my own. Built using <a href>XMin</a> theme and Hugo.</footer></body></html>
