@@ -1,0 +1,34 @@
++++
++++
+
+- [06/11/25] Excited to announce the release of our frontier video understanding model, [VJEPA-2](https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/)! Checkout our model [code](https://github.com/facebookresearch/vjepa2), [weights](https://huggingface.co/collections/facebook/v-jepa-2-6841bad8413014e185b497a6) and [cool demos](https://www.linkedin.com/posts/merve-noyan-28b1a113a_video-fine-tuning-support-for-metas-v-jepa-activity-7340747091633156096-C6Or)!
+- [06/11/25] Happy to release the [Physical World Reasoning](https://huggingface.co/spaces/facebook/physical_reasoning_leaderboard) leaderboard, along with a new dataset, [MVPBench](https://github.com/facebookresearch/minimal_video_pairs) ([Paper](https://www.arxiv.org/abs/2506.09987)) for assessing video understanding capabilities of modern VLMs.
+- [01/06/24] Serving as a Senior Area Chair at ACL 2024.
+- [16/05/24] Excited to announce our large multimodal language model, <span class="underline">Chameleon</span>, is [now released on arxiv](https://arxiv.org/abs/2405.09818)! We have also released the [code](https://github.com/facebookresearch/chameleon) and [model weights](https://ai.meta.com/resources/models-and-libraries/chameleon-downloads/), as per our [Open Source Strategy](https://about.fb.com/news/2024/06/releasing-new-ai-research-models-to-accelerate-innovation-at-scale/)!
+- [10/18/23] [MLRC 2023](https://reproml.org/) challenge goes live in partnership with TMLR! Read our [blog post](https://reproml.org/blog/announcing_mlrc2023/) for more information.
+- [07/10/23] Excited to share that our paper ["Language model acceptability judgements are not always robust to context"](https://arxiv.org/abs/2212.08979) has received **[Outstanding Paper Award](https://2023.aclweb.org/program/best_papers/)** at ACL 2023! Very happy and honored!
+- [06/01/23] New paper: ["Language model acceptability judgements are not always robust to context"](https://arxiv.org/abs/2212.08979), which is now accepted as a long paper in ACL 2023, Toronto.
+- [11/02/22] Successfully defended my PhD! Checkout [my thesis here](/phd_thesis/).
+- [08/29/22] Excited to announce a major life event: I'm starting today as a Research Scientist (Speech &amp; NLP) in [Meta AI](https://ai.facebook.com/) New York!
+- [08/19/22] Happy to announce yet another Machine Learning Reproducibility Challenge, [the MLRC 2022](https://paperswithcode.com/rc2022)! This is our six edition!
+- [01/10/21] Happy to update that our paper ["Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little"](https://arxiv.org/abs/2104.06644) is accepted as a long paper at EMNLP 2021!
+- [01/09/21] Happy to announce the new iteration of [ML Reproducibility Challenge 2021](https://paperswithcode.com/rc2021), which has now enlarged to cover 9 top ML conferences! Submit your reports through Feb 2022!
+- [03/07/21] On a personal news, got married to my sweetheart [Atrayee](https://atrayeebasu.github.io/) this July!
+- [02/07/21] Thrilled to share that our paper [UnNatural Language Inference](https://arxiv.org/abs/2101.00010) has received **Outstanding Paper Award** at ACL 2021! Deeply honored!
+- [15/04/21] Announcing the pre-print of our paper ["Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little"](https://arxiv.org/abs/2104.06644). We find RoBERTa trained with sentence word order shuffled data performs remarkably close to natural word order pre-trained models on several downstream and probing tasks!
+- [01/06/21] Excited to announce that our paper ["UnNatural Language Inference"](https://arxiv.org/abs/2101.00010), has been accepted to ACL 2021 (Long paper, Oral), where we stumble upon the weird language understanding mechanisms employed by NLU models!
+- [02/10/20] Happy to announce our paper ["Measuring Systematic Generalization in Neural Proof Generation with Transformers"](https://arxiv.org/abs/2009.14786) is accepted at NeurIPS 2020!
+- [05/09/20] Excited to announce the [2020 edition of the ML Reproducibility Challenge](https://paperswithcode.com/rc2020)! We now cover 7 major ML conferences, do check it out!
+- [05/08/20] We released a new blog post on [ML Reproducibility Tools and Best Practices](https://www.cs.mcgill.ca/~ksinha4/practices_for_reproducibility/). Check it out!
+- [30/04/20] Public release of our new multi-task graph dataset, **`GraphLog`**. Check out the [blog post](https://www.cs.mcgill.ca/~ksinha4/about-graphlog/) for more information.
+- [08/04/20] Report on [NeurIPS 2019 Reproducibility Program](https://arxiv.org/abs/2003.12206) published on arxiv. We have also published our thoughts on [Designing the Reproducibility Program](https://medium.com/@NeurIPSConf/designing-the-reproducibility-program-for-neurips-2020-7fcccaa5c6ad) for NeurIPS 2020 on Medium.
+- [15/04/20] Excited to announce two papers accepted to ACL 2020! [Probing Linguistic Systematicity](https://arxiv.org/abs/2005.04315) and [Learning an unreferenced metric for online Dialog evaluation](https://arxiv.org/abs/2005.00583).
+- [01/12/19] Co-organizing NeurIPS 2019 [ML Retrospectives Workshop](https://ml-retrospectives.github.io/neurips2019/)
+- [01/09/19] Co-organizing [NeurIPS 2019 Reproducibility Challenge](https://reproducibility-challenge.github.io/neurips2019/) and honored to be the NeurIPS 2019 Reproducibility Co-Chair.
+- [28/01/19] Excited to join Facebook AI Research (FAIR) as PhD Intern!
+- [14/08/19] Our paper _[CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text](https://www.cs.mcgill.ca/~ksinha4/clutrr/)_ accepted at EMNLP 2019!
+- [28/09/18] Co-organizing [ICLR Reproducibility Challenge](https://reproducibility-challenge.github.io/iclr_2019/), 2019
+- [04/09/18] Starting PhD at [McGill University](https://www.cs.mcgill.ca/), advised by Dr [Joelle Pineau](https://www.cs.mcgill.ca/~jpineau/) and Dr [William L. Hamilton](https://www.cs.mcgill.ca/~wlh/), from Fall 2018.
+- [31/08/18] Our paper on _A Hierarchical Neural Attention-based Text Classifier_ accepted at EMNLP 2018!
+- [01/06/18] Intern-ing at [Samsung Advanced Institute of Technology](https://www.sait.samsung.co.kr/saithome/main/main.do) for the Summer!
+- [01/02/18] [Our paper](https://breakend.github.io/EthicsInDialogue/) on _Ethics in Data Driven Dialog Systems_ accepted at AAAI/ACM conference on Ethics &amp; Safety.

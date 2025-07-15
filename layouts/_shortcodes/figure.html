@@ -1,0 +1,10 @@
+{{- with .Get "path" }}
+  {{- with $r := $.Page.Resources.Get ($.Get "path") }} 
+    {{- $alt := or ($.Get "alt") "" -}}
+<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $alt }}" class="figure"> 
+  {{- else }}
+    {{- warnf "The %q shortcode was unable to find %s: see %s" $.Name ($.Get "path") $.Position }}
+  {{- end }}
+{{- else }}
+  {{- errorf "The %q shortcode requires a 'path' argument: see %s" .Name .Position }}
+{{- end -}}
